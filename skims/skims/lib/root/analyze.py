@@ -104,6 +104,7 @@ def analyze(
             _, f_failed = wait(futures, 60)
             if f_failed and not has_failed:
                 has_failed = True
+                log_blocking("info", 'scan failed due to timeout: %s', path)
             logTime(path, startTime)
         check_failure(worker, has_failed)
 
