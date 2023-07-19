@@ -52,7 +52,9 @@ from utils.fs import (
 from utils.graph import (
     nodes_by_type,
 )
-
+from utils.logs import (
+    log_blocking,
+)
 
 def _store_results_callback(
     stores: dict[core.FindingEnum, EphemeralStore],
@@ -122,6 +124,8 @@ def get_futures(
         if queries_node := QUERIES[lang].get(label):
             for finding, query in queries_node:
                 if finding in ctx.SKIMS_CONFIG.checks:
+                    # worker submit
+                    log_blocking("info", "submitting analysis of %s", path)
                     future = worker.submit(
                         _analyze_one,
                         config=ctx.SKIMS_CONFIG,
