@@ -1,0 +1,113 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+035. Weak credential policy,CWE-521,The system credential policy is not compliant with security regulations in namespace/skims/test/data/lib_root/f035/c_sharp_test_db.cs,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/035,skims,SAST,10,"
+   1 | namespace Controllers
+   2 | {
+   3 |     public class DBaccess
+   4 |     {
+   5 |         public void dbauth()
+   6 |         {
+   7 |             DbContextOptionsBuilder optionsBuilder = new DbContextOptionsBuilder();
+   8 |             //insecure
+   9 |             var con_str = ""Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password="";
+> 10 |             optionsBuilder.UseSqlServer(con_str);
+  11 |
+  12 |
+  13 |             DbContextOptionsBuilder optionsBuilder2 = new DbContextOptionsBuilder();
+  14 |             //insecure
+  15 |             optionsBuilder2.UseSqlServer(""Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password="");
+  16 |
+  17 |             DbContextOptionsBuilder optionsBuilder3 = new DbContextOptionsBuilder();
+  18 |             //secure
+  19 |             var con_str2 = ""Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=5674_H5lloW0rld"";
+  20 |             optionsBuilder3.UseSqlServer(con_str2);
+  21 |
+     ^ Col 0
+",c_sharp.csharp_no_password
+035. Weak credential policy,CWE-521,The system credential policy is not compliant with security regulations in namespace/skims/test/data/lib_root/f035/c_sharp_test_db.cs,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/035,skims,SAST,15,"
+   5 |         public void dbauth()
+   6 |         {
+   7 |             DbContextOptionsBuilder optionsBuilder = new DbContextOptionsBuilder();
+   8 |             //insecure
+   9 |             var con_str = ""Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password="";
+  10 |             optionsBuilder.UseSqlServer(con_str);
+  11 |
+  12 |
+  13 |             DbContextOptionsBuilder optionsBuilder2 = new DbContextOptionsBuilder();
+  14 |             //insecure
+> 15 |             optionsBuilder2.UseSqlServer(""Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password="");
+  16 |
+  17 |             DbContextOptionsBuilder optionsBuilder3 = new DbContextOptionsBuilder();
+  18 |             //secure
+  19 |             var con_str2 = ""Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=5674_H5lloW0rld"";
+  20 |             optionsBuilder3.UseSqlServer(con_str2);
+  21 |
+  22 |             DbContextOptionsBuilder optionsBuilder4 = new DbContextOptionsBuilder();
+  23 |             //secure
+  24 |             var password = ""5674_H5lloW0rld"";
+  25 |             var con_str3 = con_str + password;
+     ^ Col 0
+",c_sharp.csharp_no_password
+035. Weak credential policy,CWE-521,Weak password policy in namespace/skims/test/data/lib_root/f035/c_sharp_weak_credential.cs,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/035,skims,SAST,14,"
+   1 | ï»¿public class Startup
+   2 | {
+   3 |     public void start(IServiceCollection services)
+   4 |     {
+   5 |         bool unsafe = false;
+   6 |         services.Configure<IdentityOptions>( options =>
+   7 |         {
+   8 |             options.Password.RequireDigit = true;
+   9 |             options.Password.RequireDigit = false;
+  10 |             options.Password.RequiredLength = 8;
+  11 |             options.Password.RequireNonAlphanumeric = true;
+  12 |             options.Password.RequireUppercase = true;
+  13 |             options.Password.RequireLowercase = unsafe;
+> 14 |             options.Password.RequiredUniqueChars = 5;
+  15 |             options.User.RequireUniqueEmail = false;
+  16 |         });
+  17 |     }
+  18 | }
+     ^ Col 0
+",c_sharp.csharp_weak_credential_policy
+035. Weak credential policy,CWE-521,Weak password policy in namespace/skims/test/data/lib_root/f035/c_sharp_weak_credential.cs,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/035,skims,SAST,13,"
+   1 | ï»¿public class Startup
+   2 | {
+   3 |     public void start(IServiceCollection services)
+   4 |     {
+   5 |         bool unsafe = false;
+   6 |         services.Configure<IdentityOptions>( options =>
+   7 |         {
+   8 |             options.Password.RequireDigit = true;
+   9 |             options.Password.RequireDigit = false;
+  10 |             options.Password.RequiredLength = 8;
+  11 |             options.Password.RequireNonAlphanumeric = true;
+  12 |             options.Password.RequireUppercase = true;
+> 13 |             options.Password.RequireLowercase = unsafe;
+  14 |             options.Password.RequiredUniqueChars = 5;
+  15 |             options.User.RequireUniqueEmail = false;
+  16 |         });
+  17 |     }
+  18 | }
+     ^ Col 0
+",c_sharp.csharp_weak_credential_policy
+035. Weak credential policy,CWE-521,Weak password policy in namespace/skims/test/data/lib_root/f035/c_sharp_weak_credential.cs,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/035,skims,SAST,9,"
+   1 | ï»¿public class Startup
+   2 | {
+   3 |     public void start(IServiceCollection services)
+   4 |     {
+   5 |         bool unsafe = false;
+   6 |         services.Configure<IdentityOptions>( options =>
+   7 |         {
+   8 |             options.Password.RequireDigit = true;
+>  9 |             options.Password.RequireDigit = false;
+  10 |             options.Password.RequiredLength = 8;
+  11 |             options.Password.RequireNonAlphanumeric = true;
+  12 |             options.Password.RequireUppercase = true;
+  13 |             options.Password.RequireLowercase = unsafe;
+  14 |             options.Password.RequiredUniqueChars = 5;
+  15 |             options.User.RequireUniqueEmail = false;
+  16 |         });
+  17 |     }
+  18 | }
+     ^ Col 0
+",c_sharp.csharp_weak_credential_policy
+Summary: 5 vulnerabilities were found in your targets.

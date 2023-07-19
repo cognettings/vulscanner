@@ -1,0 +1,338 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/c_sharp_log_injection.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,14,"
+   4 | public class RSPEC5145LogInjectionLog4NetNoncompliantController : Controller
+   5 | {
+   6 |     public void LogSomething(HttpRequest id)
+   7 |     {
+   8 |         //insecure
+   9 |         private static readonly log4net.ILog _logger = log4net.LogManager.GetLogger();
+  10 |         _logger.Info(id);
+  11 |
+  12 |         //insecure
+  13 |         var logger = new DBLogger();
+> 14 |         logger.Log(id);
+  15 |
+  16 |         //insecure
+  17 |         var log = new FileLogger();
+  18 |         log.Debug(id);
+  19 |
+  20 |         //secure
+  21 |         private static readonly log4net.ILog sec_log = log4net.LogManager.GetLogger();
+  22 |         id_safe = id.Replace('\n', '_').Replace('\r', '_').Replace('\t', '_');
+  23 |         sec_log.Info(id_safe);
+  24 |     }
+     ^ Col 0
+",c_sharp.c_sharp_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/c_sharp_log_injection.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,18,"
+   5 | {
+   6 |     public void LogSomething(HttpRequest id)
+   7 |     {
+   8 |         //insecure
+   9 |         private static readonly log4net.ILog _logger = log4net.LogManager.GetLogger();
+  10 |         _logger.Info(id);
+  11 |
+  12 |         //insecure
+  13 |         var logger = new DBLogger();
+  14 |         logger.Log(id);
+  15 |
+  16 |         //insecure
+  17 |         var log = new FileLogger();
+> 18 |         log.Debug(id);
+  19 |
+  20 |         //secure
+  21 |         private static readonly log4net.ILog sec_log = log4net.LogManager.GetLogger();
+  22 |         id_safe = id.Replace('\n', '_').Replace('\r', '_').Replace('\t', '_');
+  23 |         sec_log.Info(id_safe);
+  24 |     }
+  25 | }
+     ^ Col 0
+",c_sharp.c_sharp_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/c_sharp_log_injection.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,10,"
+   1 | using System;
+   2 | using Microsoft.AspNetCore.Mvc;
+   3 |
+   4 | public class RSPEC5145LogInjectionLog4NetNoncompliantController : Controller
+   5 | {
+   6 |     public void LogSomething(HttpRequest id)
+   7 |     {
+   8 |         //insecure
+   9 |         private static readonly log4net.ILog _logger = log4net.LogManager.GetLogger();
+> 10 |         _logger.Info(id);
+  11 |
+  12 |         //insecure
+  13 |         var logger = new DBLogger();
+  14 |         logger.Log(id);
+  15 |
+  16 |         //insecure
+  17 |         var log = new FileLogger();
+  18 |         log.Debug(id);
+  19 |
+  20 |         //secure
+  21 |         private static readonly log4net.ILog sec_log = log4net.LogManager.GetLogger();
+     ^ Col 0
+",c_sharp.c_sharp_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/dart_log_injection.dart",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,9,"
+   1 | import 'dart:io';
+   2 | import 'package:logging/logging.dart';
+   3 |
+   4 | class Test {
+   5 |   static final logger = Logger('Test');
+   6 |
+   7 |   void insecure1(HttpRequest req, HttpResponse resp) {
+   8 |     String param1 = req.uri.queryParameters['param'];
+>  9 |     logger.info('Param1: $param1'); // Insecure
+  10 |   }
+  11 |
+  12 |   void insecure2(HttpRequest req) {
+  13 |     String param = req.headers.value('header');
+  14 |     logger.severe('Dangerous: $param'); // Insecure
+  15 |   }
+  16 |
+  17 |   void safe(HttpRequest req) {
+  18 |     String param2 = req.uri.queryParameters['param2'];
+  19 |     param2 = param2.replaceAll(RegExp(""[\n\r\t]""), '_'); // Sanitize parameter
+  20 |     logger.info('Param1: $param2'); // Safe
+  21 |   }
+     ^ Col 0
+",dart.dart_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/dart_log_injection.dart",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,14,"
+   2 | import 'package:logging/logging.dart';
+   3 |
+   4 | class Test {
+   5 |   static final logger = Logger('Test');
+   6 |
+   7 |   void insecure1(HttpRequest req, HttpResponse resp) {
+   8 |     String param1 = req.uri.queryParameters['param'];
+   9 |     logger.info('Param1: $param1'); // Insecure
+  10 |   }
+  11 |
+  12 |   void insecure2(HttpRequest req) {
+  13 |     String param = req.headers.value('header');
+> 14 |     logger.severe('Dangerous: $param'); // Insecure
+  15 |   }
+  16 |
+  17 |   void safe(HttpRequest req) {
+  18 |     String param2 = req.uri.queryParameters['param2'];
+  19 |     param2 = param2.replaceAll(RegExp(""[\n\r\t]""), '_'); // Sanitize parameter
+  20 |     logger.info('Param1: $param2'); // Safe
+  21 |   }
+  22 | }
+     ^ Col 0
+",dart.dart_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/java_log_injection.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,13,"
+   1 | public class Test{
+   2 |     public void insecure1(HttpServletRequest req) {
+   3 |         String param1 = req.getParameter(""param"");
+   4 |         Logger.info(""Param1: "" + param1);
+   5 |     }
+   6 |
+   7 |     public void insecure2(HttpServletRequest request){
+   8 |         param = request.getHeader(""header"");
+   9 |         log.debug(""Dangerous"" + param);
+  10 |     }
+  11 |
+  12 |     public void insecure3(@PathParam(value = ""collectorId"") String collectorId) {
+> 13 |         log.debug(""Something dangerous:"" + collectorId);
+  14 |     }
+  15 |
+  16 |     public void safe(HttpServletRequest req) {
+  17 |         String param2 = req.getParameter(""param2"");
+  18 |         param2 = param2.replaceAll(""[\n\r\t]"", ""_""); //Sanitize parameter
+  19 |         logger.info(""Param1: "" + param2); //Safe
+  20 |     }
+  21 | }
+     ^ Col 0
+",java.java_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/java_log_injection.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,9,"
+   1 | public class Test{
+   2 |     public void insecure1(HttpServletRequest req) {
+   3 |         String param1 = req.getParameter(""param"");
+   4 |         Logger.info(""Param1: "" + param1);
+   5 |     }
+   6 |
+   7 |     public void insecure2(HttpServletRequest request){
+   8 |         param = request.getHeader(""header"");
+>  9 |         log.debug(""Dangerous"" + param);
+  10 |     }
+  11 |
+  12 |     public void insecure3(@PathParam(value = ""collectorId"") String collectorId) {
+  13 |         log.debug(""Something dangerous:"" + collectorId);
+  14 |     }
+  15 |
+  16 |     public void safe(HttpServletRequest req) {
+  17 |         String param2 = req.getParameter(""param2"");
+  18 |         param2 = param2.replaceAll(""[\n\r\t]"", ""_""); //Sanitize parameter
+  19 |         logger.info(""Param1: "" + param2); //Safe
+  20 |     }
+  21 | }
+     ^ Col 0
+",java.java_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/java_log_injection.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,4,"
+   1 | public class Test{
+   2 |     public void insecure1(HttpServletRequest req) {
+   3 |         String param1 = req.getParameter(""param"");
+>  4 |         Logger.info(""Param1: "" + param1);
+   5 |     }
+   6 |
+   7 |     public void insecure2(HttpServletRequest request){
+   8 |         param = request.getHeader(""header"");
+   9 |         log.debug(""Dangerous"" + param);
+  10 |     }
+  11 |
+  12 |     public void insecure3(@PathParam(value = ""collectorId"") String collectorId) {
+  13 |         log.debug(""Something dangerous:"" + collectorId);
+  14 |     }
+  15 |
+  16 |     public void safe(HttpServletRequest req) {
+  17 |         String param2 = req.getParameter(""param2"");
+  18 |         param2 = param2.replaceAll(""[\n\r\t]"", ""_""); //Sanitize parameter
+  19 |         logger.info(""Param1: "" + param2); //Safe
+  20 |     }
+  21 | }
+     ^ Col 0
+",java.java_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/js_log_injection.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,8,"
+   1 | import { parse } from ""url"";
+   2 |
+   3 | function unsafe_log(req, _res) {
+   4 |   const q = parse(req.url, true);
+   5 |   const userName = q.query.username;
+   6 |   // UNSAFE: Unsanitized user input
+   7 |   Logger.info(userName);
+>  8 |   log.info(userName);
+   9 |
+  10 |   // UNSAFE: Incorrectly sanitized user input
+  11 |   const userName2 = userName.replace(/\f/g, """");
+  12 |   console.info(userName2);
+  13 | }
+  14 |
+  15 |
+  16 |
+  17 | function safe_log(req, res) {
+  18 |   const q = parse(req.url, true);
+  19 |   const username = q.query.username.replace(/\n|\r/g, """");
+  20 |   // SAFE: Sanitized input from the user
+  21 |   console.info(username);
+     ^ Col 0
+",javascript.javascript_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/js_log_injection.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,7,"
+   1 | import { parse } from ""url"";
+   2 |
+   3 | function unsafe_log(req, _res) {
+   4 |   const q = parse(req.url, true);
+   5 |   const userName = q.query.username;
+   6 |   // UNSAFE: Unsanitized user input
+>  7 |   Logger.info(userName);
+   8 |   log.info(userName);
+   9 |
+  10 |   // UNSAFE: Incorrectly sanitized user input
+  11 |   const userName2 = userName.replace(/\f/g, """");
+  12 |   console.info(userName2);
+  13 | }
+  14 |
+  15 |
+  16 |
+  17 | function safe_log(req, res) {
+  18 |   const q = parse(req.url, true);
+  19 |   const username = q.query.username.replace(/\n|\r/g, """");
+  20 |   // SAFE: Sanitized input from the user
+  21 |   console.info(username);
+     ^ Col 0
+",javascript.javascript_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/js_log_injection.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,12,"
+   2 |
+   3 | function unsafe_log(req, _res) {
+   4 |   const q = parse(req.url, true);
+   5 |   const userName = q.query.username;
+   6 |   // UNSAFE: Unsanitized user input
+   7 |   Logger.info(userName);
+   8 |   log.info(userName);
+   9 |
+  10 |   // UNSAFE: Incorrectly sanitized user input
+  11 |   const userName2 = userName.replace(/\f/g, """");
+> 12 |   console.info(userName2);
+  13 | }
+  14 |
+  15 |
+  16 |
+  17 | function safe_log(req, res) {
+  18 |   const q = parse(req.url, true);
+  19 |   const username = q.query.username.replace(/\n|\r/g, """");
+  20 |   // SAFE: Sanitized input from the user
+  21 |   console.info(username);
+  22 | }
+     ^ Col 0
+",javascript.javascript_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/ts_log_injection.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,11,"
+   1 | import { parse } from ""url"";
+   2 | import {Logger, log} from ""logging.ts"";
+   3 | import {HttpReq, HttpRes, ReqUrl} from ""types.ts"";
+   4 |
+   5 | function unsafe_log(req: HttpReq, res: HttpRes) {
+   6 |   const q: ReqUrl = parse(req.url, true);
+   7 |
+   8 |   const userName: string = q.query.username;
+   9 |   // UNSAFE: Unsanitized user input
+  10 |   Logger.info(userName);
+> 11 |   log.info(userName);
+  12 |
+  13 |   // UNSAFE: Incorrectly sanitized user input
+  14 |   const userName2: string = q.query.username.replace(/\n|\f/g, """");
+  15 |   console.info(userName2);
+  16 | }
+  17 |
+  18 |
+  19 |
+  20 | function safe_log(req: HttpReq, res: HttpRes) {
+  21 |   const q: ReqUrl = parse(req.url, true);
+     ^ Col 0
+",typescript.typescript_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/ts_log_injection.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,10,"
+   1 | import { parse } from ""url"";
+   2 | import {Logger, log} from ""logging.ts"";
+   3 | import {HttpReq, HttpRes, ReqUrl} from ""types.ts"";
+   4 |
+   5 | function unsafe_log(req: HttpReq, res: HttpRes) {
+   6 |   const q: ReqUrl = parse(req.url, true);
+   7 |
+   8 |   const userName: string = q.query.username;
+   9 |   // UNSAFE: Unsanitized user input
+> 10 |   Logger.info(userName);
+  11 |   log.info(userName);
+  12 |
+  13 |   // UNSAFE: Incorrectly sanitized user input
+  14 |   const userName2: string = q.query.username.replace(/\n|\f/g, """");
+  15 |   console.info(userName2);
+  16 | }
+  17 |
+  18 |
+  19 |
+  20 | function safe_log(req: HttpReq, res: HttpRes) {
+  21 |   const q: ReqUrl = parse(req.url, true);
+     ^ Col 0
+",typescript.typescript_insecure_logging
+091. Log injection,CWE-117,"The system logs entries that contain input from untrusted sources without properly validating, sanitizing or escaping their content in namespace/skims/test/data/lib_root/f091/ts_log_injection.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/091,skims,SAST,15,"
+   5 | function unsafe_log(req: HttpReq, res: HttpRes) {
+   6 |   const q: ReqUrl = parse(req.url, true);
+   7 |
+   8 |   const userName: string = q.query.username;
+   9 |   // UNSAFE: Unsanitized user input
+  10 |   Logger.info(userName);
+  11 |   log.info(userName);
+  12 |
+  13 |   // UNSAFE: Incorrectly sanitized user input
+  14 |   const userName2: string = q.query.username.replace(/\n|\f/g, """");
+> 15 |   console.info(userName2);
+  16 | }
+  17 |
+  18 |
+  19 |
+  20 | function safe_log(req: HttpReq, res: HttpRes) {
+  21 |   const q: ReqUrl = parse(req.url, true);
+  22 |   const username: string = q.query.username.replace(/\n|\r/g, """");
+  23 |   // SAFE: Sanitized input from the user
+  24 |   console.info(username);
+  25 | }
+     ^ Col 0
+",typescript.typescript_insecure_logging
+Summary: 14 vulnerabilities were found in your targets.

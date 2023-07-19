@@ -1,0 +1,34 @@
+Resources:
+  unsafeListener1:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: myLoadBalancer
+      SslPolicy: ELBSecurityPolicy-TLS-1-0-2015-04
+  unsafeListener2:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: myLoadBalancer
+  safeListener1:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: myLoadBalancer
+      DefaultActions:
+        - Type: redirect
+          RedirectConfig:
+            Protocol: HTTPS
+            Port: 443
+            StatusCode: HTTP_301
+  safeListener2:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: myLoadBalancer
+      SslPolicy: ELBSecurityPolicy-TLS13-1-2-2021-06
+  safeListener3:
+    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Properties:
+      DefaultActions:
+      - !If
+        - HasLoadBalancerCertificateArn
+        - RedirectConfig:
+            Protocol: HTTPS
+          Type: redirect

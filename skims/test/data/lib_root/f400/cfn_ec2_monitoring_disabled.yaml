@@ -1,0 +1,26 @@
+---
+Resources:
+  UnsafeEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      Monitoring: false
+  UnsafeEC2Instance2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+  SafeEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      # Non deterministic configuration
+      Monitoring: !Ref pMonitoring
+  SafeEC2Instance2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      Monitoring: true

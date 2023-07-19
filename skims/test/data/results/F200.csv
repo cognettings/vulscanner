@@ -1,0 +1,42 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+200. Traceability loss,CWE-778,Redshift clusters do not log user activity.,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/200,skims,CSPM,ParameterName: enable_user_activity_logging; ParameterValue: false,"
+  1 | {
+  2 |     ""ParameterName"": ""enable_user_activity_logging"",
+> 3 |     ""ParameterValue"": ""false""
+  4 | }
+    ^ Col 0
+",aws.redshift_is_user_activity_logging_disabled
+200. Traceability loss,CWE-778,Redshift clusters has audit logging disabled,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/200,skims,CSPM,/LoggingEnabled: False,"
+  11 |         {
+  12 |             ""ClusterIdentifier"": ""fluidRedShiftCluster"",
+  13 |             ""KmsKeyId"": ""fluidkey/8888"",
+  14 |             ""ClusterParameterGroups"": [
+  15 |                 {
+  16 |                     ""ParameterGroupName"": ""fluidParamGroup1""
+  17 |                 }
+  18 |             ]
+  19 |         }
+  20 |     ],
+> 21 |     ""LoggingEnabled"": false,
+  22 |     ""Parameters"": [
+  23 |         {
+  24 |             ""ParameterName"": ""enable_user_activity_logging"",
+  25 |             ""ParameterValue"": ""false""
+  26 |         },
+  27 |         {
+  28 |             ""ParameterName"": ""enable_user_activity_logging"",
+  29 |             ""ParameterValue"": ""true""
+  30 |         }
+  31 |     ]
+     ^ Col 0
+",aws.redshift_has_audit_logging_disabled
+200. Traceability loss,CWE-778,VPC Flow logs not enabled,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/200,skims,CSPM,VPC Flow logs not enabled,"
+  1 | {
+  2 |     ""State"": ""pending"",
+  3 |     ""VpcId"": ""fluidvpc1"",
+  4 |     ""OwnerId"": ""fluidattacks"",
+  5 |     ""InstanceTenancy"": ""default""
+  6 | }
+    ^ Col 0
+",aws.vpcs_without_flowlog
+Summary: 3 vulnerabilities were found in your targets.

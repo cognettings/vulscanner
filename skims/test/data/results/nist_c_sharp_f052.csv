@@ -1,0 +1,1634 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_01.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | 27_Use_Broken_Crypto
+  23 |
+  24 | Crypto__3DES_01 : AbstractTestCase
+  25 |
+  26 |
+  27 |  Bad()
+  28 |
+  29 | HER_INPUT = ""ABCDEFG123456"";
+  30 | ;
+> 31 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+  32 |
+  33 |  a weak crypto algorithm, 3DES */
+  34 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+  35 | yStream ms = new MemoryStream())
+  36 |
+  37 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+  38 |
+  39 | g (StreamWriter sw = new StreamWriter(cs))
+  40 |
+  41 | sw.Write(CIPHER_INPUT);
+     ^ Col 24
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_02.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_02 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 |
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_03.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_03 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 |
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_04.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,39,"
+   29 |
+   30 | TE_CONST_TRUE = true;
+   31 | TE_CONST_FALSE = false;
+   32 |
+   33 | ()
+   34 |
+   35 | UE)
+   36 |
+   37 | HER_INPUT = ""ABCDEFG123456"";
+   38 | ;
+>  39 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   40 |
+   41 |  a weak crypto algorithm, 3DES */
+   42 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   43 | yStream ms = new MemoryStream())
+   44 |
+   45 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   46 |
+   47 | g (StreamWriter sw = new StreamWriter(cs))
+   48 |
+   49 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_05.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,39,"
+   29 |
+   30 |  = true;
+   31 | e = false;
+   32 |
+   33 | ()
+   34 |
+   35 |
+   36 |
+   37 | HER_INPUT = ""ABCDEFG123456"";
+   38 | ;
+>  39 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   40 |
+   41 |  a weak crypto algorithm, 3DES */
+   42 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   43 | yStream ms = new MemoryStream())
+   44 |
+   45 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   46 |
+   47 | g (StreamWriter sw = new StreamWriter(cs))
+   48 |
+   49 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_06.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,38,"
+   28 |
+   29 |
+   30 | E_CONST_FIVE = 5;
+   31 |
+   32 | ()
+   33 |
+   34 | VE == 5)
+   35 |
+   36 | HER_INPUT = ""ABCDEFG123456"";
+   37 | ;
+>  38 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   39 |
+   40 |  a weak crypto algorithm, 3DES */
+   41 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   42 | yStream ms = new MemoryStream())
+   43 |
+   44 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   45 |
+   46 | g (StreamWriter sw = new StreamWriter(cs))
+   47 |
+   48 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_07.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,38,"
+   28 |  its initialized value.
+   29 |
+   30 | = 5;
+   31 |
+   32 | ()
+   33 |
+   34 | )
+   35 |
+   36 | HER_INPUT = ""ABCDEFG123456"";
+   37 | ;
+>  38 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   39 |
+   40 |  a weak crypto algorithm, 3DES */
+   41 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   42 | yStream ms = new MemoryStream())
+   43 |
+   44 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   45 |
+   46 | g (StreamWriter sw = new StreamWriter(cs))
+   47 |
+   48 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_08.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,46,"
+   36 |
+   37 |
+   38 |
+   39 |
+   40 | ()
+   41 |
+   42 | ue())
+   43 |
+   44 | HER_INPUT = ""ABCDEFG123456"";
+   45 | ;
+>  46 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   47 |
+   48 |  a weak crypto algorithm, 3DES */
+   49 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   50 | yStream ms = new MemoryStream())
+   51 |
+   52 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   53 |
+   54 | g (StreamWriter sw = new StreamWriter(cs))
+   55 |
+   56 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_09.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_09 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 | LY_TRUE)
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_10.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_10 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 |
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_11.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_11 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 | True())
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_12.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_12 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 | TrueOrFalse())
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_13.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_13 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 | LY_FIVE == 5)
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_14.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | to__3DES_14 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 |  5)
+   30 |
+   31 | HER_INPUT = ""ABCDEFG123456"";
+   32 | ;
+>  33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   34 |
+   35 |  a weak crypto algorithm, 3DES */
+   36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   37 | yStream ms = new MemoryStream())
+   38 |
+   39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 | g (StreamWriter sw = new StreamWriter(cs))
+   42 |
+   43 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_15.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,34,"
+   24 | to__3DES_15 : AbstractTestCase
+   25 |
+   26 |
+   27 | ()
+   28 |
+   29 |
+   30 |
+   31 |
+   32 | HER_INPUT = ""ABCDEFG123456"";
+   33 | ;
+>  34 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+   35 |
+   36 |  a weak crypto algorithm, 3DES */
+   37 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+   38 | yStream ms = new MemoryStream())
+   39 |
+   40 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   41 |
+   42 | g (StreamWriter sw = new StreamWriter(cs))
+   43 |
+   44 | sw.Write(CIPHER_INPUT);
+      ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_16.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+  23 |
+  24 | to__3DES_16 : AbstractTestCase
+  25 |
+  26 |
+  27 | ()
+  28 |
+  29 |
+  30 |
+  31 | HER_INPUT = ""ABCDEFG123456"";
+  32 | ;
+> 33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+  34 |
+  35 |  a weak crypto algorithm, 3DES */
+  36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+  37 | yStream ms = new MemoryStream())
+  38 |
+  39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+  40 |
+  41 | g (StreamWriter sw = new StreamWriter(cs))
+  42 |
+  43 | sw.Write(CIPHER_INPUT);
+     ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__3DES_17.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+  23 |
+  24 | to__3DES_17 : AbstractTestCase
+  25 |
+  26 |
+  27 | ()
+  28 |
+  29 | ; j++)
+  30 |
+  31 | HER_INPUT = ""ABCDEFG123456"";
+  32 | ;
+> 33 | CryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
+  34 |
+  35 |  a weak crypto algorithm, 3DES */
+  36 | form encryptor = tdes.CreateEncryptor(tdes.Key, tdes.IV);
+  37 | yStream ms = new MemoryStream())
+  38 |
+  39 | ryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+  40 |
+  41 | g (StreamWriter sw = new StreamWriter(cs))
+  42 |
+  43 | sw.Write(CIPHER_INPUT);
+     ^ Col 28
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_01.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | es.CWE327_Use_Broken_Crypto
+  23 |
+  24 | Broken_Crypto__DES_01 : AbstractTestCase
+  25 |
+  26 |
+  27 | de void Bad()
+  28 |
+  29 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+  30 | crypted;
+> 31 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+  32 |
+  33 | AW: Use a weak crypto algorithm, DES */
+  34 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+  35 |  (MemoryStream ms = new MemoryStream())
+  36 |
+  37 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+  38 |
+  39 |    using (StreamWriter sw = new StreamWriter(cs))
+  40 |    {
+  41 |        sw.Write(CIPHER_INPUT);
+     ^ Col 17
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_02.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_02 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 |
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_03.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_03 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 |
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_04.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,39,"
+   29 |
+   30 | l PRIVATE_CONST_TRUE = true;
+   31 | l PRIVATE_CONST_FALSE = false;
+   32 |
+   33 | oid Bad()
+   34 |
+   35 | ONST_TRUE)
+   36 |
+   37 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   38 | crypted;
+>  39 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   40 |
+   41 | AW: Use a weak crypto algorithm, DES */
+   42 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   43 |  (MemoryStream ms = new MemoryStream())
+   44 |
+   45 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   46 |
+   47 |    using (StreamWriter sw = new StreamWriter(cs))
+   48 |    {
+   49 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_05.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,39,"
+   29 |
+   30 | ateTrue = true;
+   31 | ateFalse = false;
+   32 |
+   33 | oid Bad()
+   34 |
+   35 | ue)
+   36 |
+   37 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   38 | crypted;
+>  39 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   40 |
+   41 | AW: Use a weak crypto algorithm, DES */
+   42 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   43 |  (MemoryStream ms = new MemoryStream())
+   44 |
+   45 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   46 |
+   47 |    using (StreamWriter sw = new StreamWriter(cs))
+   48 |    {
+   49 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_06.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,38,"
+   28 |
+   29 |
+   30 |  PRIVATE_CONST_FIVE = 5;
+   31 |
+   32 | oid Bad()
+   33 |
+   34 | ONST_FIVE == 5)
+   35 |
+   36 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   37 | crypted;
+>  38 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   39 |
+   40 | AW: Use a weak crypto algorithm, DES */
+   41 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   42 |  (MemoryStream ms = new MemoryStream())
+   43 |
+   44 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   45 |
+   46 |    using (StreamWriter sw = new StreamWriter(cs))
+   47 |    {
+   48 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_07.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,38,"
+   28 | ys give its initialized value.
+   29 |
+   30 | teFive = 5;
+   31 |
+   32 | oid Bad()
+   33 |
+   34 | ve == 5)
+   35 |
+   36 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   37 | crypted;
+>  38 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   39 |
+   40 | AW: Use a weak crypto algorithm, DES */
+   41 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   42 |  (MemoryStream ms = new MemoryStream())
+   43 |
+   44 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   45 |
+   46 |    using (StreamWriter sw = new StreamWriter(cs))
+   47 |    {
+   48 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_08.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,46,"
+   36 |
+   37 |
+   38 |
+   39 |
+   40 | oid Bad()
+   41 |
+   42 | turnsTrue())
+   43 |
+   44 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   45 | crypted;
+>  46 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   47 |
+   48 | AW: Use a weak crypto algorithm, DES */
+   49 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   50 |  (MemoryStream ms = new MemoryStream())
+   51 |
+   52 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   53 |
+   54 |    using (StreamWriter sw = new StreamWriter(cs))
+   55 |    {
+   56 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_09.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_09 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 | _READONLY_TRUE)
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_10.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_10 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 | True)
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_11.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_11 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 | ReturnsTrue())
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_12.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_12 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 | ReturnsTrueOrFalse())
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_13.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_13 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 | _READONLY_FIVE == 5)
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_14.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+   23 |
+   24 | en_Crypto__DES_14 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 | Five == 5)
+   30 |
+   31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   32 | crypted;
+>  33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   34 |
+   35 | AW: Use a weak crypto algorithm, DES */
+   36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   37 |  (MemoryStream ms = new MemoryStream())
+   38 |
+   39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   40 |
+   41 |    using (StreamWriter sw = new StreamWriter(cs))
+   42 |    {
+   43 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_15.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,34,"
+   24 | en_Crypto__DES_15 : AbstractTestCase
+   25 |
+   26 |
+   27 | oid Bad()
+   28 |
+   29 |
+   30 |
+   31 |
+   32 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+   33 | crypted;
+>  34 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+   35 |
+   36 | AW: Use a weak crypto algorithm, DES */
+   37 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+   38 |  (MemoryStream ms = new MemoryStream())
+   39 |
+   40 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+   41 |
+   42 |    using (StreamWriter sw = new StreamWriter(cs))
+   43 |    {
+   44 |        sw.Write(CIPHER_INPUT);
+      ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_16.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+  23 |
+  24 | en_Crypto__DES_16 : AbstractTestCase
+  25 |
+  26 |
+  27 | oid Bad()
+  28 |
+  29 |
+  30 |
+  31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+  32 | crypted;
+> 33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+  34 |
+  35 | AW: Use a weak crypto algorithm, DES */
+  36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+  37 |  (MemoryStream ms = new MemoryStream())
+  38 |
+  39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+  40 |
+  41 |    using (StreamWriter sw = new StreamWriter(cs))
+  42 |    {
+  43 |        sw.Write(CIPHER_INPUT);
+     ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure encryption algorithm in NIST/src/testcases/CWE327_Use_Broken_Crypto/CWE327_Use_Broken_Crypto__DES_17.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,33,"
+  23 |
+  24 | en_Crypto__DES_17 : AbstractTestCase
+  25 |
+  26 |
+  27 | oid Bad()
+  28 |
+  29 | ; j < 1; j++)
+  30 |
+  31 | ing CIPHER_INPUT = ""ABCDEFG123456"";
+  32 | crypted;
+> 33 | SCryptoServiceProvider des = new DESCryptoServiceProvider())
+  34 |
+  35 | AW: Use a weak crypto algorithm, DES */
+  36 | toTransform encryptor = des.CreateEncryptor(des.Key, des.IV);
+  37 |  (MemoryStream ms = new MemoryStream())
+  38 |
+  39 | sing (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+  40 |
+  41 |    using (StreamWriter sw = new StreamWriter(cs))
+  42 |    {
+  43 |        sw.Write(CIPHER_INPUT);
+     ^ Col 21
+",c_sharp.c_sharp_insecure_cipher
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_01.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,29,"
+  19 | System.Text;
+  20 | System.Security.Cryptography;
+  21 |
+  22 | ace testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | CWE328_Reversible_One_Way_Hash__MD5_01 : AbstractTestCase
+  25 |
+  26 | OMITBAD)
+  27 | blic override void Bad()
+  28 |
+> 29 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  30 |   {
+  31 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  32 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  33 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  34 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  35 |   }
+  36 |
+  37 |  //omitbad
+  38 | OMITGOOD)
+  39 | blic override void Good()
+     ^ Col 6
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_02.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_02 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (true)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_03.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_03 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (5 == 5)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_04.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,37,"
+  27 | able to identify that reads of these will always return their
+  28 | tialized values.
+  29 |
+  30 | e const bool PRIVATE_CONST_TRUE = true;
+  31 | e const bool PRIVATE_CONST_FALSE = false;
+  32 | BAD)
+  33 |  override void Bad()
+  34 |
+  35 |  (PRIVATE_CONST_TRUE)
+  36 |
+> 37 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  38 |   {
+  39 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  40 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  41 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  42 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  43 |   }
+  44 |
+  45 |
+  46 | mitbad
+  47 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_05.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,37,"
+  27 | igned any other value, so a tool should be able to identify that
+  28 | ds of these will always return their initialized values.
+  29 |
+  30 | e bool privateTrue = true;
+  31 | e bool privateFalse = false;
+  32 | BAD)
+  33 |  override void Bad()
+  34 |
+  35 |  (privateTrue)
+  36 |
+> 37 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  38 |   {
+  39 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  40 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  41 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  42 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  43 |   }
+  44 |
+  45 |
+  46 | mitbad
+  47 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_06.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,36,"
+  26 |  variable below is declared ""const"", so a tool should be able
+  27 | identify that reads of this will always give its initialized
+  28 | ue.
+  29 |
+  30 | e const int PRIVATE_CONST_FIVE = 5;
+  31 | BAD)
+  32 |  override void Bad()
+  33 |
+  34 |  (PRIVATE_CONST_FIVE == 5)
+  35 |
+> 36 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  37 |   {
+  38 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  39 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  40 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  41 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  42 |   }
+  43 |
+  44 |
+  45 | mitbad
+  46 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_07.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,36,"
+  26 |  variable below is not declared ""readonly"", but is never assigned
+  27 |  other value so a tool should be able to identify that reads of
+  28 | s will always give its initialized value.
+  29 |
+  30 | e int privateFive = 5;
+  31 | BAD)
+  32 |  override void Bad()
+  33 |
+  34 |  (privateFive == 5)
+  35 |
+> 36 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  37 |   {
+  38 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  39 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  40 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  41 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  42 |   }
+  43 |
+  44 |
+  45 | mitbad
+  46 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_08.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,44,"
+  34 |
+  35 | e static bool PrivateReturnsFalse()
+  36 |
+  37 | turn false;
+  38 |
+  39 | BAD)
+  40 |  override void Bad()
+  41 |
+  42 |  (PrivateReturnsTrue())
+  43 |
+> 44 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  45 |   {
+  46 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  47 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  48 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  49 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  50 |   }
+  51 |
+  52 |
+  53 | mitbad
+  54 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_09.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_09 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (IO.STATIC_READONLY_TRUE)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_10.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_10 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (IO.staticTrue)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_11.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_11 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (IO.StaticReturnsTrue())
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_12.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_12 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (IO.StaticReturnsTrueOrFalse())
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 | se
+  40 |
+  41 |   using (HashAlgorithm sha512 = new SHA512CryptoServiceProvider())
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_13.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_13 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (IO.STATIC_READONLY_FIVE == 5)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_14.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_14 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 |  (IO.staticFive == 5)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_15.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,32,"
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_15 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 | itch (7)
+  30 |
+  31 | se 7:
+> 32 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  33 |   {
+  34 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  35 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  36 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  37 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  38 |   }
+  39 |   break;
+  40 | fault:
+  41 |   /* INCIDENTAL: CWE 561 Dead Code, the code below will never run */
+  42 |   IO.WriteLine(""Benign, fixed string"");
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_16.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_16 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 | ile(true)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |   break;
+  39 |
+  40 |
+  41 | mitbad
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__MD5_17.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 28_Reversible_One_Way_Hash__MD5_17 : AbstractTestCase
+  25 |
+  26 | BAD)
+  27 |  override void Bad()
+  28 |
+  29 | r(int j = 0; j < 1; j++)
+  30 |
+> 31 |   using (HashAlgorithm md5 = new MD5CryptoServiceProvider())
+  32 |   {
+  33 |       /* FLAW: Insecure cryptographic hashing algorithm (MD5) */
+  34 |       byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm
+  35 |       byte[] textWithReversibleHash = md5.ComputeHash(textWithUTF8);
+  36 |       IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |   }
+  38 |
+  39 |
+  40 | mitbad
+  41 | GOOD)
+     ^ Col 10
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_01.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,29,"
+  19 | ystem.Text;
+  20 | ystem.Security.Cryptography;
+  21 |
+  22 | ce testcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | WE328_Reversible_One_Way_Hash__SHA1_01 : AbstractTestCase
+  25 |
+  26 | MITBAD)
+  27 | lic override void Bad()
+  28 |
+> 29 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  30 |  {
+  31 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  32 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  33 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  34 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  35 |  }
+  36 |
+  37 | //omitbad
+  38 | MITGOOD)
+  39 | lic override void Good()
+     ^ Col 7
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_02.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_02 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (true)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_03.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_03 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (5 == 5)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_04.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,37,"
+  27 | ble to identify that reads of these will always return their
+  28 | ialized values.
+  29 |
+  30 |  const bool PRIVATE_CONST_TRUE = true;
+  31 |  const bool PRIVATE_CONST_FALSE = false;
+  32 | AD)
+  33 | override void Bad()
+  34 |
+  35 | (PRIVATE_CONST_TRUE)
+  36 |
+> 37 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  38 |  {
+  39 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  40 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  41 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  42 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  43 |  }
+  44 |
+  45 |
+  46 | itbad
+  47 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_05.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,37,"
+  27 | gned any other value, so a tool should be able to identify that
+  28 | s of these will always return their initialized values.
+  29 |
+  30 |  bool privateTrue = true;
+  31 |  bool privateFalse = false;
+  32 | AD)
+  33 | override void Bad()
+  34 |
+  35 | (privateTrue)
+  36 |
+> 37 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  38 |  {
+  39 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  40 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  41 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  42 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  43 |  }
+  44 |
+  45 |
+  46 | itbad
+  47 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_06.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,36,"
+  26 | variable below is declared ""const"", so a tool should be able
+  27 | dentify that reads of this will always give its initialized
+  28 | e.
+  29 |
+  30 |  const int PRIVATE_CONST_FIVE = 5;
+  31 | AD)
+  32 | override void Bad()
+  33 |
+  34 | (PRIVATE_CONST_FIVE == 5)
+  35 |
+> 36 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  37 |  {
+  38 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  39 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  40 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  41 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  42 |  }
+  43 |
+  44 |
+  45 | itbad
+  46 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_07.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,36,"
+  26 | variable below is not declared ""readonly"", but is never assigned
+  27 | other value so a tool should be able to identify that reads of
+  28 |  will always give its initialized value.
+  29 |
+  30 |  int privateFive = 5;
+  31 | AD)
+  32 | override void Bad()
+  33 |
+  34 | (privateFive == 5)
+  35 |
+> 36 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  37 |  {
+  38 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  39 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  40 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  41 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  42 |  }
+  43 |
+  44 |
+  45 | itbad
+  46 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_08.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,44,"
+  34 |
+  35 |  static bool PrivateReturnsFalse()
+  36 |
+  37 | urn false;
+  38 |
+  39 | AD)
+  40 | override void Bad()
+  41 |
+  42 | (PrivateReturnsTrue())
+  43 |
+> 44 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  45 |  {
+  46 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  47 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  48 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  49 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  50 |  }
+  51 |
+  52 |
+  53 | itbad
+  54 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_09.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_09 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (IO.STATIC_READONLY_TRUE)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_10.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_10 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (IO.staticTrue)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_11.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_11 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (IO.StaticReturnsTrue())
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_12.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_12 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (IO.StaticReturnsTrueOrFalse())
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 | e
+  40 |
+  41 |  using (HashAlgorithm sha512 = new SHA512CryptoServiceProvider())
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_13.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_13 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (IO.STATIC_READONLY_FIVE == 5)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_14.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_14 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (IO.staticFive == 5)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_15.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,32,"
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_15 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | tch (7)
+  30 |
+  31 | e 7:
+> 32 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  33 |  {
+  34 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  35 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  36 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  37 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  38 |  }
+  39 |  break;
+  40 | ault:
+  41 |  /* INCIDENTAL: CWE 561 Dead Code, the code below will never run */
+  42 |  IO.WriteLine(""Benign, fixed string"");
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_16.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_16 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | le(true)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |  break;
+  39 |
+  40 |
+  41 | itbad
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in NIST/src/testcases/CWE328_Reversible_One_Way_Hash/CWE328_Reversible_One_Way_Hash__SHA1_17.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,31,"
+  21 |
+  22 | estcases.CWE328_Reversible_One_Way_Hash
+  23 |
+  24 | 8_Reversible_One_Way_Hash__SHA1_17 : AbstractTestCase
+  25 |
+  26 | AD)
+  27 | override void Bad()
+  28 |
+  29 | (int j = 0; j < 1; j++)
+  30 |
+> 31 |  using (HashAlgorithm sha1 = new SHA1CryptoServiceProvider())
+  32 |  {
+  33 |      /* FLAW: Insecure cryptographic hashing algorithm (SHA1) */
+  34 |      byte[] textWithUTF8 = Encoding.UTF8.GetBytes(""Test Input""); /* INCIDENTAL FLAW: Hard-coded input to hash algorithm *
+  35 |      byte[] textWithReversibleHash = sha1.ComputeHash(textWithUTF8);
+  36 |      IO.WriteLine(IO.ToHex(textWithReversibleHash));
+  37 |  }
+  38 |
+  39 |
+  40 | itbad
+  41 | OOD)
+     ^ Col 11
+",c_sharp.c_sharp_insecure_hash
+Summary: 68 vulnerabilities were found in your targets.

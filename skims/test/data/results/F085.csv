@@ -1,0 +1,68 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+085. Sensitive data stored in client-side storage,CWE-922,Sensitive information storage in namespace/skims/test/data/lib_root/f085/js_client_storage.jsx,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/085,skims,SAST,6,"
+  1 | localStorage.getItem('password');
+  2 | localStorage.getItem('non-sensitive');
+  3 | localStorage.getItem(non.sensitive);
+  4 | localStorage.setItem('whatever', sessionID);
+  5 | localStorage.setItem(token.jwt, '123');
+> 6 | localStorage.getItem(session_token);
+  7 | localStorage.getItem('is_authenticated');
+  8 | localStorage.getItem('_isAuthorized');
+    ^ Col 0
+",javascript.javascript_client_storage
+085. Sensitive data stored in client-side storage,CWE-922,Sensitive information storage in namespace/skims/test/data/lib_root/f085/js_client_storage.jsx,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/085,skims,SAST,4,"
+  1 | localStorage.getItem('password');
+  2 | localStorage.getItem('non-sensitive');
+  3 | localStorage.getItem(non.sensitive);
+> 4 | localStorage.setItem('whatever', sessionID);
+  5 | localStorage.setItem(token.jwt, '123');
+  6 | localStorage.getItem(session_token);
+  7 | localStorage.getItem('is_authenticated');
+  8 | localStorage.getItem('_isAuthorized');
+    ^ Col 0
+",javascript.javascript_client_storage
+085. Sensitive data stored in client-side storage,CWE-922,Sensitive information storage in namespace/skims/test/data/lib_root/f085/js_client_storage.jsx,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/085,skims,SAST,1,"
+> 1 | localStorage.getItem('password');
+  2 | localStorage.getItem('non-sensitive');
+  3 | localStorage.getItem(non.sensitive);
+  4 | localStorage.setItem('whatever', sessionID);
+  5 | localStorage.setItem(token.jwt, '123');
+  6 | localStorage.getItem(session_token);
+  7 | localStorage.getItem('is_authenticated');
+  8 | localStorage.getItem('_isAuthorized');
+    ^ Col 0
+",javascript.javascript_client_storage
+085. Sensitive data stored in client-side storage,CWE-922,Sensitive information storage in namespace/skims/test/data/lib_root/f085/tsx_client_storage.tsx,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/085,skims,SAST,6,"
+  1 | localStorage.getItem('password');
+  2 | localStorage.getItem('non-sensitive');
+  3 | localStorage.getItem(non.sensitive);
+  4 | localStorage.setItem('whatever', sessionID);
+  5 | localStorage.setItem(token.jwt, '123');
+> 6 | localStorage.getItem(session_token);
+  7 | localStorage.getItem('is_authenticated');
+  8 | localStorage.getItem('_isAuthorized');
+    ^ Col 0
+",typescript.typescript_client_storage
+085. Sensitive data stored in client-side storage,CWE-922,Sensitive information storage in namespace/skims/test/data/lib_root/f085/tsx_client_storage.tsx,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/085,skims,SAST,4,"
+  1 | localStorage.getItem('password');
+  2 | localStorage.getItem('non-sensitive');
+  3 | localStorage.getItem(non.sensitive);
+> 4 | localStorage.setItem('whatever', sessionID);
+  5 | localStorage.setItem(token.jwt, '123');
+  6 | localStorage.getItem(session_token);
+  7 | localStorage.getItem('is_authenticated');
+  8 | localStorage.getItem('_isAuthorized');
+    ^ Col 0
+",typescript.typescript_client_storage
+085. Sensitive data stored in client-side storage,CWE-922,Sensitive information storage in namespace/skims/test/data/lib_root/f085/tsx_client_storage.tsx,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/085,skims,SAST,1,"
+> 1 | localStorage.getItem('password');
+  2 | localStorage.getItem('non-sensitive');
+  3 | localStorage.getItem(non.sensitive);
+  4 | localStorage.setItem('whatever', sessionID);
+  5 | localStorage.setItem(token.jwt, '123');
+  6 | localStorage.getItem(session_token);
+  7 | localStorage.getItem('is_authenticated');
+  8 | localStorage.getItem('_isAuthorized');
+    ^ Col 0
+",typescript.typescript_client_storage
+Summary: 6 vulnerabilities were found in your targets.

@@ -1,0 +1,142 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+403. Insecure service configuration - usesCleartextTraffic,CWE-319,"Ensure your application doesn't have android:usesCleartextTraffic set to true, in order to prevent the reading of not encrypted resources. in namespace/skims/test/data/lib_path/f403/AndroidInsecureConfiguration.xml",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/403,skims,SAST,8,"
+   1 | <?xml version=""1.0"" encoding=""utf-8"" standalone=""no""?>
+   2 | <!-- Must Fail -->
+   3 |
+   4 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+   5 |   <!-- Vuln 1 -->
+   6 |   <application android:usesCleartextTraffic=""true"" />
+   7 |   <!-- Vuln 2 -->
+>  8 |   <domain-config cleartextTrafficPermitted=""true"">
+   9 |     <any-other-tag></any-other-tag>
+  10 |   </domain-config>
+  11 |   <!-- Vuln 3 -->
+  12 |   <base-config cleartextTrafficPermitted=""true"">
+  13 |     <any-other-tag></any-other-tag>
+  14 |   </base-config>
+  15 |   <!-- Vuln 4 -->
+  16 |   <preferance name=""android-usesCleartextTraffic"" value=""true"" />
+  17 | </widget>
+  18 |
+  19 | <!-- Must not Fail -->
+  20 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+  21 |   <application android:usesCleartextTraffic=""false"" />
+     ^ Col 0
+",conf_files.xml_insecure_configuration
+403. Insecure service configuration - usesCleartextTraffic,CWE-319,"Ensure your application doesn't have android:usesCleartextTraffic set to true, in order to prevent the reading of not encrypted resources. in namespace/skims/test/data/lib_path/f403/AndroidInsecureConfiguration.xml",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/403,skims,SAST,6,"
+   1 | <?xml version=""1.0"" encoding=""utf-8"" standalone=""no""?>
+   2 | <!-- Must Fail -->
+   3 |
+   4 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+   5 |   <!-- Vuln 1 -->
+>  6 |   <application android:usesCleartextTraffic=""true"" />
+   7 |   <!-- Vuln 2 -->
+   8 |   <domain-config cleartextTrafficPermitted=""true"">
+   9 |     <any-other-tag></any-other-tag>
+  10 |   </domain-config>
+  11 |   <!-- Vuln 3 -->
+  12 |   <base-config cleartextTrafficPermitted=""true"">
+  13 |     <any-other-tag></any-other-tag>
+  14 |   </base-config>
+  15 |   <!-- Vuln 4 -->
+  16 |   <preferance name=""android-usesCleartextTraffic"" value=""true"" />
+  17 | </widget>
+  18 |
+  19 | <!-- Must not Fail -->
+  20 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+  21 |   <application android:usesCleartextTraffic=""false"" />
+     ^ Col 0
+",conf_files.xml_insecure_configuration
+403. Insecure service configuration - usesCleartextTraffic,CWE-319,"Ensure your application doesn't have android:usesCleartextTraffic set to true, in order to prevent the reading of not encrypted resources. in namespace/skims/test/data/lib_path/f403/AndroidInsecureConfiguration.xml",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/403,skims,SAST,12,"
+   2 | <!-- Must Fail -->
+   3 |
+   4 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+   5 |   <!-- Vuln 1 -->
+   6 |   <application android:usesCleartextTraffic=""true"" />
+   7 |   <!-- Vuln 2 -->
+   8 |   <domain-config cleartextTrafficPermitted=""true"">
+   9 |     <any-other-tag></any-other-tag>
+  10 |   </domain-config>
+  11 |   <!-- Vuln 3 -->
+> 12 |   <base-config cleartextTrafficPermitted=""true"">
+  13 |     <any-other-tag></any-other-tag>
+  14 |   </base-config>
+  15 |   <!-- Vuln 4 -->
+  16 |   <preferance name=""android-usesCleartextTraffic"" value=""true"" />
+  17 | </widget>
+  18 |
+  19 | <!-- Must not Fail -->
+  20 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+  21 |   <application android:usesCleartextTraffic=""false"" />
+  22 |   <domain-config cleartextTrafficPermitted=""false"">
+     ^ Col 0
+",conf_files.xml_insecure_configuration
+403. Insecure service configuration - usesCleartextTraffic,CWE-319,"Ensure your application doesn't have android:usesCleartextTraffic set to true, in order to prevent the reading of not encrypted resources. in namespace/skims/test/data/lib_path/f403/AndroidInsecureConfiguration.xml",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/403,skims,SAST,16,"
+   6 |   <application android:usesCleartextTraffic=""true"" />
+   7 |   <!-- Vuln 2 -->
+   8 |   <domain-config cleartextTrafficPermitted=""true"">
+   9 |     <any-other-tag></any-other-tag>
+  10 |   </domain-config>
+  11 |   <!-- Vuln 3 -->
+  12 |   <base-config cleartextTrafficPermitted=""true"">
+  13 |     <any-other-tag></any-other-tag>
+  14 |   </base-config>
+  15 |   <!-- Vuln 4 -->
+> 16 |   <preferance name=""android-usesCleartextTraffic"" value=""true"" />
+  17 | </widget>
+  18 |
+  19 | <!-- Must not Fail -->
+  20 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+  21 |   <application android:usesCleartextTraffic=""false"" />
+  22 |   <domain-config cleartextTrafficPermitted=""false"">
+  23 |     <any-other-tag></any-other-tag>
+  24 |   </domain-config>
+  25 |   <base-config cleartextTrafficPermitted=""false"">
+  26 |     <any-other-tag></any-other-tag>
+     ^ Col 0
+",conf_files.xml_insecure_configuration
+403. Insecure service configuration - usesCleartextTraffic,CWE-319,"Ensure your application doesn't have android:usesCleartextTraffic set to true, in order to prevent the reading of not encrypted resources. in namespace/skims/test/data/lib_path/f403/BaseConfigVuln.xml",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/403,skims,SAST,7,"
+   1 | <?xml version=""1.0"" encoding=""UTF-8""?>
+   2 | <network-security-config>
+   3 |   <!-- vuln1 -->
+   4 |   <!-- Must mark line 7 -->
+   5 |   <base-config
+   6 |     strongBoxUnlocked=""false""
+>  7 |     cleartextTrafficPermitted=""true""
+   8 |     encryptionDetected=""false""
+   9 |   >
+  10 |   </base-config>
+  11 |   <domain-config>
+  12 |     <domain includeSubdomains=""true"">example.com</domain>
+  13 |     <trust-anchor>
+  14 |       <certificates src=""system"" />
+  15 |     </trust-anchor>
+  16 |   </domain-config>
+  17 | </network-security-config>
+     ^ Col 0
+",conf_files.xml_insecure_configuration
+403. Insecure service configuration - usesCleartextTraffic,CWE-319,"Ensure your application doesn't have android:usesCleartextTraffic set to true, in order to prevent the reading of not encrypted resources. in namespace/skims/test/data/lib_path/f403/MultilineDangerousAttribute.xml",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/403,skims,SAST,12,"
+   2 | <!-- Must Fail -->
+   3 |
+   4 | <widget xmlns:android=""http://schemas.android.com/apk/res/android"">
+   5 |   <!-- Vuln 1 -->
+   6 |   <!-- MustMark the line 15, to be sure exact pointing mark mechanism is working -->
+   7 |   <application
+   8 |     android:allowTaskReparenting=""true""
+   9 |     android:allowBackup=""true""
+  10 |     android:theme=""resource or theme""
+  11 |     android:uiOptions=""none""
+> 12 |     android:usesCleartextTraffic=""true""
+  13 |     android:vmSafeMode=""true""
+  14 |   >
+  15 |   </application>
+  16 |
+  17 |   <!-- Safe1 -->
+  18 |   <!-- Safe, should not mark anything -->
+  19 |   <application
+  20 |     android:allowTaskReparenting=""true""
+  21 |     android:allowBackup=""true""
+  22 |     android:theme=""resource or theme""
+     ^ Col 0
+",conf_files.xml_insecure_configuration
+Summary: 6 vulnerabilities were found in your targets.

@@ -1,0 +1,26 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+368. Unrestricted access between network segments - StrictHostKeyChecking,CWE-923,Connections should not be made to unknown servers or servers that have changed their keys in namespace/skims/test/data/lib_root/f368/java_host_key.java,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/368,skims,SAST,9,"
+   1 | import com.jcraft.jsch.JSch;
+   2 | import com.jcraft.jsch.Session;
+   3 |
+   4 | public class Test {
+   5 |  public static void unsafeConfigs(){
+   6 |   JSch ssh = new JSch();
+   7 |   session = ssh.getSession(Utils.DEFAULT_USER, value.getPublicIpAddress());
+   8 |   String check_host = ""No"";
+>  9 |   session.setConfig(""StrictHostKeyChecking"", check_host);
+  10 |   session.connect();
+  11 |  }
+  12 |
+  13 |  public static void secureConfig(){
+  14 |   JSch ssh = new JSch();
+  15 |   Session session = ssh.getSession(Utils.DEFAULT_USER, value.getPublicIpAddress());
+  16 |   java.util.Properties config = new java.util.Properties();
+  17 |   config.put(""StrictHostKeyChecking"", ""Yes"");
+  18 |   config.put(""SomethingElse"", ""No"");
+  19 |   session.setConfig(config);
+  20 |  }
+  21 | }
+     ^ Col 0
+",java.java_host_key_checking
+Summary: 1 vulnerabilities were found in your targets.

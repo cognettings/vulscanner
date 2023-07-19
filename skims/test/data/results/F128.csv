@@ -1,0 +1,264 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/java_missing_http_only.java,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,17,"
+   7 |
+   8 | // UNSAFE
+   9 | public class MyServlet extends HttpServlet {
+  10 |
+  11 |   public void doGet(HttpServletRequest request, HttpServletResponse response) {
+  12 |
+  13 |     Cookie myCookie = new Cookie(""cookie"", ""cadenaEnv"");
+  14 |     myCookie.setSecure(true);
+  15 |     myCookie.setPath(""/asd/"");
+  16 |     myCookie.setHttpOnly(false);
+> 17 |     response.addCookie(myCookie);
+  18 |
+  19 |   }
+  20 |
+  21 | }
+  22 |
+  23 | // UNSAFE
+  24 | public class MyServlet extends HttpServlet {
+  25 |
+  26 |   public void doGet(HttpServletRequest request, HttpServletResponse response) {
+  27 |
+     ^ Col 0
+",java.java_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/java_missing_http_only.java,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,31,"
+  21 | }
+  22 |
+  23 | // UNSAFE
+  24 | public class MyServlet extends HttpServlet {
+  25 |
+  26 |   public void doGet(HttpServletRequest request, HttpServletResponse response) {
+  27 |
+  28 |     Cookie myCookie = new javax.servlet.http.Cookie(""cookie"", ""cadenaEnv"");
+  29 |     myCookie.setSecure(true);
+  30 |     myCookie.setPath(""/asd/"");
+> 31 |     response.addCookie(myCookie);
+  32 |
+  33 |   }
+  34 |
+  35 | }
+  36 |
+  37 | // SAFE
+  38 | public class MyServlet extends HttpServlet {
+  39 |
+  40 |   public void doGet(HttpServletRequest request, HttpServletResponse response) {
+  41 |
+     ^ Col 0
+",java.java_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/js_http_only.js,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,15,"
+   1 | import { OnInit} from '@angular/core';
+   2 | import { ActivatedRoute} from '@angular/router';
+   3 | import { CookieService } from 'ngx-cookie-service';
+   4 |
+   5 | export const SESSION_OBJECT_ID = 'OficinaSession';
+   6 |
+   7 | export class AsistenciaComponent {
+   8 |   constructor(route, cookieService){
+   9 |     return
+  10 |   }
+  11 |
+  12 |   ngOnInit(){
+  13 |     this.route.params.subscribe(params => {
+  14 |       this.token = params.token;
+> 15 |       this.CookieService.set(SESSION_OBJECT_ID, this.token);
+  16 |     });
+  17 |   }
+  18 |
+  19 | }
+     ^ Col 0
+",javascript.javascript_insecure_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/kottlin_http_only.kt,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,6,"
+   1 | public class CookieController {
+   2 |
+   3 |     // unsafe: missing-httponly
+   4 |     public fun setCookie(value: String, response: HttpServletResponse) {
+   5 |         val cookie: Cookie = Cookie(""cookie"", value)
+>  6 |         response.addCookie(cookie)
+   7 |     }
+   8 |     // unsafe: missing-httponly
+   9 |     public fun setSecureCookie(value: String, response: HttpServletResponse) {
+  10 |         val cookie: Cookie = Cookie(""cookie"", value)
+  11 |         cookie.setSecure(true)
+  12 |         response.addCookie(cookie)
+  13 |     }
+  14 |     // unsafe: missing-httponly
+  15 |     public fun explicitDisable(value: String, response: HttpServletResponse) {
+  16 |         val cookie: Cookie = Cookie(""cookie"", value)
+  17 |         cookie.setSecure(false)
+  18 |         cookie.setHttpOnly(false)
+  19 |         response.addCookie(cookie)
+  20 |     }
+  21 |     // safe- httponly setted
+     ^ Col 0
+",kotlin.kotlin_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/kottlin_http_only.kt,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,12,"
+   2 |
+   3 |     // unsafe: missing-httponly
+   4 |     public fun setCookie(value: String, response: HttpServletResponse) {
+   5 |         val cookie: Cookie = Cookie(""cookie"", value)
+   6 |         response.addCookie(cookie)
+   7 |     }
+   8 |     // unsafe: missing-httponly
+   9 |     public fun setSecureCookie(value: String, response: HttpServletResponse) {
+  10 |         val cookie: Cookie = Cookie(""cookie"", value)
+  11 |         cookie.setSecure(true)
+> 12 |         response.addCookie(cookie)
+  13 |     }
+  14 |     // unsafe: missing-httponly
+  15 |     public fun explicitDisable(value: String, response: HttpServletResponse) {
+  16 |         val cookie: Cookie = Cookie(""cookie"", value)
+  17 |         cookie.setSecure(false)
+  18 |         cookie.setHttpOnly(false)
+  19 |         response.addCookie(cookie)
+  20 |     }
+  21 |     // safe- httponly setted
+  22 |     public fun setSecureHttponlyCookie(value: String, response: HttpServletResponse ) {
+     ^ Col 0
+",kotlin.kotlin_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/kottlin_http_only.kt,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,19,"
+   8 |     // unsafe: missing-httponly
+   9 |     public fun setSecureCookie(value: String, response: HttpServletResponse) {
+  10 |         val cookie: Cookie = Cookie(""cookie"", value)
+  11 |         cookie.setSecure(true)
+  12 |         response.addCookie(cookie)
+  13 |     }
+  14 |     // unsafe: missing-httponly
+  15 |     public fun explicitDisable(value: String, response: HttpServletResponse) {
+  16 |         val cookie: Cookie = Cookie(""cookie"", value)
+  17 |         cookie.setSecure(false)
+  18 |         cookie.setHttpOnly(false)
+> 19 |         response.addCookie(cookie)
+  20 |     }
+  21 |     // safe- httponly setted
+  22 |     public fun setSecureHttponlyCookie(value: String, response: HttpServletResponse ) {
+  23 |         val cookie: Cookie = Cookie(""cookie"", value)
+  24 |         cookie.setSecure(true)
+  25 |         cookie.setHttpOnly(true)
+  26 |         response.addCookie(cookie)
+  27 |     }
+  28 | }
+     ^ Col 0
+",kotlin.kotlin_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/python_httponly_cookie.py,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,23,"
+  13 |
+  14 | async def index(request):
+  15 |     response = PlainTextResponse(""Cookie set!"")
+  16 |     response.set_cookie(
+  17 |         ""my_cookie"", ""cookie_value"", secure=True, httponly=True
+  18 |     )
+  19 |     return response
+  20 |
+  21 |
+  22 | def set_token_in_response(response: HTMLResponse, token: str) -> HTMLResponse:
+> 23 |     response.set_cookie(
+  24 |         key=""JWT_COOKIE_NAME"",
+  25 |         samesite=""JWT_COOKIE_SAMESITE"",
+  26 |         value=token,
+  27 |         secure=False,
+  28 |         httponly=False,
+  29 |         max_age=""SESSION_COOKIE_AGE"",
+  30 |     )
+  31 |     return response
+  32 |
+  33 |
+     ^ Col 0
+",python.python_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/python_httponly_cookie.py,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,36,"
+  26 |         value=token,
+  27 |         secure=False,
+  28 |         httponly=False,
+  29 |         max_age=""SESSION_COOKIE_AGE"",
+  30 |     )
+  31 |     return response
+  32 |
+  33 |
+  34 | def my_bad_view1(request):
+  35 |     response = request.response
+> 36 |     response.set_cookie(
+  37 |         ""MY_COOKIE"", value=""MY_COOKIE_VALUE"", secure=True, httponly=False
+  38 |     )
+  39 |
+  40 |
+  41 | def bad1():
+  42 |     authtkt = AuthTktCookieHelper(secret=""test"", httponly=False)
+  43 |     return authtkt
+  44 |
+  45 |
+  46 | def bad2():
+     ^ Col 0
+",python.python_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/python_httponly_cookie.py,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,47,"
+  28 |         httponly=False,
+  29 |         max_age=""SESSION_COOKIE_AGE"",
+  30 |     )
+  31 |     return response
+  32 |
+  33 |
+  34 | def my_bad_view1(request):
+  35 |     response = request.response
+  36 |     response.set_cookie(
+  37 |         ""MY_COOKIE"", value=""MY_COOKIE_VALUE"", secure=True, httponly=False
+  38 |     )
+  39 |
+  40 |
+  41 | def bad1():
+  42 |     authtkt = AuthTktCookieHelper(secret=""test"", httponly=False)
+  43 |     return authtkt
+  44 |
+  45 |
+  46 | def bad2():
+> 47 |     authtkt = AuthTktAuthenticationPolicy(secret=""test"", httponly=False)
+  48 |     return authtkt
+     ^ Col 0
+",python.python_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/python_httponly_cookie.py,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,42,"
+  28 |         httponly=False,
+  29 |         max_age=""SESSION_COOKIE_AGE"",
+  30 |     )
+  31 |     return response
+  32 |
+  33 |
+  34 | def my_bad_view1(request):
+  35 |     response = request.response
+  36 |     response.set_cookie(
+  37 |         ""MY_COOKIE"", value=""MY_COOKIE_VALUE"", secure=True, httponly=False
+  38 |     )
+  39 |
+  40 |
+  41 | def bad1():
+> 42 |     authtkt = AuthTktCookieHelper(secret=""test"", httponly=False)
+  43 |     return authtkt
+  44 |
+  45 |
+  46 | def bad2():
+  47 |     authtkt = AuthTktAuthenticationPolicy(secret=""test"", httponly=False)
+  48 |     return authtkt
+     ^ Col 0
+",python.python_http_only_cookie
+128. Insecurely generated cookies - HttpOnly,CWE-1004,The cookie service used is missing HttpOnly in namespace/skims/test/data/lib_root/f128/ts_http_only.ts,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,skims,SAST,18,"
+   2 | import { ActivatedRoute} from '@angular/router';
+   3 | import { CookieService } from 'ngx-cookie-service';
+   4 |
+   5 | export const SESSION_OBJECT_ID: string = 'OficinaSession';
+   6 |
+   7 | export class AsistenciaComponent implements OnInit {
+   8 |   public token: string;
+   9 |
+  10 |   constructor(
+  11 |     private route: ActivatedRoute,
+  12 |     private cookieService: CookieService,
+  13 |   ){}
+  14 |
+  15 |   ngOnInit(): void {
+  16 |     this.route.params.subscribe(params => {
+  17 |       this.token = params.token;
+> 18 |       this.cookieService.set(SESSION_OBJECT_ID, this.token);
+  19 |     });
+  20 |   }
+  21 |
+  22 | }
+     ^ Col 0
+",typescript.typescript_insecure_cookie
+Summary: 11 vulnerabilities were found in your targets.

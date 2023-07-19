@@ -1,0 +1,310 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+259. Lack of protection against deletion - DynamoDB,CWE-463,DeletionProtectionEnabled property should be enabled in namespace/skims/test/data/lib_root/f259/cfn_dynamo_has_not_deletion_protection.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,7,"
+   1 | ---
+   2 | SampleTable:
+   3 |   Type: AWS::DynamoDB::Table
+   4 |   Properties:
+   5 |     TableName: ""my-delete-resilient-db""
+   6 |     BillingMode: PAY_PER_REQUEST
+>  7 |     DeletionProtectionEnabled: false
+   8 |     SSESpecification:
+   9 |       SSEEnabled: true
+  10 |     AttributeDefinitions:
+  11 |       - AttributeName: id
+  12 |         AttributeType: S
+  13 |     KeySchema:
+  14 |       - AttributeName: id
+  15 |         KeyType: HASH
+  16 |     PointInTimeRecoverySpecification:
+  17 |         PointInTimeRecoveryEnabled: true
+  18 | SampleTable2:
+  19 |   Type: AWS::DynamoDB::Table
+  20 |   Properties:
+  21 |     TableName: ""my-delete-resilient-db""
+     ^ Col 0
+",cloudformation.cfn_dynamo_has_not_deletion_protection
+259. Lack of protection against deletion - DynamoDB,CWE-463,DeletionProtectionEnabled property should be enabled in namespace/skims/test/data/lib_root/f259/cfn_dynamo_has_not_deletion_protection.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,36,"
+  26 |     AttributeDefinitions:
+  27 |       - AttributeName: id
+  28 |         AttributeType: S
+  29 |     KeySchema:
+  30 |       - AttributeName: id
+  31 |         KeyType: HASH
+  32 |     PointInTimeRecoverySpecification:
+  33 |         PointInTimeRecoveryEnabled: true
+  34 | SampleTable3:
+  35 |   Type: AWS::DynamoDB::Table
+> 36 |   Properties:
+  37 |     TableName: ""my-delete-resilient-db""
+  38 |     BillingMode: PAY_PER_REQUEST
+  39 |     SSESpecification:
+  40 |       SSEEnabled: true
+  41 |     AttributeDefinitions:
+  42 |       - AttributeName: id
+  43 |         AttributeType: S
+  44 |     KeySchema:
+  45 |       - AttributeName: id
+  46 |         KeyType: HASH
+     ^ Col 0
+",cloudformation.cfn_dynamo_has_not_deletion_protection
+259. Lack of protection against deletion - DynamoDB,CWE-463,DeletionProtectionEnabled property should be enabled in namespace/skims/test/data/lib_root/f259/cfn_dynamo_has_not_deletion_protection.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,7,"
+   1 | {
+   2 |   ""SampleTable"": {
+   3 |     ""Type"": ""AWS::DynamoDB::Table"",
+   4 |     ""Properties"": {
+   5 |       ""TableName"": ""my-delete-resilient-db"",
+   6 |       ""BillingMode"": ""PAY_PER_REQUEST"",
+>  7 |       ""DeletionProtectionEnabled"": false,
+   8 |       ""SSESpecification"": {
+   9 |         ""SSEEnabled"": true
+  10 |       },
+  11 |       ""AttributeDefinitions"": [
+  12 |         {
+  13 |           ""AttributeName"": ""id"",
+  14 |           ""AttributeType"": ""S""
+  15 |         }
+  16 |       ],
+  17 |       ""KeySchema"": [
+  18 |         {
+  19 |           ""AttributeName"": ""id"",
+  20 |           ""KeyType"": ""HASH""
+  21 |         }
+     ^ Col 0
+",cloudformation.cfn_dynamo_has_not_deletion_protection
+259. Lack of protection against deletion - DynamoDB,CWE-463,DeletionProtectionEnabled property should be enabled in namespace/skims/test/data/lib_root/f259/cfn_dynamo_has_not_deletion_protection.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,56,"
+  46 |           ""KeyType"": ""HASH""
+  47 |         }
+  48 |       ],
+  49 |       ""PointInTimeRecoverySpecification"": {
+  50 |         ""PointInTimeRecoveryEnabled"": true
+  51 |       }
+  52 |     }
+  53 |   },
+  54 |   ""SampleTable3"": {
+  55 |     ""Type"": ""AWS::DynamoDB::Table"",
+> 56 |     ""Properties"": {
+  57 |       ""TableName"": ""my-delete-resilient-db"",
+  58 |       ""BillingMode"": ""PAY_PER_REQUEST"",
+  59 |       ""SSESpecification"": {
+  60 |         ""SSEEnabled"": true
+  61 |       },
+  62 |       ""AttributeDefinitions"": [
+  63 |         {
+  64 |           ""AttributeName"": ""id"",
+  65 |           ""AttributeType"": ""S""
+  66 |         }
+     ^ Col 0
+",cloudformation.cfn_dynamo_has_not_deletion_protection
+259. Lack of protection against deletion - DynamoDB,CWE-463,DeletionProtectionEnabled property should be enabled,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,CSPM,/Table/DeletionProtection: False,"
+   1 | {
+   2 |     ""TableNames"": [
+   3 |         ""fluidbackup""
+   4 |     ],
+   5 |     ""ContinuousBackupsDescription"": {
+   6 |         ""ContinuousBackupsStatus"": ""DISABLED"",
+   7 |         ""PointInTimeRecoveryDescription"": {
+   8 |             ""PointInTimeRecoveryStatus"": ""DISABLED""
+   9 |         }
+  10 |     },
+  11 |     ""Table"": {
+  12 |         ""TableName"": ""fluidbackup"",
+  13 |         ""TableArn"": ""arn:aws:iam::123456789012:db/fluiddb"",
+> 14 |         ""DeletionProtection"": false
+  15 |     }
+  16 | }
+     ^ Col 0
+",aws.dynamodb_has_not_deletion_protection
+259. Lack of protection against deletion - DynamoDB,CWE-463,"PointInTimeRecoveryEnabled property is not enabled
+ in namespace/skims/test/data/lib_root/f259/cfn_has_not_point_in_time_recovery.yaml",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,27,"
+  13 |         PointInTimeRecoveryEnabled: true
+  14 |   table2:
+  15 |     Type: AWS::DynamoDB::Table
+  16 |     Properties:
+  17 |       DeletionProtectionEnabled: true
+  18 |       KeySchema:
+  19 |         - AttributeName: attr1
+  20 |           KeyType: String
+  21 |         - AttributeName: attr2
+  22 |           KeyType: String
+  23 |       PointInTimeRecoverySpecification:
+  24 |         PointInTimeRecoveryEnabled: false
+  25 |   table3:
+  26 |     Type: AWS::DynamoDB::Table
+> 27 |     Properties:
+  28 |       DeletionProtectionEnabled: true
+  29 |       KeySchema:
+  30 |         - AttributeName: attr1
+  31 |           KeyType: String
+  32 |         - AttributeName: attr2
+  33 |           KeyType: String
+     ^ Col 0
+",cloudformation.cfn_has_not_point_in_time_recovery
+259. Lack of protection against deletion - DynamoDB,CWE-463,"PointInTimeRecoveryEnabled property is not enabled
+ in namespace/skims/test/data/lib_root/f259/cfn_has_not_point_in_time_recovery.yaml",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,24,"
+  13 |         PointInTimeRecoveryEnabled: true
+  14 |   table2:
+  15 |     Type: AWS::DynamoDB::Table
+  16 |     Properties:
+  17 |       DeletionProtectionEnabled: true
+  18 |       KeySchema:
+  19 |         - AttributeName: attr1
+  20 |           KeyType: String
+  21 |         - AttributeName: attr2
+  22 |           KeyType: String
+  23 |       PointInTimeRecoverySpecification:
+> 24 |         PointInTimeRecoveryEnabled: false
+  25 |   table3:
+  26 |     Type: AWS::DynamoDB::Table
+  27 |     Properties:
+  28 |       DeletionProtectionEnabled: true
+  29 |       KeySchema:
+  30 |         - AttributeName: attr1
+  31 |           KeyType: String
+  32 |         - AttributeName: attr2
+  33 |           KeyType: String
+     ^ Col 0
+",cloudformation.cfn_has_not_point_in_time_recovery
+259. Lack of protection against deletion - DynamoDB,CWE-463,"PointInTimeRecoveryEnabled property is not enabled
+ in namespace/skims/test/data/lib_root/f259/cfn_has_not_point_in_time_recovery.yaml.json",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,37,"
+  27 |           {
+  28 |             ""AttributeName"": ""attr1"",
+  29 |             ""KeyType"": ""String""
+  30 |           },
+  31 |           {
+  32 |             ""AttributeName"": ""attr2"",
+  33 |             ""KeyType"": ""String""
+  34 |           }
+  35 |         ],
+  36 |         ""PointInTimeRecoverySpecification"": {
+> 37 |           ""PointInTimeRecoveryEnabled"": false
+  38 |         }
+  39 |       }
+  40 |     },
+  41 |     ""table3"": {
+  42 |       ""Type"": ""AWS::DynamoDB::Table"",
+  43 |       ""Properties"": {
+  44 |         ""DeletionProtectionEnabled"": true,
+  45 |         ""KeySchema"": [
+  46 |           {
+  47 |             ""AttributeName"": ""attr1"",
+     ^ Col 0
+",cloudformation.cfn_has_not_point_in_time_recovery
+259. Lack of protection against deletion - DynamoDB,CWE-463,"PointInTimeRecoveryEnabled property is not enabled
+ in namespace/skims/test/data/lib_root/f259/cfn_has_not_point_in_time_recovery.yaml.json",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,43,"
+  33 |             ""KeyType"": ""String""
+  34 |           }
+  35 |         ],
+  36 |         ""PointInTimeRecoverySpecification"": {
+  37 |           ""PointInTimeRecoveryEnabled"": false
+  38 |         }
+  39 |       }
+  40 |     },
+  41 |     ""table3"": {
+  42 |       ""Type"": ""AWS::DynamoDB::Table"",
+> 43 |       ""Properties"": {
+  44 |         ""DeletionProtectionEnabled"": true,
+  45 |         ""KeySchema"": [
+  46 |           {
+  47 |             ""AttributeName"": ""attr1"",
+  48 |             ""KeyType"": ""String""
+  49 |           },
+  50 |           {
+  51 |             ""AttributeName"": ""attr2"",
+  52 |             ""KeyType"": ""String""
+  53 |           }
+     ^ Col 0
+",cloudformation.cfn_has_not_point_in_time_recovery
+259. Lack of protection against deletion - DynamoDB,CWE-463,"PointInTimeRecoveryEnabled property is not enabled
+ in namespace/skims/test/data/lib_root/f259/tfm_db_test.tf",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,11,"
+   1 | resource ""aws_dynamodb_table"" ""basic-dynamodb-table"" {
+   2 |   name                        = ""GameScores""
+   3 |   billing_mode                = ""PROVISIONED""
+   4 |   read_capacity               = 20
+   5 |   write_capacity              = 20
+   6 |   hash_key                    = ""UserId""
+   7 |   range_key                   = ""GameTitle""
+   8 |   deletion_protection_enabled = true
+   9 |
+  10 |   point_in_time_recovery {
+> 11 |     enabled = false
+  12 |   }
+  13 |
+  14 |   attribute {
+  15 |     name = ""UserId""
+  16 |     type = ""S""
+  17 |   }
+  18 |
+  19 |   attribute {
+  20 |     name = ""GameTitle""
+  21 |     type = ""S""
+     ^ Col 0
+",terraform.tfm_db_no_point_in_time_recovery
+259. Lack of protection against deletion - DynamoDB,CWE-463,"PointInTimeRecoveryEnabled property is not enabled
+",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,CSPM,/ContinuousBackupsDescription/PointInTimeRecoveryDescription/PointInTimeRecoveryStatus: DISABLED,"
+   1 | {
+   2 |     ""TableNames"": [
+   3 |         ""fluidbackup""
+   4 |     ],
+   5 |     ""ContinuousBackupsDescription"": {
+   6 |         ""ContinuousBackupsStatus"": ""DISABLED"",
+   7 |         ""PointInTimeRecoveryDescription"": {
+>  8 |             ""PointInTimeRecoveryStatus"": ""DISABLED""
+   9 |         }
+  10 |     },
+  11 |     ""Table"": {
+  12 |         ""TableName"": ""fluidbackup"",
+  13 |         ""TableArn"": ""arn:aws:iam::123456789012:db/fluiddb"",
+  14 |         ""DeletionProtection"": false
+  15 |     }
+  16 | }
+     ^ Col 0
+",aws.dynamodb_has_not_point_in_time_recovery
+259. Lack of protection against deletion - DynamoDB,CWE-693,DeletionProtectionEnabled property should be enabled in namespace/skims/test/data/lib_root/f259/tfm_dynamo_has_not_deletion_protection.tf,CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,6,"
+   1 | resource ""aws_dynamodb_table"" ""vuln"" {
+   2 |   name                        = q
+   3 |   read_capacity               = 1
+   4 |   write_capacity              = 1
+   5 |   hash_key                    = 1
+>  6 |   deletion_protection_enabled = false
+   7 |   attribute {
+   8 |     name = as
+   9 |     type = String
+  10 |   }
+  11 | }
+  12 |
+  13 |
+  14 | resource ""aws_dynamodb_table"" ""vuln_2"" {
+  15 |   name           = q
+  16 |   read_capacity  = 1
+  17 |   write_capacity = 1
+  18 |   hash_key       = 1
+  19 |   attribute {
+  20 |     name = as
+  21 |     type = String
+     ^ Col 0
+",terraform.tfm_dynamo_has_not_deletion_protection
+259. Lack of protection against deletion - DynamoDB,CWE-693,DeletionProtectionEnabled property should be enabled in namespace/skims/test/data/lib_root/f259/tfm_dynamo_has_not_deletion_protection.tf,CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:H/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/259,skims,SAST,14,"
+   4 |   write_capacity              = 1
+   5 |   hash_key                    = 1
+   6 |   deletion_protection_enabled = false
+   7 |   attribute {
+   8 |     name = as
+   9 |     type = String
+  10 |   }
+  11 | }
+  12 |
+  13 |
+> 14 | resource ""aws_dynamodb_table"" ""vuln_2"" {
+  15 |   name           = q
+  16 |   read_capacity  = 1
+  17 |   write_capacity = 1
+  18 |   hash_key       = 1
+  19 |   attribute {
+  20 |     name = as
+  21 |     type = String
+  22 |   }
+  23 | }
+  24 |
+     ^ Col 0
+",terraform.tfm_dynamo_has_not_deletion_protection
+Summary: 13 vulnerabilities were found in your targets.

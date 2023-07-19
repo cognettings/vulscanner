@@ -1,0 +1,36 @@
+---
+Resources:
+  UnsafeBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Condition:
+              'Null':
+                s3:x-amz-server-side-encryption: false
+  SafeBucketPolicy1:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Condition:
+              'Null':
+                s3:x-amz-server-side-encryption: true
+  SafeBucketPolicy2:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Deny
+            Condition:
+              'Null':
+                s3:x-amz-server-side-encryption: false
+  SafeBucketPolicy3:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Condition: false

@@ -1,0 +1,21 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+089. Lack of data validation - Trust boundary violation,CWE-501,"The application introduces untrusted data into session attributes, which could lead to injection attacks.
+ in namespace/skims/test/data/lib_root/f089/java_trustbound_violation.java",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/089,skims,SAST,8,"
+   1 | import java.io.IOException;
+   2 | import javax.servlet.http.HttpServletRequest;
+   3 |
+   4 | public class Test {
+   5 |
+   6 |   public void unsafeSession(HttpServletRequest request){
+   7 |     param = request.getHeader(""someheader"");
+>  8 |     request.getSession().setAttribute(""something"", param);
+   9 |   }
+  10 |
+  11 |   public void safeSession(HttpServletRequest request){
+  12 |     param = ""Hello from the server"";
+  13 |     request.getSession().setAttribute(param);
+  14 |   }
+  15 | }
+     ^ Col 0
+",java.java_trust_boundary_violation
+Summary: 1 vulnerabilities were found in your targets.

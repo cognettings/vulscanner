@@ -1,0 +1,38 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+411. Insecure encryption algorithm - Default encryption,CWE-16,EBS Volumes encrypted with default KMS key,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/411,skims,CSPM,"/TargetKeyId: {'AliasName': 'alias/aws/ebs', 'AliasArn': 'arn:aws:fluid/aliaskey', 'TargetKeyId': '1234'}","
+  1 | {
+  2 |     ""AliasName"": ""alias/aws/ebs"",
+  3 |     ""AliasArn"": ""arn:aws:fluid/aliaskey"",
+> 4 |     ""TargetKeyId"": ""1234""
+  5 | }
+    ^ Col 0
+",aws.ebs_uses_default_kms_key
+411. Insecure encryption algorithm - Default encryption,CWE-16,EFS filesystem with default KMS key,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/411,skims,CSPM,EFS filesystem with default KMS key,"
+  1 | {
+  2 |     ""AliasName"": ""alias/aws/elasticfilesystem"",
+  3 |     ""TargetKeyId"": ""5678""
+  4 | }
+    ^ Col 0
+",aws.efs_uses_default_kms_key
+411. Insecure encryption algorithm - Default encryption,CWE-16,EFS filesystem with default KMS key,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/411,skims,CSPM,EFS filesystem with default KMS key,"
+  1 | {
+  2 |     ""AliasName"": ""alias/aws/fsx"",
+  3 |     ""TargetKeyId"": ""1279""
+  4 | }
+    ^ Col 0
+",aws.fsx_uses_default_kms_key
+411. Insecure encryption algorithm - Default encryption,CWE-16,EFS filesystem with default KMS key,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/411,skims,CSPM,/KeyManager: AWS,"
+  1 | {
+  2 |     ""Arn"": ""arn:aws:fluidarn/123456"",
+> 3 |     ""KeyManager"": ""AWS""
+  4 | }
+    ^ Col 0
+",aws.fsx_uses_default_kms_key
+411. Insecure encryption algorithm - Default encryption,CWE-16,Redshift clusters use default KMS key.,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/411,skims,CSPM,"/TargetKeyId: {'AliasName': 'alias/aws/redshift', 'TargetKeyId': '8888'}","
+  1 | {
+  2 |     ""AliasName"": ""alias/aws/redshift"",
+> 3 |     ""TargetKeyId"": ""8888""
+  4 | }
+    ^ Col 0
+",aws.redshift_uses_default_kms_key
+Summary: 5 vulnerabilities were found in your targets.

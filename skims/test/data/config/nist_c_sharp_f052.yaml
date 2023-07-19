@@ -1,0 +1,19 @@
+---
+checks:
+  - F052
+namespace: NIST
+output:
+  file_path: skims/test/outputs/nist_c_sharp_f052.csv
+  format: CSV
+sast:
+  include:
+    - src/testcases/CWE327_Use_Broken_Crypto/
+    - src/testcases/CWE328_Reversible_One_Way_Hash/
+    - src/testcases/CWE396_Catch_Generic_Exception/
+    - src/testcases/CWE397_Throw_Generic_Exception/
+    - src/testcases/CWE395_Catch_NullPointerException/
+    - src/testcases/CWE390_Error_Without_Action/
+    - src/testcases/CWE478_Missing_Default_Case_in_Switch/
+  lib_path: false
+  lib_root: true
+working_dir: ../NIST-SARD-Test-Suites/Juliet_Test_Suite_v1.3_for_C#/

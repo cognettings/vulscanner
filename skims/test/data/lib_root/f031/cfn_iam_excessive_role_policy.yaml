@@ -1,0 +1,34 @@
+---
+Resources:
+  UnsafeManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: iam:Attach*
+            Resource:
+              - arn:aws:iam:::role/some_role
+  UnsafeIamPolicy:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: CFNUsers
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'iam:Attach*'
+              - 'iam:List*'
+            Resource: 'arn:aws:iam:::role/some_role'
+  UnsafeRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'iam:Attach*'
+                  - 'iam:List*'
+                Resource: 'arn:aws:iam:::role/any_role'

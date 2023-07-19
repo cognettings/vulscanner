@@ -1,0 +1,20 @@
+---
+version: '3.4'
+
+services:
+  must-fail:
+    image: the_image
+    environment:
+      - CatalogUrl=http://catalog-api
+  must-fail-a:
+    image: the_image@sha256:0123invalidshahash3210
+    environment:
+      - CatalogUrl=http://catalog-api
+  must-not-fail:
+    image: the_image@sha256:043a718774c572bd8a25adbeb1bfcd5c0256ae11cecf9f9c3f925d0e52beaf89
+    environment:
+      - CatalogUrl=http://catalog-api
+  must-not-fail-a:
+    image: "the_image@${COULD_BE_A_DIGEST}"
+    environment:
+      - CatalogUrl=http://catalog-api

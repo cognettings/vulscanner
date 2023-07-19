@@ -1,0 +1,14 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+037. Technical information leak,CWE-200,"Ensure that your Web.config source file or package suppresses 'X-Powered-By' headers.
+ in namespace/skims/test/data/lib_path/f037/webVuln.config",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/037,skims,SAST,4,"
+  1 | <configuration>
+  2 |     <system.webServer>
+  3 |         <httpProtocol>
+> 4 |             <customHeaders>
+  5 |             </customHeaders>
+  6 |         </httpProtocol>
+  7 |     </system.webServer>
+  8 | </configuration>
+    ^ Col 0
+",dotnetconfig.dotnetconfig_not_suppress_vuln_header
+Summary: 1 vulnerabilities were found in your targets.

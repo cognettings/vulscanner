@@ -1,0 +1,160 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured in namespace/skims/test/data/lib_root/f073/cfn_rds_is_publicly_accessible.yaml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,SAST,8,"
+   1 | ---
+   2 | Resources:
+   3 |   UnsafeCluster:
+   4 |     Type: AWS::RDS::DBCluster
+   5 |     Properties:
+   6 |       DBClusterParameterGroupName:
+   7 |         Ref: RDSDBClusterParameterGroup
+>  8 |       PubliclyAccessible: true
+   9 |   UnsafeDBCluster:
+  10 |     Type: AWS::RDS::DBInstance
+  11 |     Properties:
+  12 |       DBClusterIdentifier:
+  13 |         Ref: RDSCluster
+  14 |       PubliclyAccessible: true
+  15 |   SafeCluster:
+  16 |     Type: AWS::RDS::DBCluster
+  17 |     Properties:
+  18 |       DBClusterParameterGroupName:
+  19 |         Ref: RDSDBClusterParameterGroup
+  20 |   SafeDBCluster:
+  21 |     Type: AWS::RDS::DBInstance
+     ^ Col 0
+",cloudformation.cfn_rds_is_publicly_accessible
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured in namespace/skims/test/data/lib_root/f073/cfn_rds_is_publicly_accessible.yaml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,SAST,14,"
+   4 |     Type: AWS::RDS::DBCluster
+   5 |     Properties:
+   6 |       DBClusterParameterGroupName:
+   7 |         Ref: RDSDBClusterParameterGroup
+   8 |       PubliclyAccessible: true
+   9 |   UnsafeDBCluster:
+  10 |     Type: AWS::RDS::DBInstance
+  11 |     Properties:
+  12 |       DBClusterIdentifier:
+  13 |         Ref: RDSCluster
+> 14 |       PubliclyAccessible: true
+  15 |   SafeCluster:
+  16 |     Type: AWS::RDS::DBCluster
+  17 |     Properties:
+  18 |       DBClusterParameterGroupName:
+  19 |         Ref: RDSDBClusterParameterGroup
+  20 |   SafeDBCluster:
+  21 |     Type: AWS::RDS::DBInstance
+  22 |     Properties:
+  23 |       DBClusterIdentifier:
+  24 |         Ref: RDSCluster
+     ^ Col 0
+",cloudformation.cfn_rds_is_publicly_accessible
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured in namespace/skims/test/data/lib_root/f073/cfn_rds_is_publicly_accessible.yaml.json,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,SAST,9,"
+   1 | {
+   2 |   ""Resources"": {
+   3 |     ""UnsafeCluster"": {
+   4 |       ""Type"": ""AWS::RDS::DBCluster"",
+   5 |       ""Properties"": {
+   6 |         ""DBClusterParameterGroupName"": {
+   7 |           ""Ref"": ""RDSDBClusterParameterGroup""
+   8 |         },
+>  9 |         ""PubliclyAccessible"": true
+  10 |       }
+  11 |     },
+  12 |     ""UnsafeDBCluster"": {
+  13 |       ""Type"": ""AWS::RDS::DBInstance"",
+  14 |       ""Properties"": {
+  15 |         ""DBClusterIdentifier"": {
+  16 |           ""Ref"": ""RDSCluster""
+  17 |         },
+  18 |         ""PubliclyAccessible"": true
+  19 |       }
+  20 |     },
+  21 |     ""SafeCluster"": {
+     ^ Col 0
+",cloudformation.cfn_rds_is_publicly_accessible
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured in namespace/skims/test/data/lib_root/f073/cfn_rds_is_publicly_accessible.yaml.json,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,SAST,18,"
+   8 |         },
+   9 |         ""PubliclyAccessible"": true
+  10 |       }
+  11 |     },
+  12 |     ""UnsafeDBCluster"": {
+  13 |       ""Type"": ""AWS::RDS::DBInstance"",
+  14 |       ""Properties"": {
+  15 |         ""DBClusterIdentifier"": {
+  16 |           ""Ref"": ""RDSCluster""
+  17 |         },
+> 18 |         ""PubliclyAccessible"": true
+  19 |       }
+  20 |     },
+  21 |     ""SafeCluster"": {
+  22 |       ""Type"": ""AWS::RDS::DBCluster"",
+  23 |       ""Properties"": {
+  24 |         ""DBClusterParameterGroupName"": {
+  25 |           ""Ref"": ""RDSDBClusterParameterGroup""
+  26 |         }
+  27 |       }
+  28 |     },
+     ^ Col 0
+",cloudformation.cfn_rds_is_publicly_accessible
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured in namespace/skims/test/data/lib_root/f073/tfm_rds_publicly_accessible.tf,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,SAST,8,"
+   1 | resource ""aws_db_instance"" ""unsafe_rds_db"" {
+   2 |   cluster_identifier  = aws_rds_cluster.default.id
+   3 |   publicly_accessible = true
+   4 | }
+   5 |
+   6 | resource ""aws_rds_cluster_instance"" ""unsafe_cluster"" {
+   7 |   cluster_identifier  = aws_rds_cluster.default.id
+>  8 |   publicly_accessible = true
+   9 | }
+  10 |
+  11 | resource ""aws_rds_cluster_instance"" ""safe_cluster"" {
+  12 |   cluster_identifier  = ""aurora-cluster-demo""
+  13 |   publicly_accessible = false
+  14 | }
+     ^ Col 0
+",terraform.tfm_db_instance_publicly_accessible
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured in namespace/skims/test/data/lib_root/f073/tfm_rds_publicly_accessible.tf,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,SAST,3,"
+   1 | resource ""aws_db_instance"" ""unsafe_rds_db"" {
+   2 |   cluster_identifier  = aws_rds_cluster.default.id
+>  3 |   publicly_accessible = true
+   4 | }
+   5 |
+   6 | resource ""aws_rds_cluster_instance"" ""unsafe_cluster"" {
+   7 |   cluster_identifier  = aws_rds_cluster.default.id
+   8 |   publicly_accessible = true
+   9 | }
+  10 |
+  11 | resource ""aws_rds_cluster_instance"" ""safe_cluster"" {
+  12 |   cluster_identifier  = ""aurora-cluster-demo""
+  13 |   publicly_accessible = false
+  14 | }
+     ^ Col 0
+",terraform.tfm_db_instance_publicly_accessible
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,CSPM,/0/PubliclyAccessible: True,"
+   1 | [
+   2 |     {
+   3 |         ""DBClusterArn"": ""arn:aws:iam::123456789012:dbc/unsafe"",
+>  4 |         ""PubliclyAccessible"": true
+   5 |     },
+   6 |     {
+   7 |         ""DBClusterArn"": ""arn:aws:iam::123456789012:dbc/safe"",
+   8 |         ""PubliclyAccessible"": false
+   9 |     }
+  10 | ]
+     ^ Col 0
+",aws.has_public_instances
+073. Improper authorization control for web services - RDS,CWE-478,Property publicly_accessible is either missing or misconfigured,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/073,skims,CSPM,/0/PubliclyAccessible: True,"
+   1 | [
+   2 |     {
+   3 |         ""DBInstanceIdentifier"": ""mydb12"",
+   4 |         ""DBInstanceArn"": ""arn:aws:iam::123456789012:db/unsafedb"",
+>  5 |         ""PubliclyAccessible"": true
+   6 |     },
+   7 |     {
+   8 |         ""DBInstanceIdentifier"": ""mydb12"",
+   9 |         ""DBInstanceArn"": ""arn:aws:iam::123456789012:db/safedb"",
+  10 |         ""PubliclyAccessible"": false
+  11 |     }
+  12 | ]
+     ^ Col 0
+",aws.has_public_instances
+Summary: 8 vulnerabilities were found in your targets.

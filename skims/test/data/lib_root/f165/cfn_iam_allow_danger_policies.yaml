@@ -1,0 +1,28 @@
+---
+Resources:
+  UnsafeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: unsafe_pol1
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                NotAction: ecs:CreateService
+                Resource: '*'
+        - PolicyName: unsafe_pol2
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: ecs:CreateService
+                NotResource: 'arn::aws::role/some_role'
+  SafeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: ecs:CreateService
+                Resource: 'arn::aws::role/some_role'

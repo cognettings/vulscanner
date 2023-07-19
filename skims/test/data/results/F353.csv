@@ -1,0 +1,46 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+353. Lack of data validation - Token,CWE-287,Token JWT is not verified before decoding. in namespace/skims/test/data/lib_root/f353/js_decode_insecure_jwt_token.js,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/353,skims,SAST,7,"
+   1 | import {verifyToken} from ""personal_module.js"";
+   2 | const jwt = require('jsonwebtoken');
+   3 |
+   4 | function unsafeVerifyJwt() {
+   5 |     // The signature is not verified before decoding
+   6 |     let allowed_algos = ['PS384'];
+>  7 |     jwt.decode(token, key, allowed_algos);
+   8 | }
+   9 |
+  10 | function safeVerifyJwt() {
+  11 |     // The jwt is verified before being decoded
+  12 |     let allowed_algos = ['PS384'];
+  13 |     const verify_config = { expiresIn: 10000, algorithms:  allowed_algos};
+  14 |     jwt.verify(token_secure, key, verify_config);
+  15 |     jwt.decode(token_secure, key, allowed_algos);
+  16 | }
+  17 |
+  18 | function nonDeterministicJwt() {
+  19 |     // The jwt may be verified correctly from a function in another file, this vuln is not deterministic
+  20 |     if (!verifyToken(token_secure)){
+  21 |         return null;
+     ^ Col 0
+",javascript.js_decode_insecure_jwt_token
+353. Lack of data validation - Token,CWE-287,Token JWT is not verified before decoding. in namespace/skims/test/data/lib_root/f353/ts_decode_insecure_jwt_token.ts,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/353,skims,SAST,6,"
+   1 |
+   2 | import jwt from 'jsonwebtoken';
+   3 |
+   4 | export function unsafeJwt<T extends Object> (payload: T, privateKey: string): string {
+   5 |     const options: jwt.SignOptions = { expiresIn: 10000, algorithms:  ['PS384']};
+>  6 |     return jwt.decode(payload, privateKey, options)
+   7 | }
+   8 |
+   9 | export function safeJwt<T extends Object> (payload: T, privateKey: string): string {
+  10 |   const options: jwt.SignOptions = { expiresIn: 10000, algorithms:  ['PS384']};
+  11 |   try {
+  12 |     jwt.verify(payload, privateKey, options);
+  13 |   } catch (e) {
+  14 |     throw new Error(e.message);
+  15 |   }
+  16 |   return jwt.decode(payload, privateKey, options)
+  17 | }
+     ^ Col 0
+",typescript.ts_decode_insecure_jwt_token
+Summary: 2 vulnerabilities were found in your targets.

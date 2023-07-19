@@ -1,0 +1,26 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+381. Supply Chain Attack - Terraform,CWE-437,The required_version property is not set in namespace/skims/test/data/lib_root/f381/tfm_check_required_version.tf,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/381,skims,SAST,1,"
+>  1 | terraform {
+   2 |
+   3 |   required_providers {
+   4 |     aws = {
+   5 |       source  = ""hashicorp/aws""
+   6 |       version = ""4.4.0""
+   7 |     }
+   8 |   }
+   9 |
+  10 |   backend ""s3"" {
+  11 |     bucket         = ""fluidattacks-terraform-states-prod""
+  12 |     key            = ""compute.tfstate""
+  13 |     region         = ""us-east-1""
+  14 |     encrypt        = true
+  15 |     dynamodb_table = ""terraform_state_lock""
+  16 |   }
+  17 | }
+  18 |
+  19 | provider ""aws"" {
+  20 |   region = ""us-east-1""
+  21 | }
+     ^ Col 0
+",terraform.check_required_version
+Summary: 1 vulnerabilities were found in your targets.

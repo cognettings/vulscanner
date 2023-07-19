@@ -1,0 +1,9 @@
+# Spring configuration
+server:
+  port: 8443
+  ssl:
+    enabled: false
+    key-store: "classpath:store.jks"
+spring:
+  application:
+    name: test-spring

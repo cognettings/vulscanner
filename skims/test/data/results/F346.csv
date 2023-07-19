@@ -1,0 +1,26 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+346. Excessive privileges - Mobile App,CWE-272,The application defines dangerous permissions that can be abused by an attacker. in namespace/skims/test/data/lib_path/f346/AndroidManifest.xml,CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/346,skims,SAST,4,"
+  1 | <?xml version=""1.0"" encoding=""utf-8"" standalone=""no""?>
+  2 | <manifest xmlns:android=""http://schemas.android.com/apk/res/android"">
+  3 |     <uses-permission android:name=""android.permission.ACCESS_MEDIA_LOCATION""/>
+> 4 |     <uses-permission android:name=""android.permission.CAMERA""/>
+  5 |     <uses-permission android:name=""com.android.vending.BILLING""/>
+  6 |     <uses-sdk android:minSdkVersion=""19""
+  7 |         android:targetSdkVersion=""19""
+  8 |         android:maxSdkVersion=""24"" />
+  9 | </manifest>
+    ^ Col 0
+",android.has_dangerous_permissions
+346. Excessive privileges - Mobile App,CWE-272,The application defines dangerous permissions that can be abused by an attacker. in namespace/skims/test/data/lib_path/f346/AndroidManifest.xml,CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/346,skims,SAST,3,"
+  1 | <?xml version=""1.0"" encoding=""utf-8"" standalone=""no""?>
+  2 | <manifest xmlns:android=""http://schemas.android.com/apk/res/android"">
+> 3 |     <uses-permission android:name=""android.permission.ACCESS_MEDIA_LOCATION""/>
+  4 |     <uses-permission android:name=""android.permission.CAMERA""/>
+  5 |     <uses-permission android:name=""com.android.vending.BILLING""/>
+  6 |     <uses-sdk android:minSdkVersion=""19""
+  7 |         android:targetSdkVersion=""19""
+  8 |         android:maxSdkVersion=""24"" />
+  9 | </manifest>
+    ^ Col 0
+",android.has_dangerous_permissions
+Summary: 2 vulnerabilities were found in your targets.

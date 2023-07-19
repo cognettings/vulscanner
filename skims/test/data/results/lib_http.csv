@@ -1,0 +1,799 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+128. Insecurely generated cookies - HttpOnly,CWE-1004,session is missing HttpOnly in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/128,"home,response,headers",DAST,session is missing HttpOnly,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+>  7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+   8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+   9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+  13 | * EOF
+     ^ Col 0
+",analyze_headers.set_cookie_httponly
+129. Insecurely generated cookies - SameSite,CWE-1275,session does not have SameSite correctly initialized in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/129,"home,response,headers",DAST,session does not have SameSite correctly initialized,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+>  8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+   9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+  13 | * EOF
+     ^ Col 0
+",analyze_headers.set_cookie_samesite
+015. Insecure authentication method - Basic,CWE-287,The application uses Basic authentication over HTTP in http://localhost:48000/headers_f015_2,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,"home,response,headers",DAST,The application uses Basic authentication over HTTP,"
+   1 | > GET http://localhost:48000/headers_f015_2
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:17 GMT
+   6 | < WWW-Authenticate: Basic realm=host.com
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.www_authenticate
+036. ViewState not encrypted,CWE-319,ViewState not encrypted in http://localhost:48000/content_f036_0,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/036,"home,response,content",DAST,7,"
+   1 | <!DOCTYPE html>
+   2 | <html lang=""en"">
+   3 |   <head>
+   4 |     <title>Skims Test</title>
+   5 |   </head>
+   6 |   <body>
+>  7 |     <input type=""hidden"" name=""__VIEWSTATE"" value=""/wEPBQVhYmNkZQ9nAgE="">
+   8 |     <input type=""hidden"" name=""__VIEWSTATE"" value=""zbsXSMp8dJ5Pk8V0yeeEHHyIJyNFnYpw"">
+   9 |     <input type=""hidden"" name=""__VIEWSTATE"" value="""">
+  10 |     <input type=""hidden"" name=""__VIEWSTATE"">
+  11 |     <input type=""hidden"" name=""other"">
+  12 |   </body>
+  13 | </html>
+     ^ Col 0
+",analyze_content.view_state
+086. Missing subresource integrity check,CWE-353,Third party resource bam-cell.nr-data.net without sri in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/086,"home,response,content",DAST,8,"
+   1 | <!DOCTYPE html>
+   2 | <html lang=""en"">
+   3 |   <head>
+   4 |     <title>Skims Test</title>
+   5 |     <script></script>
+   6 |     <script integrity=""sha256-123""></script>
+   7 |     <script src=""""></script>
+>  8 |     <script src=""https://bam-cell.nr-data.net/thing.js""></script>
+   9 |     <script src=""https://consent.cookiebot.com/thing.js""></script>
+  10 |     <script src=""https://consentcdn.cookiebot.com/thing.js""></script>
+  11 |     <script src=""https://js-agent.newrelic.com/thing.js""></script>
+  12 |     <script src=""https://safe.tld/app-bundle.min.js""></script>
+  13 |     <script src=""https://static.cloudflareinsights.com/beacon.min.js""></script>
+  14 |   </head>
+  15 | </html>
+     ^ Col 0
+",analyze_content.sub_resource_integrity
+086. Missing subresource integrity check,CWE-353,Third party resource consent.cookiebot.com without sri in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/086,"home,response,content",DAST,9,"
+   1 | <!DOCTYPE html>
+   2 | <html lang=""en"">
+   3 |   <head>
+   4 |     <title>Skims Test</title>
+   5 |     <script></script>
+   6 |     <script integrity=""sha256-123""></script>
+   7 |     <script src=""""></script>
+   8 |     <script src=""https://bam-cell.nr-data.net/thing.js""></script>
+>  9 |     <script src=""https://consent.cookiebot.com/thing.js""></script>
+  10 |     <script src=""https://consentcdn.cookiebot.com/thing.js""></script>
+  11 |     <script src=""https://js-agent.newrelic.com/thing.js""></script>
+  12 |     <script src=""https://safe.tld/app-bundle.min.js""></script>
+  13 |     <script src=""https://static.cloudflareinsights.com/beacon.min.js""></script>
+  14 |   </head>
+  15 | </html>
+     ^ Col 0
+",analyze_content.sub_resource_integrity
+086. Missing subresource integrity check,CWE-353,Third party resource consentcdn.cookiebot.com without sri in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/086,"home,response,content",DAST,10,"
+   1 | <!DOCTYPE html>
+   2 | <html lang=""en"">
+   3 |   <head>
+   4 |     <title>Skims Test</title>
+   5 |     <script></script>
+   6 |     <script integrity=""sha256-123""></script>
+   7 |     <script src=""""></script>
+   8 |     <script src=""https://bam-cell.nr-data.net/thing.js""></script>
+   9 |     <script src=""https://consent.cookiebot.com/thing.js""></script>
+> 10 |     <script src=""https://consentcdn.cookiebot.com/thing.js""></script>
+  11 |     <script src=""https://js-agent.newrelic.com/thing.js""></script>
+  12 |     <script src=""https://safe.tld/app-bundle.min.js""></script>
+  13 |     <script src=""https://static.cloudflareinsights.com/beacon.min.js""></script>
+  14 |   </head>
+  15 | </html>
+     ^ Col 0
+",analyze_content.sub_resource_integrity
+086. Missing subresource integrity check,CWE-353,Third party resource js-agent.newrelic.com without sri in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/086,"home,response,content",DAST,11,"
+   1 | <!DOCTYPE html>
+   2 | <html lang=""en"">
+   3 |   <head>
+   4 |     <title>Skims Test</title>
+   5 |     <script></script>
+   6 |     <script integrity=""sha256-123""></script>
+   7 |     <script src=""""></script>
+   8 |     <script src=""https://bam-cell.nr-data.net/thing.js""></script>
+   9 |     <script src=""https://consent.cookiebot.com/thing.js""></script>
+  10 |     <script src=""https://consentcdn.cookiebot.com/thing.js""></script>
+> 11 |     <script src=""https://js-agent.newrelic.com/thing.js""></script>
+  12 |     <script src=""https://safe.tld/app-bundle.min.js""></script>
+  13 |     <script src=""https://static.cloudflareinsights.com/beacon.min.js""></script>
+  14 |   </head>
+  15 | </html>
+     ^ Col 0
+",analyze_content.sub_resource_integrity
+086. Missing subresource integrity check,CWE-353,Third party resource static.cloudflareinsights.com without sri in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/086,"home,response,content",DAST,13,"
+   1 | <!DOCTYPE html>
+   2 | <html lang=""en"">
+   3 |   <head>
+   4 |     <title>Skims Test</title>
+   5 |     <script></script>
+   6 |     <script integrity=""sha256-123""></script>
+   7 |     <script src=""""></script>
+   8 |     <script src=""https://bam-cell.nr-data.net/thing.js""></script>
+   9 |     <script src=""https://consent.cookiebot.com/thing.js""></script>
+  10 |     <script src=""https://consentcdn.cookiebot.com/thing.js""></script>
+  11 |     <script src=""https://js-agent.newrelic.com/thing.js""></script>
+  12 |     <script src=""https://safe.tld/app-bundle.min.js""></script>
+> 13 |     <script src=""https://static.cloudflareinsights.com/beacon.min.js""></script>
+  14 |   </head>
+  15 | </html>
+     ^ Col 0
+",analyze_content.sub_resource_integrity
+023. Uncontrolled external site redirect - Host Header Injection,CWE-601,Redirection due to Host header injection in http://localhost:48000/headers_f023_0,CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/023,"home,response,headers",DAST,Redirection due to Host header injection,"
+   1 | > GET http://localhost:48000/headers_f023_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Location: http://localhost:48000/
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.location
+130. Insecurely generated cookies - Secure,CWE-614,session is missing Secure in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/130,"home,response,headers",DAST,session is missing Secure,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+   8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+>  9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+  13 | * EOF
+     ^ Col 0
+",analyze_headers.set_cookie_secure
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Content-Type: text/html
+   7 | < Content-Length: 1718
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/content_f036_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/content_f036_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:17 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 407
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/content_f086_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 599
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/headers_cookies_safe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/headers_cookies_safe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:18 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=test; Secure; HttpOnly; Path=/; SameSite=Strict
+   8 | < Set-Cookie: google_analytics=test; Path=/
+   9 | < Set-Cookie: anything=test; Path=/
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+   8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+   9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/headers_f023_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/headers_f023_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Location: http://localhost:48000/
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/headers_f023_1,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/headers_f023_1
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Location: http://localhost
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Could not find upgrade-insecure-requests header or CSP directive in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Could not find upgrade-insecure-requests header or CSP directive,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+>  6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.upgrade_insecure_requests
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Directive script-src contains the unsafe wildcard data: in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Directive script-src contains the unsafe wildcard data:,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+>  6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Directive script-src contains the unsafe wildcard http: in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Directive script-src contains the unsafe wildcard http:,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+>  6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Content-Type: text/html
+   7 | < Content-Length: 1718
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/content_f036_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/content_f036_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:17 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 407
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/content_f086_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 599
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/headers_cookies_safe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/headers_cookies_safe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:18 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=test; Secure; HttpOnly; Path=/; SameSite=Strict
+   8 | < Set-Cookie: google_analytics=test; Path=/
+   9 | < Set-Cookie: anything=test; Path=/
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+   8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+   9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/headers_f023_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/headers_f023_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Location: http://localhost:48000/
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing Content-Security-Policy attribute in http://localhost:48000/headers_f023_1,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing Content-Security-Policy attribute,"
+   1 | > GET http://localhost:48000/headers_f023_1
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Location: http://localhost
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+071. Insecure or unset HTTP headers - Referrer-Policy,CWE-644,Missing Referrer-Policy header in http://localhost:48000/,CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/071,"home,response,headers",DAST,Missing Referrer-Policy header,"
+   1 | > GET http://localhost:48000/
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Content-Type: text/html
+   7 | < Content-Length: 1718
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.referrer_policy
+071. Insecure or unset HTTP headers - Referrer-Policy,CWE-644,Missing Referrer-Policy header in http://localhost:48000/content_f036_0,CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/071,"home,response,headers",DAST,Missing Referrer-Policy header,"
+   1 | > GET http://localhost:48000/content_f036_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:17 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 407
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.referrer_policy
+071. Insecure or unset HTTP headers - Referrer-Policy,CWE-644,Missing Referrer-Policy header in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/071,"home,response,headers",DAST,Missing Referrer-Policy header,"
+   1 | > GET http://localhost:48000/content_f086_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 599
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.referrer_policy
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Content-Type: text/html
+   7 | < Content-Length: 1718
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/content_f036_0,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/content_f036_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:17 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 407
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/content_f086_0,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/content_f086_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 599
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/headers_cookies_safe_0,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/headers_cookies_safe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:18 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=test; Secure; HttpOnly; Path=/; SameSite=Strict
+   8 | < Set-Cookie: google_analytics=test; Path=/
+   9 | < Set-Cookie: anything=test; Path=/
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+   8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+   9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/headers_f023_0,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/headers_f023_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Location: http://localhost:48000/
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/headers_f023_1,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/headers_f023_1
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Location: http://localhost
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+131. Insecure or unset HTTP headers - Strict Transport Security,CWE-644,Missing Strict-Transport-Security header in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/131,"home,response,headers",DAST,Missing Strict-Transport-Security header,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+> 15 | * EOF
+     ^ Col 0
+",analyze_headers.strict_transport_security
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Content-Type: text/html
+   7 | < Content-Length: 1718
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/content_f036_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/content_f036_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:17 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 407
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/content_f086_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/content_f086_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Content-Length: 599
+   8 | < Connection: close
+   9 |
+> 10 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/headers_cookies_safe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/headers_cookies_safe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:18 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=test; Secure; HttpOnly; Path=/; SameSite=Strict
+   8 | < Set-Cookie: google_analytics=test; Path=/
+   9 | < Set-Cookie: anything=test; Path=/
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/headers_cookies_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/headers_cookies_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:52:12 GMT
+   6 | < Content-Type: text/html; charset=utf-8
+   7 | < Set-Cookie: session=vulnhttponly; Secure; Path=/; SameSite=Strict
+   8 | < Set-Cookie: session=vulnsamesite; Secure; HttpOnly; Path=/; SameSite=Lax
+   9 | < Set-Cookie: session=vulnsecure; HttpOnly; Path=/; SameSite=Strict
+  10 | < Content-Length: 0
+  11 | < Connection: close
+  12 |
+> 13 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/headers_f023_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/headers_f023_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Location: http://localhost:48000/
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/headers_f023_1,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/headers_f023_1
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:29 GMT
+   6 | < Location: http://localhost
+   7 | < Content-Type: text/html; charset=utf-8
+   8 | < Content-Length: 0
+   9 | < Connection: close
+  10 |
+> 11 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+132. Insecure or unset HTTP headers - X-Content-Type-Options,CWE-644,Missing X-Content-Type-Options in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/132,"home,response,headers",DAST,Missing X-Content-Type-Options,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+> 15 | * EOF
+     ^ Col 0
+",analyze_headers.x_content_type_options
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing frame-ancestors header in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing frame-ancestors header,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+>  6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Missing object-src attribute in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Missing object-src attribute,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+>  6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+071. Insecure or unset HTTP headers - Referrer-Policy,CWE-644,The Referrer-Policy header is set with the weak value no-referrer-when-downgrade in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/071,"home,response,headers",DAST,The Referrer-Policy header is set with the weak value no-referrer-when-downgrade,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+>  9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.referrer_policy
+043. Insecure or unset HTTP headers - Content-Security-Policy,CWE-644,Use of deprecated block-all-mixed-content in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/043,"home,response,headers",DAST,Use of deprecated block-all-mixed-content,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+   5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+>  6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.content_security_policy
+064. Traceability loss - Server's clock,CWE-778,Server clock is out of time 64 minutes in http://localhost:48000/headers_unsafe_0,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/064,"home,response,headers",DAST,Server clock is out of time 64 minutes,"
+   1 | > GET http://localhost:48000/headers_unsafe_0
+   2 | > ...
+   3 |
+   4 | < Server: Werkzeug/2.2.3 Python/3.11.2
+>  5 | < Date: Fri, 23 Jun 2023 14:51:23 GMT
+   6 | < Content-Security-Policy:
+   7 |     frame-src 'self' 'unsafe-inline' 'unsafe-eval';script-src http: data: *.domain.com;block-all-mixed-content;
+   8 | < X-Frame-Options: deny
+   9 | < Referrer-Policy: no-referrer-when-downgrade
+  10 | < Date: Fri, 23 Jun 2023 13:47:17 GMT
+  11 | < Content-Type: text/html
+  12 | < Content-Length: 49
+  13 | < Connection: close
+  14 |
+  15 | * EOF
+     ^ Col 0
+",analyze_headers.date
+Summary: 52 vulnerabilities were found in your targets.

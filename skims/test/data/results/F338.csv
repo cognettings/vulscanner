@@ -1,0 +1,328 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/c_sharp_insecure_rfc.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,11,"
+   1 | namespace Controllers
+   2 | {
+   3 |     public class Encrypt
+   4 |     {
+   5 |         public static void unsafe(string password)
+   6 |         {
+   7 |             String salt = ""HARDCODED_SALT"";
+   8 |             var saltBytes = Encoding.UTF8.GetBytes(salt);
+   9 |             var unsafe1 = new Rfc2898DeriveBytes(password, saltBytes);
+  10 |
+> 11 |             var unsafe2 = new Rfc2898DeriveBytes(password, Encoding.Unicode.GetBytes(""UNSAFE""));
+  12 |         }
+  13 |
+  14 |         public static void safe(string password)
+  15 |         {
+  16 |             // Create a byte array to hold the random value.
+  17 |             byte[] randomArray = new byte[8];
+  18 |             using (RNGCryptoServiceProvider rngCsp = newRNGCryptoServiceProvider())
+  19 |             {
+  20 |                 // Fill the array with a random value.
+  21 |                 rngCsp.GetBytes(randomArray);
+     ^ Col 0
+",c_sharp.csharp_check_hashes_salt
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/c_sharp_insecure_rfc.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,9,"
+   1 | namespace Controllers
+   2 | {
+   3 |     public class Encrypt
+   4 |     {
+   5 |         public static void unsafe(string password)
+   6 |         {
+   7 |             String salt = ""HARDCODED_SALT"";
+   8 |             var saltBytes = Encoding.UTF8.GetBytes(salt);
+>  9 |             var unsafe1 = new Rfc2898DeriveBytes(password, saltBytes);
+  10 |
+  11 |             var unsafe2 = new Rfc2898DeriveBytes(password, Encoding.Unicode.GetBytes(""UNSAFE""));
+  12 |         }
+  13 |
+  14 |         public static void safe(string password)
+  15 |         {
+  16 |             // Create a byte array to hold the random value.
+  17 |             byte[] randomArray = new byte[8];
+  18 |             using (RNGCryptoServiceProvider rngCsp = newRNGCryptoServiceProvider())
+  19 |             {
+  20 |                 // Fill the array with a random value.
+  21 |                 rngCsp.GetBytes(randomArray);
+     ^ Col 0
+",c_sharp.csharp_check_hashes_salt
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/dart_salt_is_hardcoded.dart,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,11,"
+   1 | import 'dart:convert';
+   2 | import 'dart:convert';
+   3 | import 'dart:math';
+   4 | import 'dart:crypto';
+   5 | const String salt = 'HARDCODED_SALT';
+   6 |
+   7 |
+   8 | String unsafeSalts(int length) {
+   9 |   const unsafe_1 = CryptoUtils.bytesToHex(""HARDCODED_SALT"");
+  10 |   const unsafe_2 = String.fromCharCodes(salt);
+> 11 |   const unsafe_3 = utf8.encode(salt);
+  12 |
+  13 |   return ""unsafe"";
+  14 | }
+  15 |
+  16 | String secureSalts(int length) {
+  17 |   var random = Random.secure();
+  18 |   var saltBytes = List<int>.generate(length, (_) => random.nextInt(256));
+  19 |   safe_1 = String.fromCharCodes(saltBytes);
+  20 |
+  21 |   var length = ""some_string"";
+     ^ Col 0
+",dart.dart_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/dart_salt_is_hardcoded.dart,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,10,"
+   1 | import 'dart:convert';
+   2 | import 'dart:convert';
+   3 | import 'dart:math';
+   4 | import 'dart:crypto';
+   5 | const String salt = 'HARDCODED_SALT';
+   6 |
+   7 |
+   8 | String unsafeSalts(int length) {
+   9 |   const unsafe_1 = CryptoUtils.bytesToHex(""HARDCODED_SALT"");
+> 10 |   const unsafe_2 = String.fromCharCodes(salt);
+  11 |   const unsafe_3 = utf8.encode(salt);
+  12 |
+  13 |   return ""unsafe"";
+  14 | }
+  15 |
+  16 | String secureSalts(int length) {
+  17 |   var random = Random.secure();
+  18 |   var saltBytes = List<int>.generate(length, (_) => random.nextInt(256));
+  19 |   safe_1 = String.fromCharCodes(saltBytes);
+  20 |
+  21 |   var length = ""some_string"";
+     ^ Col 0
+",dart.dart_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/dart_salt_is_hardcoded.dart,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,9,"
+   1 | import 'dart:convert';
+   2 | import 'dart:convert';
+   3 | import 'dart:math';
+   4 | import 'dart:crypto';
+   5 | const String salt = 'HARDCODED_SALT';
+   6 |
+   7 |
+   8 | String unsafeSalts(int length) {
+>  9 |   const unsafe_1 = CryptoUtils.bytesToHex(""HARDCODED_SALT"");
+  10 |   const unsafe_2 = String.fromCharCodes(salt);
+  11 |   const unsafe_3 = utf8.encode(salt);
+  12 |
+  13 |   return ""unsafe"";
+  14 | }
+  15 |
+  16 | String secureSalts(int length) {
+  17 |   var random = Random.secure();
+  18 |   var saltBytes = List<int>.generate(length, (_) => random.nextInt(256));
+  19 |   safe_1 = String.fromCharCodes(saltBytes);
+  20 |
+  21 |   var length = ""some_string"";
+     ^ Col 0
+",dart.dart_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/go_salt_is_hardcoded.go,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,9,"
+   1 | package main
+   2 |
+   3 | import (
+   4 |  ""golang.org/x/crypto/scrypt""
+   5 |  ""fmt""
+   6 | )
+   7 |
+   8 | func unsafeHash(password string,){
+>  9 |  unsafe1 := scrypt.Key([]byte(password), ""HARDCODED_SALT"", 16384, 8, 1, 32)
+  10 |
+  11 |  var salt = ""HARDCODED_SALT""
+  12 |  unsafe2 := scrypt.Key([]byte(password), salt, 16384, 8, 1, 32)
+  13 |
+  14 |  salt2 := []byte(""HARDCODED_SALT"")
+  15 |  unsafe3 := scrypt.Key([]byte(password), salt2, 16384, 8, 1, 32)
+  16 | }
+  17 |
+  18 | func safeHash(password string, salt []byte){
+  19 |  random_salt = []byte(""salt"") + salt
+  20 |  safe1 := scrypt.Key([]byte(password), salt1, 16384, 8, 1, 32)
+  21 |  return safe_1
+     ^ Col 0
+",go.go_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/go_salt_is_hardcoded.go,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,15,"
+   2 |
+   3 | import (
+   4 |  ""golang.org/x/crypto/scrypt""
+   5 |  ""fmt""
+   6 | )
+   7 |
+   8 | func unsafeHash(password string,){
+   9 |  unsafe1 := scrypt.Key([]byte(password), ""HARDCODED_SALT"", 16384, 8, 1, 32)
+  10 |
+  11 |  var salt = ""HARDCODED_SALT""
+  12 |  unsafe2 := scrypt.Key([]byte(password), salt, 16384, 8, 1, 32)
+  13 |
+  14 |  salt2 := []byte(""HARDCODED_SALT"")
+> 15 |  unsafe3 := scrypt.Key([]byte(password), salt2, 16384, 8, 1, 32)
+  16 | }
+  17 |
+  18 | func safeHash(password string, salt []byte){
+  19 |  random_salt = []byte(""salt"") + salt
+  20 |  safe1 := scrypt.Key([]byte(password), salt1, 16384, 8, 1, 32)
+  21 |  return safe_1
+  22 | }
+     ^ Col 0
+",go.go_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/go_salt_is_hardcoded.go,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,12,"
+   2 |
+   3 | import (
+   4 |  ""golang.org/x/crypto/scrypt""
+   5 |  ""fmt""
+   6 | )
+   7 |
+   8 | func unsafeHash(password string,){
+   9 |  unsafe1 := scrypt.Key([]byte(password), ""HARDCODED_SALT"", 16384, 8, 1, 32)
+  10 |
+  11 |  var salt = ""HARDCODED_SALT""
+> 12 |  unsafe2 := scrypt.Key([]byte(password), salt, 16384, 8, 1, 32)
+  13 |
+  14 |  salt2 := []byte(""HARDCODED_SALT"")
+  15 |  unsafe3 := scrypt.Key([]byte(password), salt2, 16384, 8, 1, 32)
+  16 | }
+  17 |
+  18 | func safeHash(password string, salt []byte){
+  19 |  random_salt = []byte(""salt"") + salt
+  20 |  safe1 := scrypt.Key([]byte(password), salt1, 16384, 8, 1, 32)
+  21 |  return safe_1
+  22 | }
+     ^ Col 0
+",go.go_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/java_salt_is_hardcoded.java,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,9,"
+   1 | import java.security.MessageDigest;
+   2 | import java.security.NoSuchAlgorithmException;
+   3 | import java.security.SecureRandom;
+   4 | import java.util.Base64;
+   5 |
+   6 | public class Examples {
+   7 |   public static void main(String[] args) {
+   8 |     String salt = ""MY_SALT"";
+>  9 |     PBEKeySpec unsafeSpec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+  10 |     unsafeSpec.update();
+  11 |
+  12 |     PBEParameterSpec unsafeSpec2 = new PBEParameterSpec(salt, 1000);
+  13 |     unsafeSpec2.update();
+  14 |
+  15 |     SecureRandom random = new SecureRandom();
+  16 |     byte[] salt = new byte[16];
+  17 |     random.nextBytes(salt);
+  18 |     KeySpec safeSpec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+  19 |     return safeSpec.update();
+  20 |   }
+  21 |
+     ^ Col 0
+",java.java_salt_is_harcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/java_salt_is_hardcoded.java,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,12,"
+   2 |  java.security.NoSuchAlgorithmException;
+   3 |  java.security.SecureRandom;
+   4 |  java.util.Base64;
+   5 |
+   6 |  class Examples {
+   7 | ic static void main(String[] args) {
+   8 | ring salt = ""MY_SALT"";
+   9 | EKeySpec unsafeSpec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+  10 | safeSpec.update();
+  11 |
+> 12 | EParameterSpec unsafeSpec2 = new PBEParameterSpec(salt, 1000);
+  13 | safeSpec2.update();
+  14 |
+  15 | cureRandom random = new SecureRandom();
+  16 | te[] salt = new byte[16];
+  17 | ndom.nextBytes(salt);
+  18 | ySpec safeSpec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+  19 | turn safeSpec.update();
+  20 |
+  21 |
+  22 | ic static String hashPassword(String password) {
+     ^ Col 6
+",java.java_salt_is_harcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/javascript_salt_is_hardcoded.js,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,5,"
+   1 | import { createHash } from ""crypto"";
+   2 |
+   3 | function unsafeHashPassword(password) {
+   4 |   const hash = createHash(""sha256"");
+>  5 |   hash.update(password + ""HARDCODED_SALT"");
+   6 | }
+   7 |
+   8 | function safeHashPassword(password) {
+   9 |   const salt = crypto.randomBytes(16).toString(""hex"");
+  10 |   const hash = crypto.createHash(""sha256"");
+  11 |   hash.update(password + salt);
+  12 | }
+  13 |
+  14 | function safeHashPassword(password) {
+  15 |   const salt = crypto.randomBytes(16).toString(""hex"");
+  16 |   const hash = crypto.createHash(""sha256"").update(`009${process.env.var}`);
+  17 |   return hash;
+  18 | }
+     ^ Col 0
+",javascript.js_salt_is_harcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/kotlin_salt_is_hardcoded.kt,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,8,"
+   1 | import java.security.MessageDigest
+   2 | import java.util.*
+   3 |
+   4 | private val SALT = ""HARDCODED_SALT""
+   5 |
+   6 | fun insecureSalt(): String {
+   7 |     val unsafe_spec = PBEParameterSpec(SALT, 10000)
+>  8 |     val unsafe_spec2 = PBEKeySpec(password, SALT, 10000, 256)
+   9 | }
+  10 |
+  11 | fun secureSalt() : String {
+  12 |     val random = SecureRandom()
+  13 |     val salt = ByteArray(16)
+  14 |     random.nextBytes(salt)
+  15 |     val safe_spec = PBEParameterSpec(salt, 10000)
+  16 |     val safe_spec2 = PBEKeySpec(password, salt, 10000, 256)
+  17 | }
+  18 |
+  19 | fun hashPasswordInsecure(password: String): String {
+  20 |     val md = MessageDigest.getInstance(""SHA-256"")
+  21 |     md.update(SALT.toByteArray())
+     ^ Col 0
+",kotlin.kotlin_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/kotlin_salt_is_hardcoded.kt,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,7,"
+   1 | import java.security.MessageDigest
+   2 | import java.util.*
+   3 |
+   4 | private val SALT = ""HARDCODED_SALT""
+   5 |
+   6 | fun insecureSalt(): String {
+>  7 |     val unsafe_spec = PBEParameterSpec(SALT, 10000)
+   8 |     val unsafe_spec2 = PBEKeySpec(password, SALT, 10000, 256)
+   9 | }
+  10 |
+  11 | fun secureSalt() : String {
+  12 |     val random = SecureRandom()
+  13 |     val salt = ByteArray(16)
+  14 |     random.nextBytes(salt)
+  15 |     val safe_spec = PBEParameterSpec(salt, 10000)
+  16 |     val safe_spec2 = PBEKeySpec(password, salt, 10000, 256)
+  17 | }
+  18 |
+  19 | fun hashPasswordInsecure(password: String): String {
+  20 |     val md = MessageDigest.getInstance(""SHA-256"")
+  21 |     md.update(SALT.toByteArray())
+     ^ Col 0
+",kotlin.kotlin_salt_is_hardcoded
+338. Insecure service configuration - Salt,CWE-749,The salt is a string that is hardcoded into the code. Which could be a security issue if an attacker were to discover the salt. in namespace/skims/test/data/lib_root/f338/typescript_salt_is_hardcoded.ts,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O,https://docs.fluidattacks.com/criteria/vulnerabilities/338,skims,SAST,5,"
+   1 | import * as crypto from 'crypto';
+   2 |
+   3 | function unsafeHashPassword(password: string): string {
+   4 |   const hash = crypto.createHash('sha256');
+>  5 |   hash.update(password + ""HARDCODED_SALT"");
+   6 |   return hash.digest(""hex"");
+   7 | }
+   8 |
+   9 | function safeHashPassword(password: string): string {
+  10 |   const salt = crypto.randomBytes(16).toString('hex');
+  11 |   const hash = crypto.createHash('sha256');
+  12 |   hash.update(password + salt);
+  13 |   return hash.digest(""hex"");
+  14 | }
+     ^ Col 0
+",typescript.ts_salt_is_harcoded
+Summary: 14 vulnerabilities were found in your targets.

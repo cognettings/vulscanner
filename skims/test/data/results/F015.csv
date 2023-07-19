@@ -1,0 +1,436 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+015. Insecure authentication method - Basic,CWE-287,Property admin_ssh_key is either missing or misconfigured in namespace/skims/test/data/lib_root/f015/azure_linux_vm_ssh.tf,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,1,"
+>  1 | resource ""azurerm_linux_virtual_machine"" ""vulnerable"" {
+   2 |   name           = ""example-machine""
+   3 |   size           = ""Standard_F2""
+   4 |   admin_username = ""adminuser""
+   5 |
+   6 | }
+   7 |
+   8 | resource ""azurerm_linux_virtual_machine"" ""not_vulnerable"" {
+   9 |   name           = ""example-machine""
+  10 |   size           = ""Standard_F2""
+  11 |   admin_username = ""adminuser""
+  12 |
+  13 |   admin_ssh_key {
+  14 |     username   = ""adminuser""
+  15 |     public_key = file(""~/.ssh/id_rsa.pub"")
+  16 |   }
+  17 | }
+     ^ Col 0
+",terraform.tfm_azure_linux_vm_insecure_authentication
+015. Insecure authentication method - Basic,CWE-287,Property ssh_keys is either missing or misconfigured in namespace/skims/test/data/lib_root/f015/azure_vm_ssh.tf,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,8,"
+   1 | resource ""azurerm_virtual_machine"" ""vulnerable"" {
+   2 |   name                  = ""${var.prefix}-vm""
+   3 |   location              = azurerm_resource_group.main.location
+   4 |   resource_group_name   = azurerm_resource_group.main.name
+   5 |   network_interface_ids = [azurerm_network_interface.main.id]
+   6 |   vm_size               = ""Standard_DS1_v2""
+   7 |
+>  8 |   os_profile_linux_config {
+   9 |     disable_password_authentication = false
+  10 |   }
+  11 | }
+  12 |
+  13 | resource ""azurerm_virtual_machine"" ""not_vulnerable"" {
+  14 |   name                  = ""${var.prefix}-vm""
+  15 |   location              = azurerm_resource_group.main.location
+  16 |   resource_group_name   = azurerm_resource_group.main.name
+  17 |   network_interface_ids = [azurerm_network_interface.main.id]
+  18 |   vm_size               = ""Standard_DS1_v2""
+  19 |
+  20 |   os_profile_linux_config {
+  21 |     disable_password_authentication = false
+     ^ Col 0
+",terraform.tfm_azure_virtual_machine_insecure_authentication
+015. Insecure authentication method - Basic,CWE-287,The application uses setHeader with Basic authentication. in namespace/skims/test/data/lib_root/f015/java_insecure_basic_authentication.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,10,"
+   1 | package mypackage.test;
+   2 |
+   3 | public class Test {
+   4 |
+   5 |   public void unsafe(String customEndPoint) throws Exception {
+   6 |
+   7 |     private String auth = ""Authorization"";
+   8 |
+   9 |     from(""testAdapter"").setHeader(""Authorization"", ""Basic "" + customEndPoint);
+> 10 |     from(""testAdapter"").setHeader(auth, ""Basic Authentication"");
+  11 |   }
+  12 |
+  13 |   public void safe(String customEndPoint) throws Exception {
+  14 |
+  15 |     private String auth = ""Authorization"";
+  16 |
+  17 |     from(""testAdapter"").setHeader(""OwnHeader"", ""Basic Authorization"");
+  18 |     from(""testAdapter"").setHeader(auth, ""SAFE"");
+  19 |   }
+  20 | }
+     ^ Col 0
+",java.java_basic_authentication
+015. Insecure authentication method - Basic,CWE-287,The application uses setHeader with Basic authentication. in namespace/skims/test/data/lib_root/f015/java_insecure_basic_authentication.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,9,"
+   1 | package mypackage.test;
+   2 |
+   3 | public class Test {
+   4 |
+   5 |   public void unsafe(String customEndPoint) throws Exception {
+   6 |
+   7 |     private String auth = ""Authorization"";
+   8 |
+>  9 |     from(""testAdapter"").setHeader(""Authorization"", ""Basic "" + customEndPoint);
+  10 |     from(""testAdapter"").setHeader(auth, ""Basic Authentication"");
+  11 |   }
+  12 |
+  13 |   public void safe(String customEndPoint) throws Exception {
+  14 |
+  15 |     private String auth = ""Authorization"";
+  16 |
+  17 |     from(""testAdapter"").setHeader(""OwnHeader"", ""Basic Authorization"");
+  18 |     from(""testAdapter"").setHeader(auth, ""SAFE"");
+  19 |   }
+  20 | }
+     ^ Col 0
+",java.java_basic_authentication
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the XML config in namespace/skims/test/data/lib_path/f015/basic_auth_method.config,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,2,"
+  1 | <login-config>
+> 2 |     <auth-method>BASIC</auth-method>
+  3 | </login-config>
+  4 |
+  5 | <login-config>
+  6 |     <auth-method>FORM</auth-method>
+  7 | </login-config>
+    ^ Col 0
+",conf_files.xml_basic_auth_method
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,19,"
+    9 |       <hashTree>
+   10 |         <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""IAMST-31 : SSO - Travelo
+   11 |         <hashTree>
+   12 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Create User and Role -
+   13 |           <hashTree>
+   14 |             <hashTree/>
+   15 |             <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""true""
+   16 |               <collectionProp name=""HeaderManager.headers"">
+   17 |                 <elementProp name="""" elementType=""Header"">
+   18 |                   <stringProp name=""Header.name"">Authorization</stringProp>
+>  19 |                   <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+   20 |                 </elementProp>
+   21 |               </collectionProp>
+   22 |             </HeaderManager>
+   23 |             <hashTree/>
+   24 |           </hashTree>
+   25 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Playground SP creation
+   26 |           <hashTree>
+   27 |             <hashTree/>
+   28 |             <CookieManager guiclass=""CookiePanel"" testclass=""CookieManager"" testname=""HTTP Cookie Manager"" enabled=""true""
+   29 |               <collectionProp name=""CookieManager.cookies""/>
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,46,"
+   36 |                   <elementProp name="""" elementType=""Header"">
+   37 |                     <stringProp name=""Header.name"">SOAPAction</stringProp>
+   38 |                     <stringProp name=""Header.value"">urn:createApplication</stringProp>
+   39 |                   </elementProp>
+   40 |                   <elementProp name="""" elementType=""Header"">
+   41 |                     <stringProp name=""Header.name"">Content-Type</stringProp>
+   42 |                     <stringProp name=""Header.value"">text/xml</stringProp>
+   43 |                   </elementProp>
+   44 |                   <elementProp name="""" elementType=""Header"">
+   45 |                     <stringProp name=""Header.name"">Authorization</stringProp>
+>  46 |                     <stringProp name=""Header.value"">Basic 101jfaa{}][asdh</stringProp>
+   47 |                   </elementProp>
+   48 |                 </collectionProp>
+   49 |               </HeaderManager>
+   50 |               <hashTree/>
+   51 |               <hashTree/>
+   52 |             </hashTree>
+   53 |             <hashTree>
+   54 |               <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""tru
+   55 |                 <collectionProp name=""HeaderManager.headers"">
+   56 |                   <elementProp name="""" elementType=""Header"">
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,66,"
+   56 |                   <elementProp name="""" elementType=""Header"">
+   57 |                     <stringProp name=""Header.name"">SOAPAction</stringProp>
+   58 |                     <stringProp name=""Header.value"">urn:getServiceProviders</stringProp>
+   59 |                   </elementProp>
+   60 |                   <elementProp name="""" elementType=""Header"">
+   61 |                     <stringProp name=""Header.name"">Content-Type</stringProp>
+   62 |                     <stringProp name=""Header.value"">text/xml</stringProp>
+   63 |                   </elementProp>
+   64 |                   <elementProp name="""" elementType=""Header"">
+   65 |                     <stringProp name=""Header.name"">Authorization</stringProp>
+>  66 |                     <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+   67 |                   </elementProp>
+   68 |                 </collectionProp>
+   69 |               </HeaderManager>
+   70 |               <hashTree/>
+   71 |               <hashTree/>
+   72 |               <hashTree/>
+   73 |             </hashTree>
+   74 |             <hashTree>
+   75 |               <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""tru
+   76 |                 <collectionProp name=""HeaderManager.headers"">
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,87,"
+   77 |                   <elementProp name="""" elementType=""Header"">
+   78 |                     <stringProp name=""Header.name"">SOAPAction</stringProp>
+   79 |                     <stringProp name=""Header.value"">urn:getApplication</stringProp>
+   80 |                   </elementProp>
+   81 |                   <elementProp name="""" elementType=""Header"">
+   82 |                     <stringProp name=""Header.name"">Content-Type</stringProp>
+   83 |                     <stringProp name=""Header.value"">text/xml</stringProp>
+   84 |                   </elementProp>
+   85 |                   <elementProp name="""" elementType=""Header"">
+   86 |                     <stringProp name=""Header.name"">Authorization</stringProp>
+>  87 |                     <stringProp name=""Header.value"">Basic 12jlkasd123{ada+</stringProp>
+   88 |                   </elementProp>
+   89 |                 </collectionProp>
+   90 |               </HeaderManager>
+   91 |               <hashTree/>
+   92 |               <hashTree/>
+   93 |               <hashTree/>
+   94 |             </hashTree>
+   95 |             <hashTree>
+   96 |               <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""tru
+   97 |                 <collectionProp name=""HeaderManager.headers"">
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,108,"
+   98 |                   <elementProp name="""" elementType=""Header"">
+   99 |                     <stringProp name=""Header.name"">SOAPAction</stringProp>
+  100 |                     <stringProp name=""Header.value"">urn:updateApplication</stringProp>
+  101 |                   </elementProp>
+  102 |                   <elementProp name="""" elementType=""Header"">
+  103 |                     <stringProp name=""Header.name"">Content-Type</stringProp>
+  104 |                     <stringProp name=""Header.value"">text/xml</stringProp>
+  105 |                   </elementProp>
+  106 |                   <elementProp name="""" elementType=""Header"">
+  107 |                     <stringProp name=""Header.name"">Authorization</stringProp>
+> 108 |                     <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+  109 |                   </elementProp>
+  110 |                 </collectionProp>
+  111 |               </HeaderManager>
+  112 |               <hashTree/>
+  113 |               <hashTree/>
+  114 |             </hashTree>
+  115 |           </hashTree>
+  116 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Travelocity SP creatio
+  117 |           <hashTree>
+  118 |             <hashTree/>
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,128,"
+  118 |             <hashTree/>
+  119 |             <CookieManager guiclass=""CookiePanel"" testclass=""CookieManager"" testname=""HTTP Cookie Manager"" enabled=""true""
+  120 |               <collectionProp name=""CookieManager.cookies""/>
+  121 |               <boolProp name=""CookieManager.clearEachIteration"">false</boolProp>
+  122 |             </CookieManager>
+  123 |             <hashTree/>
+  124 |             <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""true""
+  125 |               <collectionProp name=""HeaderManager.headers"">
+  126 |                 <elementProp name="""" elementType=""Header"">
+  127 |                   <stringProp name=""Header.name"">Authorization</stringProp>
+> 128 |                   <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+  129 |                 </elementProp>
+  130 |               </collectionProp>
+  131 |             </HeaderManager>
+  132 |             <hashTree/>
+  133 |           </hashTree>
+  134 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Cleanup - SSO SP creat
+  135 |             <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""true""
+  136 |               <collectionProp name=""HeaderManager.headers"">
+  137 |                 <elementProp name="""" elementType=""Header"">
+  138 |                   <stringProp name=""Header.name"">Authorization</stringProp>
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,139,"
+  129 |                 </elementProp>
+  130 |               </collectionProp>
+  131 |             </HeaderManager>
+  132 |             <hashTree/>
+  133 |           </hashTree>
+  134 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Cleanup - SSO SP creat
+  135 |             <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""true""
+  136 |               <collectionProp name=""HeaderManager.headers"">
+  137 |                 <elementProp name="""" elementType=""Header"">
+  138 |                   <stringProp name=""Header.name"">Authorization</stringProp>
+> 139 |                   <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+  140 |                 </elementProp>
+  141 |               </collectionProp>
+  142 |             </HeaderManager>
+  143 |             <hashTree/>
+  144 |             <hashTree>
+  145 |             <hashTree/>
+  146 |             </hashTree>
+  147 |             <hashTree>
+  148 |           </hashTree>
+  149 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Cleanup - Playground a
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,157,"
+  147 |             <hashTree>
+  148 |           </hashTree>
+  149 |           <GenericController guiclass=""LogicControllerGui"" testclass=""GenericController"" testname=""Cleanup - Playground a
+  150 |           <hashTree>
+  151 |             <hashTree/>
+  152 |             <hashTree/>
+  153 |             <HeaderManager guiclass=""HeaderPanel"" testclass=""HeaderManager"" testname=""HTTP Header Manager"" enabled=""true""
+  154 |               <collectionProp name=""HeaderManager.headers"">
+  155 |                 <elementProp name="""" elementType=""Header"">
+  156 |                   <stringProp name=""Header.name"">Authorization</stringProp>
+> 157 |                   <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+  158 |                 </elementProp>
+  159 |               </collectionProp>
+  160 |             </HeaderManager>
+  161 |             <hashTree/>
+  162 |             <hashTree>
+  163 |               <hashTree/>
+  164 |               <hashTree/>
+  165 |             </hashTree>
+  166 |             <hashTree>
+  167 |               <hashTree/>
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The basic method is used in the headers in namespace/skims/test/data/lib_path/f015/jmx_header_basic.jmx,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,180,"
+  170 |                   <elementProp name="""" elementType=""Header"">
+  171 |                     <stringProp name=""Header.name"">SOAPAction</stringProp>
+  172 |                     <stringProp name=""Header.value"">urn:deleteApplication</stringProp>
+  173 |                   </elementProp>
+  174 |                   <elementProp name="""" elementType=""Header"">
+  175 |                     <stringProp name=""Header.name"">Content-Type</stringProp>
+  176 |                     <stringProp name=""Header.value"">text/xml</stringProp>
+  177 |                   </elementProp>
+  178 |                   <elementProp name="""" elementType=""Header"">
+  179 |                     <stringProp name=""Header.name"">Authorization</stringProp>
+> 180 |                     <stringProp name=""Header.value"">Basic ${base64HeaderValue}</stringProp>
+  181 |                   </elementProp>
+  182 |                 </collectionProp>
+  183 |               </HeaderManager>
+  184 |               <hashTree/>
+  185 |             </hashTree>
+  186 |           </hashTree>
+  187 |         </hashTree>
+  188 |         <hashTree/>
+  189 |       </hashTree>
+  190 |     </hashTree>
+      ^ Col 0
+",conf_files.jmx_header_basic
+015. Insecure authentication method - Basic,CWE-287,The server uses Basic authentication over an insecure channel. in namespace/skims/test/data/lib_root/f015/java_insecure_authentication.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,9,"
+   1 | import AnyOtherClass;
+   2 |
+   3 | public class MustFail {
+   4 |   public void objectCreation() {
+   5 |     HttpHeaders instantiatedHeaders = new HttpHeaders();
+   6 |     instantiatedHeaders.setBasicAuth();
+   7 |   }
+   8 |   public void parameter(HttpHeaders parameterHeaders) {
+>  9 |     parameterHeaders.setBasicAuth();
+  10 |   }
+  11 |   public void fromGetHeaders(){
+  12 |     AnyClass anyObject;
+  13 |
+  14 |     anyObject = request.getHeaders();
+  15 |     anyObject.setBasicAuth();
+  16 |   }
+  17 | }
+  18 |
+  19 | public class MustNotFail {
+  20 |   public void objectCreation() {
+  21 |     AnyOtherClass instantiatedHeaders = new AnyOtherClass();
+     ^ Col 0
+",java.java_insecure_authentication
+015. Insecure authentication method - Basic,CWE-287,The server uses Basic authentication over an insecure channel. in namespace/skims/test/data/lib_root/f015/java_insecure_authentication.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,6,"
+   1 | import AnyOtherClass;
+   2 |
+   3 | public class MustFail {
+   4 |   public void objectCreation() {
+   5 |     HttpHeaders instantiatedHeaders = new HttpHeaders();
+>  6 |     instantiatedHeaders.setBasicAuth();
+   7 |   }
+   8 |   public void parameter(HttpHeaders parameterHeaders) {
+   9 |     parameterHeaders.setBasicAuth();
+  10 |   }
+  11 |   public void fromGetHeaders(){
+  12 |     AnyClass anyObject;
+  13 |
+  14 |     anyObject = request.getHeaders();
+  15 |     anyObject.setBasicAuth();
+  16 |   }
+  17 | }
+  18 |
+  19 | public class MustNotFail {
+  20 |   public void objectCreation() {
+  21 |     AnyOtherClass instantiatedHeaders = new AnyOtherClass();
+     ^ Col 0
+",java.java_insecure_authentication
+015. Insecure authentication method - Basic,CWE-287,The server uses Basic authentication over an insecure channel. in namespace/skims/test/data/lib_root/f015/java_insecure_authentication.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,15,"
+   5 |     HttpHeaders instantiatedHeaders = new HttpHeaders();
+   6 |     instantiatedHeaders.setBasicAuth();
+   7 |   }
+   8 |   public void parameter(HttpHeaders parameterHeaders) {
+   9 |     parameterHeaders.setBasicAuth();
+  10 |   }
+  11 |   public void fromGetHeaders(){
+  12 |     AnyClass anyObject;
+  13 |
+  14 |     anyObject = request.getHeaders();
+> 15 |     anyObject.setBasicAuth();
+  16 |   }
+  17 | }
+  18 |
+  19 | public class MustNotFail {
+  20 |   public void objectCreation() {
+  21 |     AnyOtherClass instantiatedHeaders = new AnyOtherClass();
+  22 |     instantiatedHeaders.setBasicAuth();
+  23 |   }
+  24 |   public void parameter(AnyOtherClass parameterHeaders) {
+  25 |     parameterHeaders.setBasicAuth();
+     ^ Col 0
+",java.java_insecure_authentication
+015. Insecure authentication method - Basic,CWE-319,The basic method is used in the headers in namespace/skims/test/data/lib_root/f015/py_unsafe_basic_auth.py,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:H/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,16,"
+   6 | import os
+   7 | from typing import (
+   8 |     Any,
+   9 | )
+  10 |
+  11 |
+  12 | async def danger_func() -> Any:
+  13 |     url = ""test.com""
+  14 |     try:
+  15 |         async with aiohttp.ClientSession() as session:
+> 16 |             async with session.get(
+  17 |                 headers={
+  18 |                     ""accept"": ""text/html"",
+  19 |                     ""authorization"": f""Basic {os.environ['API_TOKEN']}"",
+  20 |                 },
+  21 |                 url=url,
+  22 |             ) as response:
+  23 |                 if response.status == 200:
+  24 |                     data = await response.text()
+  25 |                     return [
+  26 |                         json.loads(item) for item in data.split(""\n"") if item
+     ^ Col 0
+",python.python_insecure_authentication
+015. Insecure authentication method - Basic,CWE-319,The server uses Basic authentication over an insecure channel. in namespace/skims/test/data/lib_root/f015/c_sharp_insecure_auth.cs,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:H/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/015,skims,SAST,15,"
+   1 | using System;
+   2 |
+   3 | namespace TestSpace
+   4 | {
+   5 |   public class Test
+   6 |   {
+   7 |     string url;
+   8 |
+   9 |     WebResponse TestResponse(){
+  10 |       WebRequest cRequest = WebRequest.Create(url);
+  11 |       cRequest.Method = ""post"";
+  12 |       cRequest.ContentType = ""application/json;charset=UTF-8"";
+  13 |       cRequest.PreAuthenticate = true;
+  14 |       String my_str = ""Base64"";
+> 15 |       cRequest.Headers.Add(""Authorization"", ""Basic "" + my_str);
+  16 |       return cRequest;
+  17 |     }
+  18 |   }
+  19 | }
+     ^ Col 0
+",c_sharp.c_sharp_insecure_authentication
+Summary: 19 vulnerabilities were found in your targets.

@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rss-site
+  labels:
+    app: web
+spec:
+  privileged: true
+  containers:
+    - name: front-end
+      image: nginx
+      ports:
+        - containerPort: 80
+      securityContext:
+        privileged: true
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        seccompProfile:
+          type: confined

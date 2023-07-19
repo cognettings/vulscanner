@@ -1,0 +1,38 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+358. Insecure service configuration - DocumentBuilderFactory,CWE-295,The function assigned to ServicePointManager.ServerCertificateValidationCallback always returns True. in namespace/skims/test/data/lib_root/f358/cs_cert_val_disabled_i.cs,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/358,skims,SAST,7,"
+  1 | using System.Net;
+  2 |
+  3 | class ExampleClass
+  4 | {
+  5 |     public void ExampleMethod()
+  6 |     {
+> 7 |         ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, error) => { return true; };
+  8 |     }
+  9 | }
+    ^ Col 0
+",c_sharp.csharp_cert_validation_disabled
+358. Insecure service configuration - DocumentBuilderFactory,CWE-295,The function assigned to ServicePointManager.ServerCertificateValidationCallback always returns True. in namespace/skims/test/data/lib_root/f358/cs_cert_val_disabled_ii.cs,CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/358,skims,SAST,9,"
+   1 | using System.Net;
+   2 | using System.Net.Security;
+   3 | using System.Security.Cryptography.X509Certificates;
+   4 |
+   5 | class ExampleClass
+   6 | {
+   7 |     public void ExampleMethod()
+   8 |     {
+>  9 |         ServicePointManager.ServerCertificateValidationCallback += SelfSignedForLocalhost;
+  10 |     }
+  11 |
+  12 |     private static bool SelfSignedForLocalhost(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErro
+  13 |     {
+  14 |         if (sslPolicyErrors == SslPolicyErrors.None)
+  15 |         {
+  16 |             return true;
+  17 |         }
+  18 |
+  19 |         int num1 = 10;
+  20 |         int num2 = 5;
+  21 |         int result = num1 + num2;
+     ^ Col 0
+",c_sharp.csharp_cert_validation_disabled
+Summary: 2 vulnerabilities were found in your targets.

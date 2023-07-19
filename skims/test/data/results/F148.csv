@@ -1,0 +1,20 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+148. Use of an insecure channel - FTP,CWE-319,"Customer information is transmitted over a channel that does not use encryption, so credentials and confidential information can be captured in plain text. in namespace/skims/test/data/lib_root/f148/c_sharp_ftp_insecure_method.cs",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/148,skims,SAST,8,"
+   1 | sing System;
+   2 | ystem.Net;
+   3 | ystem.Net.FtpClient;
+   4 |
+   5 | ce Examples {
+   6 | lic static class ConnectExample {
+   7 |  public static void Connect() {
+>  8 |      using (FtpClient conn = new FtpClient()) {
+   9 |          conn.Host = ""localhost"";
+  10 |          conn.Credentials = new NetworkCredential(""ftptest"", ""ftptest"");
+  11 |          conn.Connect();
+  12 |      }
+  13 |  }
+  14 |
+  15 |
+     ^ Col 7
+",c_sharp.cs_insecure_channel
+Summary: 1 vulnerabilities were found in your targets.

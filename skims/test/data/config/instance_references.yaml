@@ -1,0 +1,15 @@
+---
+checks:
+  - F034
+namespace: OWASP
+output:
+  file_path: skims/test/outputs/instance_references.csv
+  format: CSV
+sast:
+  include:
+    - App.java
+    - User.java
+    - Generate.java
+  lib_path: false
+  lib_root: true
+working_dir: skims/test/data/graphs/owasp

@@ -1,0 +1,1010 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00012.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,69,"
+   59 |   String base = ""ou=users,ou=system"";
+   60 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   61 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   62 |   String filter = ""(&(objectclass=person))(|(uid=""+param+"")(street={0}))"";
+   63 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   64 |
+   65 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   66 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   67 |   boolean found = false;
+   68 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  69 |     idc.search(base, filter,filters, sc);
+   70 |   while (results.hasMore()) {
+   71 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   72 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   73 |
+   74 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   75 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   76 |    if (attr != null){
+   77 |     response.getWriter().println(
+   78 |      ""LDAP query results:<br>""
+   79 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00021.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,60,"
+  50 |
+  51 | );
+  52 | rContext();
+  53 |
+  54 | vax.naming.directory.SearchControls();
+  55 | ntrols.SUBTREE_SCOPE);
+  56 | param+"")(street={0}))"";
+  57 |  bar""};
+  58 |
+  59 |
+> 60 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+  61 |
+  62 | naming.directory.SearchResult) results.next();
+  63 | Attributes();
+  64 |
+  65 | t(""uid"");
+  66 | et(""street"");
+  67 |
+  68 |
+  69 |
+  70 | r>""
+     ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00044.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,63,"
+  53 |
+  54 | );
+  55 | rContext();
+  56 |
+  57 | vax.naming.directory.SearchControls();
+  58 | ntrols.SUBTREE_SCOPE);
+  59 | aram
+  60 |
+  61 |
+  62 |
+> 63 | tory.SearchResult> results = ctx.search(base, filter, sc);
+  64 |
+  65 | naming.directory.SearchResult) results.next();
+  66 | Attributes();
+  67 |
+  68 | t(""uid"");
+  69 | et(""street"");
+  70 |
+  71 |
+  72 |
+  73 | r>""
+     ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00138.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,74,"
+   64 |   String base = ""ou=users,ou=system"";
+   65 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   66 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   67 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   68 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   69 |
+   70 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   71 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   72 |   boolean found = false;
+   73 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  74 |     idc.search(base, filter,filters, sc);
+   75 |   while (results.hasMore()) {
+   76 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   77 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   78 |
+   79 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   80 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   81 |    if (attr != null){
+   82 |     response.getWriter().println(
+   83 |      ""LDAP query results:<br>""
+   84 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00530.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,96,"
+   86 |   String base = ""ou=users,ou=system"";
+   87 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   88 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   89 |   String filter = ""(&(objectclass=person)(uid="" + bar
+   90 |     + ""))"";
+   91 |
+   92 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   93 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   94 |   boolean found = false;
+   95 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  96 |     idc.search(base, filter, sc);
+   97 |
+   98 |   while (results.hasMore()) {
+   99 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+  100 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+  101 |
+  102 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+  103 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+  104 |    if (attr != null){
+  105 |     response.getWriter().println(
+  106 |      ""LDAP query results:<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00694.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+  54 |
+  55 | );
+  56 | rContext();
+  57 |
+  58 | vax.naming.directory.SearchControls();
+  59 | ntrols.SUBTREE_SCOPE);
+  60 | ar
+  61 |
+  62 |
+  63 |
+> 64 | tory.SearchResult> results = ctx.search(base, filter, sc);
+  65 |
+  66 | naming.directory.SearchResult) results.next();
+  67 | Attributes();
+  68 |
+  69 | t(""uid"");
+  70 | et(""street"");
+  71 |
+  72 |
+  73 |
+  74 | r>""
+     ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00695.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,69,"
+   59 |
+   60 | );
+   61 | rContext();
+   62 |
+   63 | vax.naming.directory.SearchControls();
+   64 | ntrols.SUBTREE_SCOPE);
+   65 | ar
+   66 |
+   67 |
+   68 |
+>  69 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   70 |
+   71 | naming.directory.SearchResult) results.next();
+   72 | Attributes();
+   73 |
+   74 | t(""uid"");
+   75 | et(""street"");
+   76 |
+   77 |
+   78 |
+   79 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00947.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,76,"
+   66 |
+   67 | );
+   68 | rContext();
+   69 |
+   70 | vax.naming.directory.SearchControls();
+   71 | ntrols.SUBTREE_SCOPE);
+   72 | bar+"")(street={0}))"";
+   73 |  bar""};
+   74 |
+   75 |
+>  76 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   77 |
+   78 | naming.directory.SearchResult) results.next();
+   79 | Attributes();
+   80 |
+   81 | t(""uid"");
+   82 | et(""street"");
+   83 |
+   84 |
+   85 |
+   86 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00948.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,76,"
+   66 |
+   67 | );
+   68 | rContext();
+   69 |
+   70 | vax.naming.directory.SearchControls();
+   71 | ntrols.SUBTREE_SCOPE);
+   72 | ar
+   73 |
+   74 |
+   75 |
+>  76 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   77 |
+   78 | naming.directory.SearchResult) results.next();
+   79 | Attributes();
+   80 |
+   81 | t(""uid"");
+   82 | et(""street"");
+   83 |
+   84 |
+   85 |
+   86 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00959.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,78,"
+   68 |   String base = ""ou=users,ou=system"";
+   69 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   70 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   71 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   72 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   73 |
+   74 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   75 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   76 |   boolean found = false;
+   77 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  78 |     idc.search(base, filter,filters, sc);
+   79 |   while (results.hasMore()) {
+   80 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   81 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   82 |
+   83 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   84 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   85 |    if (attr != null){
+   86 |     response.getWriter().println(
+   87 |      ""LDAP query results:<br>""
+   88 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01023.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | bar+"")(street={0}))"";
+   61 |  bar""};
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01024.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | bar+"")(street={0}))"";
+   61 |  bar""};
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01154.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,66,"
+   56 |
+   57 | );
+   58 | rContext();
+   59 |
+   60 | vax.naming.directory.SearchControls();
+   61 | ntrols.SUBTREE_SCOPE);
+   62 | bar+"")(street={0}))"";
+   63 |  bar""};
+   64 |
+   65 |
+>  66 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   67 |
+   68 | naming.directory.SearchResult) results.next();
+   69 | Attributes();
+   70 |
+   71 | t(""uid"");
+   72 | et(""street"");
+   73 |
+   74 |
+   75 |
+   76 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01241.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,61,"
+   51 |   String base = ""ou=users,ou=system"";
+   52 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   53 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   54 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   55 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   56 |
+   57 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   58 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   59 |   boolean found = false;
+   60 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  61 |     idc.search(base, filter,filters, sc);
+   62 |   while (results.hasMore()) {
+   63 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   64 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   65 |
+   66 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   67 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   68 |    if (attr != null){
+   69 |     response.getWriter().println(
+   70 |      ""LDAP query results:<br>""
+   71 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01242.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,61,"
+   51 |   String base = ""ou=users,ou=system"";
+   52 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   53 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   54 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   55 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   56 |
+   57 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   58 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   59 |   boolean found = false;
+   60 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  61 |     idc.search(base, filter,filters, sc);
+   62 |   while (results.hasMore()) {
+   63 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   64 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   65 |
+   66 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   67 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   68 |    if (attr != null){
+   69 |     response.getWriter().println(
+   70 |      ""LDAP query results:<br>""
+   71 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01243.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,61,"
+   51 |   String base = ""ou=users,ou=system"";
+   52 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   53 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   54 |   String filter = ""(&(objectclass=person)(uid="" + bar
+   55 |     + ""))"";
+   56 |
+   57 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   58 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   59 |   boolean found = false;
+   60 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  61 |     idc.search(base, filter, sc);
+   62 |
+   63 |   while (results.hasMore()) {
+   64 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   65 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   66 |
+   67 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   68 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   69 |    if (attr != null){
+   70 |     response.getWriter().println(
+   71 |      ""LDAP query results:<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01326.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | bar+"")(street={0}))"";
+   61 |  bar""};
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01327.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | bar+"")(street={0}))"";
+   61 |  bar""};
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01402.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,73,"
+   63 |
+   64 | );
+   65 | rContext();
+   66 |
+   67 | vax.naming.directory.SearchControls();
+   68 | ntrols.SUBTREE_SCOPE);
+   69 | bar+"")(street={0}))"";
+   70 |  bar""};
+   71 |
+   72 |
+>  73 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   74 |
+   75 | naming.directory.SearchResult) results.next();
+   76 | Attributes();
+   77 |
+   78 | t(""uid"");
+   79 | et(""street"");
+   80 |
+   81 |
+   82 |
+   83 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01568.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,62,"
+   52 |
+   53 | );
+   54 | rContext();
+   55 |
+   56 | vax.naming.directory.SearchControls();
+   57 | ntrols.SUBTREE_SCOPE);
+   58 | ar
+   59 |
+   60 |
+   61 |
+>  62 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   63 |
+   64 | naming.directory.SearchResult) results.next();
+   65 | Attributes();
+   66 |
+   67 | t(""uid"");
+   68 | et(""street"");
+   69 |
+   70 |
+   71 |
+   72 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01569.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,62,"
+   52 |
+   53 | );
+   54 | rContext();
+   55 |
+   56 | vax.naming.directory.SearchControls();
+   57 | ntrols.SUBTREE_SCOPE);
+   58 | ar
+   59 |
+   60 |
+   61 |
+>  62 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   63 |
+   64 | naming.directory.SearchResult) results.next();
+   65 | Attributes();
+   66 |
+   67 | t(""uid"");
+   68 | et(""street"");
+   69 |
+   70 |
+   71 |
+   72 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01831.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,76,"
+   66 |
+   67 | );
+   68 | rContext();
+   69 |
+   70 | vax.naming.directory.SearchControls();
+   71 | ntrols.SUBTREE_SCOPE);
+   72 | bar+"")(street={0}))"";
+   73 |  bar""};
+   74 |
+   75 |
+>  76 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   77 |
+   78 | naming.directory.SearchResult) results.next();
+   79 | Attributes();
+   80 |
+   81 | t(""uid"");
+   82 | et(""street"");
+   83 |
+   84 |
+   85 |
+   86 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01832.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,76,"
+   66 |
+   67 | );
+   68 | rContext();
+   69 |
+   70 | vax.naming.directory.SearchControls();
+   71 | ntrols.SUBTREE_SCOPE);
+   72 | bar+"")(street={0}))"";
+   73 |  bar""};
+   74 |
+   75 |
+>  76 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   77 |
+   78 | naming.directory.SearchResult) results.next();
+   79 | Attributes();
+   80 |
+   81 | t(""uid"");
+   82 | et(""street"");
+   83 |
+   84 |
+   85 |
+   86 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01902.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | ar
+   61 |
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01903.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | ar
+   61 |
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01909.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,66,"
+   56 |   String base = ""ou=users,ou=system"";
+   57 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   58 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   59 |   String filter = ""(&(objectclass=person)(uid="" + bar
+   60 |     + ""))"";
+   61 |
+   62 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   63 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   64 |   boolean found = false;
+   65 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  66 |     idc.search(base, filter, sc);
+   67 |
+   68 |   while (results.hasMore()) {
+   69 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   70 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   71 |
+   72 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   73 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   74 |    if (attr != null){
+   75 |     response.getWriter().println(
+   76 |      ""LDAP query results:<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02025.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,66,"
+   56 |
+   57 | );
+   58 | rContext();
+   59 |
+   60 | vax.naming.directory.SearchControls();
+   61 | ntrols.SUBTREE_SCOPE);
+   62 | ar
+   63 |
+   64 |
+   65 |
+>  66 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   67 |
+   68 | naming.directory.SearchResult) results.next();
+   69 | Attributes();
+   70 |
+   71 | t(""uid"");
+   72 | et(""street"");
+   73 |
+   74 |
+   75 |
+   76 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02036.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,68,"
+   58 |   String base = ""ou=users,ou=system"";
+   59 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   60 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   61 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   62 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   63 |
+   64 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   65 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   66 |   boolean found = false;
+   67 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  68 |     idc.search(base, filter,filters, sc);
+   69 |   while (results.hasMore()) {
+   70 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   71 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   72 |
+   73 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   74 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   75 |    if (attr != null){
+   76 |     response.getWriter().println(
+   77 |      ""LDAP query results:<br>""
+   78 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02037.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,68,"
+   58 |   String base = ""ou=users,ou=system"";
+   59 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   60 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   61 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   62 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   63 |
+   64 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   65 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   66 |   boolean found = false;
+   67 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  68 |     idc.search(base, filter,filters, sc);
+   69 |   while (results.hasMore()) {
+   70 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   71 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   72 |
+   73 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   74 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   75 |    if (attr != null){
+   76 |     response.getWriter().println(
+   77 |      ""LDAP query results:<br>""
+   78 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02104.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,59,"
+   49 |
+   50 | );
+   51 | rContext();
+   52 |
+   53 | vax.naming.directory.SearchControls();
+   54 | ntrols.SUBTREE_SCOPE);
+   55 | bar+"")(street={0}))"";
+   56 |  bar""};
+   57 |
+   58 |
+>  59 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   60 |
+   61 | naming.directory.SearchResult) results.next();
+   62 | Attributes();
+   63 |
+   64 | t(""uid"");
+   65 | et(""street"");
+   66 |
+   67 |
+   68 |
+   69 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02114.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,61,"
+   51 |   String base = ""ou=users,ou=system"";
+   52 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   53 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   54 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   55 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   56 |
+   57 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   58 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   59 |   boolean found = false;
+   60 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  61 |     idc.search(base, filter,filters, sc);
+   62 |   while (results.hasMore()) {
+   63 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   64 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   65 |
+   66 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   67 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   68 |    if (attr != null){
+   69 |     response.getWriter().println(
+   70 |      ""LDAP query results:<br>""
+   71 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02115.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,61,"
+   51 |   String base = ""ou=users,ou=system"";
+   52 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   53 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   54 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   55 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   56 |
+   57 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   58 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   59 |   boolean found = false;
+   60 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  61 |     idc.search(base, filter,filters, sc);
+   62 |   while (results.hasMore()) {
+   63 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   64 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   65 |
+   66 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   67 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   68 |    if (attr != null){
+   69 |     response.getWriter().println(
+   70 |      ""LDAP query results:<br>""
+   71 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02116.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,61,"
+   51 |   String base = ""ou=users,ou=system"";
+   52 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   53 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   54 |   String filter = ""(&(objectclass=person)(uid="" + bar
+   55 |     + ""))"";
+   56 |
+   57 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   58 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   59 |   boolean found = false;
+   60 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  61 |     idc.search(base, filter, sc);
+   62 |
+   63 |   while (results.hasMore()) {
+   64 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   65 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   66 |
+   67 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   68 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   69 |    if (attr != null){
+   70 |     response.getWriter().println(
+   71 |      ""LDAP query results:<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02196.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |
+   55 | );
+   56 | rContext();
+   57 |
+   58 | vax.naming.directory.SearchControls();
+   59 | ntrols.SUBTREE_SCOPE);
+   60 | ar
+   61 |
+   62 |
+   63 |
+>  64 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   65 |
+   66 | naming.directory.SearchResult) results.next();
+   67 | Attributes();
+   68 |
+   69 | t(""uid"");
+   70 | et(""street"");
+   71 |
+   72 |
+   73 |
+   74 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02208.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,66,"
+   56 |   String base = ""ou=users,ou=system"";
+   57 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   58 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   59 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   60 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   61 |
+   62 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   63 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   64 |   boolean found = false;
+   65 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  66 |     idc.search(base, filter,filters, sc);
+   67 |   while (results.hasMore()) {
+   68 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   69 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   70 |
+   71 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   72 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   73 |    if (attr != null){
+   74 |     response.getWriter().println(
+   75 |      ""LDAP query results:<br>""
+   76 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02299.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,73,"
+   63 |
+   64 | );
+   65 | rContext();
+   66 |
+   67 | vax.naming.directory.SearchControls();
+   68 | ntrols.SUBTREE_SCOPE);
+   69 | ar
+   70 |
+   71 |
+   72 |
+>  73 | tory.SearchResult> results = ctx.search(base, filter, sc);
+   74 |
+   75 | naming.directory.SearchResult) results.next();
+   76 | Attributes();
+   77 |
+   78 | t(""uid"");
+   79 | et(""street"");
+   80 |
+   81 |
+   82 |
+   83 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02305.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,75,"
+   65 |   String base = ""ou=users,ou=system"";
+   66 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   67 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   68 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   69 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   70 |
+   71 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   72 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   73 |   boolean found = false;
+   74 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  75 |     idc.search(base, filter,filters, sc);
+   76 |   while (results.hasMore()) {
+   77 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   78 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   79 |
+   80 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   81 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   82 |    if (attr != null){
+   83 |     response.getWriter().println(
+   84 |      ""LDAP query results:<br>""
+   85 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02306.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,75,"
+   65 |   String base = ""ou=users,ou=system"";
+   66 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   67 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   68 |   String filter = ""(&(objectclass=person)(uid="" + bar
+   69 |     + ""))"";
+   70 |
+   71 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   72 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   73 |   boolean found = false;
+   74 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  75 |     idc.search(base, filter, sc);
+   76 |
+   77 |   while (results.hasMore()) {
+   78 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   79 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   80 |
+   81 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   82 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   83 |    if (attr != null){
+   84 |     response.getWriter().println(
+   85 |      ""LDAP query results:<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02472.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,64,"
+   54 |   String base = ""ou=users,ou=system"";
+   55 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   56 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   57 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   58 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   59 |
+   60 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   61 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   62 |   boolean found = false;
+   63 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  64 |     idc.search(base, filter,filters, sc);
+   65 |   while (results.hasMore()) {
+   66 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   67 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   68 |
+   69 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   70 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   71 |    if (attr != null){
+   72 |     response.getWriter().println(
+   73 |      ""LDAP query results:<br>""
+   74 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02553.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,73,"
+   63 |
+   64 | );
+   65 | rContext();
+   66 |
+   67 | vax.naming.directory.SearchControls();
+   68 | ntrols.SUBTREE_SCOPE);
+   69 | bar+"")(street={0}))"";
+   70 |  bar""};
+   71 |
+   72 |
+>  73 | tory.SearchResult> results = ctx.search(base, filter,filters, sc);
+   74 |
+   75 | naming.directory.SearchResult) results.next();
+   76 | Attributes();
+   77 |
+   78 | t(""uid"");
+   79 | et(""street"");
+   80 |
+   81 |
+   82 |
+   83 | r>""
+      ^ Col 51
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02571.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,75,"
+   65 |   String base = ""ou=users,ou=system"";
+   66 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   67 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   68 |   String filter = ""(&(objectclass=person))(|(uid=""+bar+"")(street={0}))"";
+   69 |   Object[] filters = new Object[]{""The streetz 4 Ms bar""};
+   70 |
+   71 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   72 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   73 |   boolean found = false;
+   74 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  75 |     idc.search(base, filter,filters, sc);
+   76 |   while (results.hasMore()) {
+   77 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   78 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   79 |
+   80 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   81 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   82 |    if (attr != null){
+   83 |     response.getWriter().println(
+   84 |      ""LDAP query results:<br>""
+   85 |      + ""Record found with name "" + attr.get() + ""<br>""
+      ^ Col 0
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in OWASP/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02572.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,75,"
+   65 |   String base = ""ou=users,ou=system"";
+   66 |   javax.naming.directory.SearchControls sc = new javax.naming.directory.SearchControls();
+   67 |   sc.setSearchScope(javax.naming.directory.SearchControls.SUBTREE_SCOPE);
+   68 |   String filter = ""(&(objectclass=person)(uid="" + bar
+   69 |     + ""))"";
+   70 |
+   71 |   javax.naming.directory.DirContext ctx = ads.getDirContext();
+   72 |   javax.naming.directory.InitialDirContext idc = (javax.naming.directory.InitialDirContext) ctx;
+   73 |   boolean found = false;
+   74 |   javax.naming.NamingEnumeration<javax.naming.directory.SearchResult> results =
+>  75 |     idc.search(base, filter, sc);
+   76 |
+   77 |   while (results.hasMore()) {
+   78 |    javax.naming.directory.SearchResult sr = (javax.naming.directory.SearchResult) results.next();
+   79 |    javax.naming.directory.Attributes attrs = sr.getAttributes();
+   80 |
+   81 |    javax.naming.directory.Attribute attr = attrs.get(""uid"");
+   82 |    javax.naming.directory.Attribute attr2 = attrs.get(""street"");
+   83 |    if (attr != null){
+   84 |     response.getWriter().println(
+   85 |      ""LDAP query results:<br>""
+      ^ Col 0
+",java.java_ldap_injection
+Summary: 42 vulnerabilities were found in your targets.

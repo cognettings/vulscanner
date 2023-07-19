@@ -1,0 +1,16 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled in namespace/skims/test/data/lib_path/f058/AndroidManifest.xml,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,SAST,3,"
+   1 | <manifest xmlns:android=""http://schemas.android.com/apk/res/android"" android:sharedUserId=""android.uid.system"" android:ve
+   2 |     <uses-permission android:name=""android.permission.SEND_SMS""/>
+>  3 |     <application android:debuggable=""true"" android:label=""@7F040001"" android:icon=""@7F020002"">
+   4 |         <activity android:label=""@7F040000"" android:name="".ZeroSMS"" android:process=""com.android.phone"">
+   5 |             <intent-filter>
+   6 |                 <action android:name=""android.intent.action.MAIN""/>
+   7 |                 <category android:name=""android.intent.category.LAUNCHER""/>
+   8 |             </intent-filter>
+   9 |         </activity>
+  10 |     </application>
+  11 | </manifest>
+     ^ Col 0
+",android.apk_debugging_enabled
+Summary: 1 vulnerabilities were found in your targets.

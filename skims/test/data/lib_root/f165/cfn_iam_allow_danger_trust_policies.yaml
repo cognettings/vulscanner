@@ -1,0 +1,23 @@
+---
+Resources:
+  UnsafeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            NotPrincipal:
+              Service:
+                - ec2.amazonaws.com
+          - Effect: Allow
+            NotAction:
+              - sts:AssumeRole
+  SafeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Resource: "arn::aws::role/"
+            Action:
+              - sts:AssumeRole

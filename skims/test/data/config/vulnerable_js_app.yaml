@@ -1,0 +1,20 @@
+---
+checks:
+  - F004
+  - F008
+  - F021
+  - F034
+  - F042
+  - F052
+  - F063
+  - F112
+namespace: VULNERABLE_JS_APP
+output:
+  file_path: skims/test/outputs/vulnerable_js_app.csv
+  format: CSV
+sast:
+  include:
+    - server/routes/testcases/
+  lib_path: false
+  lib_root: true
+working_dir: ../vulnerable_js_app/

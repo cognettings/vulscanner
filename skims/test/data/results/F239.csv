@@ -1,0 +1,30 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+239. Technical information leak - Errors,CWE-200,The customErrors flag is set to off in Web.config. in namespace/skims/test/data/lib_path/f239/webVuln.config,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/239,skims,SAST,3,"
+  1 | <configuration xmlns:xdt=""http://schemas.microsoft.com/XML-Document-Transform"">
+  2 |     <system.web>
+> 3 |         <customErrors mode=""Off""/>
+  4 |     </system.web>
+  5 | </configuration>
+    ^ Col 0
+",dotnetconfig.dotnetconfig_not_custom_errors
+239. Technical information leak - Errors,CWE-200,The error handling configuration of the server allows the visualization of detailed information of its processes through the UseSetting method. in namespace/skims/test/data/lib_root/f239/csharp_info_leak_errors.cs,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N,https://docs.fluidattacks.com/criteria/vulnerabilities/239,skims,SAST,13,"
+   1 | using System;
+   2 |
+   3 | namespace API
+   4 | {
+   5 |     public class Program
+   6 |     {
+   7 |         public static void Main()
+   8 |         {
+   9 |             BuildWebHost();
+  10 |         }
+  11 |
+  12 |         public static IWebHost BuildWebHost() =>
+> 13 |             WebHost.CreateDefaultBuilder()
+  14 |                    .UseSetting(WebHostDefaults.DetailedErrorsKey, ""true"")
+  15 |                    .Build();
+  16 |     }
+  17 | }
+     ^ Col 0
+",c_sharp.csharp_info_leak_errors
+Summary: 2 vulnerabilities were found in your targets.

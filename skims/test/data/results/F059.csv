@@ -1,0 +1,14 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+059. Sensitive information stored in logs,CWE-209,The application displays sensitive info in the logs in namespace/skims/test/data/lib_root/f059/java_insecure_log.java,CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:P/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/059,skims,SAST,3,"
+  1 | public class Test{
+  2 |     public void insecure(){
+> 3 |   log.info(""Dangerous"" + System.getenv()); // Insecure
+  4 |  }
+  5 |
+  6 |     public void secure(){
+  7 |   log.info(""Hello world""); // secure
+  8 |  }
+  9 | }
+    ^ Col 0
+",java.java_sensitive_log_info
+Summary: 1 vulnerabilities were found in your targets.

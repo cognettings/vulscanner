@@ -1,0 +1,1818 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-119 + CWE-74 + CWE-79 + CWE-937,"Use of redcarpet at version 3.2.3 with ['CVE-2015-5147', 'CVE-2020-26298', 'GHSA-q3wr-qw3g-3p4h'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:N/I:H/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,51,"
+   41 | group :rubocop do
+   42 |   gem ""rubocop"", "">= 1.25.1"", require: false
+   43 |   gem ""rubocop-minitest"", require: false
+   44 |   gem ""rubocop-packaging"", require: false
+   45 |   gem ""rubocop-performance"", require: false
+   46 |   gem ""rubocop-rails"", require: false
+   47 | end
+   48 |
+   49 | group :doc do
+   50 |   gem ""sdoc"", "">= 2.4.0""
+>  51 |   gem ""redcarpet"", ""~> 3.2.3"", platforms: :ruby
+   52 |   gem ""w3c_validators"", ""~> 1.3.6""
+   53 |   gem ""rouge""
+   54 |   gem ""rubyzip"", ""~> 2.0""
+   55 | end
+   56 |
+   57 | # Active Support
+   58 | gem ""dalli"", "">= 3.0.1""
+   59 | gem ""listen"", ""~> 3.3"", require: false
+   60 | gem ""libxml-ruby"", platforms: :ruby
+   61 | gem ""connection_pool"", require: false
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-122 + CWE-416 + CWE-617 + CWE-787 + CWE-937,"Use of libde265 at version 1.0.8 with ['CVE-2021-35452', 'CVE-2021-36408', 'CVE-2021-36409', 'CVE-2021-36410', 'CVE-2021-36411', 'CVE-2022-1253', 'CVE-2022-43235', 'CVE-2022-43236', 'CVE-2022-43237', 'CVE-2022-43238', 'CVE-2022-43239', 'CVE-2022-43240', 'CVE-2022-43241', 'CVE-2022-43242', 'CVE-2022-43243', 'CVE-2022-43244', 'CVE-2022-43245', 'CVE-2022-43248', 'CVE-2022-43249', 'CVE-2022-43250', 'CVE-2022-43252', 'CVE-2022-43253'] in namespace/skims/test/data/lib_root/f011/conanfile.py",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,11,"
+   1 | # type: ignore
+   2 | # isort: skip_file
+   3 | # fmt: off
+   4 | # pylint: skip-file
+   5 | from conans import ConanFile, CMake
+   6 |
+   7 |
+   8 | class ImguiOpencvDemo(ConanFile):
+   9 |     settings = ""os"", ""compiler"", ""build_type"", ""arch""
+  10 |     requires = [
+> 11 |         ""libde265/1.0.8"",
+  12 |         (""opencv/2.4.13.7"", ""override""),
+  13 |         (""poco/1.10.1@dummy/stable"", ""override"")
+  14 |     ]
+  15 |
+  16 |     tool_requires = [""pkg_a/4.5.1"",
+  17 |                      (""libtiff/3.9.0@user/testing""),
+  18 |                      (""glew/2.1.0@dummy/stable"", ""override""),]
+  19 |
+  20 |     def build_requirements(self):
+  21 |         self.tool_requires(""tool_win/0.1@user/stable"")
+     ^ Col 0
+",python_config_files.conan_conanfile_py
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-125 + CWE-937,Use of assimp at version 5.2.5 with ['CVE-2022-38528'] in namespace/skims/test/data/lib/sca/f011/conanfile.txt,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,12,"
+   2 | libexif/0.6.23
+   3 | sdl/2.0.20
+   4 | nlohmann_json/3.10.5
+   5 | yaml-cpp/0.6.3
+   6 | gdal/3.4.3
+   7 | openssl/1.1.1o
+   8 | libjpeg-turbo/2.0.5
+   9 | poco/[>1.0,<1.9]
+  10 | pkg/[>1.0 <1.8]@user/stable
+  11 | pkg2/[~3.1.5, loose=False, include_prerelease=True]
+> 12 | assimp/5.2.5
+  13 | libbpf/0.6.0
+  14 |
+  15 | [tool_requires]
+  16 | 7zip/16.00
+  17 | leptonica/1.80.0
+  18 | libconfuse/3.3
+  19 |
+  20 | [generators]
+  21 | cmake_find_package
+  22 | cmake_paths
+     ^ Col 0
+",conan.conan_conanfile_txt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1321 + CWE-937,Use of qs at version 6.5.3 with ['CVE-2022-24999'] in namespace/skims/test/data/lib/sca/f011/yarn.lock,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,308,"
+  298 | punycode@^1.4.1:
+  299 |   version ""1.4.1""
+  300 |   resolved ""https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e""
+  301 |   integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
+  302 |
+  303 | punycode@^2.1.0, punycode@^2.1.1:
+  304 |   version ""2.1.1""
+  305 |   resolved ""https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec""
+  306 |   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+  307 |
+> 308 | qs@~6.5.2:
+  309 |   version ""6.5.3""
+  310 |   resolved ""https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad""
+  311 |   integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
+  312 |
+  313 | request@2.88.0:
+  314 |   version ""2.88.3""
+  315 |   resolved ""https://registry.yarnpkg.com/request/-/request-2.88.3.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef""
+  316 |   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
+  317 |   dependencies:
+  318 |     aws-sign2 ""~0.7.0""
+      ^ Col 0
+",npm.npm_yarn_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-190 + CWE-241 + CWE-400 + CWE-415 + CWE-416 + CWE-476 + CWE-611 + CWE-787 + CWE-843 + CWE-91 + CWE-937,"Use of nokogiri at version 1.12.5 with ['CVE-2022-23308', 'CVE-2022-24836', 'CVE-2022-29181', 'CVE-2022-40303', 'CVE-2022-40304', 'CVE-2023-28484', 'CVE-2023-29469', 'GHSA-2qc6-mcvw-92cw', 'GHSA-59gp-qqm7-cw4j', 'GHSA-cgx6-hpwq-fhv5', 'GHSA-crjr-9rc5-ghw8', 'GHSA-fq42-c5rg-92c2', 'GHSA-gx8x-g87m-h5q6', 'GHSA-jc36-42cf-vqwj', 'GHSA-pxvg-2qj5-37jq', 'GHSA-v6gp-9mmm-c6p5', 'GHSA-xh29-r2w5-wx8m', 'GHSA-xxx9-3xcr-gjj3'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,133,"
+  123 |       digest
+  124 |       net-protocol
+  125 |       timeout
+  126 |     net-protocol (0.1.3)
+  127 |       timeout
+  128 |     net-smtp (0.3.1)
+  129 |       digest
+  130 |       net-protocol
+  131 |       timeout
+  132 |     nio4r (2.5.8)
+> 133 |     nokogiri (1.12.5)
+  134 |       mini_portile2 (~> 2.6.1)
+  135 |       racc (~> 1.4)
+  136 |     oauth2 (1.4.9)
+  137 |       faraday (>= 0.17.3, < 3.0)
+  138 |       jwt (>= 1.0, < 3.0)
+  139 |       multi_json (~> 1.3)
+  140 |       multi_xml (~> 0.5)
+  141 |       rack (>= 1.2, < 3)
+  142 |     omniauth (2.1.0)
+  143 |       hashie (>= 3.4.6)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-200 + CWE-601 + CWE-937,"Use of actionpack at version 7.0.2.3 with ['CVE-2022-23633', 'CVE-2023-22797', 'GHSA-4g8v-vg43-wpgf', 'GHSA-8xww-x3g3-6jcv', 'GHSA-9445-4cr6-336r', 'GHSA-p84v-45xj-wwqj'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,48,"
+   38 |     actionmailer (7.0.2.3)
+   39 |       actionpack (= 7.0.2.3)
+   40 |       actionview (= 7.0.2.3)
+   41 |       activejob (= 7.0.2.3)
+   42 |       activesupport (= 7.0.2.3)
+   43 |       mail (~> 2.5, >= 2.5.4)
+   44 |       net-imap
+   45 |       net-pop
+   46 |       net-smtp
+   47 |       rails-dom-testing (~> 2.0)
+>  48 |     actionpack (7.0.2.3)
+   49 |       actionview (= 7.0.2.3)
+   50 |       activesupport (= 7.0.2.3)
+   51 |       rack (~> 2.0, >= 2.2.0)
+   52 |       rack-test (>= 0.6.3)
+   53 |       rails-dom-testing (~> 2.0)
+   54 |       rails-html-sanitizer (~> 1.0, >= 1.2.0)
+   55 |     actiontext (7.0.2.3)
+   56 |       actionpack (= 7.0.2.3)
+   57 |       activerecord (= 7.0.2.3)
+   58 |       activestorage (= 7.0.2.3)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-400 + CWE-770 + CWE-937,"Use of rack at version 2.2.3 with ['CVE-2022-44570', 'CVE-2022-44571', 'CVE-2022-44572', 'GHSA-3h57-hmj3-gj3p', 'GHSA-65f5-mfpf-vfhj', 'GHSA-93pm-5p5f-3ghx', 'GHSA-c6qg-cjj8-47qp', 'GHSA-rqv2-275x-2jq5'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,159,"
+  149 |       oauth2 (~> 1.4)
+  150 |       omniauth (>= 1.9, < 3)
+  151 |     omniauth-openid (2.0.1)
+  152 |       omniauth (>= 1.0, < 3.0)
+  153 |       rack-openid (~> 1.4.0)
+  154 |     orm_adapter (0.5.0)
+  155 |     psych (4.0.3)
+  156 |       stringio
+  157 |     puma (5.4.0)
+  158 |     racc (1.6.0)
+> 159 |     rack (2.2.3)
+  160 |     rack-openid (1.4.2)
+  161 |       rack (>= 1.1.0)
+  162 |       ruby-openid (>= 2.1.8)
+  163 |     rack-protection (2.2.0)
+  164 |       rack
+  165 |     rack-test (1.1.0)
+  166 |       rack (>= 1.0, < 3)
+  167 |     rails (7.0.2.3)
+  168 |       actioncable (= 7.0.2.3)
+  169 |       actionmailbox (= 7.0.2.3)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-601 + CWE-937,"Use of rails at version 7.0.2.3 with ['CVE-2023-22792', 'CVE-2023-22795', 'CVE-2023-22797'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,167,"
+  157 |     puma (5.4.0)
+  158 |     racc (1.6.0)
+  159 |     rack (2.2.3)
+  160 |     rack-openid (1.4.2)
+  161 |       rack (>= 1.1.0)
+  162 |       ruby-openid (>= 2.1.8)
+  163 |     rack-protection (2.2.0)
+  164 |       rack
+  165 |     rack-test (1.1.0)
+  166 |       rack (>= 1.0, < 3)
+> 167 |     rails (7.0.2.3)
+  168 |       actioncable (= 7.0.2.3)
+  169 |       actionmailbox (= 7.0.2.3)
+  170 |       actionmailer (= 7.0.2.3)
+  171 |       actionpack (= 7.0.2.3)
+  172 |       actiontext (= 7.0.2.3)
+  173 |       actionview (= 7.0.2.3)
+  174 |       activejob (= 7.0.2.3)
+  175 |       activemodel (= 7.0.2.3)
+  176 |       activerecord (= 7.0.2.3)
+  177 |       activestorage (= 7.0.2.3)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-674 + CWE-79 + CWE-937,"Use of loofah at version 2.16.0 with ['CVE-2022-23514', 'CVE-2022-23515', 'CVE-2022-23516', 'GHSA-228g-948r-83gx', 'GHSA-3x8r-x6xp-q4vm', 'GHSA-486f-hjj9-9vhh'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,104,"
+   94 |     faraday (2.2.0)
+   95 |       faraday-net_http (~> 2.0)
+   96 |       ruby2_keywords (>= 0.0.4)
+   97 |     faraday-net_http (2.0.2)
+   98 |     globalid (1.0.0)
+   99 |       activesupport (>= 5.0)
+  100 |     hashie (5.0.0)
+  101 |     i18n (1.10.0)
+  102 |       concurrent-ruby (~> 1.0)
+  103 |     jwt (2.3.0)
+> 104 |     loofah (2.16.0)
+  105 |       crass (~> 1.0.2)
+  106 |       nokogiri (>= 1.5.9)
+  107 |     mail (2.7.1)
+  108 |       mini_mime (>= 0.1.1)
+  109 |     marcel (1.0.2)
+  110 |     method_source (1.0.0)
+  111 |     mini_magick (3.5.0)
+  112 |     mini_mime (1.1.2)
+  113 |     mini_portile2 (2.6.1)
+  114 |     minitest (5.15.0)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-79 + CWE-937,"Use of activesupport at version 7.0.2.3 with ['CVE-2023-22796', 'GHSA-j6gc-792m-qgm2', 'GHSA-pj73-v5mw-pm9j'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,83,"
+   73 |     activerecord (7.0.2.3)
+   74 |       activemodel (= 7.0.2.3)
+   75 |       activesupport (= 7.0.2.3)
+   76 |     activestorage (7.0.2.3)
+   77 |       actionpack (= 7.0.2.3)
+   78 |       activejob (= 7.0.2.3)
+   79 |       activerecord (= 7.0.2.3)
+   80 |       activesupport (= 7.0.2.3)
+   81 |       marcel (~> 1.0)
+   82 |       mini_mime (>= 1.1.0)
+>  83 |     activesupport (7.0.2.3)
+   84 |       concurrent-ruby (~> 1.0, >= 1.0.2)
+   85 |       i18n (>= 1.6, < 2)
+   86 |       minitest (>= 5.1)
+   87 |       tzinfo (~> 2.0)
+   88 |     bcrypt (3.1.17)
+   89 |     builder (3.2.4)
+   90 |     concurrent-ruby (1.1.10)
+   91 |     crass (1.0.6)
+   92 |     digest (3.1.0)
+   93 |     erubi (1.10.0)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-79 + CWE-937,"Use of rails-html-sanitizer at version 1.2.0 with ['CVE-2022-23517', 'CVE-2022-23518', 'CVE-2022-23519', 'CVE-2022-23520', 'CVE-2022-32209', 'GHSA-5x79-w82f-gw8w', 'GHSA-9h9g-93gc-623h', 'GHSA-mcvf-2q2m-x72m', 'GHSA-pg8v-g4xq-hww9', 'GHSA-rrfc-7g8p-99q8'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,176,"
+  163 | end
+  164 |
+  165 | # Gems that are necessary for Active Record tests with Oracle.
+  166 | if ENV[""ORACLE_ENHANCED""]
+  167 |   platforms :ruby do
+  168 |     gem ""ruby-oci8"", ""~> 2.2""
+  169 |   end
+  170 |   gem ""activerecord-oracle_enhanced-adapter"", github: ""rsim/oracle-enhanced"", branch: ""master""
+  171 | end
+  172 |
+  173 | gem ""tzinfo-data"", platforms: [:windows, :jruby]
+  174 | gem ""wdm"", "">= 0.1.0"", platforms: [:windows]
+  175 | gem ""mini_magick"", ""4.9.0""
+> 176 | gem ""rails-html-sanitizer"", ""~> 1.0"", "">= 1.2.0""
+  177 |
+  178 | # The error_highlight gem only works on CRuby 3.1 or later.
+  179 | # Also, Rails depends on a new API available since error_highlight 0.4.0.
+  180 | # (Note that Ruby 3.1 bundles error_highlight 0.3.0.)
+  181 | if RUBY_VERSION >= ""3.1""
+  182 |   gem ""error_highlight"", "">= 0.4.0"", platforms: [:ruby]
+  183 | end
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-79 + CWE-937,"Use of rails-html-sanitizer at version 1.4.2 with ['CVE-2022-23517', 'CVE-2022-23518', 'CVE-2022-23519', 'CVE-2022-23520', 'CVE-2022-32209', 'GHSA-5x79-w82f-gw8w', 'GHSA-9h9g-93gc-623h', 'GHSA-mcvf-2q2m-x72m', 'GHSA-pg8v-g4xq-hww9', 'GHSA-rrfc-7g8p-99q8'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,184,"
+  174 |       activejob (= 7.0.2.3)
+  175 |       activemodel (= 7.0.2.3)
+  176 |       activerecord (= 7.0.2.3)
+  177 |       activestorage (= 7.0.2.3)
+  178 |       activesupport (= 7.0.2.3)
+  179 |       bundler (>= 1.15.0)
+  180 |       railties (= 7.0.2.3)
+  181 |     rails-dom-testing (2.0.3)
+  182 |       activesupport (>= 4.2.0)
+  183 |       nokogiri (>= 1.6)
+> 184 |     rails-html-sanitizer (1.4.2)
+  185 |       loofah (~> 2.3)
+  186 |     railties (7.0.2.3)
+  187 |       actionpack (= 7.0.2.3)
+  188 |       activesupport (= 7.0.2.3)
+  189 |       method_source
+  190 |       rake (>= 12.2)
+  191 |       thor (~> 1.0)
+  192 |       zeitwerk (~> 2.5)
+  193 |     rake (13.0.6)
+  194 |     rdoc (6.4.0)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-1333 + CWE-937,"Use of globalid at version 1.0.0 with ['CVE-2023-22799', 'GHSA-23c2-gwp5-pxw9'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,98,"
+   88 |     bcrypt (3.1.17)
+   89 |     builder (3.2.4)
+   90 |     concurrent-ruby (1.1.10)
+   91 |     crass (1.0.6)
+   92 |     digest (3.1.0)
+   93 |     erubi (1.10.0)
+   94 |     faraday (2.2.0)
+   95 |       faraday-net_http (~> 2.0)
+   96 |       ruby2_keywords (>= 0.0.4)
+   97 |     faraday-net_http (2.0.2)
+>  98 |     globalid (1.0.0)
+   99 |       activesupport (>= 5.0)
+  100 |     hashie (5.0.0)
+  101 |     i18n (1.10.0)
+  102 |       concurrent-ruby (~> 1.0)
+  103 |     jwt (2.3.0)
+  104 |     loofah (2.16.0)
+  105 |       crass (~> 1.0.2)
+  106 |       nokogiri (>= 1.5.9)
+  107 |     mail (2.7.1)
+  108 |       mini_mime (>= 0.1.1)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-190 + CWE-20 + CWE-285 + CWE-287 + CWE-329 + CWE-330 + CWE-332 + CWE-502 + CWE-522 + CWE-863 + CWE-937,"Use of org.springframework.security:spring-security-core at version 4.2.2.RELEASE with ['CVE-2017-4995', 'CVE-2018-1199', 'CVE-2019-11272', 'CVE-2019-3795', 'CVE-2020-5408', 'CVE-2022-22976', 'CVE-2022-22978', 'GHSA-2ppp-9496-p23q', 'GHSA-hh32-7344-cg2f', 'GHSA-v2r2-7qm7-jj6v', 'GHSA-v33x-prhc-gph5', 'GHSA-v596-fwhq-8x48', 'GHSA-vhrg-v3cv-p247', 'GHSA-wx54-3278-m5g4', 'CVE-2021-22112'] in namespace/skims/test/data/lib/sca/f011/frst_child/scdn_child/pom.xml",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,36,"
+  26 |     </dependency>
+  27 |     <dependency>
+  28 |       <groupId>org.springframework</groupId>
+  29 |       <artifactId>spring-web</artifactId>
+  30 |       <version>5.3.2</version>
+  31 |       <scope>test</scope>
+  32 |     </dependency>
+  33 |     <dependency>
+  34 |       <groupId>org.springframework.security</groupId>
+  35 |       <artifactId>spring-security-core</artifactId>
+> 36 |       <version>${spring.version}</version>
+  37 |       <scope>test</scope>
+  38 |     </dependency>
+  39 |     <dependency>
+  40 |       <groupId>axis</groupId>
+  41 |       <artifactId>axis</artifactId>
+  42 |       <scope>test</scope>
+  43 |     </dependency>
+  44 |     <dependency>
+  45 |       <groupId>org.mockito</groupId>
+  46 |       <artifactId>mockito-core</artifactId>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-190 + CWE-415 + CWE-476 + CWE-611 + CWE-937,"Use of libxml2 at version 2.10.0 with ['CVE-2022-40303', 'CVE-2022-40304', 'CVE-2023-28484', 'CVE-2023-29469'] in namespace/skims/test/data/lib/sca/f011/conan.lock",CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,7,"
+   1 | {
+   2 |     ""version"": ""0.5"",
+   3 |     ""requires"": [
+   4 |         ""sound32/1.0#83d4b7bf607b3b60a6546f8b58b5cdd7%1675278904.0791488"",
+   5 |         ""matrix/1.1#905c3f0babc520684c84127378fefdd0%1675278901.7527816"",
+   6 |         ""libpng/1.7.0#905c3f0babc520684c84127378fefdd0%1675278900.0103245"",
+>  7 |         ""libxml2/2.10.0""
+   8 |     ],
+   9 |     ""build_requires"": [],
+  10 |     ""python_requires"": []
+  11 | }
+     ^ Col 0
+",conan.conan_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-200 + CWE-203 + CWE-285 + CWE-287 + CWE-352 + CWE-384 + CWE-434 + CWE-502 + CWE-601 + CWE-613 + CWE-79 + CWE-88 + CWE-89 + CWE-937 + CWE-94,"Use of symfony/symfony at version 3.4. with ['CVE-2018-11385', 'CVE-2018-11386', 'CVE-2018-11406', 'CVE-2018-11407', 'CVE-2018-11408', 'CVE-2018-14773', 'CVE-2018-14774', 'CVE-2018-19789', 'CVE-2018-19790', 'CVE-2019-10909', 'CVE-2019-10910', 'CVE-2019-10911', 'CVE-2019-10912', 'CVE-2019-10913', 'CVE-2019-18887', 'CVE-2019-18888', 'CVE-2021-21424', 'CVE-2022-23601', 'CVE-2022-24894', 'CVE-2022-24895', 'GHSA-3gv2-29qc-v67m', 'GHSA-79gr-58r3-pwm3', 'GHSA-cchx-mfrc-fwqr', 'GHSA-g996-q5r8-w7g2', 'GHSA-h7vf-5wrv-9fhv', 'GHSA-pgwj-prpq-jpc2', 'GHSA-q8hg-pf8v-cxrv', 'GHSA-w2fr-65vp-mxw3', 'GHSA-x92h-wmg2-6hp7', 'GHSA-xhh6-956q-4q69'] in namespace/skims/test/data/lib/sca/f011/composer.json",CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,33,"
+  23 |         ""intervention/image"": ""^2.4"",
+  24 |         ""jaggle/php-html-parser"": ""^1.7"",
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+  29 |         ""snc/redis-bundle"": ""^2.1"",
+  30 |         ""symfony/monolog-bundle"": ""^3.1.0"",
+  31 |         ""symfony/polyfill-apcu"": ""^1.0"",
+  32 |         ""symfony/swiftmailer-bundle"": ""^2.6.4"",
+> 33 |         ""symfony/symfony"": ""3.4.*"",
+  34 |         ""tribalsystems/zenario"": ""7.0.0"",
+  35 |         ""twig/twig"": ""^1.0||^2.0"",
+  36 |         ""workerman/phpsocket.io"": ""^1.1"",
+  37 |         ""yeskn-studio/assetic-bundle"": ""3.4.*"",
+  38 |         ""yzalis/identicon"": ""^1.2""
+  39 |     },
+  40 |     ""require-dev"": {
+  41 |         ""backdrop/backdrop"": ""1.21.0"",
+  42 |         ""feehi/feehicms"": ""^1.0"",
+  43 |         ""phpunit/phpunit"": ""^5.0|^6.0"",
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-200 + CWE-22 + CWE-281 + CWE-434 + CWE-601 + CWE-78 + CWE-79 + CWE-80 + CWE-862 + CWE-918 + CWE-937,"Use of gogs.io/gogs at version 0.6.5 with ['CVE-2018-15178', 'CVE-2019-14544', 'CVE-2020-14958', 'CVE-2021-32546', 'CVE-2022-0415', 'CVE-2022-0870', 'CVE-2022-0871', 'CVE-2022-1285', 'CVE-2022-1464', 'CVE-2022-2024', 'CVE-2022-32174', 'GHSA-4c7m-vv47-7c69', 'GHSA-56j7-2pm8-rgmx', 'GHSA-5gjh-5j4f-cpwv', 'GHSA-5r2v-6gm6-vpvh', 'GHSA-67mx-jc2f-jgjm', 'GHSA-6vcc-v9vw-g2x5', 'GHSA-7v5r-r995-q2x2', 'GHSA-958j-443g-7mm7', 'GHSA-994f-7g86-qr56', 'GHSA-cpgw-2wxr-pww3', 'GHSA-ff28-f46g-r9g8', 'GHSA-gw5h-h6hj-f56g', 'GHSA-mcjj-2fvq-mc3r', 'GHSA-pfvh-p8qp-9ww9', 'GHSA-pj96-4jhv-v792', 'GHSA-q347-cg56-pcq4', 'GHSA-w689-557m-2cvq', 'GHSA-xq4v-vrp9-vcf2'] in namespace/skims/test/data/lib/sca/f011/go.mod",CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,23,"
+  13 |  github.com/gocolly/colly/v2 v2.1.1-0.20220706081359-947eeead97b3
+  14 |  github.com/grafov/m3u8 v0.11.1
+  15 |  github.com/hashicorp/go-retryablehttp v0.7.1
+  16 |  github.com/iancoleman/orderedmap v0.2.0
+  17 |  github.com/jellydator/ttlcache/v3 v3.0.0
+  18 |  github.com/lib/pq v1.10.7
+  19 |  github.com/nlnwa/whatwg-url v0.1.2
+  20 |  github.com/peterbourgon/ff/v3 v3.3.0
+  21 |  github.com/stretchr/testify v1.8.0
+  22 |  go.uber.org/atomic v1.9.0
+> 23 |  gogs.io/gogs v0.6.5
+  24 |  golang.org/x/image v0.0.0-20220902085622-e7cb96979f69
+  25 |  golang.org/x/text v0.3.8
+  26 |  gorm.io/datatypes v1.0.7
+  27 |  gorm.io/driver/postgres v1.4.4
+  28 |  gorm.io/gorm v1.24.0
+  29 | )
+  30 |
+  31 | require (
+  32 |  github.com/PuerkitoBio/goquery v1.8.0 // indirect
+  33 |  github.com/andybalholm/cascadia v1.3.1 // indirect
+     ^ Col 0
+",go.go_mod
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-200 + CWE-325 + CWE-502 + CWE-937,"Use of friendsoftypo3/mediace at version 7.6.3 with ['CVE-2020-15086', 'GHSA-4h44-w6fm-548g'] in namespace/skims/test/data/lib/sca/f011/composer.json",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,19,"
+   9 |         },
+  10 |         ""classmap"": [
+  11 |             ""app/AppKernel.php"",
+  12 |             ""app/AppCache.php""
+  13 |         ]
+  14 |     },
+  15 |     ""require"": {
+  16 |         ""php"": "">=5.5.9"",
+  17 |         ""doctrine/doctrine-bundle"": ""^1.6"",
+  18 |         ""doctrine/orm"": ""^2.5"",
+> 19 |         ""friendsoftypo3/mediace"": ""7.6.3"",
+  20 |         ""guzzlehttp/guzzle"": ""^6.3"",
+  21 |         ""incenteev/composer-parameter-handler"": ""^2.0"",
+  22 |         ""intelliants/subrion"": ""^3.0"",
+  23 |         ""intervention/image"": ""^2.4"",
+  24 |         ""jaggle/php-html-parser"": ""^1.7"",
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+  29 |         ""snc/redis-bundle"": ""^2.1"",
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-200 + CWE-325 + CWE-502 + CWE-937,"Use of friendsoftypo3/mediace at version 7.6.3 with ['CVE-2020-15086', 'GHSA-4h44-w6fm-548g'] in namespace/skims/test/data/lib/sca/f011/composer.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,166,"
+  156 |                     ""type"": ""github""
+  157 |                 },
+  158 |                 {
+  159 |                     ""url"": ""https://tidelift.com/funding/github/packagist/composer/composer"",
+  160 |                     ""type"": ""tidelift""
+  161 |                 }
+  162 |             ],
+  163 |             ""time"": ""2020-12-03T15:47:16+00:00""
+  164 |         },
+  165 |         {
+> 166 |             ""name"": ""friendsoftypo3/mediace"",
+  167 |             ""version"": ""7.6.3"",
+  168 |             ""source"": {
+  169 |                 ""type"": ""git"",
+  170 |                 ""url"": ""https://github.com/PHP-DI/PHP-DI.git"",
+  171 |                 ""reference"": ""b8126d066ce144765300ee0ab040c1ed6c9ef588""
+  172 |             },
+  173 |             ""dist"": {
+  174 |                 ""type"": ""zip"",
+  175 |                 ""url"": ""https://api.github.com/repos/PHP-DI/PHP-DI/zipball/b8126d066ce144765300ee0ab040c1ed6c9ef588"",
+  176 |                 ""reference"": ""b8126d066ce144765300ee0ab040c1ed6c9ef588"",
+      ^ Col 0
+",composer.composer_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-295 + CWE-400 + CWE-502 + CWE-674 + CWE-74 + CWE-78 + CWE-917 + CWE-937,"Use of org.apache.logging.log4j:log4j-core at version 2.2 with ['CVE-2017-5645', 'CVE-2020-9488', 'GHSA-7rjr-3q55-vv33', 'GHSA-8489-44mv-ggj8', 'GHSA-fxph-q3j8-mv87', 'GHSA-jfh8-c2jp-5v3q', 'GHSA-p6xc-xr62-6r2g', 'GHSA-vwqq-5vrc-xw9h', 'CVE-2021-44228', 'CVE-2021-44832', 'CVE-2021-45046', 'CVE-2021-45105'] in namespace/skims/test/data/lib/sca/f011/build.sbt",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,5,"
+   1 | def libraries = Seq(
+   2 |   ""com.typesafe.slick""        %% ""slick""          % slickVersion,
+   3 |   ""com.typesafe.slick""        %% ""slick-hikaricp"" % slickVersion,
+   4 |   ""org.apache.logging.log4j""  %  ""log4j-api""      % ""2.17.0"",
+>  5 |   ""org.apache.logging.log4j""  %  ""log4j-core""     % ""2.2"",
+   6 |   ""org.apache.logging.log4j""  %  ""log4j-web""      % ""2.2"",
+   7 |   ""com.lmax""                  %  ""disruptor""      % ""3.3.2"",
+   8 |   ""org.glassfish.jersey.core"" %  ""jersey-client""  % ""2.17""
+   9 | )
+  10 |
+  11 | libraryDependencies += ""org.apache.kylin"" % ""kylin"" % ""2.5.0""
+  12 |
+  13 | libraryDependencies ++= Seq(
+  14 |   ""org.scalatest""            %% ""scalatest""             % ""2.2.4""   % ""test,it"",
+  15 |   ""org.mockito""              %  ""mockito-all""           % ""1.9.5""   % ""test,it"",
+  16 |   ""com.novocode""             %  ""junit-interface""       % ""0.7""     % ""test->default"",
+  17 |   ""org.pegdown""              %  ""pegdown""               % ""1.6.0""   % ""test,it"",
+  18 |   ""com.h2database""           %  ""h2""                    % ""1.4.200"" % ""test,it"",
+  19 |   ""org.scala-lang""           %  ""scala-compiler""        % scalaVersion.value,
+  20 |   ""org.scala-lang""           %  ""scala-reflect""         % scalaVersion.value,
+  21 |   ""org.apache.nifi.registry"" %  ""nifi-registry-web-api"" % ""0.4.1""   % ""nifi"",
+     ^ Col 0
+",maven.maven_sbt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-494 + CWE-937,"Use of github.com/gin-gonic/gin at version 1.8.1 with ['CVE-2023-26125', 'CVE-2023-29401', 'GHSA-2c4m-59x9-fr2g', 'GHSA-3vp4-m3rf-835h'] in namespace/skims/test/data/lib/sca/f011/go.mod",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,11,"
+   1 | module github.com/javtube/javtube-sdk-go
+   2 |
+   3 | go 1.19
+   4 |
+   5 | require (
+   6 |  github.com/adrg/strutil v0.3.0
+   7 |  github.com/antchfx/htmlquery v1.2.5
+   8 |  github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
+   9 |  github.com/corona10/goimagehash v1.1.0
+  10 |  github.com/esimov/pigo v1.4.6
+> 11 |  github.com/gin-gonic/gin v1.8.1
+  12 |  github.com/glebarez/sqlite v1.5.0
+  13 |  github.com/gocolly/colly/v2 v2.1.1-0.20220706081359-947eeead97b3
+  14 |  github.com/grafov/m3u8 v0.11.1
+  15 |  github.com/hashicorp/go-retryablehttp v0.7.1
+  16 |  github.com/iancoleman/orderedmap v0.2.0
+  17 |  github.com/jellydator/ttlcache/v3 v3.0.0
+  18 |  github.com/lib/pq v1.10.7
+  19 |  github.com/nlnwa/whatwg-url v0.1.2
+  20 |  github.com/peterbourgon/ff/v3 v3.3.0
+  21 |  github.com/stretchr/testify v1.8.0
+     ^ Col 0
+",go.go_mod
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-78 + CWE-937,"Use of image_processing at version 1.2 with ['CVE-2022-24720', 'GHSA-cxf7-qrc5-9446'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,96,"
+   86 |
+   87 |   gem ""websocket-client-simple"", github: ""matthewd/websocket-client-simple"", branch: ""close-race"", require: false
+   88 | end
+   89 |
+   90 | # Active Storage
+   91 | group :storage do
+   92 |   gem ""aws-sdk-s3"", require: false
+   93 |   gem ""google-cloud-storage"", ""~> 1.11"", require: false
+   94 |   gem ""azure-storage-blob"", ""~> 2.0"", require: false
+   95 |
+>  96 |   gem ""image_processing"", ""~> 1.2""
+   97 | end
+   98 |
+   99 | # Action Mailbox
+  100 | gem ""aws-sdk-sns"", require: false
+  101 | gem ""webmock""
+  102 |
+  103 | group :ujs do
+  104 |   gem ""webdrivers""
+  105 | end
+  106 |
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-79 + CWE-937,"Use of axis:axis at version 1.4 with ['CVE-2012-5784', 'CVE-2018-8032', 'GHSA-55w9-c3g2-4rrh', 'GHSA-96jq-75wh-2658', 'CVE-2014-3596', 'SNYK-JAVA-AXIS-30071', 'SNYK-JAVA-AXIS-30189'] in namespace/skims/test/data/lib/sca/f011/frst_child/scdn_child/pom.xml",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,41,"
+  31 |       <scope>test</scope>
+  32 |     </dependency>
+  33 |     <dependency>
+  34 |       <groupId>org.springframework.security</groupId>
+  35 |       <artifactId>spring-security-core</artifactId>
+  36 |       <version>${spring.version}</version>
+  37 |       <scope>test</scope>
+  38 |     </dependency>
+  39 |     <dependency>
+  40 |       <groupId>axis</groupId>
+> 41 |       <artifactId>axis</artifactId>
+  42 |       <scope>test</scope>
+  43 |     </dependency>
+  44 |     <dependency>
+  45 |       <groupId>org.mockito</groupId>
+  46 |       <artifactId>mockito-core</artifactId>
+  47 |       <version>${mockito.version}</version>
+  48 |       <scope>test</scope>
+  49 |     </dependency>
+  50 |     <dependency>
+  51 |       <groupId>org.apache.camel</groupId>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-79 + CWE-937,"Use of axis:axis at version 1.4 with ['CVE-2012-5784', 'CVE-2018-8032', 'GHSA-55w9-c3g2-4rrh', 'GHSA-96jq-75wh-2658', 'CVE-2014-3596', 'SNYK-JAVA-AXIS-30071', 'SNYK-JAVA-AXIS-30189'] in namespace/skims/test/data/lib/sca/f011/pom.xml",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,29,"
+  19 |   <dependencyManagement>
+  20 |     <dependencies>
+  21 |       <dependency>
+  22 |         <groupId>ballerina</groupId>
+  23 |         <artifactId>ballerina-lang</artifactId>
+  24 |         <version>1.2.14</version>
+  25 |       </dependency>
+  26 |       <dependency>
+  27 |         <groupId>axis</groupId>
+  28 |         <artifactId>axis</artifactId>
+> 29 |         <version>1.4</version>
+  30 |       </dependency>
+  31 |     </dependencies>
+  32 |       <dependency>
+  33 |         <groupId>batik</groupId>
+  34 |         <artifactId>batik-transcoder</artifactId>
+  35 |         <version>1.0.0</version>
+  36 |       </dependency>
+  37 |       <dependency>
+  38 |         <groupId>be.cylab</groupId>
+  39 |         <artifactId>snakeyaml</artifactId>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-20 + CWE-937,"Use of json at version >=2.0.0 with ['CVE-2020-10663', 'GHSA-jphg-qwrw-7w9g'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,39,"
+   29 | # require: false so bcrypt is loaded only when has_secure_password is used.
+   30 | # This is to avoid Active Model (and by extension the entire framework)
+   31 | # being dependent on a binary library.
+   32 | gem ""bcrypt"", ""~> 3.1.11"", require: false
+   33 |
+   34 | # This needs to be with require false to avoid it being automatically loaded by
+   35 | # sprockets.
+   36 | gem ""terser"", "">= 1.1.4"", require: false
+   37 |
+   38 | # Explicitly avoid 1.x that doesn't support Ruby 2.4+
+>  39 | gem ""json"", "">= 2.0.0""
+   40 |
+   41 | group :rubocop do
+   42 |   gem ""rubocop"", "">= 1.25.1"", require: false
+   43 |   gem ""rubocop-minitest"", require: false
+   44 |   gem ""rubocop-packaging"", require: false
+   45 |   gem ""rubocop-performance"", require: false
+   46 |   gem ""rubocop-rails"", require: false
+   47 | end
+   48 |
+   49 | group :doc do
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-200 + CWE-22 + CWE-74 + CWE-937 + CWE-94,"Use of twig/twig at version 1.0||2.0 with ['2013-04-08', '2015-08-12', '2019-03-12', 'CVE-2019-9942', 'CVE-2022-23614', 'CVE-2022-39261', 'GHSA-52m2-vc4m-jj33', 'GHSA-5mv2-rx3q-4w2v', 'GHSA-vxrc-68xx-x48g'] in namespace/skims/test/data/lib/sca/f011/composer.json",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,35,"
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+  29 |         ""snc/redis-bundle"": ""^2.1"",
+  30 |         ""symfony/monolog-bundle"": ""^3.1.0"",
+  31 |         ""symfony/polyfill-apcu"": ""^1.0"",
+  32 |         ""symfony/swiftmailer-bundle"": ""^2.6.4"",
+  33 |         ""symfony/symfony"": ""3.4.*"",
+  34 |         ""tribalsystems/zenario"": ""7.0.0"",
+> 35 |         ""twig/twig"": ""^1.0||^2.0"",
+  36 |         ""workerman/phpsocket.io"": ""^1.1"",
+  37 |         ""yeskn-studio/assetic-bundle"": ""3.4.*"",
+  38 |         ""yzalis/identicon"": ""^1.2""
+  39 |     },
+  40 |     ""require-dev"": {
+  41 |         ""backdrop/backdrop"": ""1.21.0"",
+  42 |         ""feehi/feehicms"": ""^1.0"",
+  43 |         ""phpunit/phpunit"": ""^5.0|^6.0"",
+  44 |         ""sensio/generator-bundle"": ""^3.0"",
+  45 |         ""symfony/phpunit-bridge"": ""^3.0""
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-200 + CWE-312 + CWE-502 + CWE-611 + CWE-78 + CWE-937 + CWE-94,"Use of com.h2database:h2 at version 1.4.200 with ['CVE-2022-23221', 'GHSA-22wj-vf5f-wrvj', 'GHSA-45hx-wfhj-473x', 'GHSA-7rpj-hg47-cx62', 'GHSA-h376-j262-vhq6', 'CVE-2021-23463', 'CVE-2021-42392'] in namespace/skims/test/data/lib/sca/f011/build.sbt",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,18,"
+   5 |   ""org.apache.logging.log4j""  %  ""log4j-core""     % ""2.2"",
+   6 |   ""org.apache.logging.log4j""  %  ""log4j-web""      % ""2.2"",
+   7 |   ""com.lmax""                  %  ""disruptor""      % ""3.3.2"",
+   8 |   ""org.glassfish.jersey.core"" %  ""jersey-client""  % ""2.17""
+   9 | )
+  10 |
+  11 | libraryDependencies += ""org.apache.kylin"" % ""kylin"" % ""2.5.0""
+  12 |
+  13 | libraryDependencies ++= Seq(
+  14 |   ""org.scalatest""            %% ""scalatest""             % ""2.2.4""   % ""test,it"",
+  15 |   ""org.mockito""              %  ""mockito-all""           % ""1.9.5""   % ""test,it"",
+  16 |   ""com.novocode""             %  ""junit-interface""       % ""0.7""     % ""test->default"",
+  17 |   ""org.pegdown""              %  ""pegdown""               % ""1.6.0""   % ""test,it"",
+> 18 |   ""com.h2database""           %  ""h2""                    % ""1.4.200"" % ""test,it"",
+  19 |   ""org.scala-lang""           %  ""scala-compiler""        % scalaVersion.value,
+  20 |   ""org.scala-lang""           %  ""scala-reflect""         % scalaVersion.value,
+  21 |   ""org.apache.nifi.registry"" %  ""nifi-registry-web-api"" % ""0.4.1""   % ""nifi"",
+  22 |   ""org.apache.nutch""         %  ""nutch""                 % ""2.0.0"",
+  23 |   ""org.apache.ode""           %   ""ode""                  % ode.version,
+  24 |   ""org.apache.openjpa""       %   ""openjpa""              % ""2.2.0""   % ""test,it""
+  25 | )
+     ^ Col 0
+",maven.maven_sbt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-200 + CWE-400 + CWE-404 + CWE-444 + CWE-937,"Use of puma at version =5.1.0 with ['CVE-2021-29509', 'CVE-2021-41136', 'CVE-2022-23634', 'CVE-2022-24790', 'GHSA-48w2-rm65-62xx', 'GHSA-h99w-9q5r-gjq9', 'GHSA-q28m-8xjw-8vr5', 'GHSA-rmj8-8hhh-gv5h'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,27,"
+   17 | gem ""capybara"", "">= 3.26""
+   18 | gem ""selenium-webdriver"", "">= 4.0.0""
+   19 |
+   20 | gem ""rack-cache"", ""~> 1.2""
+   21 | gem ""stimulus-rails""
+   22 | gem ""turbo-rails""
+   23 | gem ""jsbundling-rails""
+   24 | gem ""cssbundling-rails""
+   25 | gem ""importmap-rails""
+   26 | gem ""tailwindcss-rails""
+>  27 | gem ""puma"", ""= 5.1.0""
+   28 | gem ""rdoc"", ""3.11""
+   29 | # require: false so bcrypt is loaded only when has_secure_password is used.
+   30 | # This is to avoid Active Model (and by extension the entire framework)
+   31 | # being dependent on a binary library.
+   32 | gem ""bcrypt"", ""~> 3.1.11"", require: false
+   33 |
+   34 | # This needs to be with require false to avoid it being automatically loaded by
+   35 | # sprockets.
+   36 | gem ""terser"", "">= 1.1.4"", require: false
+   37 |
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-200 + CWE-404 + CWE-444 + CWE-937,"Use of puma at version 5.4.0 with ['CVE-2021-41136', 'CVE-2022-23634', 'CVE-2022-24790', 'GHSA-48w2-rm65-62xx', 'GHSA-h99w-9q5r-gjq9', 'GHSA-rmj8-8hhh-gv5h'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,157,"
+  147 |       omniauth-oauth2 (~> 1.2)
+  148 |     omniauth-oauth2 (1.7.2)
+  149 |       oauth2 (~> 1.4)
+  150 |       omniauth (>= 1.9, < 3)
+  151 |     omniauth-openid (2.0.1)
+  152 |       omniauth (>= 1.0, < 3.0)
+  153 |       rack-openid (~> 1.4.0)
+  154 |     orm_adapter (0.5.0)
+  155 |     psych (4.0.3)
+  156 |       stringio
+> 157 |     puma (5.4.0)
+  158 |     racc (1.6.0)
+  159 |     rack (2.2.3)
+  160 |     rack-openid (1.4.2)
+  161 |       rack (>= 1.1.0)
+  162 |       ruby-openid (>= 2.1.8)
+  163 |     rack-protection (2.2.0)
+  164 |       rack
+  165 |     rack-test (1.1.0)
+  166 |       rack (>= 1.0, < 3)
+  167 |     rails (7.0.2.3)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-200 + CWE-732 + CWE-937,"Use of junit:junit at version 4.12 with ['CVE-2020-15250', 'GHSA-269g-pwp5-87pp'] in namespace/skims/test/data/lib/sca/f011/frst_child/scdn_child/pom.xml",CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,18,"
+   8 |     <groupId>maven</groupId>
+   9 |     <version>1.0</version>
+  10 |   </parent>
+  11 |   <properties>
+  12 |     <projectversion>0.0.1</projectversion>
+  13 |   </properties>
+  14 |   <dependencies>
+  15 |     <dependency>
+  16 |       <groupId>junit</groupId>
+  17 |       <artifactId>junit</artifactId>
+> 18 |       <version>4.12</version>
+  19 |       <scope>test</scope>
+  20 |     </dependency>
+  21 |     <dependency>
+  22 |       <groupId>com.newrelic.agent.java</groupId>
+  23 |       <artifactId>newrelic-agent</artifactId>
+  24 |       <version>6.3.0</version>
+  25 |       <scope>test</scope>
+  26 |     </dependency>
+  27 |     <dependency>
+  28 |       <groupId>org.springframework</groupId>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-200 + CWE-863 + CWE-937,"Use of guzzlehttp/guzzle at version 6.3 with ['CVE-2022-29248', 'CVE-2022-31042', 'CVE-2022-31043', 'CVE-2022-31090', 'CVE-2022-31091', 'GHSA-25mq-v84q-4j7r', 'GHSA-cwmx-hcrq-mhc3', 'GHSA-f2wf-25xc-69c9', 'GHSA-q559-8m2m-g699', 'GHSA-w248-ffj2-4v5q'] in namespace/skims/test/data/lib/sca/f011/composer.json",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,20,"
+  10 |         ""classmap"": [
+  11 |             ""app/AppKernel.php"",
+  12 |             ""app/AppCache.php""
+  13 |         ]
+  14 |     },
+  15 |     ""require"": {
+  16 |         ""php"": "">=5.5.9"",
+  17 |         ""doctrine/doctrine-bundle"": ""^1.6"",
+  18 |         ""doctrine/orm"": ""^2.5"",
+  19 |         ""friendsoftypo3/mediace"": ""7.6.3"",
+> 20 |         ""guzzlehttp/guzzle"": ""^6.3"",
+  21 |         ""incenteev/composer-parameter-handler"": ""^2.0"",
+  22 |         ""intelliants/subrion"": ""^3.0"",
+  23 |         ""intervention/image"": ""^2.4"",
+  24 |         ""jaggle/php-html-parser"": ""^1.7"",
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+  29 |         ""snc/redis-bundle"": ""^2.1"",
+  30 |         ""symfony/monolog-bundle"": ""^3.1.0"",
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-264 + CWE-502 + CWE-937,"Use of org.apache.openjpa:openjpa at version 2.2.0 with ['CVE-2013-1768', 'GHSA-j65f-mvgw-prp2'] in namespace/skims/test/data/lib/sca/f011/build.sbt",CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,24,"
+   5 |   ""org.apache.logging.log4j""  %  ""log4j-core""     % ""2.2"",
+   6 |   ""org.apache.logging.log4j""  %  ""log4j-web""      % ""2.2"",
+   7 |   ""com.lmax""                  %  ""disruptor""      % ""3.3.2"",
+   8 |   ""org.glassfish.jersey.core"" %  ""jersey-client""  % ""2.17""
+   9 | )
+  10 |
+  11 | libraryDependencies += ""org.apache.kylin"" % ""kylin"" % ""2.5.0""
+  12 |
+  13 | libraryDependencies ++= Seq(
+  14 |   ""org.scalatest""            %% ""scalatest""             % ""2.2.4""   % ""test,it"",
+  15 |   ""org.mockito""              %  ""mockito-all""           % ""1.9.5""   % ""test,it"",
+  16 |   ""com.novocode""             %  ""junit-interface""       % ""0.7""     % ""test->default"",
+  17 |   ""org.pegdown""              %  ""pegdown""               % ""1.6.0""   % ""test,it"",
+  18 |   ""com.h2database""           %  ""h2""                    % ""1.4.200"" % ""test,it"",
+  19 |   ""org.scala-lang""           %  ""scala-compiler""        % scalaVersion.value,
+  20 |   ""org.scala-lang""           %  ""scala-reflect""         % scalaVersion.value,
+  21 |   ""org.apache.nifi.registry"" %  ""nifi-registry-web-api"" % ""0.4.1""   % ""nifi"",
+  22 |   ""org.apache.nutch""         %  ""nutch""                 % ""2.0.0"",
+  23 |   ""org.apache.ode""           %   ""ode""                  % ode.version,
+> 24 |   ""org.apache.openjpa""       %   ""openjpa""              % ""2.2.0""   % ""test,it""
+  25 | )
+     ^ Col 0
+",maven.maven_sbt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-264 + CWE-937,Use of doctrine/orm at version 2.5 with ['CVE-2015-5723'] in namespace/skims/test/data/lib/sca/f011/composer.json,CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,18,"
+   8 |             """": ""src/""
+   9 |         },
+  10 |         ""classmap"": [
+  11 |             ""app/AppKernel.php"",
+  12 |             ""app/AppCache.php""
+  13 |         ]
+  14 |     },
+  15 |     ""require"": {
+  16 |         ""php"": "">=5.5.9"",
+  17 |         ""doctrine/doctrine-bundle"": ""^1.6"",
+> 18 |         ""doctrine/orm"": ""^2.5"",
+  19 |         ""friendsoftypo3/mediace"": ""7.6.3"",
+  20 |         ""guzzlehttp/guzzle"": ""^6.3"",
+  21 |         ""incenteev/composer-parameter-handler"": ""^2.0"",
+  22 |         ""intelliants/subrion"": ""^3.0"",
+  23 |         ""intervention/image"": ""^2.4"",
+  24 |         ""jaggle/php-html-parser"": ""^1.7"",
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-295 + CWE-937,"Use of System.Security.Cryptography.X509Certificates at version 4.1.0 with ['CVE-2017-11770', 'GHSA-7mfr-774f-w5r9'] in namespace/skims/test/data/lib/sca/f011/packages.config",CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,31,"
+  13 |   <package id=""Microsoft.Azure.Services.AppAuthentication"" version=""1.0.3"" targetFramework=""net472"" />
+  14 |   <package id=""Microsoft.IdentityModel.Clients.ActiveDirectory"" version=""3.14.2"" targetFramework=""net472"" />
+  15 |   <package id=""Microsoft.IdentityModel.JsonWebTokens"" version=""5.4.0"" targetFramework=""net472"" />
+  16 |   <package id=""Microsoft.IdentityModel.Logging"" version=""5.4.0"" targetFramework=""net472"" />
+  17 |   <package id=""Microsoft.IdentityModel.Tokens"" version=""5.4.0"" targetFramework=""net472"" />
+  18 |   <package id=""Microsoft.Rest.ClientRuntime"" version=""2.3.18"" targetFramework=""net472"" />
+  19 |   <package id=""Microsoft.Rest.ClientRuntime.Azure"" version=""3.3.18"" targetFramework=""net472"" />
+  20 |   <package id=""Newtonsoft.Json"" version=""12.0.3"" targetFramework=""net472"" />
+  21 |   <package id=""System.Diagnostics.DiagnosticSource"" version=""4.5.1"" targetFramework=""net472"" />
+  22 |   <package id=""System.IdentityModel.Tokens.Jwt"" version=""5.4.0"" targetFramework=""net472"" />
+  23 |   <package id=""System.IO"" version=""4.1.0"" targetFramework=""net472"" />
+  24 |   <package id=""System.Net.WebSockets"" version=""4.0.0"" targetFramework=""net472"" />
+  25 |   <package id=""System.Net.WebSockets.Client"" version=""4.0.2"" targetFramework=""net472"" />
+  26 |   <package id=""System.Runtime"" version=""4.1.0"" targetFramework=""net472"" />
+  27 |   <package id=""System.Runtime.Serialization.Primitives"" version=""4.1.1"" targetFramework=""net472"" />
+  28 |   <package id=""System.Security.Cryptography.Algorithms"" version=""4.2.0"" targetFramework=""net472"" />
+  29 |   <package id=""System.Security.Cryptography.Encoding"" version=""4.0.0"" targetFramework=""net472"" />
+  30 |   <package id=""System.Security.Cryptography.Primitives"" version=""4.0.0"" targetFramework=""net472"" />
+> 31 |   <package id=""System.Security.Cryptography.X509Certificates"" version=""4.1.0"" targetFramework=""net472"" />
+  32 |   <package id=""Wire"" version=""1.0.0"" targetFramework=""net472"" />
+  33 | </packages>
+     ^ Col 0
+",nuget.nuget_packages_config
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-326 + CWE-470 + CWE-522 + CWE-668 + CWE-77 + CWE-78 + CWE-798 + CWE-863 + CWE-89 + CWE-918 + CWE-922 + CWE-937,"Use of org.apache.kylin:kylin at version 2.5.0 with ['CVE-2020-13925', 'CVE-2020-13926', 'CVE-2020-13937', 'CVE-2020-1937', 'CVE-2020-1956', 'CVE-2021-31522', 'CVE-2021-36774', 'CVE-2021-45457', 'CVE-2021-45458', 'CVE-2022-24697', 'CVE-2022-43396', 'CVE-2022-44621', 'GHSA-2hpg-vwqj-6h6w', 'GHSA-5429-pjww-7675', 'GHSA-9fj5-jg6f-qg5r', 'GHSA-f5q9-j9r2-34gq', 'GHSA-hw3m-8h25-8frw', 'GHSA-mgpf-hhgf-cxg4', 'GHSA-q656-g2x3-8cgh', 'GHSA-wrx7-qgmj-mf2q'] in namespace/skims/test/data/lib/sca/f011/build.sbt",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,11,"
+   1 | def libraries = Seq(
+   2 |   ""com.typesafe.slick""        %% ""slick""          % slickVersion,
+   3 |   ""com.typesafe.slick""        %% ""slick-hikaricp"" % slickVersion,
+   4 |   ""org.apache.logging.log4j""  %  ""log4j-api""      % ""2.17.0"",
+   5 |   ""org.apache.logging.log4j""  %  ""log4j-core""     % ""2.2"",
+   6 |   ""org.apache.logging.log4j""  %  ""log4j-web""      % ""2.2"",
+   7 |   ""com.lmax""                  %  ""disruptor""      % ""3.3.2"",
+   8 |   ""org.glassfish.jersey.core"" %  ""jersey-client""  % ""2.17""
+   9 | )
+  10 |
+> 11 | libraryDependencies += ""org.apache.kylin"" % ""kylin"" % ""2.5.0""
+  12 |
+  13 | libraryDependencies ++= Seq(
+  14 |   ""org.scalatest""            %% ""scalatest""             % ""2.2.4""   % ""test,it"",
+  15 |   ""org.mockito""              %  ""mockito-all""           % ""1.9.5""   % ""test,it"",
+  16 |   ""com.novocode""             %  ""junit-interface""       % ""0.7""     % ""test->default"",
+  17 |   ""org.pegdown""              %  ""pegdown""               % ""1.6.0""   % ""test,it"",
+  18 |   ""com.h2database""           %  ""h2""                    % ""1.4.200"" % ""test,it"",
+  19 |   ""org.scala-lang""           %  ""scala-compiler""        % scalaVersion.value,
+  20 |   ""org.scala-lang""           %  ""scala-reflect""         % scalaVersion.value,
+  21 |   ""org.apache.nifi.registry"" %  ""nifi-registry-web-api"" % ""0.4.1""   % ""nifi"",
+     ^ Col 0
+",maven.maven_sbt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-352 + CWE-384 + CWE-434 + CWE-79 + CWE-89 + CWE-937 + CWE-94,"Use of tribalsystems/zenario at version 7.0.0 with ['CVE-2020-36608', 'GHSA-22cq-xxr9-jrrv', 'GHSA-4p38-rc98-cr39', 'GHSA-6657-9743-4mc6', 'GHSA-6r86-2jm9-9mh4', 'GHSA-8hcm-jj4x-4gmr', 'GHSA-f454-jm6x-56q6', 'GHSA-f92p-f8r2-c87q', 'GHSA-gmf5-q34v-vwvp', 'GHSA-gxcm-36qw-j29v', 'GHSA-j43m-4pxc-hmqj', 'GHSA-r9xx-4cmv-856x', 'GHSA-rgg3-3wh7-w935', 'GHSA-w4f3-7f7c-x652', 'GHSA-x8wj-cqmp-3wmm'] in namespace/skims/test/data/lib/sca/f011/composer.json",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,34,"
+  24 |         ""jaggle/php-html-parser"": ""^1.7"",
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+  29 |         ""snc/redis-bundle"": ""^2.1"",
+  30 |         ""symfony/monolog-bundle"": ""^3.1.0"",
+  31 |         ""symfony/polyfill-apcu"": ""^1.0"",
+  32 |         ""symfony/swiftmailer-bundle"": ""^2.6.4"",
+  33 |         ""symfony/symfony"": ""3.4.*"",
+> 34 |         ""tribalsystems/zenario"": ""7.0.0"",
+  35 |         ""twig/twig"": ""^1.0||^2.0"",
+  36 |         ""workerman/phpsocket.io"": ""^1.1"",
+  37 |         ""yeskn-studio/assetic-bundle"": ""3.4.*"",
+  38 |         ""yzalis/identicon"": ""^1.2""
+  39 |     },
+  40 |     ""require-dev"": {
+  41 |         ""backdrop/backdrop"": ""1.21.0"",
+  42 |         ""feehi/feehicms"": ""^1.0"",
+  43 |         ""phpunit/phpunit"": ""^5.0|^6.0"",
+  44 |         ""sensio/generator-bundle"": ""^3.0"",
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-352 + CWE-384 + CWE-434 + CWE-79 + CWE-89 + CWE-937 + CWE-94,"Use of tribalsystems/zenario at version 7.0.0 with ['CVE-2020-36608', 'GHSA-22cq-xxr9-jrrv', 'GHSA-4p38-rc98-cr39', 'GHSA-6657-9743-4mc6', 'GHSA-6r86-2jm9-9mh4', 'GHSA-8hcm-jj4x-4gmr', 'GHSA-f454-jm6x-56q6', 'GHSA-f92p-f8r2-c87q', 'GHSA-gmf5-q34v-vwvp', 'GHSA-gxcm-36qw-j29v', 'GHSA-j43m-4pxc-hmqj', 'GHSA-r9xx-4cmv-856x', 'GHSA-rgg3-3wh7-w935', 'GHSA-w4f3-7f7c-x652', 'GHSA-x8wj-cqmp-3wmm'] in namespace/skims/test/data/lib/sca/f011/composer.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,284,"
+  274 |                 ""phpdoc"",
+  275 |                 ""reflection""
+  276 |             ],
+  277 |             ""support"": {
+  278 |                 ""issues"": ""https://github.com/PHP-DI/PhpDocReader/issues"",
+  279 |                 ""source"": ""https://github.com/PHP-DI/PhpDocReader/tree/2.2.1""
+  280 |             },
+  281 |             ""time"": ""2020-10-12T12:39:22+00:00""
+  282 |         },
+  283 |         {
+> 284 |             ""name"": ""tribalsystems/zenario"",
+  285 |             ""version"": ""7.0.0"",
+  286 |             ""source"": {
+  287 |                 ""type"": ""git"",
+  288 |                 ""url"": ""https://github.com/PHPMailer/PHPMailer.git"",
+  289 |                 ""reference"": ""49cd7ea3d2563f028d7811f06864a53b1f15ff55""
+  290 |             },
+  291 |             ""dist"": {
+  292 |                 ""type"": ""zip"",
+  293 |                 ""url"": ""https://api.github.com/repos/PHPMailer/PHPMailer/zipball/49cd7ea3d2563f028d7811f06864a53b1f15ff55
+  294 |                 ""reference"": ""49cd7ea3d2563f028d7811f06864a53b1f15ff55"",
+      ^ Col 0
+",composer.composer_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-352 + CWE-384 + CWE-502 + CWE-78 + CWE-79 + CWE-937,"Use of intelliants/subrion at version 3.0 with ['CVE-2017-15063', 'CVE-2018-11317', 'CVE-2018-21037', 'CVE-2020-12469', 'CVE-2020-18324', 'CVE-2020-18325', 'CVE-2020-18326', 'CVE-2020-22392', 'CVE-2020-23761', 'CVE-2021-41502', 'CVE-2021-41948', 'CVE-2021-43464', 'CVE-2022-37059', 'CVE-2022-43120', 'CVE-2022-43121', 'GHSA-3wmg-28v9-8hf6', 'GHSA-5mh2-82g9-72jv', 'GHSA-9cc3-5w85-pxvx', 'GHSA-g54x-29xv-58h5', 'GHSA-hxj6-v58r-cqv3', 'GHSA-jrvr-gmqv-hgrh', 'GHSA-jv64-2m3x-6v4q', 'GHSA-jvq4-cgfw-jgf4', 'GHSA-pcwq-7wrw-r8jv', 'GHSA-qpxw-6473-ppww', 'GHSA-rh4r-9689-6xw4', 'GHSA-xj7h-g7rh-gjcw', 'GHSA-xvgx-668j-f67p'] in namespace/skims/test/data/lib/sca/f011/composer.json",CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,22,"
+  12 |             ""app/AppCache.php""
+  13 |         ]
+  14 |     },
+  15 |     ""require"": {
+  16 |         ""php"": "">=5.5.9"",
+  17 |         ""doctrine/doctrine-bundle"": ""^1.6"",
+  18 |         ""doctrine/orm"": ""^2.5"",
+  19 |         ""friendsoftypo3/mediace"": ""7.6.3"",
+  20 |         ""guzzlehttp/guzzle"": ""^6.3"",
+  21 |         ""incenteev/composer-parameter-handler"": ""^2.0"",
+> 22 |         ""intelliants/subrion"": ""^3.0"",
+  23 |         ""intervention/image"": ""^2.4"",
+  24 |         ""jaggle/php-html-parser"": ""^1.7"",
+  25 |         ""knplabs/knp-markdown-bundle"": ""^1.7"",
+  26 |         ""predis/predis"": ""^1.1"",
+  27 |         ""sensio/distribution-bundle"": ""^5.0.19"",
+  28 |         ""sensio/framework-extra-bundle"": ""^5.0.0"",
+  29 |         ""snc/redis-bundle"": ""^2.1"",
+  30 |         ""symfony/monolog-bundle"": ""^3.1.0"",
+  31 |         ""symfony/polyfill-apcu"": ""^1.0"",
+  32 |         ""symfony/swiftmailer-bundle"": ""^2.6.4"",
+     ^ Col 0
+",composer.composer_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-352 + CWE-384 + CWE-502 + CWE-78 + CWE-79 + CWE-937,"Use of intelliants/subrion at version 3.0 with ['CVE-2017-15063', 'CVE-2018-11317', 'CVE-2018-21037', 'CVE-2020-12469', 'CVE-2020-18324', 'CVE-2020-18325', 'CVE-2020-18326', 'CVE-2020-22392', 'CVE-2020-23761', 'CVE-2021-41502', 'CVE-2021-41948', 'CVE-2021-43464', 'CVE-2022-37059', 'CVE-2022-43120', 'CVE-2022-43121', 'GHSA-3wmg-28v9-8hf6', 'GHSA-5mh2-82g9-72jv', 'GHSA-9cc3-5w85-pxvx', 'GHSA-g54x-29xv-58h5', 'GHSA-hxj6-v58r-cqv3', 'GHSA-jrvr-gmqv-hgrh', 'GHSA-jv64-2m3x-6v4q', 'GHSA-jvq4-cgfw-jgf4', 'GHSA-pcwq-7wrw-r8jv', 'GHSA-qpxw-6473-ppww', 'GHSA-rh4r-9689-6xw4', 'GHSA-xj7h-g7rh-gjcw', 'GHSA-xvgx-668j-f67p'] in namespace/skims/test/data/lib/sca/f011/composer.lock",CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,242,"
+  232 |                     ""type"": ""github""
+  233 |                 },
+  234 |                 {
+  235 |                     ""url"": ""https://tidelift.com/funding/github/packagist/php-di/php-di"",
+  236 |                     ""type"": ""tidelift""
+  237 |                 }
+  238 |             ],
+  239 |             ""time"": ""2021-09-02T09:49:58+00:00""
+  240 |         },
+  241 |         {
+> 242 |             ""name"": ""intelliants/subrion"",
+  243 |             ""version"": ""3.0"",
+  244 |             ""source"": {
+  245 |                 ""type"": ""git"",
+  246 |                 ""url"": ""https://github.com/PHP-DI/PhpDocReader.git"",
+  247 |                 ""reference"": ""66daff34cbd2627740ffec9469ffbac9f8c8185c""
+  248 |             },
+  249 |             ""dist"": {
+  250 |                 ""type"": ""zip"",
+  251 |                 ""url"": ""https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/66daff34cbd2627740ffec9469ffbac9f8c8185c
+  252 |                 ""reference"": ""66daff34cbd2627740ffec9469ffbac9f8c8185c"",
+      ^ Col 0
+",composer.composer_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-400 + CWE-409 + CWE-74 + CWE-937,"Use of pillow at version 9.0.0 with ['CVE-2022-22817', 'CVE-2022-24303', 'CVE-2022-45198', 'CVE-2022-45199', 'GHSA-8vj2-vxx3-667w', 'GHSA-9j59-75qj-795w', 'GHSA-m2vv-5vj5-2hm7'] in namespace/skims/test/data/lib/sca/f011/requirements.txt",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,5,"
+  1 | aioextensions==21.7.2261349
+  2 | apk-signer==1.1.1
+  3 | apturl==0.5.2
+  4 | asn1crypto==1.4.0
+> 5 | pillow==9.0.0
+    ^ Col 0
+",pip.pip_requirements_txt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-400 + CWE-502 + CWE-89 + CWE-937,"Use of activerecord at version 7.0.2.3 with ['CVE-2022-32224', 'CVE-2022-44566', 'CVE-2023-22794', 'GHSA-3hhc-qp5v-9p2j', 'GHSA-579w-22j4-4749', 'GHSA-hq7p-j377-6v63'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,73,"
+   63 |       activesupport (= 7.0.2.3)
+   64 |       builder (~> 3.1)
+   65 |       erubi (~> 1.4)
+   66 |       rails-dom-testing (~> 2.0)
+   67 |       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+   68 |     activejob (7.0.2.3)
+   69 |       activesupport (= 7.0.2.3)
+   70 |       globalid (>= 0.3.6)
+   71 |     activemodel (7.0.2.3)
+   72 |       activesupport (= 7.0.2.3)
+>  73 |     activerecord (7.0.2.3)
+   74 |       activemodel (= 7.0.2.3)
+   75 |       activesupport (= 7.0.2.3)
+   76 |     activestorage (7.0.2.3)
+   77 |       actionpack (= 7.0.2.3)
+   78 |       activejob (= 7.0.2.3)
+   79 |       activerecord (= 7.0.2.3)
+   80 |       activesupport (= 7.0.2.3)
+   81 |       marcel (~> 1.0)
+   82 |       mini_mime (>= 1.1.0)
+   83 |     activesupport (7.0.2.3)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-400 + CWE-937,"Use of slug at version 0.9.0 with ['CVE-2017-16117', 'GHSA-jxqq-cqm6-pfq9'] in namespace/skims/test/data/lib/sca/f011/package.json",CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,13,"
+   1 | {
+   2 |   ""name"": ""test"",
+   3 |   ""version"": ""1.0.0"",
+   4 |   ""description"": ""nothing"",
+   5 |   ""main"": ""index.js"",
+   6 |   ""author"": ""Luis Saavedra"",
+   7 |   ""license"": ""MIT"",
+   8 |   ""private"": false,
+   9 |   ""dependencies"": {
+  10 |     ""@angular/core"": ""^13.3.3"",
+  11 |     ""cloudron-sysadmin"": ""1.0.0"",
+  12 |     ""script-manager"": ""0.8.6"",
+> 13 |     ""slug"": ""0.9.0"",
+  14 |     ""ajv"": ""^8.12.0""
+  15 |   },
+  16 |   ""devDependencies"": {
+  17 |     ""xmldom"": ""0.4.0""
+  18 |   }
+  19 | }
+     ^ Col 0
+",npm.npm_package_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-400 + CWE-937,"Use of slug at version 0.9.0 with ['CVE-2017-16117', 'GHSA-jxqq-cqm6-pfq9'] in namespace/skims/test/data/lib/sca/f011/yarn.lock",CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,396,"
+  386 |     portscanner ""2.2.0""
+  387 |     request ""2.88.0""
+  388 |     serializator ""1.0.1""
+  389 |     uuid ""3.3.2""
+  390 |
+  391 | serializator@1.0.1:
+  392 |   version ""1.0.1""
+  393 |   resolved ""https://registry.yarnpkg.com/serializator/-/serializator-1.0.1.tgz#177a317a8bd6ad9b120e362ebca0b89d12bc61e0""
+  394 |   integrity sha512-xrMfCMi8Z3x/qF81YXdGdDpChwWALravGj+gGkNQPGnIaLbGNcv9P8I7NDaHE7aUjLhvP3/FvIKTeK2wmKPF/g==
+  395 |
+> 396 | slug@0.9.0:
+  397 |   version ""0.9.0""
+  398 |   resolved ""https://registry.yarnpkg.com/slug/-/slug-0.9.0.tgz#3972141a5bb7608d29bf1721da58ef3acaa5eea0""
+  399 |   integrity sha1-OXIUGlu3YI0pvxch2ljvOsql7qA=
+  400 |   dependencies:
+  401 |     unicode "">= 0.3.1""
+  402 |
+  403 | sshpk@^1.7.0:
+  404 |   version ""1.17.0""
+  405 |   resolved ""https://registry.yarnpkg.com/sshpk/-/sshpk-1.17.0.tgz#578082d92d4fe612b13007496e543fa0fbcbe4c5""
+  406 |   integrity sha512-/9HIEs1ZXGhSPE8X6Ccm7Nam1z8KcoCqPdI7ecm1N33EzAetWahvQWVqLZtaZQ+IDKX4IyA2o0gBzqIMkAagHQ==
+      ^ Col 0
+",npm.npm_yarn_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-415 + CWE-476 + CWE-937,"Use of nokogiri at version =1.14.2 with ['CVE-2023-28484', 'CVE-2023-29469', 'GHSA-pxvg-2qj5-37jq'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,131,"
+  121 |
+  122 |   platforms :mri do
+  123 |     gem ""stackprof"", ""= 1.4.2""
+  124 |     gem ""debug"", "">= 1.1.0"", require: false
+  125 |   end
+  126 |
+  127 |   gem ""benchmark-ips""
+  128 | end
+  129 |
+  130 | platforms :ruby, :windows do
+> 131 |   gem ""nokogiri"", ""= 1.14.2""
+  132 |   gem ""devise"", ""= 1.4.2"", :group => :development
+  133 |   gem ""rubocop"", ""= 1.35.1"", :group => [:caravan, :topo, :test, :mongo]
+  134 |
+  135 |
+  136 |   # Needed for compiling the ActionDispatch::Journey parser.
+  137 |   gem ""racc"", "">=1.4.6"", require: false
+  138 |
+  139 |   # Active Record.
+  140 |   gem ""sqlite3"", ""~> 1.4""
+  141 |
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-416 + CWE-787 + CWE-937,"Use of assimp at version 5.1.0 with ['CVE-2021-45948', 'CVE-2022-45748'] in namespace/skims/test/data/lib_root/f011/conanfile.py",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,26,"
+  16 |     tool_requires = [""pkg_a/4.5.1"",
+  17 |                      (""libtiff/3.9.0@user/testing""),
+  18 |                      (""glew/2.1.0@dummy/stable"", ""override""),]
+  19 |
+  20 |     def build_requirements(self):
+  21 |         self.tool_requires(""tool_win/0.1@user/stable"")
+  22 |
+  23 |     def requirements(self):
+  24 |         envir = ""prod""
+  25 |         self.requires(""opencv/2.2@drl/stable"")
+> 26 |         self.requires(""assimp/[~5.1.0]"")
+  27 |         if envir == ""prod"":
+  28 |             self.requires(
+  29 |                 ""closecv/4.2@drl/stable"",
+  30 |                 private=False,
+  31 |                 override=False,
+  32 |             )
+  33 |     generators = ""cmake""
+  34 |
+  35 |     def build(self):
+  36 |         cmake = CMake(self)
+     ^ Col 0
+",python_config_files.conan_conanfile_py
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-502 + CWE-78 + CWE-937,"Use of org.springframework:spring-web at version 5.3.2 with ['CVE-2016-1000027', 'GHSA-4wrc-f8pq-fpqp', 'CVE-2021-22118'] in namespace/skims/test/data/lib/sca/f011/frst_child/scdn_child/pom.xml",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,30,"
+  20 |     </dependency>
+  21 |     <dependency>
+  22 |       <groupId>com.newrelic.agent.java</groupId>
+  23 |       <artifactId>newrelic-agent</artifactId>
+  24 |       <version>6.3.0</version>
+  25 |       <scope>test</scope>
+  26 |     </dependency>
+  27 |     <dependency>
+  28 |       <groupId>org.springframework</groupId>
+  29 |       <artifactId>spring-web</artifactId>
+> 30 |       <version>5.3.2</version>
+  31 |       <scope>test</scope>
+  32 |     </dependency>
+  33 |     <dependency>
+  34 |       <groupId>org.springframework.security</groupId>
+  35 |       <artifactId>spring-security-core</artifactId>
+  36 |       <version>${spring.version}</version>
+  37 |       <scope>test</scope>
+  38 |     </dependency>
+  39 |     <dependency>
+  40 |       <groupId>axis</groupId>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-613 + CWE-937,Use of org.apache.nifi.registry:nifi-registry-web-api at version 0.4.1 with ['CVE-2020-9482'] in namespace/skims/test/data/lib/sca/f011/build.sbt,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,21,"
+   5 |   ""org.apache.logging.log4j""  %  ""log4j-core""     % ""2.2"",
+   6 |   ""org.apache.logging.log4j""  %  ""log4j-web""      % ""2.2"",
+   7 |   ""com.lmax""                  %  ""disruptor""      % ""3.3.2"",
+   8 |   ""org.glassfish.jersey.core"" %  ""jersey-client""  % ""2.17""
+   9 | )
+  10 |
+  11 | libraryDependencies += ""org.apache.kylin"" % ""kylin"" % ""2.5.0""
+  12 |
+  13 | libraryDependencies ++= Seq(
+  14 |   ""org.scalatest""            %% ""scalatest""             % ""2.2.4""   % ""test,it"",
+  15 |   ""org.mockito""              %  ""mockito-all""           % ""1.9.5""   % ""test,it"",
+  16 |   ""com.novocode""             %  ""junit-interface""       % ""0.7""     % ""test->default"",
+  17 |   ""org.pegdown""              %  ""pegdown""               % ""1.6.0""   % ""test,it"",
+  18 |   ""com.h2database""           %  ""h2""                    % ""1.4.200"" % ""test,it"",
+  19 |   ""org.scala-lang""           %  ""scala-compiler""        % scalaVersion.value,
+  20 |   ""org.scala-lang""           %  ""scala-reflect""         % scalaVersion.value,
+> 21 |   ""org.apache.nifi.registry"" %  ""nifi-registry-web-api"" % ""0.4.1""   % ""nifi"",
+  22 |   ""org.apache.nutch""         %  ""nutch""                 % ""2.0.0"",
+  23 |   ""org.apache.ode""           %   ""ode""                  % ode.version,
+  24 |   ""org.apache.openjpa""       %   ""openjpa""              % ""2.2.0""   % ""test,it""
+  25 | )
+     ^ Col 0
+",maven.maven_sbt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-74 + CWE-77 + CWE-78 + CWE-79 + CWE-937,"Use of rdoc at version 3.11 with ['CVE-2012-6708', 'CVE-2013-0256', 'CVE-2015-9251', 'CVE-2019-11358', 'CVE-2021-31799', 'GHSA-ggxm-pgc9-g7fp', 'GHSA-v2r9-c84j-v7xm'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,28,"
+   18 | gem ""selenium-webdriver"", "">= 4.0.0""
+   19 |
+   20 | gem ""rack-cache"", ""~> 1.2""
+   21 | gem ""stimulus-rails""
+   22 | gem ""turbo-rails""
+   23 | gem ""jsbundling-rails""
+   24 | gem ""cssbundling-rails""
+   25 | gem ""importmap-rails""
+   26 | gem ""tailwindcss-rails""
+   27 | gem ""puma"", ""= 5.1.0""
+>  28 | gem ""rdoc"", ""3.11""
+   29 | # require: false so bcrypt is loaded only when has_secure_password is used.
+   30 | # This is to avoid Active Model (and by extension the entire framework)
+   31 | # being dependent on a binary library.
+   32 | gem ""bcrypt"", ""~> 3.1.11"", require: false
+   33 |
+   34 | # This needs to be with require false to avoid it being automatically loaded by
+   35 | # sprockets.
+   36 | gem ""terser"", "">= 1.1.4"", require: false
+   37 |
+   38 | # Explicitly avoid 1.x that doesn't support Ruby 2.4+
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-78 + CWE-79 + CWE-937,"Use of jQuery at version 3.4.1 with ['CVE-2020-11023', 'GHSA-257q-pv89-v3xv', 'GHSA-jpcq-cgw6-v4j6', 'CVE-2020-11022'] in namespace/skims/test/data/lib/sca/f011/packages.config",CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,9,"
+   1 | <?xml version=""1.0"" encoding=""utf-8""?>
+   2 | <packages>
+   3 |   <package id=""ClosedXML"" version=""0.94.2"" targetFramework=""net45"" requireReinstallation=""true"" />
+   4 |   <package id=""DocumentFormat.OpenXml"" version=""2.7.2"" targetFramework=""net45"" requireReinstallation=""true"" />
+   5 |   <package id=""ExcelDataReader"" version=""3.6.0"" targetFramework=""net45"" />
+   6 |   <package id=""ExcelDataReader.DataSet"" version=""3.6.0"" targetFramework=""net45"" />
+   7 |   <package id=""ExcelNumberFormat"" version=""1.0.3"" targetFramework=""net45"" />
+   8 |   <package id=""FastMember"" version=""1.3.0"" targetFramework=""net45"" />
+>  9 |   <package id=""jQuery"" version=""3.4.1"" targetFramework=""net45"" />
+  10 |   <package id=""Logs.Management"" version=""1.0.3"" targetFramework=""net472"" />
+  11 |   <package id=""Microsoft.Azure.Amqp"" version=""2.4.9"" targetFramework=""net472"" />
+  12 |   <package id=""Microsoft.Azure.ServiceBus"" version=""5.1.1"" targetFramework=""net472"" />
+  13 |   <package id=""Microsoft.Azure.Services.AppAuthentication"" version=""1.0.3"" targetFramework=""net472"" />
+  14 |   <package id=""Microsoft.IdentityModel.Clients.ActiveDirectory"" version=""3.14.2"" targetFramework=""net472"" />
+  15 |   <package id=""Microsoft.IdentityModel.JsonWebTokens"" version=""5.4.0"" targetFramework=""net472"" />
+  16 |   <package id=""Microsoft.IdentityModel.Logging"" version=""5.4.0"" targetFramework=""net472"" />
+  17 |   <package id=""Microsoft.IdentityModel.Tokens"" version=""5.4.0"" targetFramework=""net472"" />
+  18 |   <package id=""Microsoft.Rest.ClientRuntime"" version=""2.3.18"" targetFramework=""net472"" />
+  19 |   <package id=""Microsoft.Rest.ClientRuntime.Azure"" version=""3.3.18"" targetFramework=""net472"" />
+  20 |   <package id=""Newtonsoft.Json"" version=""12.0.3"" targetFramework=""net472"" />
+  21 |   <package id=""System.Diagnostics.DiagnosticSource"" version=""4.5.1"" targetFramework=""net472"" />
+     ^ Col 0
+",nuget.nuget_packages_config
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-78 + CWE-937 + CWE-94,"Use of mini_magick at version 3.5.0 with ['CVE-2013-2616', 'CVE-2019-13574', 'GHSA-r7j3-vvh2-xrpj', 'GHSA-w754-gq8r-pf5f'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock",CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,111,"
+  101 |     i18n (1.10.0)
+  102 |       concurrent-ruby (~> 1.0)
+  103 |     jwt (2.3.0)
+  104 |     loofah (2.16.0)
+  105 |       crass (~> 1.0.2)
+  106 |       nokogiri (>= 1.5.9)
+  107 |     mail (2.7.1)
+  108 |       mini_mime (>= 0.1.1)
+  109 |     marcel (1.0.2)
+  110 |     method_source (1.0.0)
+> 111 |     mini_magick (3.5.0)
+  112 |     mini_mime (1.1.2)
+  113 |     mini_portile2 (2.6.1)
+  114 |     minitest (5.15.0)
+  115 |     mocha (1.13.0)
+  116 |     multi_json (1.15.0)
+  117 |     multi_xml (0.6.0)
+  118 |     net-imap (0.2.3)
+  119 |       digest
+  120 |       net-protocol
+  121 |       strscan
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-78 + CWE-937,"Use of mini_magick at version 4.9.0 with ['CVE-2019-13574', 'GHSA-r7j3-vvh2-xrpj'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,175,"
+  163 | end
+  164 |
+  165 | # Gems that are necessary for Active Record tests with Oracle.
+  166 | if ENV[""ORACLE_ENHANCED""]
+  167 |   platforms :ruby do
+  168 |     gem ""ruby-oci8"", ""~> 2.2""
+  169 |   end
+  170 |   gem ""activerecord-oracle_enhanced-adapter"", github: ""rsim/oracle-enhanced"", branch: ""master""
+  171 | end
+  172 |
+  173 | gem ""tzinfo-data"", platforms: [:windows, :jruby]
+  174 | gem ""wdm"", "">= 0.1.0"", platforms: [:windows]
+> 175 | gem ""mini_magick"", ""4.9.0""
+  176 | gem ""rails-html-sanitizer"", ""~> 1.0"", "">= 1.2.0""
+  177 |
+  178 | # The error_highlight gem only works on CRuby 3.1 or later.
+  179 | # Also, Rails depends on a new API available since error_highlight 0.4.0.
+  180 | # (Note that Ruby 3.1 bundles error_highlight 0.3.0.)
+  181 | if RUBY_VERSION >= ""3.1""
+  182 |   gem ""error_highlight"", "">= 0.4.0"", platforms: [:ruby]
+  183 | end
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-78 + CWE-937,"Use of rake at version >=11.1 with ['CVE-2020-8130', 'GHSA-jppv-gw3r-w3q8'] in namespace/skims/test/data/lib/sca/f011/Gemfile",CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,13,"
+    3 | source ""https://rubygems.org""
+    4 | gemspec
+    5 |
+    6 | if RUBY_VERSION < ""3""
+    7 |   gem ""minitest"", "">= 5.15.0"", ""< 5.16""
+    8 | else
+    9 |   gem ""minitest"", "">= 5.15.0""
+   10 | end
+   11 |
+   12 | # We need a newish Rake since Active Job sets its test tasks' descriptions.
+>  13 | gem ""rake"", "">= 11.1""
+   14 |
+   15 | gem ""sprockets-rails"", "">= 2.0.0""
+   16 | gem ""propshaft"", "">= 0.1.7""
+   17 | gem ""capybara"", "">= 3.26""
+   18 | gem ""selenium-webdriver"", "">= 4.0.0""
+   19 |
+   20 | gem ""rack-cache"", ""~> 1.2""
+   21 | gem ""stimulus-rails""
+   22 | gem ""turbo-rails""
+   23 | gem ""jsbundling-rails""
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-787 + CWE-937,"Use of libbpf at version 0.6.0 with ['CVE-2021-45940', 'CVE-2021-45941'] in namespace/skims/test/data/lib/sca/f011/conanfile.txt",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,13,"
+   2 | libexif/0.6.23
+   3 | sdl/2.0.20
+   4 | nlohmann_json/3.10.5
+   5 | yaml-cpp/0.6.3
+   6 | gdal/3.4.3
+   7 | openssl/1.1.1o
+   8 | libjpeg-turbo/2.0.5
+   9 | poco/[>1.0,<1.9]
+  10 | pkg/[>1.0 <1.8]@user/stable
+  11 | pkg2/[~3.1.5, loose=False, include_prerelease=True]
+  12 | assimp/5.2.5
+> 13 | libbpf/0.6.0
+  14 |
+  15 | [tool_requires]
+  16 | 7zip/16.00
+  17 | leptonica/1.80.0
+  18 | libconfuse/3.3
+  19 |
+  20 | [generators]
+  21 | cmake_find_package
+  22 | cmake_paths
+     ^ Col 0
+",conan.conan_conanfile_txt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-787 + CWE-937,"Use of libjpeg-turbo at version 2.0.5 with ['CVE-2021-46822', 'CVE-2023-2804'] in namespace/skims/test/data/lib/sca/f011/conanfile.txt",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,8,"
+   1 | [requires]
+   2 | libexif/0.6.23
+   3 | sdl/2.0.20
+   4 | nlohmann_json/3.10.5
+   5 | yaml-cpp/0.6.3
+   6 | gdal/3.4.3
+   7 | openssl/1.1.1o
+>  8 | libjpeg-turbo/2.0.5
+   9 | poco/[>1.0,<1.9]
+  10 | pkg/[>1.0 <1.8]@user/stable
+  11 | pkg2/[~3.1.5, loose=False, include_prerelease=True]
+  12 | assimp/5.2.5
+  13 | libbpf/0.6.0
+  14 |
+  15 | [tool_requires]
+  16 | 7zip/16.00
+  17 | leptonica/1.80.0
+  18 | libconfuse/3.3
+  19 |
+  20 | [generators]
+  21 | cmake_find_package
+     ^ Col 0
+",conan.conan_conanfile_txt
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-787 + CWE-937,"Use of org.json:json at version 20160810 with ['CVE-2022-45688', 'CVE-2022-45689', 'CVE-2022-45690', 'GHSA-3vqj-43w4-2q58'] in namespace/skims/test/data/lib/sca/f011/build.gradle",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,6,"
+  1 | dependencies {
+  2 |     compile ""io.springfox:springfox-swagger-ui:2.6.1""
+  3 |     compile(""io.springfox:springfox-swagger-ui"")
+  4 |     compile(group: 'javax.mail', name: 'mail')
+  5 |     compileOnly group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.2'
+> 6 |     implementation group: 'org.json', name: 'json', version: '20160810'
+  7 |     implementation(group: 'javax.mail', name: 'mail', version: '1.4')
+  8 | }
+    ^ Col 0
+",maven.maven_gradle
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-79 + CWE-937,"Use of io.springfox:springfox-swagger-ui at version 2.6.1 with ['CVE-2019-17495', 'SNYK-JAVA-IOSPRINGFOX-1075064'] in namespace/skims/test/data/lib/sca/f011/build.gradle",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,2,"
+  1 | dependencies {
+> 2 |     compile ""io.springfox:springfox-swagger-ui:2.6.1""
+  3 |     compile(""io.springfox:springfox-swagger-ui"")
+  4 |     compile(group: 'javax.mail', name: 'mail')
+  5 |     compileOnly group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.2'
+  6 |     implementation group: 'org.json', name: 'json', version: '20160810'
+  7 |     implementation(group: 'javax.mail', name: 'mail', version: '1.4')
+  8 | }
+    ^ Col 0
+",maven.maven_gradle
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-937 + CWE-94,"Use of script-manager at version 0.8.6 with ['CVE-2020-8129', 'GHSA-rhwf-hqpr-q8g2'] in namespace/skims/test/data/lib/sca/f011/package.json",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,12,"
+   1 | {
+   2 |   ""name"": ""test"",
+   3 |   ""version"": ""1.0.0"",
+   4 |   ""description"": ""nothing"",
+   5 |   ""main"": ""index.js"",
+   6 |   ""author"": ""Luis Saavedra"",
+   7 |   ""license"": ""MIT"",
+   8 |   ""private"": false,
+   9 |   ""dependencies"": {
+  10 |     ""@angular/core"": ""^13.3.3"",
+  11 |     ""cloudron-sysadmin"": ""1.0.0"",
+> 12 |     ""script-manager"": ""0.8.6"",
+  13 |     ""slug"": ""0.9.0"",
+  14 |     ""ajv"": ""^8.12.0""
+  15 |   },
+  16 |   ""devDependencies"": {
+  17 |     ""xmldom"": ""0.4.0""
+  18 |   }
+  19 | }
+     ^ Col 0
+",npm.npm_package_json
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-937 + CWE-94,"Use of script-manager at version 0.8.6 with ['CVE-2020-8129', 'GHSA-rhwf-hqpr-q8g2'] in namespace/skims/test/data/lib/sca/f011/yarn.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,380,"
+  370 | safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+  371 |   version ""2.1.2""
+  372 |   resolved ""https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a""
+  373 |   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  374 |
+  375 | safetydance@^0.7.1:
+  376 |   version ""0.7.1""
+  377 |   resolved ""https://registry.yarnpkg.com/safetydance/-/safetydance-0.7.1.tgz#14eb4d42a1caafc5145552b6ce69c9b8824dd2aa""
+  378 |   integrity sha1-FOtNQqHKr8UUVVK2zmnJuIJN0qo=
+  379 |
+> 380 | script-manager@0.8.6:
+  381 |   version ""0.8.6""
+  382 |   resolved ""https://registry.yarnpkg.com/script-manager/-/script-manager-0.8.6.tgz#f45d388207028c420321ddf1ff2fb99789bb9f
+  383 |   integrity sha512-GC8AUScpFWF1PacgiKCYPe8d84HOWYAFO2vjMFSewEpS1bzzzReHtl74kF4ZhrK/yaXkNrcIovAGXUddG9BgIA==
+  384 |   dependencies:
+  385 |     net-cluster ""0.0.2""
+  386 |     portscanner ""2.2.0""
+  387 |     request ""2.88.0""
+  388 |     serializator ""1.0.1""
+  389 |     uuid ""3.3.2""
+  390 |
+      ^ Col 0
+",npm.npm_yarn_lock
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-937,Use of Microsoft.Data.OData at version 5.8.4 with ['CVE-2018-8269'] in namespace/skims/test/data/lib/sca/f011/project.csproj,CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,28,"
+  18 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Logging"" Version=""3.0.14"" />
+  19 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Logging.ApplicationInsights"" Version=""3.0.14"" />
+  20 |     <PackageReference Include=""Microsoft.CrmSdk.CoreAssemblies"" Version=""9.0.2.21"" />
+  21 |     <PackageReference Include=""Microsoft.Extensions.Configuration"" Version=""3.1.0"" />
+  22 |     <PackageReference Include=""Microsoft.Extensions.Logging"" Version=""3.1.0"" />
+  23 |     <PackageReference Include=""Microsoft.Extensions.Logging.Console"" Version=""3.1.0"" />
+  24 |     <PackageReference Include=""Newtonsoft.Json"" Version=""12.0.3"" />
+  25 |     <PackageReference Include=""System.ComponentModel.Annotations"" Version=""4.7.0"" />
+  26 |     <PackageReference Include=""System.Spatial"" Version=""5.8.4"" />
+  27 |     <PackageReference Include=""Microsoft.Data.Edm"" Version=""5.8.4"" />
+> 28 |     <PackageReference Include=""Microsoft.Data.OData"" Version=""5.8.4"" />
+  29 |     <PackageReference Include=""Microsoft.Data.Services.Client"" Version=""5.8.4"" />
+  30 |     <PackageReference Include=""Microsoft.WindowsAzure.ConfigurationManager"" Version=""3.2.3"" />
+  31 |     <PackageReference Include=""WindowsAzure.Storage"" Version=""9.3.3"" />
+  32 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Core"" Version=""3.0.14"" />
+  33 |     <PackageReference Include=""Microsoft.Azure.WebJobs"" Version=""3.0.14"" />
+  34 |     <PackageReference Include=""Microsoft.Azure.KeyVault.Core"" Version=""3.0.4"" />
+  35 |   </ItemGroup>
+  36 |   <ItemGroup>
+  37 |     <Reference Include=""System.Net"" />
+  38 |     <Reference Include=""System.Net.Http"" />
+     ^ Col 0
+",nuget.nuget_csproj
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-937,Use of batik:batik-transcoder at version 1.0.0 with ['CVE-2015-0250'] in namespace/skims/test/data/lib/sca/f011/frst_child/pom.xml,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,15,"
+   2 |   xmlns=""http://maven.apache.org/POM/4.0.0""
+   3 |   xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+   4 |   xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd""
+   5 | >
+   6 |   <properties>
+   7 |     <atlassian.maven.version>4.0.4</atlassian.maven.version>
+   8 |     <apache.camel.version>2.6.0</apache.camel.version>
+   9 |     <buildnumber>0000</buildnumber>
+  10 |     <java.version>1.8</java.version>
+  11 |   </properties>
+  12 |   <dependencies>
+  13 |     <dependency>
+  14 |       <groupId>batik</groupId>
+> 15 |       <artifactId>batik-transcoder</artifactId>
+  16 |     </dependency>
+  17 |     <dependency>
+  18 |       <groupId>be.cylab</groupId>
+  19 |       <artifactId>snakeyaml</artifactId>
+  20 |     </dependency>
+  21 |   </dependencies>
+  22 | </project>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1035 + CWE-937,Use of batik:batik-transcoder at version 1.0.0 with ['CVE-2015-0250'] in namespace/skims/test/data/lib/sca/f011/pom.xml,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,35,"
+  25 |       </dependency>
+  26 |       <dependency>
+  27 |         <groupId>axis</groupId>
+  28 |         <artifactId>axis</artifactId>
+  29 |         <version>1.4</version>
+  30 |       </dependency>
+  31 |     </dependencies>
+  32 |       <dependency>
+  33 |         <groupId>batik</groupId>
+  34 |         <artifactId>batik-transcoder</artifactId>
+> 35 |         <version>1.0.0</version>
+  36 |       </dependency>
+  37 |       <dependency>
+  38 |         <groupId>be.cylab</groupId>
+  39 |         <artifactId>snakeyaml</artifactId>
+  40 |         <version>2.0.0</version>
+  41 |       </dependency>
+  42 |     </dependencies>
+  43 |   </dependencyManagement>
+  44 |   <modules>
+  45 |     <module>frst_child</module>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-1321,"Use of hoek at version 5.0.0.6 with ['GHSA-jp4x-w63m-7wgm', 'CVE-2018-3728', 'npm:hoek:20180212'] in namespace/skims/test/data/lib/sca/f011/package-lock.json",CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,28,"
+  18 |           ""version"": ""5.0.0.3""
+  19 |         }
+  20 |       },
+  21 |       ""dev"": true,
+  22 |       ""version"": ""7.11.0.4""
+  23 |     },
+  24 |     ""@babel/prod"": {
+  25 |       ""dependencies"": {
+  26 |         ""hoek"": {
+  27 |           ""dependencies"": {
+> 28 |             ""hoek"": {
+  29 |               ""dependencies"": {
+  30 |                 ""hoek"": {
+  31 |                   ""dev"": true,
+  32 |                   ""version"": ""5.0.0.5""
+  33 |                 }
+  34 |               },
+  35 |               ""dev"": false,
+  36 |               ""version"": ""5.0.0.6""
+  37 |             }
+  38 |           },
+     ^ Col 0
+",npm.npm_package_lock_json
+011. Use of software with known vulnerabilities,CWE-1321,"Use of hoek at version 5.0.0.7 with ['GHSA-jp4x-w63m-7wgm', 'CVE-2018-3728', 'npm:hoek:20180212'] in namespace/skims/test/data/lib/sca/f011/package-lock.json",CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,26,"
+  16 |             }
+  17 |           },
+  18 |           ""version"": ""5.0.0.3""
+  19 |         }
+  20 |       },
+  21 |       ""dev"": true,
+  22 |       ""version"": ""7.11.0.4""
+  23 |     },
+  24 |     ""@babel/prod"": {
+  25 |       ""dependencies"": {
+> 26 |         ""hoek"": {
+  27 |           ""dependencies"": {
+  28 |             ""hoek"": {
+  29 |               ""dependencies"": {
+  30 |                 ""hoek"": {
+  31 |                   ""dev"": true,
+  32 |                   ""version"": ""5.0.0.5""
+  33 |                 }
+  34 |               },
+  35 |               ""dev"": false,
+  36 |               ""version"": ""5.0.0.6""
+     ^ Col 0
+",npm.npm_package_lock_json
+011. Use of software with known vulnerabilities,CWE-1321,"Use of safetydance at version 0.7.1 with ['GHSA-6m85-wvcr-pgw3', 'CVE-2020-7737'] in namespace/skims/test/data/lib/sca/f011/yarn.lock",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,375,"
+  365 | safe-buffer@^5.0.1, safe-buffer@^5.1.2:
+  366 |   version ""5.2.1""
+  367 |   resolved ""https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6""
+  368 |   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
+  369 |
+  370 | safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+  371 |   version ""2.1.2""
+  372 |   resolved ""https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a""
+  373 |   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  374 |
+> 375 | safetydance@^0.7.1:
+  376 |   version ""0.7.1""
+  377 |   resolved ""https://registry.yarnpkg.com/safetydance/-/safetydance-0.7.1.tgz#14eb4d42a1caafc5145552b6ce69c9b8824dd2aa""
+  378 |   integrity sha1-FOtNQqHKr8UUVVK2zmnJuIJN0qo=
+  379 |
+  380 | script-manager@0.8.6:
+  381 |   version ""0.8.6""
+  382 |   resolved ""https://registry.yarnpkg.com/script-manager/-/script-manager-0.8.6.tgz#f45d388207028c420321ddf1ff2fb99789bb9f
+  383 |   integrity sha512-GC8AUScpFWF1PacgiKCYPe8d84HOWYAFO2vjMFSewEpS1bzzzReHtl74kF4ZhrK/yaXkNrcIovAGXUddG9BgIA==
+  384 |   dependencies:
+  385 |     net-cluster ""0.0.2""
+      ^ Col 0
+",npm.npm_yarn_lock
+011. Use of software with known vulnerabilities,CWE-1321,Use of tough-cookie at version 2.4.3 with ['GHSA-72xf-g2v4-qvf3'] in namespace/skims/test/data/lib/sca/f011/yarn.lock,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,418,"
+  408 |     asn1 ""~0.2.3""
+  409 |     assert-plus ""^1.0.0""
+  410 |     bcrypt-pbkdf ""^1.0.0""
+  411 |     dashdash ""^1.12.0""
+  412 |     ecc-jsbn ""~0.1.1""
+  413 |     getpass ""^0.1.1""
+  414 |     jsbn ""~0.1.0""
+  415 |     safer-buffer ""^2.0.2""
+  416 |     tweetnacl ""~0.14.0""
+  417 |
+> 418 | tough-cookie@~2.4.3:
+  419 |   version ""2.4.3""
+  420 |   resolved ""https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781""
+  421 |   integrity sha512-Q5srk/4vDM54WJsJio3XNn6K2sCG+CQ8G5Wz6bZhRZoAe/+TxjWB/GlFAnYEbkYVlON9FMk/fE3h2RLpPXo4lQ==
+  422 |   dependencies:
+  423 |     psl ""^1.1.24""
+  424 |     punycode ""^1.4.1""
+  425 |
+  426 | tough-cookie@~2.5.0:
+  427 |   version ""2.5.0""
+  428 |   resolved ""https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2""
+      ^ Col 0
+",npm.npm_yarn_lock
+011. Use of software with known vulnerabilities,CWE-1321,Use of tough-cookie at version 2.5.0 with ['GHSA-72xf-g2v4-qvf3'] in namespace/skims/test/data/lib/sca/f011/yarn.lock,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,426,"
+  416 |     tweetnacl ""~0.14.0""
+  417 |
+  418 | tough-cookie@~2.4.3:
+  419 |   version ""2.4.3""
+  420 |   resolved ""https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781""
+  421 |   integrity sha512-Q5srk/4vDM54WJsJio3XNn6K2sCG+CQ8G5Wz6bZhRZoAe/+TxjWB/GlFAnYEbkYVlON9FMk/fE3h2RLpPXo4lQ==
+  422 |   dependencies:
+  423 |     psl ""^1.1.24""
+  424 |     punycode ""^1.4.1""
+  425 |
+> 426 | tough-cookie@~2.5.0:
+  427 |   version ""2.5.0""
+  428 |   resolved ""https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2""
+  429 |   integrity sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g==
+  430 |   dependencies:
+  431 |     psl ""^1.1.28""
+  432 |     punycode ""^2.1.1""
+  433 |
+  434 | tslib@^2.3.0:
+  435 |   version ""2.3.1""
+  436 |   resolved ""https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01""
+      ^ Col 0
+",npm.npm_yarn_lock
+011. Use of software with known vulnerabilities,CWE-20 + CWE-400 + CWE-502 + CWE-674 + CWE-74 + CWE-917,"Use of org.apache.logging.log4j:log4j-core at version 2.13.2 with ['GHSA-7rjr-3q55-vv33', 'GHSA-8489-44mv-ggj8', 'GHSA-jfh8-c2jp-5v3q', 'GHSA-p6xc-xr62-6r2g', 'CVE-2021-44228', 'CVE-2021-44832', 'CVE-2021-45046', 'CVE-2021-45105'] in namespace/skims/test/data/lib/sca/f011/build.gradle",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,5,"
+  1 | dependencies {
+  2 |     compile ""io.springfox:springfox-swagger-ui:2.6.1""
+  3 |     compile(""io.springfox:springfox-swagger-ui"")
+  4 |     compile(group: 'javax.mail', name: 'mail')
+> 5 |     compileOnly group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.2'
+  6 |     implementation group: 'org.json', name: 'json', version: '20160810'
+  7 |     implementation(group: 'javax.mail', name: 'mail', version: '1.4')
+  8 | }
+    ^ Col 0
+",maven.maven_gradle
+011. Use of software with known vulnerabilities,CWE-502,"Use of Wire at version 1.0.0 with ['GHSA-hpw7-3vq3-mmv6', 'CVE-2021-29508'] in namespace/skims/test/data/lib/sca/f011/packages.config",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,32,"
+  13 |   <package id=""Microsoft.Azure.Services.AppAuthentication"" version=""1.0.3"" targetFramework=""net472"" />
+  14 |   <package id=""Microsoft.IdentityModel.Clients.ActiveDirectory"" version=""3.14.2"" targetFramework=""net472"" />
+  15 |   <package id=""Microsoft.IdentityModel.JsonWebTokens"" version=""5.4.0"" targetFramework=""net472"" />
+  16 |   <package id=""Microsoft.IdentityModel.Logging"" version=""5.4.0"" targetFramework=""net472"" />
+  17 |   <package id=""Microsoft.IdentityModel.Tokens"" version=""5.4.0"" targetFramework=""net472"" />
+  18 |   <package id=""Microsoft.Rest.ClientRuntime"" version=""2.3.18"" targetFramework=""net472"" />
+  19 |   <package id=""Microsoft.Rest.ClientRuntime.Azure"" version=""3.3.18"" targetFramework=""net472"" />
+  20 |   <package id=""Newtonsoft.Json"" version=""12.0.3"" targetFramework=""net472"" />
+  21 |   <package id=""System.Diagnostics.DiagnosticSource"" version=""4.5.1"" targetFramework=""net472"" />
+  22 |   <package id=""System.IdentityModel.Tokens.Jwt"" version=""5.4.0"" targetFramework=""net472"" />
+  23 |   <package id=""System.IO"" version=""4.1.0"" targetFramework=""net472"" />
+  24 |   <package id=""System.Net.WebSockets"" version=""4.0.0"" targetFramework=""net472"" />
+  25 |   <package id=""System.Net.WebSockets.Client"" version=""4.0.2"" targetFramework=""net472"" />
+  26 |   <package id=""System.Runtime"" version=""4.1.0"" targetFramework=""net472"" />
+  27 |   <package id=""System.Runtime.Serialization.Primitives"" version=""4.1.1"" targetFramework=""net472"" />
+  28 |   <package id=""System.Security.Cryptography.Algorithms"" version=""4.2.0"" targetFramework=""net472"" />
+  29 |   <package id=""System.Security.Cryptography.Encoding"" version=""4.0.0"" targetFramework=""net472"" />
+  30 |   <package id=""System.Security.Cryptography.Primitives"" version=""4.0.0"" targetFramework=""net472"" />
+  31 |   <package id=""System.Security.Cryptography.X509Certificates"" version=""4.1.0"" targetFramework=""net472"" />
+> 32 |   <package id=""Wire"" version=""1.0.0"" targetFramework=""net472"" />
+  33 | </packages>
+     ^ Col 0
+",nuget.nuget_packages_config
+011. Use of software with known vulnerabilities,CWE-502,"Use of Wire at version 1.0.0 with ['GHSA-hpw7-3vq3-mmv6', 'CVE-2021-29508'] in namespace/skims/test/data/lib/sca/f011/project.csproj",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,17,"
+   7 |   <ItemGroup>
+   8 |     <Compile Remove=""test\**"" />
+   9 |     <EmbeddedResource Remove=""test\**"" />
+  10 |     <None Remove=""test\**"" />
+  11 |   </ItemGroup>
+  12 |   <ItemGroup>
+  13 |     <PackageReference Include=""EntityFramework"" Version=""6.4.0"" />
+  14 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Extensions"" Version=""3.0.5"" />
+  15 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Extensions.Http"" Version=""3.0.2"" />
+  16 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Host.Storage"" Version=""3.0.14"" />
+> 17 |     <PackageReference Include=""Wire"" Version=""1.0.0"" />
+  18 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Logging"" Version=""3.0.14"" />
+  19 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Logging.ApplicationInsights"" Version=""3.0.14"" />
+  20 |     <PackageReference Include=""Microsoft.CrmSdk.CoreAssemblies"" Version=""9.0.2.21"" />
+  21 |     <PackageReference Include=""Microsoft.Extensions.Configuration"" Version=""3.1.0"" />
+  22 |     <PackageReference Include=""Microsoft.Extensions.Logging"" Version=""3.1.0"" />
+  23 |     <PackageReference Include=""Microsoft.Extensions.Logging.Console"" Version=""3.1.0"" />
+  24 |     <PackageReference Include=""Newtonsoft.Json"" Version=""12.0.3"" />
+  25 |     <PackageReference Include=""System.ComponentModel.Annotations"" Version=""4.7.0"" />
+  26 |     <PackageReference Include=""System.Spatial"" Version=""5.8.4"" />
+  27 |     <PackageReference Include=""Microsoft.Data.Edm"" Version=""5.8.4"" />
+     ^ Col 0
+",nuget.nuget_csproj
+011. Use of software with known vulnerabilities,CWE-532,Use of Microsoft.Rest.ClientRuntime at version 2.3.18 with ['GHSA-whph-446h-6m9v'] in namespace/skims/test/data/lib/sca/f011/packages.config,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,18,"
+   8 |   <package id=""FastMember"" version=""1.3.0"" targetFramework=""net45"" />
+   9 |   <package id=""jQuery"" version=""3.4.1"" targetFramework=""net45"" />
+  10 |   <package id=""Logs.Management"" version=""1.0.3"" targetFramework=""net472"" />
+  11 |   <package id=""Microsoft.Azure.Amqp"" version=""2.4.9"" targetFramework=""net472"" />
+  12 |   <package id=""Microsoft.Azure.ServiceBus"" version=""5.1.1"" targetFramework=""net472"" />
+  13 |   <package id=""Microsoft.Azure.Services.AppAuthentication"" version=""1.0.3"" targetFramework=""net472"" />
+  14 |   <package id=""Microsoft.IdentityModel.Clients.ActiveDirectory"" version=""3.14.2"" targetFramework=""net472"" />
+  15 |   <package id=""Microsoft.IdentityModel.JsonWebTokens"" version=""5.4.0"" targetFramework=""net472"" />
+  16 |   <package id=""Microsoft.IdentityModel.Logging"" version=""5.4.0"" targetFramework=""net472"" />
+  17 |   <package id=""Microsoft.IdentityModel.Tokens"" version=""5.4.0"" targetFramework=""net472"" />
+> 18 |   <package id=""Microsoft.Rest.ClientRuntime"" version=""2.3.18"" targetFramework=""net472"" />
+  19 |   <package id=""Microsoft.Rest.ClientRuntime.Azure"" version=""3.3.18"" targetFramework=""net472"" />
+  20 |   <package id=""Newtonsoft.Json"" version=""12.0.3"" targetFramework=""net472"" />
+  21 |   <package id=""System.Diagnostics.DiagnosticSource"" version=""4.5.1"" targetFramework=""net472"" />
+  22 |   <package id=""System.IdentityModel.Tokens.Jwt"" version=""5.4.0"" targetFramework=""net472"" />
+  23 |   <package id=""System.IO"" version=""4.1.0"" targetFramework=""net472"" />
+  24 |   <package id=""System.Net.WebSockets"" version=""4.0.0"" targetFramework=""net472"" />
+  25 |   <package id=""System.Net.WebSockets.Client"" version=""4.0.2"" targetFramework=""net472"" />
+  26 |   <package id=""System.Runtime"" version=""4.1.0"" targetFramework=""net472"" />
+  27 |   <package id=""System.Runtime.Serialization.Primitives"" version=""4.1.1"" targetFramework=""net472"" />
+  28 |   <package id=""System.Security.Cryptography.Algorithms"" version=""4.2.0"" targetFramework=""net472"" />
+     ^ Col 0
+",nuget.nuget_packages_config
+011. Use of software with known vulnerabilities,CWE-611 + CWE-827,"Overload of XmlSchemaCollection.Add(String, String) is using XmlUrlResolver to specify external XML schema in the form of an URI. If the URI String is tainted, it may lead to parsing of a malicious XML schema
+ in namespace/skims/test/data/lib_root/f011/c_sharp_schema_by_url.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SAST,8,"
+   1 | using System;
+   2 |
+   3 | class ExampleClass
+   4 | {
+   5 |     public void ExampleMethod()
+   6 |     {
+   7 |         XmlSchemaCollection xsc = new XmlSchemaCollection();
+>  8 |         xsc.Add(""urn: bookstore - schema"", ""books.xsd"");
+   9 |     }
+  10 | }
+     ^ Col 0
+",c_sharp.c_sharp_schema_by_url
+011. Use of software with known vulnerabilities,CWE-611,"Instantiating an System.Xml.Xsl.XslTransform, which doesn't restrict potentially dangerous external references or prevent scripts.
+ in namespace/skims/test/data/lib_root/f011/c_sharp_xsl_transform_object.cs",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:P/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SAST,12,"
+   1 | ng System;
+   2 | ng System.Xml;
+   3 | ng System.Xml.XPath;
+   4 | ng System.Xml.Xsl;
+   5 |
+   6 | espace TestForXslTransform
+   7 |
+   8 |  class Program
+   9 |  {
+  10 |      static void Main(string[] args)
+  11 |      {
+> 12 |          XslTransform xslt = new XslTransform();
+  13 |          xslt.Load(""https://server/favorite.xsl"");
+  14 |          XPathDocument mydata = new XPathDocument(""inputdata.xml"");
+  15 |          XmlWriter writer = new XmlTextWriter(Console.Out);
+  16 |          xslt.Transform(mydata, null, writer, null);
+  17 |      }
+  18 |  }
+  19 |
+     ^ Col 3
+",c_sharp.c_sharp_xsl_transform_object
+011. Use of software with known vulnerabilities,CWE-74 + CWE-88 + CWE-93,"Use of dio at version 4.0.0 with ['GHSA-9324-jv53-9cc8', 'GHSA-jwpw-q68h-r678'] in namespace/skims/test/data/lib/sca/f011/pubspec.yaml",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,20,"
+  10 |
+  11 | dependencies:
+  12 |   flutter:
+  13 |     sdk: flutter
+  14 |   cupertino_icons: ^1.0.2
+  15 |   flutter_svg: ^1.0.0
+  16 |   permission_handler: ^10.1.0
+  17 |   flutter_styled_toast: ^2.0.0
+  18 |   photo_view: ^0.13.0
+  19 |   event: ^2.1.2
+> 20 |   dio: 4.0.0
+  21 |   modal_bottom_sheet: ^2.0.0
+  22 |   another_xlider: ^1.0.1+2
+  23 |   scrollable_positioned_list: ^0.2.3
+  24 |   url_launcher: ^6.0.20
+  25 |   clipboard: ^0.1.3
+  26 |   file_picker: 5.2.1
+  27 |   filesystem_picker: ^3.1.0
+  28 |
+  29 | dev_dependencies:
+  30 |   flutter_test:
+     ^ Col 0
+",pub.pub_pubspec_yaml
+011. Use of software with known vulnerabilities,CWE-74,Use of dalli at version >=3.0.1 with ['GHSA-3xg8-cc8f-9wv2'] in namespace/skims/test/data/lib/sca/f011/Gemfile,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,58,"
+   48 |
+   49 | group :doc do
+   50 |   gem ""sdoc"", "">= 2.4.0""
+   51 |   gem ""redcarpet"", ""~> 3.2.3"", platforms: :ruby
+   52 |   gem ""w3c_validators"", ""~> 1.3.6""
+   53 |   gem ""rouge""
+   54 |   gem ""rubyzip"", ""~> 2.0""
+   55 | end
+   56 |
+   57 | # Active Support
+>  58 | gem ""dalli"", "">= 3.0.1""
+   59 | gem ""listen"", ""~> 3.3"", require: false
+   60 | gem ""libxml-ruby"", platforms: :ruby
+   61 | gem ""connection_pool"", require: false
+   62 | gem ""rexml"", require: false
+   63 |
+   64 | # for railties
+   65 | gem ""bootsnap"", "">= 1.4.4"", require: false
+   66 | gem ""webrick"", require: false
+   67 |
+   68 | # Active Job
+      ^ Col 0
+",gem.gem_gemfile
+011. Use of software with known vulnerabilities,CWE-755,Use of Newtonsoft.Json at version 12.0.3 with ['GHSA-5crp-9r3c-p9vr'] in namespace/skims/test/data/lib/sca/f011/packages.config,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,20,"
+  10 |   <package id=""Logs.Management"" version=""1.0.3"" targetFramework=""net472"" />
+  11 |   <package id=""Microsoft.Azure.Amqp"" version=""2.4.9"" targetFramework=""net472"" />
+  12 |   <package id=""Microsoft.Azure.ServiceBus"" version=""5.1.1"" targetFramework=""net472"" />
+  13 |   <package id=""Microsoft.Azure.Services.AppAuthentication"" version=""1.0.3"" targetFramework=""net472"" />
+  14 |   <package id=""Microsoft.IdentityModel.Clients.ActiveDirectory"" version=""3.14.2"" targetFramework=""net472"" />
+  15 |   <package id=""Microsoft.IdentityModel.JsonWebTokens"" version=""5.4.0"" targetFramework=""net472"" />
+  16 |   <package id=""Microsoft.IdentityModel.Logging"" version=""5.4.0"" targetFramework=""net472"" />
+  17 |   <package id=""Microsoft.IdentityModel.Tokens"" version=""5.4.0"" targetFramework=""net472"" />
+  18 |   <package id=""Microsoft.Rest.ClientRuntime"" version=""2.3.18"" targetFramework=""net472"" />
+  19 |   <package id=""Microsoft.Rest.ClientRuntime.Azure"" version=""3.3.18"" targetFramework=""net472"" />
+> 20 |   <package id=""Newtonsoft.Json"" version=""12.0.3"" targetFramework=""net472"" />
+  21 |   <package id=""System.Diagnostics.DiagnosticSource"" version=""4.5.1"" targetFramework=""net472"" />
+  22 |   <package id=""System.IdentityModel.Tokens.Jwt"" version=""5.4.0"" targetFramework=""net472"" />
+  23 |   <package id=""System.IO"" version=""4.1.0"" targetFramework=""net472"" />
+  24 |   <package id=""System.Net.WebSockets"" version=""4.0.0"" targetFramework=""net472"" />
+  25 |   <package id=""System.Net.WebSockets.Client"" version=""4.0.2"" targetFramework=""net472"" />
+  26 |   <package id=""System.Runtime"" version=""4.1.0"" targetFramework=""net472"" />
+  27 |   <package id=""System.Runtime.Serialization.Primitives"" version=""4.1.1"" targetFramework=""net472"" />
+  28 |   <package id=""System.Security.Cryptography.Algorithms"" version=""4.2.0"" targetFramework=""net472"" />
+  29 |   <package id=""System.Security.Cryptography.Encoding"" version=""4.0.0"" targetFramework=""net472"" />
+  30 |   <package id=""System.Security.Cryptography.Primitives"" version=""4.0.0"" targetFramework=""net472"" />
+     ^ Col 0
+",nuget.nuget_packages_config
+011. Use of software with known vulnerabilities,CWE-755,Use of Newtonsoft.Json at version 12.0.3 with ['GHSA-5crp-9r3c-p9vr'] in namespace/skims/test/data/lib/sca/f011/project.csproj,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,24,"
+  14 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Extensions"" Version=""3.0.5"" />
+  15 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Extensions.Http"" Version=""3.0.2"" />
+  16 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Host.Storage"" Version=""3.0.14"" />
+  17 |     <PackageReference Include=""Wire"" Version=""1.0.0"" />
+  18 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Logging"" Version=""3.0.14"" />
+  19 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Logging.ApplicationInsights"" Version=""3.0.14"" />
+  20 |     <PackageReference Include=""Microsoft.CrmSdk.CoreAssemblies"" Version=""9.0.2.21"" />
+  21 |     <PackageReference Include=""Microsoft.Extensions.Configuration"" Version=""3.1.0"" />
+  22 |     <PackageReference Include=""Microsoft.Extensions.Logging"" Version=""3.1.0"" />
+  23 |     <PackageReference Include=""Microsoft.Extensions.Logging.Console"" Version=""3.1.0"" />
+> 24 |     <PackageReference Include=""Newtonsoft.Json"" Version=""12.0.3"" />
+  25 |     <PackageReference Include=""System.ComponentModel.Annotations"" Version=""4.7.0"" />
+  26 |     <PackageReference Include=""System.Spatial"" Version=""5.8.4"" />
+  27 |     <PackageReference Include=""Microsoft.Data.Edm"" Version=""5.8.4"" />
+  28 |     <PackageReference Include=""Microsoft.Data.OData"" Version=""5.8.4"" />
+  29 |     <PackageReference Include=""Microsoft.Data.Services.Client"" Version=""5.8.4"" />
+  30 |     <PackageReference Include=""Microsoft.WindowsAzure.ConfigurationManager"" Version=""3.2.3"" />
+  31 |     <PackageReference Include=""WindowsAzure.Storage"" Version=""9.3.3"" />
+  32 |     <PackageReference Include=""Microsoft.Azure.WebJobs.Core"" Version=""3.0.14"" />
+  33 |     <PackageReference Include=""Microsoft.Azure.WebJobs"" Version=""3.0.14"" />
+  34 |     <PackageReference Include=""Microsoft.Azure.KeyVault.Core"" Version=""3.0.4"" />
+     ^ Col 0
+",nuget.nuget_csproj
+011. Use of software with known vulnerabilities,CWE-79,Use of actionview at version 7.0.2.3 with ['GHSA-xp5h-f8jf-rc8q'] in namespace/skims/test/data/lib/sca/f011/Gemfile.lock,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,62,"
+   52 |       rack-test (>= 0.6.3)
+   53 |       rails-dom-testing (~> 2.0)
+   54 |       rails-html-sanitizer (~> 1.0, >= 1.2.0)
+   55 |     actiontext (7.0.2.3)
+   56 |       actionpack (= 7.0.2.3)
+   57 |       activerecord (= 7.0.2.3)
+   58 |       activestorage (= 7.0.2.3)
+   59 |       activesupport (= 7.0.2.3)
+   60 |       globalid (>= 0.6.0)
+   61 |       nokogiri (>= 1.8.5)
+>  62 |     actionview (7.0.2.3)
+   63 |       activesupport (= 7.0.2.3)
+   64 |       builder (~> 3.1)
+   65 |       erubi (~> 1.4)
+   66 |       rails-dom-testing (~> 2.0)
+   67 |       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+   68 |     activejob (7.0.2.3)
+   69 |       activesupport (= 7.0.2.3)
+   70 |       globalid (>= 0.3.6)
+   71 |     activemodel (7.0.2.3)
+   72 |       activesupport (= 7.0.2.3)
+      ^ Col 0
+",gem.gem_gemfile_lock
+011. Use of software with known vulnerabilities,CWE-937,"Use of org.apache.camel:camel-xstream at version 2.6.0 with ['GHSA-gv5f-cjw9-5vxg', 'CVE-2015-5344'] in namespace/skims/test/data/lib/sca/f011/frst_child/scdn_child/pom.xml",CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,53,"
+  40 |       <groupId>axis</groupId>
+  41 |       <artifactId>axis</artifactId>
+  42 |       <scope>test</scope>
+  43 |     </dependency>
+  44 |     <dependency>
+  45 |       <groupId>org.mockito</groupId>
+  46 |       <artifactId>mockito-core</artifactId>
+  47 |       <version>${mockito.version}</version>
+  48 |       <scope>test</scope>
+  49 |     </dependency>
+  50 |     <dependency>
+  51 |       <groupId>org.apache.camel</groupId>
+  52 |       <artifactId>camel-xstream</artifactId>
+> 53 |       <version>${apache.camel.version}</version>
+  54 |     </dependency>
+  55 |     <dependency>
+  56 |       <groupId>ballerina</groupId>
+  57 |       <artifactId>ballerina-lang</artifactId>
+  58 |     </dependency>
+  59 |   </dependencies>
+  60 | </project>
+     ^ Col 0
+",maven.maven_pom_xml
+011. Use of software with known vulnerabilities,CWE-937,Use of sqlite3 at version 1.4 with ['GHSA-mgvv-5mxp-xq67'] in namespace/skims/test/data/lib/sca/f011/Gemfile,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/011,skims,SCA,140,"
+  130 | platforms :ruby, :windows do
+  131 |   gem ""nokogiri"", ""= 1.14.2""
+  132 |   gem ""devise"", ""= 1.4.2"", :group => :development
+  133 |   gem ""rubocop"", ""= 1.35.1"", :group => [:caravan, :topo, :test, :mongo]
+  134 |
+  135 |
+  136 |   # Needed for compiling the ActionDispatch::Journey parser.
+  137 |   gem ""racc"", "">=1.4.6"", require: false
+  138 |
+  139 |   # Active Record.
+> 140 |   gem ""sqlite3"", ""~> 1.4""
+  141 |
+  142 |   group :development do
+  143 |     gem ""pg"", ""~> 1.3""
+  144 |     gem ""mysql2"", ""~> 0.5""
+  145 |     gem ""pry"", ""= 1.0.1""
+  146 |   end
+  147 | end
+  148 |
+  149 | platforms :jruby do
+  150 |   if ENV[""AR_JDBC""]
+      ^ Col 0
+",gem.gem_gemfile
+Summary: 79 vulnerabilities were found in your targets.

@@ -1,0 +1,227 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+096. Insecure deserialization,CWE-502,"A JavaScriptSerializer deserialization method was called or referenced after initializing with a SimpleTypeResolver.
+ in namespace/skims/test/data/lib_root/f096/c_sharp_js_deserialization.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,7,"
+   1 | g System.Web.Script.Serialization;
+   2 |
+   3 | ic class ExampleClass
+   4 |
+   5 | public T Deserialize<T>(string str)
+   6 | {
+>  7 |     JavaScriptSerializer s = new JavaScriptSerializer(new SimpleTypeResolver());
+   8 |     return s.Deserialize<T>(str);
+   9 | }
+  10 |
+     ^ Col 4
+",c_sharp.c_sharp_js_deserialization
+096. Insecure deserialization,CWE-502,"A Newtonsoft.Json.TypeNameHandling enumeration value other than None should not be referenced.
+ in namespace/skims/test/data/lib_root/f096/c_sharp_type_name_handling.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,9,"
+   1 | using Newtonsoft.Json;
+   2 |
+   3 | public class ExampleClass
+   4 | {
+   5 |
+   6 |     public void ExampleClass()
+   7 |     {
+   8 |         var Settings = new JsonSerializerSettings();
+>  9 |         Settings.TypeNameHandling = TypeNameHandling.All;
+  10 |     }
+  11 | }
+     ^ Col 0
+",c_sharp.c_sharp_type_name_handling
+096. Insecure deserialization,CWE-502,The application uses an unsafe deserializing method in namespace/skims/test/data/lib_root/f096/c_sharp_xmlserializer.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,10,"
+   1 | ass XmlSerializerTestCase : Controller
+   2 |
+   3 | c ActionResult unsecuredeserialization(HttpRequest typeName)
+   4 |
+   5 | /insecure
+   6 | pe t = Type.GetType(typeName);
+   7 | mlSerializer insec_serial = new XmlSerializer(t);
+   8 |
+   9 | /insecure
+> 10 | mlSerializer insec_serial2 = new XmlSerializer(Type.GetType(typeName));
+  11 |
+  12 | /secure
+  13 | xpectedType obj = null;
+  14 | mlSerializer sec_serial = new XmlSerializer(typeof(HttpRequest));
+  15 |
+  16 | /insecure
+  17 | ar req = new HttpRequest();
+  18 | ar t2 = Type.GetType(req);
+  19 | mlSerializer insec_serial3 = new XmlSerializer(t2);
+  20 |
+  21 | /secure
+     ^ Col 9
+",c_sharp.c_sharp_check_xml_serializer
+096. Insecure deserialization,CWE-502,The application uses an unsafe deserializing method in namespace/skims/test/data/lib_root/f096/c_sharp_xmlserializer.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,7,"
+   1 | lass XmlSerializerTestCase : Controller
+   2 |
+   3 | ic ActionResult unsecuredeserialization(HttpRequest typeName)
+   4 |
+   5 | //insecure
+   6 | Tpe t = Type.GetType(typeName);
+>  7 | XmlSerializer insec_serial = new XmlSerializer(t);
+   8 |
+   9 | //insecure
+  10 | XmlSerializer insec_serial2 = new XmlSerializer(Type.GetType(typeName));
+  11 |
+  12 | //secure
+  13 | ExpectedType obj = null;
+  14 | XmlSerializer sec_serial = new XmlSerializer(typeof(HttpRequest));
+  15 |
+  16 | //insecure
+  17 | var req = new HttpRequest();
+  18 | var t2 = Type.GetType(req);
+  19 | XmlSerializer insec_serial3 = new XmlSerializer(t2);
+  20 |
+  21 | //secure
+     ^ Col 8
+",c_sharp.c_sharp_check_xml_serializer
+096. Insecure deserialization,CWE-502,The application uses an unsafe deserializing method in namespace/skims/test/data/lib_root/f096/c_sharp_xmlserializer.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,19,"
+   5 | /insecure
+   6 | pe t = Type.GetType(typeName);
+   7 | mlSerializer insec_serial = new XmlSerializer(t);
+   8 |
+   9 | /insecure
+  10 | mlSerializer insec_serial2 = new XmlSerializer(Type.GetType(typeName));
+  11 |
+  12 | /secure
+  13 | xpectedType obj = null;
+  14 | mlSerializer sec_serial = new XmlSerializer(typeof(HttpRequest));
+  15 |
+  16 | /insecure
+  17 | ar req = new HttpRequest();
+  18 | ar t2 = Type.GetType(req);
+> 19 | mlSerializer insec_serial3 = new XmlSerializer(t2);
+  20 |
+  21 | /secure
+  22 | tring greeting = ""hello"";
+  23 | mlSerializer sec_serial2 = new XmlSerializer(Type.GetType(greeting));
+  24 |
+  25 |
+     ^ Col 9
+",c_sharp.c_sharp_check_xml_serializer
+096. Insecure deserialization,CWE-502,The application uses an unsafe deserializing method in namespace/skims/test/data/lib_root/f096/python_deserialization_injection.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,14,"
+   4 |     yaml,
+   5 | )
+   6 | from typing import (
+   7 |     Any,
+   8 | )
+   9 |
+  10 |
+  11 | def unsafe_loads(request: Any) -> None:
+  12 |     file_to_load = request.files[""pickle""]
+  13 |     # Noncompliant: Using pickle module to deserialize user inputs
+> 14 |     pickle.load(file_to_load)
+  15 |     data = request.GET.get(""data"")
+  16 |     # Noncompliant: Using yaml.load with unsafe yaml.Loader
+  17 |     yaml.load(data, Loader=yaml.Loader)
+  18 |
+  19 |
+  20 | def safe_loads(request: Any, some_data: Any) -> None:
+  21 |     data = request.GET.get(""data"")
+  22 |     # Compliant:  Using yaml.load with the default safe loader
+  23 |     yaml.load(data)
+  24 |     # Non-deterministic: The data is not a user param
+     ^ Col 0
+",python.python_deserialization_injection
+096. Insecure deserialization,CWE-502,The application uses an unsafe deserializing method in namespace/skims/test/data/lib_root/f096/python_deserialization_injection.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:U,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,17,"
+   6 | from typing import (
+   7 |     Any,
+   8 | )
+   9 |
+  10 |
+  11 | def unsafe_loads(request: Any) -> None:
+  12 |     file_to_load = request.files[""pickle""]
+  13 |     # Noncompliant: Using pickle module to deserialize user inputs
+  14 |     pickle.load(file_to_load)
+  15 |     data = request.GET.get(""data"")
+  16 |     # Noncompliant: Using yaml.load with unsafe yaml.Loader
+> 17 |     yaml.load(data, Loader=yaml.Loader)
+  18 |
+  19 |
+  20 | def safe_loads(request: Any, some_data: Any) -> None:
+  21 |     data = request.GET.get(""data"")
+  22 |     # Compliant:  Using yaml.load with the default safe loader
+  23 |     yaml.load(data)
+  24 |     # Non-deterministic: The data is not a user param
+  25 |     yaml.load(some_data, Loader=yaml.Loader)
+  26 |     pickle.load(some_data)
+     ^ Col 0
+",python.python_deserialization_injection
+096. Insecure deserialization,CWE-502,"The system deserializes objects without first validating their content nor casting them to a specific type.
+ in namespace/skims/test/data/lib_root/f096/c_sharp_insecure_deserialization.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,11,"
+   1 | em.Runtime.Serialization.Formatters.Binary;
+   2 | em.Runtime.Serialization.IFormatter;
+   3 | Controllers
+   4 |
+   5 |  class Encrypt
+   6 |
+   7 | blic static void Process(string secret)
+   8 |
+   9 |   BinaryFormatter formatter = new BinaryFormatter();
+  10 |   LosFormatter formatter2 = new LosFormatter();
+> 11 |   SoapFormatter formatter3 = new SoapFormatter();
+  12 |   NetDataContractSerializer formatter4  = new NetDataContractSerializer();
+  13 |
+  14 |
+  15 |
+     ^ Col 10
+",c_sharp.c_sharp_insecure_deserialization
+096. Insecure deserialization,CWE-502,"The system deserializes objects without first validating their content nor casting them to a specific type.
+ in namespace/skims/test/data/lib_root/f096/c_sharp_insecure_deserialization.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,9,"
+   1 | m.Runtime.Serialization.Formatters.Binary;
+   2 | m.Runtime.Serialization.IFormatter;
+   3 | ontrollers
+   4 |
+   5 | class Encrypt
+   6 |
+   7 | lic static void Process(string secret)
+   8 |
+>  9 |  BinaryFormatter formatter = new BinaryFormatter();
+  10 |  LosFormatter formatter2 = new LosFormatter();
+  11 |  SoapFormatter formatter3 = new SoapFormatter();
+  12 |  NetDataContractSerializer formatter4  = new NetDataContractSerializer();
+  13 |
+  14 |
+  15 |
+     ^ Col 11
+",c_sharp.c_sharp_insecure_deserialization
+096. Insecure deserialization,CWE-502,"The system deserializes objects without first validating their content nor casting them to a specific type.
+ in namespace/skims/test/data/lib_root/f096/c_sharp_insecure_deserialization.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,12,"
+   1 | rialization.Formatters.Binary;
+   2 | rialization.IFormatter;
+   3 |
+   4 |
+   5 | t
+   6 |
+   7 | oid Process(string secret)
+   8 |
+   9 | tter formatter = new BinaryFormatter();
+  10 | r formatter2 = new LosFormatter();
+  11 | er formatter3 = new SoapFormatter();
+> 12 | ractSerializer formatter4  = new NetDataContractSerializer();
+  13 |
+  14 |
+  15 |
+     ^ Col 23
+",c_sharp.c_sharp_insecure_deserialization
+096. Insecure deserialization,CWE-502,"The system deserializes objects without first validating their content nor casting them to a specific type.
+ in namespace/skims/test/data/lib_root/f096/c_sharp_insecure_deserialization.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L/E:P,https://docs.fluidattacks.com/criteria/vulnerabilities/096,skims,SAST,10,"
+   1 | tem.Runtime.Serialization.Formatters.Binary;
+   2 | tem.Runtime.Serialization.IFormatter;
+   3 |  Controllers
+   4 |
+   5 | c class Encrypt
+   6 |
+   7 | ublic static void Process(string secret)
+   8 |
+   9 |    BinaryFormatter formatter = new BinaryFormatter();
+> 10 |    LosFormatter formatter2 = new LosFormatter();
+  11 |    SoapFormatter formatter3 = new SoapFormatter();
+  12 |    NetDataContractSerializer formatter4  = new NetDataContractSerializer();
+  13 |
+  14 |
+  15 |
+     ^ Col 9
+",c_sharp.c_sharp_insecure_deserialization
+Summary: 11 vulnerabilities were found in your targets.

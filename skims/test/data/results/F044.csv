@@ -1,0 +1,168 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+044. Insecure HTTP methods enabled,CWE-650,All http methods are enabled in the resource in namespace/skims/test/data/lib_path/f044/xml_header_allow_all_methods.config,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,6,"
+   1 | <?xml version=""1.0"" encoding=""utf-8""?>
+   2 | <configuration>
+   3 |   <appSettings />
+   4 |   <system.webServer>
+   5 |     <handlers>
+>  6 |       <add
+   7 |         name=""UnsafeAllMethods""
+   8 |         path=""*.""
+   9 |         verb=""*""
+  10 |       />
+  11 |       <add
+  12 |         name=""UnsafeSpecificMethods""
+  13 |         path=""*.""
+  14 |         verb=""TRACE,DEBUG,POST,DELETE""
+  15 |       />
+  16 |     </handlers>
+  17 |   </system.webServer>
+  18 | </configuration>
+     ^ Col 0
+",conf_files.xml_header_allow_all_methods
+044. Insecure HTTP methods enabled,CWE-650,All http methods are enabled in the resource in namespace/skims/test/data/lib_root/f044/cfn_api_all_methods_enabled.yaml,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,8,"
+   1 | ---
+   2 | Resources:
+   3 |   UnsafeApi:
+   4 |     Type: AWS::Serverless::Api
+   5 |     Properties:
+   6 |       MethodSettings:
+   7 |         - ResourcePath: ""/*""
+>  8 |           HttpMethod: ""*""
+   9 |   SafeApi:
+  10 |     Type: AWS::Serverless::Api
+  11 |     Properties:
+  12 |       MethodSettings:
+  13 |         - ResourcePath: ""/*""
+  14 |           HttpMethod: ""GET""
+  15 |           MetricsEnabled: ""true""
+  16 |           DataTraceEnabled: ""false""
+     ^ Col 0
+",cloudformation.cnf_http_methods_enabled
+044. Insecure HTTP methods enabled,CWE-650,All http methods are enabled in the resource in namespace/skims/test/data/lib_root/f044/cfn_api_all_methods_enabled.yaml.json,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,9,"
+   1 | {
+   2 |   ""Resources"": {
+   3 |     ""UnsafeApi"": {
+   4 |       ""Type"": ""AWS::Serverless::Api"",
+   5 |       ""Properties"": {
+   6 |         ""MethodSettings"": [
+   7 |           {
+   8 |             ""ResourcePath"": ""/*"",
+>  9 |             ""HttpMethod"": ""*""
+  10 |           }
+  11 |         ]
+  12 |       }
+  13 |     },
+  14 |     ""SafeApi"": {
+  15 |       ""Type"": ""AWS::Serverless::Api"",
+  16 |       ""Properties"": {
+  17 |         ""MethodSettings"": [
+  18 |           {
+  19 |             ""ResourcePath"": ""/*"",
+  20 |             ""HttpMethod"": ""GET"",
+  21 |             ""MetricsEnabled"": ""true"",
+     ^ Col 0
+",cloudformation.cnf_http_methods_enabled
+044. Insecure HTTP methods enabled,CWE-650,All http methods are enabled in the resource in namespace/skims/test/data/lib_root/f044/tfm_api_all_methods_enabled.tf,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,4,"
+   1 | resource ""aws_api_gateway_method"" ""unsafe_gateway"" {
+   2 |   rest_api_id = aws_api_gateway_rest_api.test.id
+   3 |   resource_id = aws_api_gateway_resource.test.id
+>  4 |   http_method = ""ANY""
+   5 | }
+   6 |
+   7 | resource ""aws_api_gateway_method"" ""safe_gateway"" {
+   8 |   rest_api_id = aws_api_gateway_rest_api.test.id
+   9 |   resource_id = aws_api_gateway_resource.test.id
+  10 |   http_method = ""GET""
+  11 | }
+     ^ Col 0
+",terraform.tfm_api_all_http_methods_enabled
+044. Insecure HTTP methods enabled,CWE-650,Dangerous http methods are enabled in the resource in namespace/skims/test/data/lib_path/f044/xml_header_allow_all_methods.config,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,11,"
+   1 | <?xml version=""1.0"" encoding=""utf-8""?>
+   2 | <configuration>
+   3 |   <appSettings />
+   4 |   <system.webServer>
+   5 |     <handlers>
+   6 |       <add
+   7 |         name=""UnsafeAllMethods""
+   8 |         path=""*.""
+   9 |         verb=""*""
+  10 |       />
+> 11 |       <add
+  12 |         name=""UnsafeSpecificMethods""
+  13 |         path=""*.""
+  14 |         verb=""TRACE,DEBUG,POST,DELETE""
+  15 |       />
+  16 |     </handlers>
+  17 |   </system.webServer>
+  18 | </configuration>
+     ^ Col 0
+",conf_files.xml_header_allow_danger_methods
+044. Insecure HTTP methods enabled,CWE-650,Dangerous http methods are enabled in the resource in namespace/skims/test/data/lib_root/f044/cfn_s3_cors_danger_methods_enabled.yaml,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,10,"
+   1 | ---
+   2 | Resources:
+   3 |   UnsafeBucket:
+   4 |     Type: AWS::S3::Bucket
+   5 |     Properties:
+   6 |       CorsConfiguration:
+   7 |         CorsRules:
+   8 |           - AllowedHeaders:
+   9 |               - '*'
+> 10 |             AllowedMethods:
+  11 |               - GET
+  12 |               - DELETE
+  13 |             AllowedOrigins:
+  14 |               - '*'
+  15 |   SafeBucket:
+  16 |     Type: AWS::S3::Bucket
+  17 |     Properties:
+  18 |       CorsConfiguration:
+  19 |         CorsRules:
+  20 |           - AllowedHeaders:
+  21 |               - x-amz-*
+     ^ Col 0
+",cloudformation.cnf_http_methods_enabled
+044. Insecure HTTP methods enabled,CWE-650,Dangerous http methods are enabled in the resource in namespace/skims/test/data/lib_root/f044/cfn_s3_cors_danger_methods_enabled.yaml.json,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,12,"
+   2 |   ""Resources"": {
+   3 |     ""UnsafeBucket"": {
+   4 |       ""Type"": ""AWS::S3::Bucket"",
+   5 |       ""Properties"": {
+   6 |         ""CorsConfiguration"": {
+   7 |           ""CorsRules"": [
+   8 |             {
+   9 |               ""AllowedHeaders"": [
+  10 |                 ""*""
+  11 |               ],
+> 12 |               ""AllowedMethods"": [
+  13 |                 ""GET"",
+  14 |                 ""DELETE""
+  15 |               ],
+  16 |               ""AllowedOrigins"": [
+  17 |                 ""*""
+  18 |               ]
+  19 |             }
+  20 |           ]
+  21 |         }
+  22 |       }
+     ^ Col 0
+",cloudformation.cnf_http_methods_enabled
+044. Insecure HTTP methods enabled,CWE-650,Dangerous http methods are enabled in the resource in namespace/skims/test/data/lib_root/f044/tfm_s3_cors_danger_methods_enabled.tf,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/044,skims,SAST,6,"
+   1 | resource ""aws_s3_bucket_cors_configuration"" ""example"" {
+   2 |   bucket = aws_s3_bucket.example.id
+   3 |
+   4 |   cors_rule {
+   5 |     allowed_headers = [""*""]
+>  6 |     allowed_methods = [""PUT"", ""POST""]
+   7 |     allowed_origins = [""https://s3-website-test.hashicorp.com""]
+   8 |     expose_headers  = [""ETag""]
+   9 |     max_age_seconds = 3000
+  10 |   }
+  11 |
+  12 |   cors_rule {
+  13 |     allowed_methods = [""GET""]
+  14 |     allowed_origins = [""*""]
+  15 |   }
+  16 | }
+     ^ Col 0
+",terraform.tfm_http_methods_enabled
+Summary: 8 vulnerabilities were found in your targets.

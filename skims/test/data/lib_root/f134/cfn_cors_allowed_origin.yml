@@ -1,0 +1,38 @@
+# This file is the main config file for your service.
+service: myservice
+configValidationMode: error
+
+plugins:
+  - serverless-plugin-ifelse
+functions:
+  transaction-dynamo:
+    events:
+      - http:
+          path: transactions/validations
+          method: post
+          cors:
+            origin: "*"
+  transaction-updating:
+    events:
+      - http:
+          path: transactions/dynamo/
+          method: post
+          cors: true
+  ##SAFE
+  transaction-validation:
+    events:
+      - http:
+          path: transactions/validations
+          cors:
+            origin:
+              - http://example.com
+              - http://example2.com
+## Another dangerous cors policy setting
+Resources:
+  CompanyApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"

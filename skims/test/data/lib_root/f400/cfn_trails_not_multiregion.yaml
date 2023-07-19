@@ -1,0 +1,18 @@
+---
+Resources:
+  trail1:
+    Type: AWS::CloudTrail::Trail
+    Properties:
+      IsLogging: true
+      EnableLogFileValidation: true
+  trail2:
+    Type: AWS::CloudTrail::Trail
+    Properties:
+      IsLogging: true
+      EnableLogFileValidation: false
+      IsMultiRegionTrail: false
+  trail3:
+    Type: AWS::CloudTrail::Trail
+    Properties:
+      IsLogging: true
+      IsMultiRegionTrail: true

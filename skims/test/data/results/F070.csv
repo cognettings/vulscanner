@@ -1,0 +1,185 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+070. Insecure service configuration - ELB,CWE-266,EKS security groups allow access on ports other than TCP port 443.,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,CSPM,FromPort: 88; ToPort: 8808,"
+   1 | {
+   2 |     ""Description"": ""fluidsecgroup1"",
+   3 |     ""GroupName"": ""fluidsecuritygroup1"",
+   4 |     ""OwnerId"": ""fluid"",
+   5 |     ""GroupId"": ""secgroup1"",
+   6 |     ""IpPermissions"": [
+   7 |         {
+   8 |             ""FromPort"": 88,
+>  9 |             ""ToPort"": 8808
+  10 |         }
+  11 |     ]
+  12 | }
+     ^ Col 0
+",aws.eks_allows_insecure_inbound_traffic
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy in namespace/skims/test/data/lib_root/f070/cfn_elb2_uses_insecure_security_policy.yaml,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,SAST,18,"
+   8 |           RedirectConfig:
+   9 |             Protocol: HTTPS
+  10 |             Port: 443
+  11 |             Host: '#{host}'
+  12 |             Path: /#{path}
+  13 |             Query: '#{query}'
+  14 |             StatusCode: HTTP_301
+  15 |       LoadBalancerArn: myLoadBalancer
+  16 |       Port: 80
+  17 |       Protocol: HTTPS
+> 18 |       SslPolicy: ELBSecurityPolicy-2016-08
+  19 |   listener2:
+  20 |     Type: AWS::ElasticLoadBalancingV2::Listener
+  21 |     Properties:
+  22 |       DefaultActions:
+  23 |         - Type: redirect
+  24 |           RedirectConfig:
+  25 |             Protocol: HTTPS
+  26 |             Port: 443
+  27 |             Host: '#{host}'
+  28 |             Path: /#{path}
+     ^ Col 0
+",cloudformation.cfn_elb2_uses_insecure_security_policy
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy in namespace/skims/test/data/lib_root/f070/cfn_elb2_uses_insecure_security_policy.yaml,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,SAST,34,"
+  14 |             StatusCode: HTTP_301
+  15 |       LoadBalancerArn: myLoadBalancer
+  16 |       Port: 80
+  17 |       Protocol: HTTPS
+  18 |       SslPolicy: ELBSecurityPolicy-2016-08
+  19 |   listener2:
+  20 |     Type: AWS::ElasticLoadBalancingV2::Listener
+  21 |     Properties:
+  22 |       DefaultActions:
+  23 |         - Type: redirect
+  24 |           RedirectConfig:
+  25 |             Protocol: HTTPS
+  26 |             Port: 443
+  27 |             Host: '#{host}'
+  28 |             Path: /#{path}
+  29 |             Query: '#{query}'
+  30 |             StatusCode: HTTP_301
+  31 |       LoadBalancerArn: myLoadBalancer
+  32 |       Port: 80
+  33 |       Protocol: HTTP
+> 34 |       SslPolicy: ELBSecurityPolicy-TLS-1-2-2017-01
+     ^ Col 0
+",cloudformation.cfn_elb2_uses_insecure_security_policy
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy in namespace/skims/test/data/lib_root/f070/cfn_elb2_uses_insecure_security_policy.yaml.json,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,SAST,22,"
+  12 |               ""Host"": ""#{host}"",
+  13 |               ""Path"": ""/#{path}"",
+  14 |               ""Query"": ""#{query}"",
+  15 |               ""StatusCode"": ""HTTP_301""
+  16 |             }
+  17 |           }
+  18 |         ],
+  19 |         ""LoadBalancerArn"": ""myLoadBalancer"",
+  20 |         ""Port"": 80,
+  21 |         ""Protocol"": ""HTTPS"",
+> 22 |         ""SslPolicy"": ""ELBSecurityPolicy-2016-08""
+  23 |       }
+  24 |     },
+  25 |     ""listener2"": {
+  26 |       ""Type"": ""AWS::ElasticLoadBalancingV2::Listener"",
+  27 |       ""Properties"": {
+  28 |         ""DefaultActions"": [
+  29 |           {
+  30 |             ""Type"": ""redirect"",
+  31 |             ""RedirectConfig"": {
+  32 |               ""Protocol"": ""HTTPS"",
+     ^ Col 0
+",cloudformation.cfn_elb2_uses_insecure_security_policy
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy in namespace/skims/test/data/lib_root/f070/cfn_elb2_uses_insecure_security_policy.yaml.json,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,SAST,44,"
+  28 |         ""DefaultActions"": [
+  29 |           {
+  30 |             ""Type"": ""redirect"",
+  31 |             ""RedirectConfig"": {
+  32 |               ""Protocol"": ""HTTPS"",
+  33 |               ""Port"": 443,
+  34 |               ""Host"": ""#{host}"",
+  35 |               ""Path"": ""/#{path}"",
+  36 |               ""Query"": ""#{query}"",
+  37 |               ""StatusCode"": ""HTTP_301""
+  38 |             }
+  39 |           }
+  40 |         ],
+  41 |         ""LoadBalancerArn"": ""myLoadBalancer"",
+  42 |         ""Port"": 80,
+  43 |         ""Protocol"": ""HTTP"",
+> 44 |         ""SslPolicy"": ""ELBSecurityPolicy-TLS-1-2-2017-01""
+  45 |       }
+  46 |     }
+  47 |   }
+  48 | }
+     ^ Col 0
+",cloudformation.cfn_elb2_uses_insecure_security_policy
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy in namespace/skims/test/data/lib_root/f070/tfm_elb2_uses_insecure_security_policy.tf,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,SAST,5,"
+   1 | resource ""aws_lb_listener"" ""front_end"" {
+   2 |   load_balancer_arn = aws_lb.front_end.arn
+   3 |   port              = ""443""
+   4 |   protocol          = ""HTTPS""
+>  5 |   ssl_policy        = ""ELBSecurityPolicy-2016-08""
+   6 |   certificate_arn   = ""arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4""
+   7 |
+   8 |   default_action {
+   9 |     type             = ""forward""
+  10 |     target_group_arn = aws_lb_target_group.front_end.arn
+  11 |   }
+  12 | }
+  13 |
+  14 | resource ""aws_lb_listener"" ""front_end"" {
+  15 |   load_balancer_arn = aws_lb.front_end.arn
+  16 |   port              = ""443""
+  17 |   protocol          = ""HTTPS""
+  18 |   ssl_policy        = ""ELBSecurityPolicy-FS-1-1-2019-08""
+  19 |   certificate_arn   = ""arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4""
+  20 |
+  21 |   default_action {
+     ^ Col 0
+",terraform.tfm_elb2_uses_insecure_security_policy
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy in namespace/skims/test/data/lib_root/f070/tfm_elb2_uses_insecure_security_policy.tf,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,SAST,18,"
+   5 |   ssl_policy        = ""ELBSecurityPolicy-2016-08""
+   6 |   certificate_arn   = ""arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4""
+   7 |
+   8 |   default_action {
+   9 |     type             = ""forward""
+  10 |     target_group_arn = aws_lb_target_group.front_end.arn
+  11 |   }
+  12 | }
+  13 |
+  14 | resource ""aws_lb_listener"" ""front_end"" {
+  15 |   load_balancer_arn = aws_lb.front_end.arn
+  16 |   port              = ""443""
+  17 |   protocol          = ""HTTPS""
+> 18 |   ssl_policy        = ""ELBSecurityPolicy-FS-1-1-2019-08""
+  19 |   certificate_arn   = ""arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4""
+  20 |
+  21 |   default_action {
+  22 |     type             = ""forward""
+  23 |     target_group_arn = aws_lb_target_group.front_end.arn
+  24 |   }
+  25 | }
+     ^ Col 0
+",terraform.tfm_elb2_uses_insecure_security_policy
+070. Insecure service configuration - ELB,CWE-266,Listener uses unsafe security policy,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/070,skims,CSPM,/Listeners/0/SslPolicy: ELBSecurityPolicy_FS_1_2_Res_2019_08,"
+   2 |     ""LoadBalancers"": [
+   3 |         {
+   4 |             ""LoadBalancerArn"": ""arn:aws:iam::123456789012:lb/mylb1""
+   5 |         }
+   6 |     ],
+   7 |     ""Listeners"": [
+   8 |         {
+   9 |             ""ListenerArn"": ""arn:aws:iam::123456789012:list/unsafelistener"",
+  10 |             ""LoadBalancerArn"": ""arn:aws:iam::123456789012:lb/mylb1"",
+  11 |             ""Port"": 123,
+> 12 |             ""SslPolicy"": ""ELBSecurityPolicy-FS-1-2-Res-2019-08""
+  13 |         },
+  14 |         {
+  15 |             ""ListenerArn"": ""arn:aws:iam::123456789012:list/safelistener"",
+  16 |             ""LoadBalancerArn"": ""arn:aws:iam::123456789012:lb/mylb1"",
+  17 |             ""Port"": 123,
+  18 |             ""SslPolicy"": ""ELBSecurityPolicy-TLS13-1-2-Res-2021-06""
+  19 |         }
+  20 |     ],
+  21 |     ""clusters"": [
+  22 |         ""fluidcluster""
+     ^ Col 0
+",aws.uses_insecure_security_policy
+Summary: 8 vulnerabilities were found in your targets.

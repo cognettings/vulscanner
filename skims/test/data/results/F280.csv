@@ -1,0 +1,108 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+280. Session Fixation,CWE-384,"The variables used to create cookies or to set headers are not properly sanitized.
+ in namespace/skims/test/data/lib_root/f280/js_insecure_construction_of_cookies.js",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/280,skims,SAST,5,"
+  1 | function vuln (req, res) {
+  2 |     const value = req.query.value;
+  3 |
+  4 |     res.setHeader(""Set-Cookie"", value);  // Noncompliant
+> 5 |     res.cookie(""connect.sid"", value);  // Noncompliant
+  6 |
+  7 |     res.setHeader(""X-Data"", value); // Compliant
+  8 |     res.cookie(""data"", value); // Compliant
+  9 |   };
+    ^ Col 0
+",javascript.javascript_non_secure_construction_of_cookies
+280. Session Fixation,CWE-384,"The variables used to create cookies or to set headers are not properly sanitized.
+ in namespace/skims/test/data/lib_root/f280/js_insecure_construction_of_cookies.js",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/280,skims,SAST,4,"
+  1 | function vuln (req, res) {
+  2 |     const value = req.query.value;
+  3 |
+> 4 |     res.setHeader(""Set-Cookie"", value);  // Noncompliant
+  5 |     res.cookie(""connect.sid"", value);  // Noncompliant
+  6 |
+  7 |     res.setHeader(""X-Data"", value); // Compliant
+  8 |     res.cookie(""data"", value); // Compliant
+  9 |   };
+    ^ Col 0
+",javascript.javascript_non_secure_construction_of_cookies
+280. Session Fixation,CWE-384,"The variables used to create cookies or to set headers are not properly sanitized.
+ in namespace/skims/test/data/lib_root/f280/python_session_fixation.py",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/280,skims,SAST,11,"
+   1 | # pylint: skip-file
+   2 | from testdjango.http import (  # noqa
+   3 |     HttpRequest,
+   4 |     HttpResponse,
+   5 | )
+   6 |
+   7 |
+   8 | def unsafe_values(request: HttpRequest) -> HttpResponse:
+   9 |     value = request.GET.get(""value"")
+  10 |     response = HttpResponse("""")
+> 11 |     response[""Set-Cookie""] = value  # Noncompliant
+  12 |     response.set_cookie(""sessionid"", value)  # Noncompliant
+  13 |     return response
+  14 |
+  15 |
+  16 | def safe_values(request: HttpRequest, cookie: str) -> HttpResponse:
+  17 |     value = request.GET.get(""value"")
+  18 |     response = HttpResponse("""")
+  19 |     response[""X-Data""] = value
+  20 |     response[""Set-Cookie""] = cookie
+  21 |     response.set_cookie(""data"", value)
+     ^ Col 0
+",python.python_session_fixation
+280. Session Fixation,CWE-384,"The variables used to create cookies or to set headers are not properly sanitized.
+ in namespace/skims/test/data/lib_root/f280/python_session_fixation.py",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/280,skims,SAST,12,"
+   2 | from testdjango.http import (  # noqa
+   3 |     HttpRequest,
+   4 |     HttpResponse,
+   5 | )
+   6 |
+   7 |
+   8 | def unsafe_values(request: HttpRequest) -> HttpResponse:
+   9 |     value = request.GET.get(""value"")
+  10 |     response = HttpResponse("""")
+  11 |     response[""Set-Cookie""] = value  # Noncompliant
+> 12 |     response.set_cookie(""sessionid"", value)  # Noncompliant
+  13 |     return response
+  14 |
+  15 |
+  16 | def safe_values(request: HttpRequest, cookie: str) -> HttpResponse:
+  17 |     value = request.GET.get(""value"")
+  18 |     response = HttpResponse("""")
+  19 |     response[""X-Data""] = value
+  20 |     response[""Set-Cookie""] = cookie
+  21 |     response.set_cookie(""data"", value)
+  22 |     response.set_cookie(""sessionid"", cookie)
+     ^ Col 0
+",python.python_session_fixation
+280. Session Fixation,CWE-384,"The variables used to create cookies or to set headers are not properly sanitized.
+ in namespace/skims/test/data/lib_root/f280/ts_insecure_construction_of_cookies.ts",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/280,skims,SAST,7,"
+   1 | declare var module: any;
+   2 |
+   3 | function ts_vuln (req, res) {
+   4 |     const value = req.query.value;
+   5 |
+   6 |     res.setHeader(""Set-Cookie"", value);  // Noncompliant
+>  7 |     res.cookie(""connect.sid"", value);  // Noncompliant
+   8 |
+   9 |     res.setHeader(""X-Data"", value); // Compliant
+  10 |     res.cookie(""data"", value); // Compliant
+  11 |   };
+     ^ Col 0
+",typescript.typescript_non_secure_construction_of_cookies
+280. Session Fixation,CWE-384,"The variables used to create cookies or to set headers are not properly sanitized.
+ in namespace/skims/test/data/lib_root/f280/ts_insecure_construction_of_cookies.ts",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/280,skims,SAST,6,"
+   1 | declare var module: any;
+   2 |
+   3 | function ts_vuln (req, res) {
+   4 |     const value = req.query.value;
+   5 |
+>  6 |     res.setHeader(""Set-Cookie"", value);  // Noncompliant
+   7 |     res.cookie(""connect.sid"", value);  // Noncompliant
+   8 |
+   9 |     res.setHeader(""X-Data"", value); // Compliant
+  10 |     res.cookie(""data"", value); // Compliant
+  11 |   };
+     ^ Col 0
+",typescript.typescript_non_secure_construction_of_cookies
+Summary: 6 vulnerabilities were found in your targets.

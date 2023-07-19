@@ -1,0 +1,10 @@
+{
+    "version": "0.5",
+    "requires": [],
+    "build_requires": [
+        "tesseract/6.0.0#83d4b7bf607b3b60a6546f8b58b5cdd7%1675278904.0791488",
+        "uriparser/0.9.5#905c3f0babc520684c84127378fefdd0%1675278901.7527816",
+        "zeromq/4.3.3"
+    ],
+    "python_requires": []
+}

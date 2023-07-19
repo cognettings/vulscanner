@@ -1,0 +1,690 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+165. Insecure service configuration - AWS,CWE-16,DynamoDB tables uses AWS-owned Master Keys for Server-Side Encryption.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/SSEDescription/SSEType: AES256,"
+  1 | {
+  2 |     ""TableName"": ""fluidTable"",
+  3 |     ""TableArn"": ""arn:aws:iam::aws:table/fluidTable"",
+  4 |     ""SSEDescription"": {
+  5 |         ""Status"": ""ENABLED"",
+> 6 |         ""SSEType"": ""AES256"",
+  7 |         ""KMSMasterKeyArn"": ""arn:aws:iam::aws:key/fuildKey""
+  8 |     }
+  9 | }
+    ^ Col 0
+",aws.dynamob_encrypted_with_aws_master_keys
+165. Insecure service configuration - AWS,CWE-16,DynamoDB tables uses AWS-owned Master Keys for Server-Side Encryption.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,endpointPrivateAccess: False; endpointPublicAccess: True,"
+   1 | {
+   2 |     ""name"": ""fluidcluster"",
+   3 |     ""arn"": ""arn:aws:iam::123456789012:cluster/fluidcl1"",
+   4 |     ""resourcesVpcConfig"": {
+   5 |         ""securityGroupIds"": [
+   6 |             ""fluidsecuritygroup1""
+   7 |         ],
+>  8 |         ""endpointPublicAccess"": true,
+   9 |         ""endpointPrivateAccess"": false
+  10 |     }
+  11 | }
+     ^ Col 0
+",aws.eks_has_endpoints_publicly_accessible
+165. Insecure service configuration - AWS,CWE-16,Elasticache cluster has transit encryption disabled,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,Engine: redis; AtRestEncryptionEnabled: False,"
+  1 | {
+  2 |     ""CacheClusterId"": ""fluidCacheCluster2"",
+  3 |     ""ARN"": ""arn:aws:fluidCacheCluster/4567"",
+  4 |     ""Engine"": ""redis"",
+> 5 |     ""AtRestEncryptionEnabled"": false,
+  6 |     ""TransitEncryptionEnabled"": false
+  7 | }
+    ^ Col 0
+",aws.elasticache_is_at_rest_encryption_disabled
+165. Insecure service configuration - AWS,CWE-16,Elasticache cluster has transit encryption disabled,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,Engine: redis; TransitEncryptionEnabled: False,"
+  1 | {
+  2 |     ""CacheClusterId"": ""fluidCacheCluster2"",
+  3 |     ""ARN"": ""arn:aws:fluidCacheCluster/4567"",
+  4 |     ""Engine"": ""redis"",
+  5 |     ""AtRestEncryptionEnabled"": false,
+> 6 |     ""TransitEncryptionEnabled"": false
+  7 | }
+    ^ Col 0
+",aws.elasticache_is_transit_encryption_disabled
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction on trust policy
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_trust_policies.yaml",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,13,"
+   3 |   UnsafeRole:
+   4 |     Type: AWS::IAM::Role
+   5 |     Properties:
+   6 |       AssumeRolePolicyDocument:
+   7 |         Statement:
+   8 |           - Effect: Allow
+   9 |             NotPrincipal:
+  10 |               Service:
+  11 |                 - ec2.amazonaws.com
+  12 |           - Effect: Allow
+> 13 |             NotAction:
+  14 |               - sts:AssumeRole
+  15 |   SafeRole:
+  16 |     Type: AWS::IAM::Role
+  17 |     Properties:
+  18 |       AssumeRolePolicyDocument:
+  19 |         Statement:
+  20 |           - Effect: Allow
+  21 |             Resource: ""arn::aws::role/""
+  22 |             Action:
+  23 |               - sts:AssumeRole
+     ^ Col 0
+",cloudformation.cfn_iam_trust_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction on trust policy
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_trust_policies.yaml.json",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,18,"
+   8 |             {
+   9 |               ""Effect"": ""Allow"",
+  10 |               ""NotPrincipal"": {
+  11 |                 ""Service"": [
+  12 |                   ""ec2.amazonaws.com""
+  13 |                 ]
+  14 |               }
+  15 |             },
+  16 |             {
+  17 |               ""Effect"": ""Allow"",
+> 18 |               ""NotAction"": [
+  19 |                 ""sts:AssumeRole""
+  20 |               ]
+  21 |             }
+  22 |           ]
+  23 |         }
+  24 |       }
+  25 |     },
+  26 |     ""SafeRole"": {
+  27 |       ""Type"": ""AWS::IAM::Role"",
+  28 |       ""Properties"": {
+     ^ Col 0
+",cloudformation.cfn_iam_trust_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction on trust policy
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_trust_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,27,"
+  17 | }
+  18 |
+  19 | resource ""aws_iam_role"" ""vuln_role_2"" {
+  20 |   name = ""vuln_role_1""
+  21 |
+  22 |   assume_role_policy = jsonencode({
+  23 |     Version = ""2012-10-17""
+  24 |     Statement = [
+  25 |       {
+  26 |         Effect    = ""Allow""
+> 27 |         NotAction = ""sts:AssumeRole""
+  28 |       },
+  29 |     ]
+  30 |   })
+  31 | }
+  32 |
+  33 | resource ""aws_iam_role"" ""safe_role_1"" {
+  34 |   name = ""safe_role_1""
+  35 |
+  36 |   assume_role_policy = <<-EOF
+  37 |   {
+     ^ Col 0
+",terraform.cfn_iam_trust_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_policies.yaml",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,11,"
+   1 | ---
+   2 | Resources:
+   3 |   UnsafeRole:
+   4 |     Type: AWS::IAM::Role
+   5 |     Properties:
+   6 |       Policies:
+   7 |         - PolicyName: unsafe_pol1
+   8 |           PolicyDocument:
+   9 |             Statement:
+  10 |               - Effect: Allow
+> 11 |                 NotAction: ecs:CreateService
+  12 |                 Resource: '*'
+  13 |         - PolicyName: unsafe_pol2
+  14 |           PolicyDocument:
+  15 |             Statement:
+  16 |               - Effect: Allow
+  17 |                 Action: ecs:CreateService
+  18 |                 NotResource: 'arn::aws::role/some_role'
+  19 |   SafeRole:
+  20 |     Type: AWS::IAM::Role
+  21 |     Properties:
+     ^ Col 0
+",cloudformation.cfn_iam_permissions_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_policies.yaml.json",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,13,"
+   3 |     ""UnsafeRole"": {
+   4 |       ""Type"": ""AWS::IAM::Role"",
+   5 |       ""Properties"": {
+   6 |         ""Policies"": [
+   7 |           {
+   8 |             ""PolicyName"": ""unsafe_pol1"",
+   9 |             ""PolicyDocument"": {
+  10 |               ""Statement"": [
+  11 |                 {
+  12 |                   ""Effect"": ""Allow"",
+> 13 |                   ""NotAction"": ""ecs:CreateService"",
+  14 |                   ""Resource"": ""*""
+  15 |                 }
+  16 |               ]
+  17 |             }
+  18 |           },
+  19 |           {
+  20 |             ""PolicyName"": ""unsafe_pol2"",
+  21 |             ""PolicyDocument"": {
+  22 |               ""Statement"": [
+  23 |                 {
+     ^ Col 0
+",cloudformation.cfn_iam_permissions_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,4,"
+   1 | resource ""aws_iam_policy"" ""test_policy"" {
+   2 |   name = ""test_policy""
+   3 |
+>  4 |   policy = <<EOF
+   5 | {
+   6 |   ""Version"": ""2012-10-17"",
+   7 |   ""Statement"": [
+   8 |     {
+   9 |       ""Effect"": ""Allow"",
+  10 |       ""NotAction"": [
+  11 |         ""ec2:Describe*""
+  12 |       ],
+  13 |       ""NotResource"": ""*""
+  14 |     },
+  15 |     {
+  16 |         ""Effect"": ""Allow"",
+  17 |         ""Action"": [
+  18 |             ""iam:Attach*"",
+  19 |             ""iam:Create*""
+  20 |         ],
+  21 |         ""Resource"": [
+     ^ Col 0
+",terraform.tfm_iam_permissions_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,39,"
+  29 |
+  30 | resource ""aws_iam_role_policy"" ""vuln_role_1"" {
+  31 |   name = ""vuln_role_1""
+  32 |
+  33 |   policy = jsonencode({
+  34 |     Version = ""2012-10-17""
+  35 |     Statement = [
+  36 |       {
+  37 |         Effect      = ""Allow""
+  38 |         NotResource = [""arn:aws:iam:::db/my_db""]
+> 39 |         NotAction   = [""iam:Attach:""]
+  40 |       },
+  41 |     ]
+  42 |   })
+  43 | }
+  44 |
+  45 | data ""aws_iam_policy_document"" ""vuln_policy_doc"" {
+  46 |   statement {
+  47 |     effect = ""Allow""
+  48 |
+  49 |     not_resources = [
+     ^ Col 0
+",terraform.tfm_iam_permissions_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotAction
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,53,"
+  43 | }
+  44 |
+  45 | data ""aws_iam_policy_document"" ""vuln_policy_doc"" {
+  46 |   statement {
+  47 |     effect = ""Allow""
+  48 |
+  49 |     not_resources = [
+  50 |       ""arn:aws:iam:::role/some_res"",
+  51 |     ]
+  52 |
+> 53 |     not_actions = [
+  54 |       ""s3:GetObject"",
+  55 |     ]
+  56 |   }
+  57 |
+  58 |   statement {
+  59 |     effect = ""Allow""
+  60 |
+  61 |     resources = [
+  62 |       ""arn:aws:iam:::role/some_res"",
+  63 |     ]
+     ^ Col 0
+",terraform.tfm_iam_permissions_policy_allow_not_action
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotPrincipal in its trust policy
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_trust_policies.yaml",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,9,"
+   1 | ---
+   2 | Resources:
+   3 |   UnsafeRole:
+   4 |     Type: AWS::IAM::Role
+   5 |     Properties:
+   6 |       AssumeRolePolicyDocument:
+   7 |         Statement:
+   8 |           - Effect: Allow
+>  9 |             NotPrincipal:
+  10 |               Service:
+  11 |                 - ec2.amazonaws.com
+  12 |           - Effect: Allow
+  13 |             NotAction:
+  14 |               - sts:AssumeRole
+  15 |   SafeRole:
+  16 |     Type: AWS::IAM::Role
+  17 |     Properties:
+  18 |       AssumeRolePolicyDocument:
+  19 |         Statement:
+  20 |           - Effect: Allow
+  21 |             Resource: ""arn::aws::role/""
+     ^ Col 0
+",cloudformation.cfn_iam_trust_policy_allow_not_principal
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotPrincipal in its trust policy
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_trust_policies.yaml.json",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,10,"
+   1 | {
+   2 |   ""Resources"": {
+   3 |     ""UnsafeRole"": {
+   4 |       ""Type"": ""AWS::IAM::Role"",
+   5 |       ""Properties"": {
+   6 |         ""AssumeRolePolicyDocument"": {
+   7 |           ""Statement"": [
+   8 |             {
+   9 |               ""Effect"": ""Allow"",
+> 10 |               ""NotPrincipal"": {
+  11 |                 ""Service"": [
+  12 |                   ""ec2.amazonaws.com""
+  13 |                 ]
+  14 |               }
+  15 |             },
+  16 |             {
+  17 |               ""Effect"": ""Allow"",
+  18 |               ""NotAction"": [
+  19 |                 ""sts:AssumeRole""
+  20 |               ]
+  21 |             }
+     ^ Col 0
+",cloudformation.cfn_iam_trust_policy_allow_not_principal
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotPrincipal in its trust policy
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_trust_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,4,"
+   1 | resource ""aws_iam_role"" ""vuln_role_1"" {
+   2 |   name = ""safe_role_1""
+   3 |
+>  4 |   assume_role_policy = <<-EOF
+   5 |   {
+   6 |     ""Version"": ""2012-10-17"",
+   7 |     ""Statement"": [
+   8 |       {
+   9 |         ""Effect"": ""Allow"",
+  10 |         ""NotPrincipal"": {
+  11 |           ""Service"": ""ec2.amazonaws.com""
+  12 |         }
+  13 |       }
+  14 |     ]
+  15 |   }
+  16 |   EOF
+  17 | }
+  18 |
+  19 | resource ""aws_iam_role"" ""vuln_role_2"" {
+  20 |   name = ""vuln_role_1""
+  21 |
+     ^ Col 0
+",terraform.tfm_iam_role_is_over_privileged
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotResource
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_policies.yaml",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,18,"
+   8 |           PolicyDocument:
+   9 |             Statement:
+  10 |               - Effect: Allow
+  11 |                 NotAction: ecs:CreateService
+  12 |                 Resource: '*'
+  13 |         - PolicyName: unsafe_pol2
+  14 |           PolicyDocument:
+  15 |             Statement:
+  16 |               - Effect: Allow
+  17 |                 Action: ecs:CreateService
+> 18 |                 NotResource: 'arn::aws::role/some_role'
+  19 |   SafeRole:
+  20 |     Type: AWS::IAM::Role
+  21 |     Properties:
+  22 |       Policies:
+  23 |         - PolicyName: root
+  24 |           PolicyDocument:
+  25 |             Statement:
+  26 |               - Effect: Allow
+  27 |                 Action: ecs:CreateService
+  28 |                 Resource: 'arn::aws::role/some_role'
+     ^ Col 0
+",cloudformation.cfn_iam_permissions_policy_allow_not_resource
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotResource
+ in namespace/skims/test/data/lib_root/f165/cfn_iam_allow_danger_policies.yaml.json",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,26,"
+  16 |               ]
+  17 |             }
+  18 |           },
+  19 |           {
+  20 |             ""PolicyName"": ""unsafe_pol2"",
+  21 |             ""PolicyDocument"": {
+  22 |               ""Statement"": [
+  23 |                 {
+  24 |                   ""Effect"": ""Allow"",
+  25 |                   ""Action"": ""ecs:CreateService"",
+> 26 |                   ""NotResource"": ""arn::aws::role/some_role""
+  27 |                 }
+  28 |               ]
+  29 |             }
+  30 |           }
+  31 |         ]
+  32 |       }
+  33 |     },
+  34 |     ""SafeRole"": {
+  35 |       ""Type"": ""AWS::IAM::Role"",
+  36 |       ""Properties"": {
+     ^ Col 0
+",cloudformation.cfn_iam_permissions_policy_allow_not_resource
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotResource
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,4,"
+   1 | resource ""aws_iam_policy"" ""test_policy"" {
+   2 |   name = ""test_policy""
+   3 |
+>  4 |   policy = <<EOF
+   5 | {
+   6 |   ""Version"": ""2012-10-17"",
+   7 |   ""Statement"": [
+   8 |     {
+   9 |       ""Effect"": ""Allow"",
+  10 |       ""NotAction"": [
+  11 |         ""ec2:Describe*""
+  12 |       ],
+  13 |       ""NotResource"": ""*""
+  14 |     },
+  15 |     {
+  16 |         ""Effect"": ""Allow"",
+  17 |         ""Action"": [
+  18 |             ""iam:Attach*"",
+  19 |             ""iam:Create*""
+  20 |         ],
+  21 |         ""Resource"": [
+     ^ Col 0
+",terraform.tfm_iam_permissions_policy_allow_not_resource
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotResource
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,38,"
+  28 | }
+  29 |
+  30 | resource ""aws_iam_role_policy"" ""vuln_role_1"" {
+  31 |   name = ""vuln_role_1""
+  32 |
+  33 |   policy = jsonencode({
+  34 |     Version = ""2012-10-17""
+  35 |     Statement = [
+  36 |       {
+  37 |         Effect      = ""Allow""
+> 38 |         NotResource = [""arn:aws:iam:::db/my_db""]
+  39 |         NotAction   = [""iam:Attach:""]
+  40 |       },
+  41 |     ]
+  42 |   })
+  43 | }
+  44 |
+  45 | data ""aws_iam_policy_document"" ""vuln_policy_doc"" {
+  46 |   statement {
+  47 |     effect = ""Allow""
+  48 |
+     ^ Col 0
+",terraform.tfm_iam_permissions_policy_allow_not_resource
+165. Insecure service configuration - AWS,CWE-16,"IAM Role is miss configured: - Should not allow AllowNotResource
+ in namespace/skims/test/data/lib_root/f165/tfm_iam_allow_danger_policies.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,49,"
+  39 |         NotAction   = [""iam:Attach:""]
+  40 |       },
+  41 |     ]
+  42 |   })
+  43 | }
+  44 |
+  45 | data ""aws_iam_policy_document"" ""vuln_policy_doc"" {
+  46 |   statement {
+  47 |     effect = ""Allow""
+  48 |
+> 49 |     not_resources = [
+  50 |       ""arn:aws:iam:::role/some_res"",
+  51 |     ]
+  52 |
+  53 |     not_actions = [
+  54 |       ""s3:GetObject"",
+  55 |     ]
+  56 |   }
+  57 |
+  58 |   statement {
+  59 |     effect = ""Allow""
+     ^ Col 0
+",terraform.tfm_iam_permissions_policy_allow_not_resource
+165. Insecure service configuration - AWS,CWE-16,IAM User have multiple access keys.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,IAM User have multiple access keys.,"
+   1 | [
+   2 |     {
+   3 |         ""UserName"": ""myUser"",
+   4 |         ""AccessKeyId"": ""108745"",
+   5 |         ""Status"": ""Active""
+   6 |     },
+   7 |     {
+   8 |         ""UserName"": ""myUser"",
+   9 |         ""AccessKeyId"": ""37856"",
+  10 |         ""Status"": ""Active""
+  11 |     }
+  12 | ]
+     ^ Col 0
+",aws.users_with_multiple_access_keys
+165. Insecure service configuration - AWS,CWE-16,"IAM policy should not apply directly to users, Should be on group. in namespace/skims/test/data/lib_root/f165/cfn_iam_is_policy_applying_to_users.yaml",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,5,"
+   1 | ---
+   2 | Resources:
+   3 |   CreateTestDBPolicy:
+   4 |     Type: AWS::IAM::ManagedPolicy
+>  5 |     Properties:
+   6 |       Description: Policy for creating a test database
+   7 |       Path: /
+   8 |       PolicyDocument:
+   9 |         Version: '2012-10-17'
+  10 |         Statement:
+  11 |           - Effect: Allow
+  12 |             Action: rds:CreateDBInstance
+  13 |             Condition:
+  14 |               StringEquals:
+  15 |                 rds:DatabaseEngine: mysql
+  16 |       Users:
+  17 |         - user1
+  18 |       Groups:
+  19 |         - TestDBGroup
+  20 |   Policy:
+  21 |     Type: AWS::IAM::Policy
+     ^ Col 0
+",cloudformation.cfn_iam_permissions_policy_aplly_users
+165. Insecure service configuration - AWS,CWE-16,"IAM policy should not apply directly to users, Should be on group. in namespace/skims/test/data/lib_root/f165/cfn_iam_is_policy_applying_to_users.yaml.json",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,5,"
+   1 | {
+   2 |   ""Resources"": {
+   3 |     ""CreateTestDBPolicy"": {
+   4 |       ""Type"": ""AWS::IAM::ManagedPolicy"",
+>  5 |       ""Properties"": {
+   6 |         ""Description"": ""Policy for creating a test database"",
+   7 |         ""Path"": ""/"",
+   8 |         ""PolicyDocument"": {
+   9 |           ""Version"": ""2012-10-17"",
+  10 |           ""Statement"": [
+  11 |             {
+  12 |               ""Effect"": ""Allow"",
+  13 |               ""Action"": ""rds:CreateDBInstance"",
+  14 |               ""Condition"": {
+  15 |                 ""StringEquals"": {
+  16 |                   ""rds:DatabaseEngine"": ""mysql""
+  17 |                 }
+  18 |               }
+  19 |             }
+  20 |           ]
+  21 |         },
+     ^ Col 0
+",cloudformation.cfn_iam_permissions_policy_aplly_users
+165. Insecure service configuration - AWS,CWE-16,"IAM policy should not apply directly to users, Should be on group. in namespace/skims/test/data/lib_root/f165/tfm_iam_is_policy_applying_to_users.tf",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,SAST,3,"
+   1 | resource ""aws_iam_user_policy"" ""unsafe_user_policy"" {
+   2 |   name = ""safe_role_1""
+>  3 |   user = aws_iam_user.lb.name
+   4 |
+   5 |   policy = <<-EOF
+   6 |   {
+   7 |     ""Version"": ""2012-10-17"",
+   8 |     ""Statement"": [
+   9 |       {
+  10 |         ""Effect"": ""Allow"",
+  11 |         ""Action"": ""sts:AssumeRole"",
+  12 |         ""Principal"": {
+  13 |           ""Service"": ""ec2.amazonaws.com""
+  14 |         }
+  15 |       }
+  16 |     ]
+  17 |   }
+  18 |   EOF
+  19 | }
+     ^ Col 0
+",terraform.tfm_iam_policy_apply_to_users
+165. Insecure service configuration - AWS,CWE-16,RDS snapshots must not allow public access,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/0/AttributeValues: ['all'],"
+  1 | [
+  2 |     {
+  3 |         ""AttributeName"": ""permissions"",
+> 4 |         ""AttributeValues"": [
+  5 |             ""all""
+  6 |         ]
+  7 |     }
+  8 | ]
+    ^ Col 0
+",aws.rds_has_public_snapshots
+165. Insecure service configuration - AWS,CWE-16,Redshift clusters must require using SSL.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,ParameterName: require_ssl; ParameterValue: false,"
+  1 | {
+  2 |     ""ParameterName"": ""require_ssl"",
+> 3 |     ""ParameterValue"": ""false""
+  4 | }
+    ^ Col 0
+",aws.redshift_not_requires_ssl
+165. Insecure service configuration - AWS,CWE-16,Root user has the unsafe X.509 signing certificates active.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/cert_1_active: true,"
+  1 | {
+  2 |     ""arn"": ""myUser"",
+  3 |     ""access_key_1_active"": ""true"",
+  4 |     ""access_key_2_active"": ""true"",
+> 5 |     ""cert_1_active"": ""true""
+  6 | }
+    ^ Col 0
+",aws.has_root_active_signing_certificates
+165. Insecure service configuration - AWS,CWE-16,Root user must not have access keys,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/access_key_2_active: true,"
+  1 | {
+  2 |     ""arn"": ""myUser"",
+  3 |     ""access_key_1_active"": ""true"",
+> 4 |     ""access_key_2_active"": ""true"",
+  5 |     ""cert_1_active"": ""true""
+  6 | }
+    ^ Col 0
+",aws.root_has_access_keys
+165. Insecure service configuration - AWS,CWE-16,Root user must not have access keys,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/access_key_1_active: true,"
+  1 | {
+  2 |     ""arn"": ""myUser"",
+> 3 |     ""access_key_1_active"": ""true"",
+  4 |     ""access_key_2_active"": ""true"",
+  5 |     ""cert_1_active"": ""true""
+  6 | }
+    ^ Col 0
+",aws.root_has_access_keys
+165. Insecure service configuration - AWS,CWE-16,SNS Topics have public publishing permissions,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,AWS: *; Action: SNS:Publish,"
+  1 | {
+  2 |     ""Effect"": ""Allow"",
+  3 |     ""Principal"": {
+  4 |         ""AWS"": ""*""
+  5 |     },
+> 6 |     ""Action"": ""SNS:Publish"",
+  7 |     ""Resource"": ""arn:aws:fluidTopic/1234""
+  8 | }
+    ^ Col 0
+",aws.sns_can_anyone_publish
+165. Insecure service configuration - AWS,CWE-16,SNS Topics have public subscribing permissions,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,"AWS: *; Action: ['SNS:Subscribe', 'SNS:Receive']","
+   1 | {
+   2 |     ""Effect"": ""Allow"",
+   3 |     ""Principal"": {
+   4 |         ""AWS"": ""*""
+   5 |     },
+>  6 |     ""Action"": [
+   7 |         ""SNS:Subscribe"",
+   8 |         ""SNS:Receive""
+   9 |     ],
+  10 |     ""Resource"": ""arn:aws:fluidTopic/1234""
+  11 | }
+     ^ Col 0
+",aws.sns_can_anyone_subscribe
+165. Insecure service configuration - AWS,CWE-16,SNS Topics use default KMS key,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,SNS Topics use default KMS key,"
+  1 | {
+  2 |     ""TopicArn"": ""arn:aws:fluidTopic/1234"",
+  3 |     ""QueueArn"": ""arn:aws:fluidQueue/1234"",
+  4 |     ""Policy"": ""\n        {\""Statement\"": [\n            {\""Principal\"":\""*\""},\n            {\""Principal\"":\""*\"", \""Cond
+    | ition\"": \""Anything\""},\n            {\""Effect\"":\""Allow\"", \""Principal\"":{\""AWS\"":\""*\""},\n            \""Action\"":\""SNS
+    | :Publish\"",\""Resource\"": \""arn:aws:fluidTopic/1234\""},\n            {\""Effect\"":\""Allow\"", \""Principal\"":{\""AWS\"":\""*\""}
+    | ,\n            \""Action\"":[\""SNS:Subscribe\"",\""SNS:Receive\""],\n            \""Resource\"": \""arn:aws:fluidTopic/1234\""}\n
+    |         ],\n        \""Version\"": \""1.0\""}\n    ""
+  5 | }
+    ^ Col 0
+",aws.sns_is_server_side_encryption_disabled
+165. Insecure service configuration - AWS,CWE-16,SQS Queues are exposed to the public.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/Principal: *,"
+  1 | {
+> 2 |     ""Principal"": ""*""
+  3 | }
+    ^ Col 0
+",aws.sqs_is_public
+165. Insecure service configuration - AWS,CWE-16,SQS Queues have serverside encryption disabled.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,SQS Queues have serverside encryption disabled.,"
+  1 | {
+  2 |     ""TopicArn"": ""arn:aws:fluidTopic/1234"",
+  3 |     ""QueueArn"": ""arn:aws:fluidQueue/1234"",
+  4 |     ""Policy"": ""\n        {\""Statement\"": [\n            {\""Principal\"":\""*\""},\n            {\""Principal\"":\""*\"", \""Cond
+    | ition\"": \""Anything\""},\n            {\""Effect\"":\""Allow\"", \""Principal\"":{\""AWS\"":\""*\""},\n            \""Action\"":\""SNS
+    | :Publish\"",\""Resource\"": \""arn:aws:fluidTopic/1234\""},\n            {\""Effect\"":\""Allow\"", \""Principal\"":{\""AWS\"":\""*\""}
+    | ,\n            \""Action\"":[\""SNS:Subscribe\"",\""SNS:Receive\""],\n            \""Resource\"": \""arn:aws:fluidTopic/1234\""}\n
+    |         ],\n        \""Version\"": \""1.0\""}\n    ""
+  5 | }
+    ^ Col 0
+",aws.sqs_is_encryption_disabled
+165. Insecure service configuration - AWS,CWE-16,The DB instances are not using IAM database authentication.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,Engine: memcached; Port: 11211,"
+  1 | {
+  2 |     ""CacheClusterId"": ""fluidCacheCluster1"",
+  3 |     ""ARN"": ""arn:aws:fluidCacheCluster/1234"",
+  4 |     ""Engine"": ""memcached"",
+  5 |     ""ConfigurationEndpoint"": {
+  6 |         ""Address"": ""-1"",
+> 7 |         ""Port"": 11211
+  8 |     }
+  9 | }
+    ^ Col 0
+",aws.elasticache_uses_default_port
+165. Insecure service configuration - AWS,CWE-16,The DB instances are not using IAM database authentication.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/IAMDatabaseAuthenticationEnabled: False,"
+  1 | {
+  2 |     ""DBInstanceArn"": ""arn:aws:iam::123456789012:dbi/db1"",
+> 3 |     ""IAMDatabaseAuthenticationEnabled"": false
+  4 | }
+    ^ Col 0
+",aws.rds_not_uses_iam_authentication
+165. Insecure service configuration - AWS,CWE-16,The DB instances are not using IAM database authentication.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,/PubliclyAccessible: arn:aws:iam::123456789012:Cluster/FC1,"
+   1 | {
+   2 |     ""Name"": ""fluidCluster"",
+   3 |     ""ClusterIdentifier"": ""fluidCluster123"",
+   4 |     ""ClusterNamespaceArn"": ""arn:aws:iam::123456789012:Cluster/FC1"",
+>  5 |     ""PubliclyAccessible"": true,
+   6 |     ""ClusterParameterGroups"": [
+   7 |         {
+   8 |             ""ParameterGroupName"": ""fluidParamGroup1""
+   9 |         }
+  10 |     ]
+  11 | }
+     ^ Col 0
+",aws.redshift_has_public_clusters
+165. Insecure service configuration - AWS,CWE-16,There are not entities attached to the AWSSupportAccess policy,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/165,skims,CSPM,There are not entities attached to the AWSSupportAccess policy,"
+    1 | {
+    2 |     ""Users"": [
+    3 |         {
+    4 |             ""UserName"": ""myUser"",
+    5 |             ""UserId"": ""1234"",
+    6 |             ""Arn"": ""arn:aws:iam::123456789012:user/myUser""
+    7 |         }
+    8 |     ],
+    9 |     ""AccessKeyMetadata"": [
+   10 |         {
+   11 |             ""UserName"": ""myUser"",
+   12 |             ""AccessKeyId"": ""108745"",
+   13 |             ""Status"": ""Active""
+   14 |         },
+   15 |         {
+   16 |             ""UserName"": ""myUser"",
+   17 |             ""AccessKeyId"": ""37856"",
+   18 |             ""Status"": ""Active""
+   19 |         }
+   20 |     ],
+   21 |     ""State"": ""STARTED"",
+      ^ Col 0
+",aws.has_not_support_role
+Summary: 38 vulnerabilities were found in your targets.

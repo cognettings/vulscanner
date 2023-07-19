@@ -1,0 +1,202 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/dart_print.dart",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,10,"
+   1 | import 'package:test/test.dart';
+   2 | import 'package:flutter/foundation.dart';
+   3 |
+   4 | void main() {
+   5 |   try {
+   6 |     res = x ~/ y;
+   7 |   }
+   8 |   on IntegerDivisionByZeroException catch (e) {
+   9 |     print(e);
+> 10 |     debugPrint(e);
+  11 |   }
+  12 |   catch (e) {
+  13 |     print('This should not  be reported');
+  14 |     debugPrint('Safe');
+  15 |   }
+  16 | }
+     ^ Col 0
+",dart.dart_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/dart_print.dart",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,9,"
+   1 | import 'package:test/test.dart';
+   2 | import 'package:flutter/foundation.dart';
+   3 |
+   4 | void main() {
+   5 |   try {
+   6 |     res = x ~/ y;
+   7 |   }
+   8 |   on IntegerDivisionByZeroException catch (e) {
+>  9 |     print(e);
+  10 |     debugPrint(e);
+  11 |   }
+  12 |   catch (e) {
+  13 |     print('This should not  be reported');
+  14 |     debugPrint('Safe');
+  15 |   }
+  16 | }
+     ^ Col 0
+",dart.dart_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/dart_print_aliasing.dart",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,11,"
+   1 | import 'package:test/test.dart' as my_alias;
+   2 | import 'package:flutter/foundation.dart' as anyAlias;
+   3 | import 'dart:developer' as dev;
+   4 |
+   5 | void main() {
+   6 |   try {
+   7 |     res = x ~/ y;
+   8 |   }
+   9 |   on IntegerDivisionByZeroException catch (e) {
+  10 |     // Following lines should be reported
+> 11 |     dev.log(e);
+  12 |     anyAlias.debugPrint(e);
+  13 |
+  14 |     // Coming lines Should not be reported
+  15 |     log(e);
+  16 |     debugPrint(e);
+  17 |   }
+  18 |   catch (e) {
+  19 |     print('This should not  be reported');
+  20 |     debugPrint('Safe');
+  21 |   }
+     ^ Col 0
+",dart.dart_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/dart_print_aliasing.dart",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,12,"
+   2 | import 'package:flutter/foundation.dart' as anyAlias;
+   3 | import 'dart:developer' as dev;
+   4 |
+   5 | void main() {
+   6 |   try {
+   7 |     res = x ~/ y;
+   8 |   }
+   9 |   on IntegerDivisionByZeroException catch (e) {
+  10 |     // Following lines should be reported
+  11 |     dev.log(e);
+> 12 |     anyAlias.debugPrint(e);
+  13 |
+  14 |     // Coming lines Should not be reported
+  15 |     log(e);
+  16 |     debugPrint(e);
+  17 |   }
+  18 |   catch (e) {
+  19 |     print('This should not  be reported');
+  20 |     debugPrint('Safe');
+  21 |   }
+  22 | }
+     ^ Col 0
+",dart.dart_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/java_has_print_statements.java",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,8,"
+   1 | import System.out;
+   2 |
+   3 | class Test {
+   4 |     public static void unsafe_print(String[] args) {
+   5 |         System.out.println(args);
+   6 |         System.err.println(args);
+   7 |         out.print(args);
+>  8 |         println(""Have"" + args.message + ""concatenation"");
+   9 |     }
+  10 |     public static void safe_print() {
+  11 |         System.out.println(""String Literal"");
+  12 |         System.err.println();
+  13 |         // Custom made class with a print method. Not vulnerable
+  14 |         dateTimeFormatter.print(new DateTime().withZone(DateTimeZone.forID(zoneId)));
+  15 |     }
+  16 | }
+     ^ Col 0
+",java.java_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/java_has_print_statements.java",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,7,"
+   1 | import System.out;
+   2 |
+   3 | class Test {
+   4 |     public static void unsafe_print(String[] args) {
+   5 |         System.out.println(args);
+   6 |         System.err.println(args);
+>  7 |         out.print(args);
+   8 |         println(""Have"" + args.message + ""concatenation"");
+   9 |     }
+  10 |     public static void safe_print() {
+  11 |         System.out.println(""String Literal"");
+  12 |         System.err.println();
+  13 |         // Custom made class with a print method. Not vulnerable
+  14 |         dateTimeFormatter.print(new DateTime().withZone(DateTimeZone.forID(zoneId)));
+  15 |     }
+  16 | }
+     ^ Col 0
+",java.java_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/java_has_print_statements.java",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,6,"
+   1 | import System.out;
+   2 |
+   3 | class Test {
+   4 |     public static void unsafe_print(String[] args) {
+   5 |         System.out.println(args);
+>  6 |         System.err.println(args);
+   7 |         out.print(args);
+   8 |         println(""Have"" + args.message + ""concatenation"");
+   9 |     }
+  10 |     public static void safe_print() {
+  11 |         System.out.println(""String Literal"");
+  12 |         System.err.println();
+  13 |         // Custom made class with a print method. Not vulnerable
+  14 |         dateTimeFormatter.print(new DateTime().withZone(DateTimeZone.forID(zoneId)));
+  15 |     }
+  16 | }
+     ^ Col 0
+",java.java_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/java_has_print_statements.java",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,5,"
+   1 | import System.out;
+   2 |
+   3 | class Test {
+   4 |     public static void unsafe_print(String[] args) {
+>  5 |         System.out.println(args);
+   6 |         System.err.println(args);
+   7 |         out.print(args);
+   8 |         println(""Have"" + args.message + ""concatenation"");
+   9 |     }
+  10 |     public static void safe_print() {
+  11 |         System.out.println(""String Literal"");
+  12 |         System.err.println();
+  13 |         // Custom made class with a print method. Not vulnerable
+  14 |         dateTimeFormatter.print(new DateTime().withZone(DateTimeZone.forID(zoneId)));
+  15 |     }
+  16 | }
+     ^ Col 0
+",java.java_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/python_has_print_statements.py",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,7,"
+   1 | import json
+   2 |
+   3 |
+   4 | def unsafe_print(some_input: str) -> None:
+   5 |     message = ""Variable""
+   6 |     print(json.dumps(some_input))
+>  7 |     print(f""Have {message} concatenation"")
+   8 |
+   9 |
+  10 | def safe_print() -> None:
+  11 |     print(""Regular info that should not be marked as vuln"")
+     ^ Col 0
+",python.python_has_print_statements
+237. Technical information leak - Print Functions,CWE-200,"Using print or println on production, which exposes data that increases the attack surface.
+ in namespace/skims/test/data/lib_root/f237/python_has_print_statements.py",CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/237,skims,SAST,6,"
+   1 | import json
+   2 |
+   3 |
+   4 | def unsafe_print(some_input: str) -> None:
+   5 |     message = ""Variable""
+>  6 |     print(json.dumps(some_input))
+   7 |     print(f""Have {message} concatenation"")
+   8 |
+   9 |
+  10 | def safe_print() -> None:
+  11 |     print(""Regular info that should not be marked as vuln"")
+     ^ Col 0
+",python.python_has_print_statements
+Summary: 10 vulnerabilities were found in your targets.

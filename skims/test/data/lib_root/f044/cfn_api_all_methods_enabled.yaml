@@ -1,0 +1,16 @@
+---
+Resources:
+  UnsafeApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      MethodSettings:
+        - ResourcePath: "/*"
+          HttpMethod: "*"
+  SafeApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      MethodSettings:
+        - ResourcePath: "/*"
+          HttpMethod: "GET"
+          MetricsEnabled: "true"
+          DataTraceEnabled: "false"

@@ -1,0 +1,28 @@
+---
+Resources:
+  UnsafeGroup1:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 120.0.0.0/0
+        - IpProtocol: -1
+          FromPort: 80
+          ToPort: 100
+          CidrIp: 120.0.0.0/0
+  SafeGroup1:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Safe group
+      SecurityGroupIngress:
+        - IpProtocol: imcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 120.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 88
+          ToPort: 88
+          CidrIp: 120.0.0.0/0

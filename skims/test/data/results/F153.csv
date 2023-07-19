@@ -1,0 +1,1230 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_async.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,15,"
+   5 | import json
+   6 | from typing import (
+   7 |     Any,
+   8 | )
+   9 |
+  10 |
+  11 | async def danger_func() -> Any:
+  12 |     url = ""test.com""
+  13 |     try:
+  14 |         async with aiohttp.ClientSession() as session:
+> 15 |             async with session.get(
+  16 |                 headers={
+  17 |                     ""accept"": ""*/*"",
+  18 |                     ""authorization"": ""Basic YWUzYjQwODAwODA3Z3E5ZjdjTVkzOTFhOWM5ZWZiMjQ6"",  # noqa: E501 pylint: disable=
+  19 |                 },
+  20 |                 url=url,
+  21 |             ) as response:
+  22 |                 if response.status == 200:
+  23 |                     data = await response.text()
+  24 |                     return [
+  25 |                         json.loads(item) for item in data.split(""\n"") if item
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_instance.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,16,"
+   6 | import httplib
+   7 | import httplib2
+   8 | import urllib3
+   9 |
+  10 | dang_headers = {""Accept"": ""*/*""}
+  11 | safe_headers = {""Accept"": ""text/html"", ""Accept-Language"": ""*/*""}
+  12 |
+  13 | # Unsafe cases
+  14 |
+  15 | unsafe_1 = http.client.HTTPSConnection(""www.example.com"")
+> 16 | unsafe_1.request(""GET"", ""/"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = http.client.HTTPConnection(""www.example.com"")
+  19 | unsafe_2.request(""GET"", ""/"", headers=dang_headers)
+  20 |
+  21 | unsafe_3 = urllib3.PoolManager()
+  22 | unsafe_3.request(""POST"", ""example.com"", headers={""Accept"": ""*/*""})
+  23 |
+  24 | unsafe_4 = httplib2.Http()
+  25 | unsafe_4.request(""example.com"", method=""POST"", headers=dang_headers)
+  26 |
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_instance.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,19,"
+   9 |
+  10 | dang_headers = {""Accept"": ""*/*""}
+  11 | safe_headers = {""Accept"": ""text/html"", ""Accept-Language"": ""*/*""}
+  12 |
+  13 | # Unsafe cases
+  14 |
+  15 | unsafe_1 = http.client.HTTPSConnection(""www.example.com"")
+  16 | unsafe_1.request(""GET"", ""/"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = http.client.HTTPConnection(""www.example.com"")
+> 19 | unsafe_2.request(""GET"", ""/"", headers=dang_headers)
+  20 |
+  21 | unsafe_3 = urllib3.PoolManager()
+  22 | unsafe_3.request(""POST"", ""example.com"", headers={""Accept"": ""*/*""})
+  23 |
+  24 | unsafe_4 = httplib2.Http()
+  25 | unsafe_4.request(""example.com"", method=""POST"", headers=dang_headers)
+  26 |
+  27 | unsafe_5 = httplib.HTTPSConnection(""example.com"")
+  28 | unsafe_5.request(""POST"", ""/oauth2/v4/token"", ""whatever"", headers=dang_headers)
+  29 |
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_instance.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,22,"
+  12 |
+  13 | # Unsafe cases
+  14 |
+  15 | unsafe_1 = http.client.HTTPSConnection(""www.example.com"")
+  16 | unsafe_1.request(""GET"", ""/"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = http.client.HTTPConnection(""www.example.com"")
+  19 | unsafe_2.request(""GET"", ""/"", headers=dang_headers)
+  20 |
+  21 | unsafe_3 = urllib3.PoolManager()
+> 22 | unsafe_3.request(""POST"", ""example.com"", headers={""Accept"": ""*/*""})
+  23 |
+  24 | unsafe_4 = httplib2.Http()
+  25 | unsafe_4.request(""example.com"", method=""POST"", headers=dang_headers)
+  26 |
+  27 | unsafe_5 = httplib.HTTPSConnection(""example.com"")
+  28 | unsafe_5.request(""POST"", ""/oauth2/v4/token"", ""whatever"", headers=dang_headers)
+  29 |
+  30 | # Safe cases
+  31 |
+  32 | safe_con = http.client.HTTPSConnection(""www.example.com"")
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_instance.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,28,"
+  15 | unsafe_1 = http.client.HTTPSConnection(""www.example.com"")
+  16 | unsafe_1.request(""GET"", ""/"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = http.client.HTTPConnection(""www.example.com"")
+  19 | unsafe_2.request(""GET"", ""/"", headers=dang_headers)
+  20 |
+  21 | unsafe_3 = urllib3.PoolManager()
+  22 | unsafe_3.request(""POST"", ""example.com"", headers={""Accept"": ""*/*""})
+  23 |
+  24 | unsafe_4 = httplib2.Http()
+  25 | unsafe_4.request(""example.com"", method=""POST"", headers=dang_headers)
+  26 |
+  27 | unsafe_5 = httplib.HTTPSConnection(""example.com"")
+> 28 | unsafe_5.request(""POST"", ""/oauth2/v4/token"", ""whatever"", headers=dang_headers)
+  29 |
+  30 | # Safe cases
+  31 |
+  32 | safe_con = http.client.HTTPSConnection(""www.example.com"")
+  33 | safe_con.request(""GET"", ""/"", headers=safe_headers)
+  34 |
+  35 | http.request(""POST"", ""example.com"", body=""whatever"", headers=safe_headers)
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_instance.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,25,"
+  15 | unsafe_1 = http.client.HTTPSConnection(""www.example.com"")
+  16 | unsafe_1.request(""GET"", ""/"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = http.client.HTTPConnection(""www.example.com"")
+  19 | unsafe_2.request(""GET"", ""/"", headers=dang_headers)
+  20 |
+  21 | unsafe_3 = urllib3.PoolManager()
+  22 | unsafe_3.request(""POST"", ""example.com"", headers={""Accept"": ""*/*""})
+  23 |
+  24 | unsafe_4 = httplib2.Http()
+> 25 | unsafe_4.request(""example.com"", method=""POST"", headers=dang_headers)
+  26 |
+  27 | unsafe_5 = httplib.HTTPSConnection(""example.com"")
+  28 | unsafe_5.request(""POST"", ""/oauth2/v4/token"", ""whatever"", headers=dang_headers)
+  29 |
+  30 | # Safe cases
+  31 |
+  32 | safe_con = http.client.HTTPSConnection(""www.example.com"")
+  33 | safe_con.request(""GET"", ""/"", headers=safe_headers)
+  34 |
+  35 | http.request(""POST"", ""example.com"", body=""whatever"", headers=safe_headers)
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_type.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,16,"
+   6 | import urllib as urllib_alias
+   7 | from urllib import (
+   8 |     request as request_alias,
+   9 | )
+  10 |
+  11 | dang_headers = {""Accept"": ""*/*""}
+  12 | safe_headers = {""Accept"": ""text/html""}
+  13 |
+  14 | # Unsafe Connections
+  15 |
+> 16 | unsafe_1 = requests.post(""example.com"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = urllib_alias.request.Request(""example.com"", headers=dang_headers)
+  19 |
+  20 | unsafe_3 = request_alias.urlopen(""example.com"", headers=dang_headers)
+  21 |
+  22 | unsafe_4 = urllib2.Request(""example.com"", headers=dang_headers)
+  23 |
+  24 | # Safe connections
+  25 |
+  26 | safe_1 = requests.post(""example.com"", headers=safe_headers)
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_type.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,18,"
+   8 |     request as request_alias,
+   9 | )
+  10 |
+  11 | dang_headers = {""Accept"": ""*/*""}
+  12 | safe_headers = {""Accept"": ""text/html""}
+  13 |
+  14 | # Unsafe Connections
+  15 |
+  16 | unsafe_1 = requests.post(""example.com"", headers=dang_headers)
+  17 |
+> 18 | unsafe_2 = urllib_alias.request.Request(""example.com"", headers=dang_headers)
+  19 |
+  20 | unsafe_3 = request_alias.urlopen(""example.com"", headers=dang_headers)
+  21 |
+  22 | unsafe_4 = urllib2.Request(""example.com"", headers=dang_headers)
+  23 |
+  24 | # Safe connections
+  25 |
+  26 | safe_1 = requests.post(""example.com"", headers=safe_headers)
+  27 |
+  28 | safe_2 = urllib_alias.request.Request(""example.com"", headers=safe_headers)
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_type.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,20,"
+  10 |
+  11 | dang_headers = {""Accept"": ""*/*""}
+  12 | safe_headers = {""Accept"": ""text/html""}
+  13 |
+  14 | # Unsafe Connections
+  15 |
+  16 | unsafe_1 = requests.post(""example.com"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = urllib_alias.request.Request(""example.com"", headers=dang_headers)
+  19 |
+> 20 | unsafe_3 = request_alias.urlopen(""example.com"", headers=dang_headers)
+  21 |
+  22 | unsafe_4 = urllib2.Request(""example.com"", headers=dang_headers)
+  23 |
+  24 | # Safe connections
+  25 |
+  26 | safe_1 = requests.post(""example.com"", headers=safe_headers)
+  27 |
+  28 | safe_2 = urllib_alias.request.Request(""example.com"", headers=safe_headers)
+  29 |
+  30 | safe_3 = request_alias.urlopen(""https://example.com"", headers=safe_headers)
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,The Accept header allows any MIME type in the request in namespace/skims/test/data/lib_root/f153/py_accepts_any_mime_type.py,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,22,"
+  12 | safe_headers = {""Accept"": ""text/html""}
+  13 |
+  14 | # Unsafe Connections
+  15 |
+  16 | unsafe_1 = requests.post(""example.com"", headers=dang_headers)
+  17 |
+  18 | unsafe_2 = urllib_alias.request.Request(""example.com"", headers=dang_headers)
+  19 |
+  20 | unsafe_3 = request_alias.urlopen(""example.com"", headers=dang_headers)
+  21 |
+> 22 | unsafe_4 = urllib2.Request(""example.com"", headers=dang_headers)
+  23 |
+  24 | # Safe connections
+  25 |
+  26 | safe_1 = requests.post(""example.com"", headers=safe_headers)
+  27 |
+  28 | safe_2 = urllib_alias.request.Request(""example.com"", headers=safe_headers)
+  29 |
+  30 | safe_3 = request_alias.urlopen(""https://example.com"", headers=safe_headers)
+  31 |
+  32 | safe_4 = urllib2.Request(""https://thewebsite.com"", headers=safe_headers)
+     ^ Col 0
+",python.python_accepts_any_mime
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/c_sharp_accepts_all_myme_types.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,7,"
+   1 | public class TestHttpAccept
+   2 | {
+   3 |
+   4 |  public HttpClientMustFail()
+   5 |  {
+   6 |   HttpClient = new HttpClient();
+>  7 |   HttpClient.DefaultRequestHeaders.Add(""Accept"", ""*/*"");
+   8 |  }
+   9 |
+  10 |   public HttpClientMustFailII()
+  11 |  {
+  12 |   HttpClientII = new HttpClient();
+  13 |   HttpClientII.DefaultRequestHeaders.Accept.Clear();
+  14 |     HttpClientII.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  15 |  }
+  16 |   public RequestMessageMustFail()
+  17 |  {
+  18 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  19 |     request.Headers.Accept.Clear();
+  20 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  21 |
+     ^ Col 0
+",c_sharp.c_sharp_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/c_sharp_accepts_all_myme_types.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,14,"
+   4 |  public HttpClientMustFail()
+   5 |  {
+   6 |   HttpClient = new HttpClient();
+   7 |   HttpClient.DefaultRequestHeaders.Add(""Accept"", ""*/*"");
+   8 |  }
+   9 |
+  10 |   public HttpClientMustFailII()
+  11 |  {
+  12 |   HttpClientII = new HttpClient();
+  13 |   HttpClientII.DefaultRequestHeaders.Accept.Clear();
+> 14 |     HttpClientII.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  15 |  }
+  16 |   public RequestMessageMustFail()
+  17 |  {
+  18 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  19 |     request.Headers.Accept.Clear();
+  20 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  21 |
+  22 |  }
+  23 |   public RequestMessageMustFailII()
+  24 |  {
+     ^ Col 0
+",c_sharp.c_sharp_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/c_sharp_accepts_all_myme_types.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,20,"
+  10 |   public HttpClientMustFailII()
+  11 |  {
+  12 |   HttpClientII = new HttpClient();
+  13 |   HttpClientII.DefaultRequestHeaders.Accept.Clear();
+  14 |     HttpClientII.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  15 |  }
+  16 |   public RequestMessageMustFail()
+  17 |  {
+  18 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  19 |     request.Headers.Accept.Clear();
+> 20 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  21 |
+  22 |  }
+  23 |   public RequestMessageMustFailII()
+  24 |  {
+  25 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  26 |     request.Headers.Accept.Clear();
+  27 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  28 |
+  29 |  }
+  30 |
+     ^ Col 0
+",c_sharp.c_sharp_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/c_sharp_accepts_all_myme_types.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,27,"
+  17 |  {
+  18 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  19 |     request.Headers.Accept.Clear();
+  20 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  21 |
+  22 |  }
+  23 |   public RequestMessageMustFailII()
+  24 |  {
+  25 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  26 |     request.Headers.Accept.Clear();
+> 27 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  28 |
+  29 |  }
+  30 |
+  31 |  public WebClientMustFail()
+  32 |  {
+  33 |   WebClient client = new WebClient();
+  34 |   client.Headers.Clear();
+  35 |   client.Headers.Add(""Accept"", ""*/*"");
+  36 |
+  37 |  }
+     ^ Col 0
+",c_sharp.c_sharp_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/c_sharp_accepts_all_myme_types.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,35,"
+  18 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  19 |     request.Headers.Accept.Clear();
+  20 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  21 |
+  22 |  }
+  23 |   public RequestMessageMustFailII()
+  24 |  {
+  25 |   HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""https://www.example.com"");
+  26 |     request.Headers.Accept.Clear();
+  27 |     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(""*/*""));
+  28 |
+  29 |  }
+  30 |
+  31 |  public WebClientMustFail()
+  32 |  {
+  33 |   WebClient client = new WebClient();
+  34 |   client.Headers.Clear();
+> 35 |   client.Headers.Add(""Accept"", ""*/*"");
+  36 |
+  37 |  }
+  38 | }
+     ^ Col 0
+",c_sharp.c_sharp_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/go_accepts_any_mime.go",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,19,"
+   7 | func main() {
+   8 |     call(""https://google.com"", ""GET"")
+   9 | }
+  10 | func call(url, method string) error {
+  11 |     client := &http.Client{
+  12 |         Timeout: time.Second * 10,
+  13 |     }
+  14 |     req, err := http.NewRequest(method, url, nil)
+  15 |     if err != nil {
+  16 |         return fmt.Errorf(""Got error %s"", err.Error())
+  17 |     }
+  18 |     req.Header.Set(""user-agent"", ""golang application"")
+> 19 |     req.Header.Add(""Accept"", ""*/*"")
+  20 |     req.Header.Add(""foo"", ""bar2"")
+  21 |     response, err := client.Do(req)
+  22 |     if err != nil {
+  23 |         return fmt.Errorf(""Got error %s"", err.Error())
+  24 |     }
+  25 |     defer response.Body.Close()
+  26 |     return nil
+  27 | }
+     ^ Col 0
+",go.go_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_accepts_all_myme_types.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,11,"
+   1 | import java.util.Random;
+   2 |
+   3 | public class test112 extends HttpServlet {
+   4 |
+   5 |   // line 11 should be marked
+   6 |  private HttpURLConnection urlConnectionNcnp(String url) throws IOException {
+   7 |     URL uc = new URL(url);
+   8 |     HttpURLConnection huc = (HttpURLConnection) uc.openConnection();
+   9 |     huc.setRequestMethod(""GET"");
+  10 |     huc.setRequestProperty(GITLAB_PRIVATE_TOKEN, configProperties.getRepository());
+> 11 |     huc.setRequestProperty(""Accept"",""*/*"");
+  12 |     return huc;
+  13 |   }
+  14 |
+  15 |   // Line 19 should be marked
+  16 |   private URLConnection urlConnection(String url) throws IOException {
+  17 |     URLConnection connection = new URL(url).openConnection();
+  18 |     connection.setDoOutput(true);
+  19 |     connection.setRequestProperty(""Accept"",""*/*"");
+  20 |     return connection;
+  21 |   }
+     ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_accepts_all_myme_types.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,19,"
+   9 |     huc.setRequestMethod(""GET"");
+  10 |     huc.setRequestProperty(GITLAB_PRIVATE_TOKEN, configProperties.getRepository());
+  11 |     huc.setRequestProperty(""Accept"",""*/*"");
+  12 |     return huc;
+  13 |   }
+  14 |
+  15 |   // Line 19 should be marked
+  16 |   private URLConnection urlConnection(String url) throws IOException {
+  17 |     URLConnection connection = new URL(url).openConnection();
+  18 |     connection.setDoOutput(true);
+> 19 |     connection.setRequestProperty(""Accept"",""*/*"");
+  20 |     return connection;
+  21 |   }
+  22 |
+  23 |   // Line 26 should be marked
+  24 |   public HttpRequest headerUse(String url) throws IOException {
+  25 |     HttpRequest request = HttpRequest.post(url);
+  26 |     request.header(""Accept"",""*/*"");
+  27 |     return request;
+  28 |   }
+  29 |
+     ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_accepts_all_myme_types.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,26,"
+  16 |   private URLConnection urlConnection(String url) throws IOException {
+  17 |     URLConnection connection = new URL(url).openConnection();
+  18 |     connection.setDoOutput(true);
+  19 |     connection.setRequestProperty(""Accept"",""*/*"");
+  20 |     return connection;
+  21 |   }
+  22 |
+  23 |   // Line 26 should be marked
+  24 |   public HttpRequest headerUse(String url) throws IOException {
+  25 |     HttpRequest request = HttpRequest.post(url);
+> 26 |     request.header(""Accept"",""*/*"");
+  27 |     return request;
+  28 |   }
+  29 |
+  30 |   // No line of following function should be marked (SAFE)
+  31 |   private HttpURLConnection urlConnectionNcnpII(String url) throws IOException {
+  32 |     URL uc = new URL(url);
+  33 |     HttpURLConnection huc = (HttpURLConnection) uc.openConnection();
+  34 |     huc.setRequestMethod(""GET"");
+  35 |     huc.setRequestProperty(GITLAB_PRIVATE_TOKEN, configProperties.getRepository());
+  36 |     huc.setRequestProperty(""Accept"",""text/html"");
+     ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_accepts_all_myme_types_ii.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,10,"
+   1 | public class test extends HttpServlet {
+   2 |
+   3 |   // lines 7 and 10 should be marked
+   4 |  private HttpGet urlConnection(String url) throws IOException {
+   5 |     URL uc = new URL(url);
+   6 |     HttpGet req = new HttpGet(uc);
+   7 |     req.setHeader(""Accept"",""*/*"");
+   8 |
+   9 |     HttpUriRequest reqII = new HttpUriRequest(uc);
+> 10 |     reqII.addHeader(""Accept"",""*/*"");
+  11 |
+  12 |     return req;
+  13 |   }
+  14 |
+  15 |   // line 20 should be marked
+  16 |   public HttpHeaders getMultipartHeaders(String paramOrFileName) {
+  17 |     String contentType = getMultipartContentType(paramOrFileName);
+  18 |     if (contentType != null) {
+  19 |       HttpHeaders headers = new HttpHeaders();
+  20 |       headers.add(""Accept"",""*/*"");
+  21 |       return headers;
+     ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_accepts_all_myme_types_ii.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,7,"
+   1 | public class test extends HttpServlet {
+   2 |
+   3 |   // lines 7 and 10 should be marked
+   4 |  private HttpGet urlConnection(String url) throws IOException {
+   5 |     URL uc = new URL(url);
+   6 |     HttpGet req = new HttpGet(uc);
+>  7 |     req.setHeader(""Accept"",""*/*"");
+   8 |
+   9 |     HttpUriRequest reqII = new HttpUriRequest(uc);
+  10 |     reqII.addHeader(""Accept"",""*/*"");
+  11 |
+  12 |     return req;
+  13 |   }
+  14 |
+  15 |   // line 20 should be marked
+  16 |   public HttpHeaders getMultipartHeaders(String paramOrFileName) {
+  17 |     String contentType = getMultipartContentType(paramOrFileName);
+  18 |     if (contentType != null) {
+  19 |       HttpHeaders headers = new HttpHeaders();
+  20 |       headers.add(""Accept"",""*/*"");
+  21 |       return headers;
+     ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_accepts_all_myme_types_ii.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,20,"
+  10 |     reqII.addHeader(""Accept"",""*/*"");
+  11 |
+  12 |     return req;
+  13 |   }
+  14 |
+  15 |   // line 20 should be marked
+  16 |   public HttpHeaders getMultipartHeaders(String paramOrFileName) {
+  17 |     String contentType = getMultipartContentType(paramOrFileName);
+  18 |     if (contentType != null) {
+  19 |       HttpHeaders headers = new HttpHeaders();
+> 20 |       headers.add(""Accept"",""*/*"");
+  21 |       return headers;
+  22 |     }
+  23 |     else {
+  24 |       return null;
+  25 |     }
+  26 |   }
+  27 |
+  28 |   // Safe implementations, no lines should be marked
+  29 |  private HttpGet urlConnection(String url) throws IOException {
+  30 |     URL uc = new URL(url);
+     ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_all_myme_chain.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,9,"
+   1 | import java.util.Random;
+   2 |
+   3 | public class test112 extends HttpServlet {
+   4 |
+   5 |   // line 11 should be marked
+   6 |  private HttpRequest urlConnectionTest(String url) throws IOException {
+   7 |     HttpClient httpClient = HttpClient.newHttpClient();
+   8 |
+>  9 |     HttpRequest request = HttpRequest.newBuilder(url)
+  10 |       .header(""X-Our-Header-1"", ""value1"")
+  11 |       .header(""Accept"", ""*/*"")
+  12 |       .header(""X-Our-Header-2"", ""value2"")
+  13 |       .uri(new URI(url)).build();
+  14 |
+  15 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  16 |   }
+  17 |
+  18 |   // line 23 should be marked
+  19 |   private HttpRequest urlConnectionTestII(String url) throws IOException {
+  20 |     HttpClient httpClient = HttpClient.newHttpClient();
+  21 |
+     ^ Col 0
+",java.java_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_all_myme_chain.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,22,"
+  12 |       .header(""X-Our-Header-2"", ""value2"")
+  13 |       .uri(new URI(url)).build();
+  14 |
+  15 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  16 |   }
+  17 |
+  18 |   // line 23 should be marked
+  19 |   private HttpRequest urlConnectionTestII(String url) throws IOException {
+  20 |     HttpClient httpClient = HttpClient.newHttpClient();
+  21 |
+> 22 |     HttpRequest request = HttpRequest.newBuilder(url)
+  23 |       .setHeader(""Accept"", ""*/*"")
+  24 |       .setHeader(""X-Our-Header-1"", ""value1"")
+  25 |       .setHeader(""X-Our-Header-2"", ""value2"")
+  26 |       .uri(new URI(url)).build();
+  27 |
+  28 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  29 |   }
+  30 |
+  31 |   // line 36 should be marked
+  32 |   private HttpRequest urlConnectionTestIII(String url) throws IOException {
+     ^ Col 0
+",java.java_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_all_myme_chain.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,35,"
+  25 |       .setHeader(""X-Our-Header-2"", ""value2"")
+  26 |       .uri(new URI(url)).build();
+  27 |
+  28 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  29 |   }
+  30 |
+  31 |   // line 36 should be marked
+  32 |   private HttpRequest urlConnectionTestIII(String url) throws IOException {
+  33 |     HttpClient httpClient = HttpClient.newHttpClient();
+  34 |
+> 35 |     HttpRequest request = HttpRequest.newBuilder(url)
+  36 |       .setHeader(""Accept"", ""*/*"")
+  37 |       .uri(new URI(url)).build();
+  38 |
+  39 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  40 |   }
+  41 |
+  42 |   // Headers method - line 47 should be marked
+  43 |   private HttpRequest urlConnectionTestIII(String url) throws IOException {
+  44 |     HttpClient httpClient = HttpClient.newHttpClient();
+  45 |
+     ^ Col 0
+",java.java_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_all_myme_chain.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,46,"
+  36 |       .setHeader(""Accept"", ""*/*"")
+  37 |       .uri(new URI(url)).build();
+  38 |
+  39 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  40 |   }
+  41 |
+  42 |   // Headers method - line 47 should be marked
+  43 |   private HttpRequest urlConnectionTestIII(String url) throws IOException {
+  44 |     HttpClient httpClient = HttpClient.newHttpClient();
+  45 |
+> 46 |     HttpRequest request = HttpRequest.newBuilder(url)
+  47 |       .headers(""Accept"", ""*/*"", ""X-Our-Header-1"", ""value1"", ""X-Our-Header-2"", ""value2"")
+  48 |       .uri(new URI(url)).build();
+  49 |
+  50 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  51 |   }
+  52 |
+  53 |   // Headers method II -  line 47 should be marked
+  54 |   private HttpRequest urlConnectionTestIII(String url) throws IOException {
+  55 |     HttpClient httpClient = HttpClient.newHttpClient();
+  56 |
+     ^ Col 0
+",java.java_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_all_myme_chain.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,57,"
+  47 |       .headers(""Accept"", ""*/*"", ""X-Our-Header-1"", ""value1"", ""X-Our-Header-2"", ""value2"")
+  48 |       .uri(new URI(url)).build();
+  49 |
+  50 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  51 |   }
+  52 |
+  53 |   // Headers method II -  line 47 should be marked
+  54 |   private HttpRequest urlConnectionTestIII(String url) throws IOException {
+  55 |     HttpClient httpClient = HttpClient.newHttpClient();
+  56 |
+> 57 |     HttpRequest request = HttpRequest.newBuilder(url)
+  58 |       .headers(""X-Our-Header-1"", ""value1"", ""Accept"", ""*/*"",  ""X-Our-Header-2"", ""value2"")
+  59 |       .uri(new URI(url)).build();
+  60 |
+  61 |     return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+  62 |   }
+  63 |
+  64 |   // No line should be marked
+  65 |   private HttpRequest urlConnectionTestSafe(String url) throws IOException {
+  66 |     HttpClient httpClient = HttpClient.newHttpClient();
+  67 |
+     ^ Col 0
+",java.java_accepts_any_mime_type_chain
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/java_directheaders_all_mime.java",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,4,"
+  1 | public class test112 extends HttpServlet {
+  2 |
+  3 |   // Line 4 should be marked
+> 4 |   Header myHeader = new Header(""Accept"", ""*/*"");
+  5 |
+  6 |   // Line 6 is safe
+  7 |   Header myHeaderII = new Header(""Accept"",""text/html"");
+  8 |
+  9 | }
+    ^ Col 0
+",java.java_http_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/javascript_accepts_any_mimetype.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,7,"
+    1 | // Following functions are expected to fail
+    2 | // Lines 7, 20 and 38 should be marked
+    3 |
+    4 | function mustFail1() {
+    5 |   const xhr = new XMLHttpRequest();
+    6 |   xhr.open(""GET"", ""https://jsonplaceholder.typicode.com/posts"");
+>   7 |   xhr.setRequestHeader(""Accept"", ""*/*"");
+    8 |   xhr.onreadystatechange = function () {
+    9 |     if (xhr.readyState === XMLHttpRequest.DONE) {
+   10 |       console.log(xhr.responseText);
+   11 |     }
+   12 |   };
+   13 |   xhr.send();
+   14 | }
+   15 |
+   16 | const mustFail2 = () => {
+   17 |   const instance = new XMLHttpRequest();
+   18 |   instance.open(""POST"", ""https://jsonplaceholder.typicode.com/posts"");
+   19 |   instance.setRequestHeader(""Content-Type"", ""application/json"");
+   20 |   instance.setRequestHeader(""Accept"", ""*/*"");
+   21 |   instance.onreadystatechange = function () {
+      ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/javascript_accepts_any_mimetype.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,20,"
+   10 |       console.log(xhr.responseText);
+   11 |     }
+   12 |   };
+   13 |   xhr.send();
+   14 | }
+   15 |
+   16 | const mustFail2 = () => {
+   17 |   const instance = new XMLHttpRequest();
+   18 |   instance.open(""POST"", ""https://jsonplaceholder.typicode.com/posts"");
+   19 |   instance.setRequestHeader(""Content-Type"", ""application/json"");
+>  20 |   instance.setRequestHeader(""Accept"", ""*/*"");
+   21 |   instance.onreadystatechange = function () {
+   22 |     if (instance.readyState === XMLHttpRequest.DONE) {
+   23 |       console.log(instance.responseText);
+   24 |     }
+   25 |   };
+   26 |   const data = JSON.stringify({
+   27 |     title: ""foo"",
+   28 |     body: ""bar"",
+   29 |     userId: 1,
+   30 |   });
+      ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/javascript_accepts_any_mimetype.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,38,"
+   28 |     body: ""bar"",
+   29 |     userId: 1,
+   30 |   });
+   31 |   instance.send(data);
+   32 | };
+   33 |
+   34 | function mustFail3() {
+   35 |   const example = new XMLHttpRequest();
+   36 |   example.open(""PUT"", ""https://jsonplaceholder.typicode.com/posts/1"");
+   37 |   example.setRequestHeader(""Content-Type"", ""application/x-www-form-urlencoded"");
+>  38 |   example.setRequestHeader(""Accept"", ""*/*"");
+   39 |   example.onreadystatechange = function () {
+   40 |     if (example.readyState === XMLHttpRequest.DONE) {
+   41 |       console.log(example.responseText);
+   42 |     }
+   43 |   };
+   44 |   const data = new URLSearchParams();
+   45 |   data.append(""title"", ""foo"");
+   46 |   data.append(""body"", ""bar"");
+   47 |   data.append(""userId"", ""1"");
+   48 |   example.send(data);
+      ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/javascript_accepts_any_mimetype.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,54,"
+   44 |   const data = new URLSearchParams();
+   45 |   data.append(""title"", ""foo"");
+   46 |   data.append(""body"", ""bar"");
+   47 |   data.append(""userId"", ""1"");
+   48 |   example.send(data);
+   49 | }
+   50 |
+   51 | function mustFail4() {
+   52 |   const headers = new Headers();
+   53 |   headers.append(""Accept-Language"", ""en-US"");
+>  54 |   headers.append(""Accept"", ""*/*"");
+   55 | }
+   56 |
+   57 | // Following functions are expected to pass
+   58 | // No lines should be marked
+   59 |
+   60 | function mustPass1() {
+   61 |   const xhr = new XMLHttpRequest();
+   62 |   xhr.open(""GET"", ""https://jsonplaceholder.typicode.com/posts"");
+   63 |   xhr.setRequestHeader(""Accept"", ""any/*"");
+   64 |   xhr.onreadystatechange = function () {
+      ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/javascript_accepts_any_mimetype.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,93,"
+   83 |     body: ""bar"",
+   84 |     userId: 1,
+   85 |   });
+   86 |   xhr.send(data);
+   87 | };
+   88 |
+   89 | function mustFail3() {
+   90 |   const example = new OtherClass();
+   91 |   example.open(""PUT"", ""https://jsonplaceholder.typicode.com/posts/1"");
+   92 |   example.setRequestHeader(""Content-Type"", ""application/x-www-form-urlencoded"");
+>  93 |   example.setRequestHeader(""Accept"", ""*/*"");
+   94 |   example.onreadystatechange = function () {
+   95 |     if (example.readyState === XMLHttpRequest.DONE) {
+   96 |       console.log(example.responseText);
+   97 |     }
+   98 |   };
+   99 |   const data = new URLSearchParams();
+  100 |   data.append(""title"", ""foo"");
+  101 |   data.append(""body"", ""bar"");
+  102 |   data.append(""userId"", ""1"");
+  103 |   example.send(data);
+      ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_default.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,18,"
+   1 | const axiosAlias = require(""axios"");
+   2 |
+   3 | // Gloabal axios default
+   4 | // Line 9 must fail.
+   5 | axiosAlias.defaults.baseURL = ""https://api.example.com"";
+   6 | axiosAlias.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+   7 | axiosAlias.defaults.headers.post[""Content-Type""] =
+   8 |   ""application/x-www-form-urlencoded"";
+   9 | axiosAlias.defaults.headers.post[""Accept""] = ""*/*"";
+  10 |
+  11 | const instance = axiosAlias.create({
+  12 |   baseURL: ""https://api.example.com"",
+  13 | });
+  14 |
+  15 | let dang_value = ""*/*"";
+  16 | // Alter defaults after instance has been created
+  17 | instance.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+> 18 | instance.defaults.headers.common[""Accept""] = dang_value;
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_default
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_default.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,9,"
+   1 | const axiosAlias = require(""axios"");
+   2 |
+   3 | // Gloabal axios default
+   4 | // Line 9 must fail.
+   5 | axiosAlias.defaults.baseURL = ""https://api.example.com"";
+   6 | axiosAlias.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+   7 | axiosAlias.defaults.headers.post[""Content-Type""] =
+   8 |   ""application/x-www-form-urlencoded"";
+>  9 | axiosAlias.defaults.headers.post[""Accept""] = ""*/*"";
+  10 |
+  11 | const instance = axiosAlias.create({
+  12 |   baseURL: ""https://api.example.com"",
+  13 | });
+  14 |
+  15 | let dang_value = ""*/*"";
+  16 | // Alter defaults after instance has been created
+  17 | instance.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+  18 | instance.defaults.headers.common[""Accept""] = dang_value;
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_default
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_obj_jquery.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,6,"
+   1 | const dangHeaders = {
+   2 |   Accept: ""*/*"",
+   3 | };
+   4 |
+   5 | function jQueryMustFail() {
+>  6 |   $.ajax({
+   7 |     url: ""https://example.com/api"",
+   8 |     method: ""GET"",
+   9 |     headers: {
+  10 |       Authorization: ""Bearer YOUR_ACCESS_TOKEN_HERE"",
+  11 |       Accept: ""*/*"",
+  12 |     },
+  13 |     success: function (data) {
+  14 |       console.log(data);
+  15 |     },
+  16 |     error: function (error) {
+  17 |       console.log(error);
+  18 |     },
+  19 |   });
+  20 | }
+  21 |
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_obj_jquery.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,23,"
+  13 |     success: function (data) {
+  14 |       console.log(data);
+  15 |     },
+  16 |     error: function (error) {
+  17 |       console.log(error);
+  18 |     },
+  19 |   });
+  20 | }
+  21 |
+  22 | function jQueryMustFailII() {
+> 23 |   $.ajax({
+  24 |     url: ""https://example.com/api"",
+  25 |     method: ""GET"",
+  26 |     headers: dangHeaders,
+  27 |     success: function (data) {
+  28 |       console.log(data);
+  29 |     },
+  30 |     error: function (error) {
+  31 |       console.log(error);
+  32 |     },
+  33 |   });
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_object.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,8,"
+   1 | const axiosAlias = require(""axios"");
+   2 |
+   3 | const dangHeaders = {
+   4 |   Accept: ""*/*"",
+   5 | };
+   6 |
+   7 | function axiosMustFail() {
+>  8 |   axiosAlias
+   9 |     .get(""https://example.com"", {
+  10 |       headers: dangHeaders,
+  11 |     })
+  12 |     .then((response) => {
+  13 |       console.log(response.data);
+  14 |     })
+  15 |     .catch((error) => {
+  16 |       console.error(error);
+  17 |     });
+  18 | }
+  19 |
+  20 | function fetchMustFail() {
+  21 |   fetch(""https://example.com"", {
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_object.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,21,"
+  11 |     })
+  12 |     .then((response) => {
+  13 |       console.log(response.data);
+  14 |     })
+  15 |     .catch((error) => {
+  16 |       console.error(error);
+  17 |     });
+  18 | }
+  19 |
+  20 | function fetchMustFail() {
+> 21 |   fetch(""https://example.com"", {
+  22 |     headers: new Headers(dangHeaders),
+  23 |   })
+  24 |     .then((response) => response.text())
+  25 |     .then((data) => console.log(data))
+  26 |     .catch((error) => console.error(error));
+  27 | }
+  28 |
+  29 | function axiosMustFail() {
+  30 |   axiosAlias
+  31 |     .get(""https://example.com"", {
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_object.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,30,"
+  20 | function fetchMustFail() {
+  21 |   fetch(""https://example.com"", {
+  22 |     headers: new Headers(dangHeaders),
+  23 |   })
+  24 |     .then((response) => response.text())
+  25 |     .then((data) => console.log(data))
+  26 |     .catch((error) => console.error(error));
+  27 | }
+  28 |
+  29 | function axiosMustFail() {
+> 30 |   axiosAlias
+  31 |     .get(""https://example.com"", {
+  32 |       headers: {
+  33 |         Connection: ""keep-alive"",
+  34 |         Accept: ""*/*"",
+  35 |       },
+  36 |     })
+  37 |     .then((response) => {
+  38 |       console.log(response.data);
+  39 |     })
+  40 |     .catch((error) => {
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/js_accepts_any_mime_object.js",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,48,"
+  38 |       console.log(response.data);
+  39 |     })
+  40 |     .catch((error) => {
+  41 |       console.error(error);
+  42 |     });
+  43 | }
+  44 |
+  45 | function kyMustFail() {
+  46 |   const ky = require(""ky"");
+  47 |
+> 48 |   ky(""https://jsonplaceholder.typicode.com/posts"", {
+  49 |     headers: {
+  50 |       Authorization: ""Bearer my-token"",
+  51 |       Accept: ""*/*"",
+  52 |       ""Content-Type"": ""application/json"",
+  53 |     },
+  54 |   })
+  55 |     .then((response) => {
+  56 |       console.log(response.json());
+  57 |     })
+  58 |     .catch((error) => {
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/kotlin_accepts_any_mime.kt",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,11,"
+   1 | import java.net.URL
+   2 | import java.net.HttpURLConnection
+   3 | import java.io.BufferedReader
+   4 | import java.io.InputStreamReader
+   5 |
+   6 | val url = URL(""https://example.com/api/resource"")
+   7 | val connection = url.openConnection() as HttpURLConnection
+   8 | connection.requestMethod = ""GET""
+   9 |
+  10 | // Set headers
+> 11 | connection.setRequestProperty(""Accept"", ""*/*"")
+  12 | connection.setRequestProperty(""Authorization"", ""Bearer your_access_token_here"")
+  13 |
+  14 | // Make the request
+  15 | val responseCode = connection.responseCode
+  16 | val inputStream = if (responseCode == HttpURLConnection.HTTP_OK) {
+  17 |     connection.inputStream
+  18 | } else {
+  19 |     connection.errorStream
+  20 | }
+  21 | val response = BufferedReader(InputStreamReader(inputStream)).use {
+     ^ Col 0
+",kotlin.kotlin_accepts_any_mime_type
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/ts_accepts_any_mime_default.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,18,"
+   1 | import axiosAlias from ""axios"";
+   2 |
+   3 | // Global axios default
+   4 | // Line 10 must fail.
+   5 | axiosAlias.defaults.baseURL = ""https://api.example.com"";
+   6 | axiosAlias.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+   7 | axiosAlias.defaults.headers.post[""Content-Type""] =
+   8 |   ""application/x-www-form-urlencoded"";
+   9 | axiosAlias.defaults.headers.post[""Accept""] = ""*/*"";
+  10 |
+  11 | const instance = axiosAlias.create({
+  12 |   baseURL: ""https://api.example.com"",
+  13 | });
+  14 |
+  15 | let dang_value: string = ""*/*"";
+  16 | // Alter defaults after instance has been created
+  17 | instance.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+> 18 | instance.defaults.headers.common[""Accept""] = dang_value;
+     ^ Col 0
+",typescript.typescript_accepts_any_mime_default
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/ts_accepts_any_mime_default.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,9,"
+   1 | import axiosAlias from ""axios"";
+   2 |
+   3 | // Global axios default
+   4 | // Line 10 must fail.
+   5 | axiosAlias.defaults.baseURL = ""https://api.example.com"";
+   6 | axiosAlias.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+   7 | axiosAlias.defaults.headers.post[""Content-Type""] =
+   8 |   ""application/x-www-form-urlencoded"";
+>  9 | axiosAlias.defaults.headers.post[""Accept""] = ""*/*"";
+  10 |
+  11 | const instance = axiosAlias.create({
+  12 |   baseURL: ""https://api.example.com"",
+  13 | });
+  14 |
+  15 | let dang_value: string = ""*/*"";
+  16 | // Alter defaults after instance has been created
+  17 | instance.defaults.headers.common[""Authorization""] = AUTH_TOKEN;
+  18 | instance.defaults.headers.common[""Accept""] = dang_value;
+     ^ Col 0
+",typescript.typescript_accepts_any_mime_default
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/ts_accepts_any_mime_object.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,17,"
+   7 |   'X-Custom-Header': 'custom value',
+   8 |   'Accept': '*/*',
+   9 |   'Cache-Control': 'no-cache'
+  10 | });
+  11 |
+  12 | const dangHeadersII = {
+  13 |   Accept: '*/*'
+  14 | };
+  15 |
+  16 | const axiosMustFail = () => {
+> 17 |   axios.get('https://example.com', {
+  18 |     headers: dangHeadersI
+  19 |   })
+  20 |     .then(response => {
+  21 |       console.log(response.data);
+  22 |     })
+  23 |     .catch(error => {
+  24 |       console.error(error);
+  25 |     });
+  26 | };
+  27 |
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/ts_accepts_any_mime_object.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,29,"
+  15 |
+  16 | const axiosMustFail = () => {
+  17 |   axios.get('https://example.com', {
+  18 |     headers: dangHeadersI
+  19 |   })
+  20 |     .then(response => {
+  21 |       console.log(response.data);
+  22 |     })
+  23 |     .catch(error => {
+  24 |       console.error(error);
+  25 |     });
+  26 | };
+  27 |
+  28 | const fetchMustFail = () => {
+> 29 |   fetch('https://example.com', {
+  30 |     headers: new Headers(dangHeadersII)
+  31 |   })
+  32 |     .then(response => response.text())
+  33 |     .then(data => console.log(data))
+  34 |     .catch(error => console.error(error));
+  35 | };
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/typescript_accepts_any_mimetype.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,7,"
+   1 | // Following functions are expected to fail
+   2 | // Lines 7, 20 and 38 should be marked
+   3 |
+   4 | function mustFail01(): void {
+   5 |   const xhr = new XMLHttpRequest();
+   6 |   xhr.open(""GET"", ""https://jsonplaceholder.typicode.com/posts"");
+>  7 |   xhr.setRequestHeader(""Accept"", ""*/*"");
+   8 |   xhr.onreadystatechange = function () {
+   9 |     if (xhr.readyState === XMLHttpRequest.DONE) {
+  10 |       console.log(xhr.responseText);
+  11 |     }
+  12 |   };
+  13 |   xhr.send();
+  14 | }
+  15 |
+  16 | const mustFail02 = (): void => {
+  17 |   const instance = new XMLHttpRequest();
+  18 |   instance.open(""POST"", ""https://jsonplaceholder.typicode.com/posts"");
+  19 |   instance.setRequestHeader(""Content-Type"", ""application/json"");
+  20 |   instance.setRequestHeader(""Accept"", ""*/*"");
+  21 |   instance.onreadystatechange = function () {
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/typescript_accepts_any_mimetype.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,20,"
+  10 |       console.log(xhr.responseText);
+  11 |     }
+  12 |   };
+  13 |   xhr.send();
+  14 | }
+  15 |
+  16 | const mustFail02 = (): void => {
+  17 |   const instance = new XMLHttpRequest();
+  18 |   instance.open(""POST"", ""https://jsonplaceholder.typicode.com/posts"");
+  19 |   instance.setRequestHeader(""Content-Type"", ""application/json"");
+> 20 |   instance.setRequestHeader(""Accept"", ""*/*"");
+  21 |   instance.onreadystatechange = function () {
+  22 |     if (instance.readyState === XMLHttpRequest.DONE) {
+  23 |       console.log(instance.responseText);
+  24 |     }
+  25 |   };
+  26 |   const data = JSON.stringify({
+  27 |     title: ""foo"",
+  28 |     body: ""bar"",
+  29 |     userId: 1,
+  30 |   });
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,"The Accept header is not properly configured and allows any MIME type in the request.
+ in namespace/skims/test/data/lib_root/f153/typescript_accepts_any_mimetype.ts",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,38,"
+  28 |     body: ""bar"",
+  29 |     userId: 1,
+  30 |   });
+  31 |   instance.send(data);
+  32 | };
+  33 |
+  34 | function mustFail03(): void {
+  35 |   const example = new XMLHttpRequest();
+  36 |   example.open(""PUT"", ""https://jsonplaceholder.typicode.com/posts/1"");
+  37 |   example.setRequestHeader(""Content-Type"", ""application/x-www-form-urlencoded"");
+> 38 |   example.setRequestHeader(""Accept"", ""*/*"");
+  39 |   example.onreadystatechange = function () {
+  40 |     if (example.readyState === XMLHttpRequest.DONE) {
+  41 |       console.log(example.responseText);
+  42 |     }
+  43 |   };
+  44 |   const data = new URLSearchParams();
+  45 |   data.append(""title"", ""foo"");
+  46 |   data.append(""body"", ""bar"");
+  47 |   data.append(""userId"", ""1"");
+  48 |   example.send(data);
+     ^ Col 0
+",javascript.javascript_accepts_any_mime_method
+153. Insecure or unset HTTP headers - Accept,CWE-644,The wildcard is allowed in the Accept header when making requests to the service. in namespace/skims/test/data/lib_path/f153/accept_header_wildcard.config,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,2,"
+   1 | <elementProp name="""" elementType=""Header"">
+>  2 |   <stringProp name=""Header.name"">Accept</stringProp>
+   3 |   <stringProp name=""Header.value"">*/*</stringProp>
+   4 | </elementProp>
+   5 |
+   6 |
+   7 | <elementProp name="""" elementType=""Header"">
+   8 |   <stringProp name=""Header.name"">Accept</stringProp>
+   9 |   <stringProp name=""Header.value"">*-*</stringProp>
+  10 | </elementProp>
+     ^ Col 0
+",conf_files.xml_accept_header
+153. Insecure or unset HTTP headers - Accept,CWE-644,The wildcard is allowed in the Accept header when making requests to the service. in namespace/skims/test/data/lib_path/f153/accept_header_wildcard.jmx,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,2,"
+  1 | <elementProp name="""" elementType=""Header"">
+> 2 |   <stringProp name=""Header.name"">Accept</stringProp>
+  3 |   <stringProp name=""Header.value"">*/*</stringProp>
+  4 | </elementProp>
+  5 |
+  6 | <elementProp name="""" elementType=""Header"">
+  7 |   <stringProp name=""Header.name"">Accept</stringProp>
+  8 |   <stringProp name=""Header.value"">*-*</stringProp>
+  9 | </elementProp>
+    ^ Col 0
+",conf_files.xml_accept_header
+153. Insecure or unset HTTP headers - Accept,CWE-644,The wildcard is allowed in the Accept header when making requests to the service. in namespace/skims/test/data/lib_path/f153/accept_header_wildcard.xml,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/153,skims,SAST,2,"
+  1 | <elementProp name="""" elementType=""Header"">
+> 2 |   <stringProp name=""Header.name"">Accept</stringProp>
+  3 |   <stringProp name=""Header.value"">*/*</stringProp>
+  4 | </elementProp>
+  5 |
+  6 | <elementProp name="""" elementType=""Header"">
+  7 |   <stringProp name=""Header.name"">Accept</stringProp>
+  8 |   <stringProp name=""Header.value"">*-*</stringProp>
+  9 | </elementProp>
+    ^ Col 0
+",conf_files.xml_accept_header
+Summary: 52 vulnerabilities were found in your targets.

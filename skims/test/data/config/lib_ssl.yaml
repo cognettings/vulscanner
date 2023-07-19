@@ -1,0 +1,14 @@
+---
+dast:
+  urls:
+    - https://localhost:4445
+    - https://localhost:4446
+    - https://localhost:9999
+    - https://wrong:9999
+    - https://s3.amazonaws.com/fluidbucket
+  ssl_checks: true
+language: EN
+namespace: namespace
+output:
+  file_path: skims/test/outputs/lib_ssl.csv
+  format: CSV

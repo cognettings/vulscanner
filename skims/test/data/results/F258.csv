@@ -1,0 +1,211 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/cfn_elb2_has_not_deletion_protection.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,20,"
+  10 |           Value: true
+  11 |         - Key: access_logs.s3.bucket
+  12 |           Value: bk
+  13 |   LoadBalancer2:
+  14 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  15 |     Properties:
+  16 |       Name: test-Application-Load-Balancer
+  17 |       IpAddressType: String
+  18 |       LoadBalancerAttributes:
+  19 |         - Key: deletion_protection.enabled
+> 20 |           Value: false
+  21 |         - Key: access_logs.s3.bucket
+  22 |           Value: bk
+  23 |   LoadBalancer3:
+  24 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  25 |     Properties:
+  26 |       Name: test-Application-Load-Balancer
+  27 |       IpAddressType: String
+  28 |       LoadBalancerAttributes:
+  29 |         - Key: access_logs.s3.bucket
+  30 |           Value: bk
+     ^ Col 0
+",cloudformation.cfn_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/cfn_elb2_has_not_deletion_protection.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,33,"
+  15 |     Properties:
+  16 |       Name: test-Application-Load-Balancer
+  17 |       IpAddressType: String
+  18 |       LoadBalancerAttributes:
+  19 |         - Key: deletion_protection.enabled
+  20 |           Value: false
+  21 |         - Key: access_logs.s3.bucket
+  22 |           Value: bk
+  23 |   LoadBalancer3:
+  24 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  25 |     Properties:
+  26 |       Name: test-Application-Load-Balancer
+  27 |       IpAddressType: String
+  28 |       LoadBalancerAttributes:
+  29 |         - Key: access_logs.s3.bucket
+  30 |           Value: bk
+  31 |   LoadBalancer4:
+  32 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+> 33 |     Properties:
+  34 |       Name: test-Application-Load-Balancer
+  35 |       IpAddressType: String
+     ^ Col 0
+",cloudformation.cfn_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/cfn_elb2_has_not_deletion_protection.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,28,"
+  15 |     Properties:
+  16 |       Name: test-Application-Load-Balancer
+  17 |       IpAddressType: String
+  18 |       LoadBalancerAttributes:
+  19 |         - Key: deletion_protection.enabled
+  20 |           Value: false
+  21 |         - Key: access_logs.s3.bucket
+  22 |           Value: bk
+  23 |   LoadBalancer3:
+  24 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  25 |     Properties:
+  26 |       Name: test-Application-Load-Balancer
+  27 |       IpAddressType: String
+> 28 |       LoadBalancerAttributes:
+  29 |         - Key: access_logs.s3.bucket
+  30 |           Value: bk
+  31 |   LoadBalancer4:
+  32 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  33 |     Properties:
+  34 |       Name: test-Application-Load-Balancer
+  35 |       IpAddressType: String
+     ^ Col 0
+",cloudformation.cfn_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/cfn_elb2_has_not_deletion_protection.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,28,"
+  18 |       }
+  19 |     },
+  20 |     ""LoadBalancer2"": {
+  21 |       ""Type"": ""AWS::ElasticLoadBalancingV2::LoadBalancer"",
+  22 |       ""Properties"": {
+  23 |         ""Name"": ""test-Application-Load-Balancer"",
+  24 |         ""IpAddressType"": ""String"",
+  25 |         ""LoadBalancerAttributes"": [
+  26 |           {
+  27 |             ""Key"": ""deletion_protection.enabled"",
+> 28 |             ""Value"": false
+  29 |           },
+  30 |           {
+  31 |             ""Key"": ""access_logs.s3.bucket"",
+  32 |             ""Value"": ""bk""
+  33 |           }
+  34 |         ]
+  35 |       }
+  36 |     },
+  37 |     ""LoadBalancer3"": {
+  38 |       ""Type"": ""AWS::ElasticLoadBalancingV2::LoadBalancer"",
+     ^ Col 0
+",cloudformation.cfn_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/cfn_elb2_has_not_deletion_protection.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,42,"
+  32 |             ""Value"": ""bk""
+  33 |           }
+  34 |         ]
+  35 |       }
+  36 |     },
+  37 |     ""LoadBalancer3"": {
+  38 |       ""Type"": ""AWS::ElasticLoadBalancingV2::LoadBalancer"",
+  39 |       ""Properties"": {
+  40 |         ""Name"": ""test-Application-Load-Balancer"",
+  41 |         ""IpAddressType"": ""String"",
+> 42 |         ""LoadBalancerAttributes"": [
+  43 |           {
+  44 |             ""Key"": ""access_logs.s3.bucket"",
+  45 |             ""Value"": ""bk""
+  46 |           }
+  47 |         ]
+  48 |       }
+  49 |     },
+  50 |     ""LoadBalancer4"": {
+  51 |       ""Type"": ""AWS::ElasticLoadBalancingV2::LoadBalancer"",
+  52 |       ""Properties"": {
+     ^ Col 0
+",cloudformation.cfn_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/cfn_elb2_has_not_deletion_protection.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,52,"
+  38 |       ""Type"": ""AWS::ElasticLoadBalancingV2::LoadBalancer"",
+  39 |       ""Properties"": {
+  40 |         ""Name"": ""test-Application-Load-Balancer"",
+  41 |         ""IpAddressType"": ""String"",
+  42 |         ""LoadBalancerAttributes"": [
+  43 |           {
+  44 |             ""Key"": ""access_logs.s3.bucket"",
+  45 |             ""Value"": ""bk""
+  46 |           }
+  47 |         ]
+  48 |       }
+  49 |     },
+  50 |     ""LoadBalancer4"": {
+  51 |       ""Type"": ""AWS::ElasticLoadBalancingV2::LoadBalancer"",
+> 52 |       ""Properties"": {
+  53 |         ""Name"": ""test-Application-Load-Balancer"",
+  54 |         ""IpAddressType"": ""String""
+  55 |       }
+  56 |     }
+  57 |   }
+  58 | }
+     ^ Col 0
+",cloudformation.cfn_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/tfm_elb2_has_not_deletion_protection.tf,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,2,"
+   1 |
+>  2 | resource ""aws_lb"" ""test"" {
+   3 |   name               = ""test-lb-tf""
+   4 |   internal           = false
+   5 |   load_balancer_type = ""application""
+   6 |   security_groups    = [aws_security_group.lb_sg.id]
+   7 | }
+   8 |
+   9 |
+  10 | resource ""aws_lb"" ""test"" {
+  11 |   name               = ""test-lb-tf""
+  12 |   internal           = false
+  13 |   load_balancer_type = ""application""
+  14 |   security_groups    = [aws_security_group.lb_sg.id]
+  15 |
+  16 |   enable_deletion_protection = false
+  17 | }
+  18 |
+  19 |
+  20 | resource ""aws_lb"" ""test"" {
+  21 |   name               = ""test-lb-tf""
+     ^ Col 0
+",terraform.tfm_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled in namespace/skims/test/data/lib_root/f258/tfm_elb2_has_not_deletion_protection.tf,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,SAST,16,"
+   6 |   security_groups    = [aws_security_group.lb_sg.id]
+   7 | }
+   8 |
+   9 |
+  10 | resource ""aws_lb"" ""test"" {
+  11 |   name               = ""test-lb-tf""
+  12 |   internal           = false
+  13 |   load_balancer_type = ""application""
+  14 |   security_groups    = [aws_security_group.lb_sg.id]
+  15 |
+> 16 |   enable_deletion_protection = false
+  17 | }
+  18 |
+  19 |
+  20 | resource ""aws_lb"" ""test"" {
+  21 |   name               = ""test-lb-tf""
+  22 |   internal           = false
+  23 |   load_balancer_type = ""application""
+  24 |   security_groups    = [aws_security_group.lb_sg.id]
+  25 |
+  26 |   enable_deletion_protection = true
+     ^ Col 0
+",terraform.tfm_elb2_has_not_deletion_protection
+258. Lack of protection against deletion - ELB,CWE-463,The deletion_protection property must be enabled,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/258,skims,CSPM,/Attributes/0/Value: false,"
+   1 | {
+   2 |     ""LoadBalancers"": [
+   3 |         {
+   4 |             ""LoadBalancerArn"": ""arn:aws:iam::123456789012:lb/myldbal"",
+   5 |             ""DNSName"": ""string""
+   6 |         }
+   7 |     ],
+   8 |     ""Attributes"": [
+   9 |         {
+  10 |             ""Key"": ""deletion_protection.enabled"",
+> 11 |             ""Value"": ""false""
+  12 |         }
+  13 |     ]
+  14 | }
+     ^ Col 0
+",aws.elb2_has_not_deletion_protection
+Summary: 9 vulnerabilities were found in your targets.

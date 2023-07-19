@@ -1,0 +1,79 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+107. LDAP injection,CWE-90,Detected anonymous LDAP bind. This permits anonymous users to execute LDAP statements. Consider enforcing authentication for LDAP. in namespace/skims/test/data/lib_root/f107/kotlin_anonymoys_ldap.kt,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,5,"
+   1 | public class Cls {
+   2 |
+   3 |     public fun ldapBind(env: Environment): Void {
+   4 |         // ruleid:anonymous-ldap-bind
+>  5 |         env.put(Context.SECURITY_AUTHENTICATION, ""none"")
+   6 |         val ctx: DirContext = InitialDirContext(env)
+   7 |     }
+   8 |
+   9 |     public fun ldapBindSafe(env: Environment): Void {
+  10 |         env.put(Context.SECURITY_AUTHENTICATION, ""simple"")
+  11 |         var ctx = InitialDirContext(env)
+  12 |     }
+  13 | }
+     ^ Col 0
+",kotlin.kt_anonymous_ldap
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in namespace/skims/test/data/lib_root/f107/c_sharp_ldap_injection.cs,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,11,"
+   1 | ;
+   2 | .DirectoryServices;
+   3 |
+   4 | al class WebForm : System.Web.UI.Page
+   5 |
+   6 | d void Page_Load(HttpRequest Request)
+   7 |
+   8 | ng userName = Request.Params[""user""];
+   9 | ng filter = ""(uid="" + userName + "")"";
+  10 | ctorySearcher searcher = new DirectorySearcher(filter);
+> 11 | chResultCollection results = searcher.FindAll();
+  12 |
+  13 |
+     ^ Col 12
+",c_sharp.c_sharp_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in namespace/skims/test/data/lib_root/f107/java_ldap_injection.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,14,"
+   1 | il.Random;
+   2 |
+   3 | est107 extends HttpServlet {
+   4 |
+   5 | oPost(HttpServletRequest request, HttpServletResponse response) {
+   6 |
+   7 | umeration<String> headers = request.getHeaders(""BenchmarkTest00012"");
+   8 |
+   9 | != null && headers.hasMoreElements()) {
+  10 | ders.nextElement();
+  11 |
+  12 |
+  13 | r = ""(&(objectclass=person))(|(uid=""+param+"")(street={0}))"";
+> 14 | .NamingEnumeration results = idc.search(base, filter);
+  15 |
+  16 |
+  17 |
+  18 |
+     ^ Col 14
+",java.java_ldap_injection
+107. LDAP injection,CWE-90,Potentially untrusted HTTP request input reaches an LDAP statement in namespace/skims/test/data/lib_root/f107/python_ldap_injection.py,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/107,skims,SAST,16,"
+   6 | import ldap.filter
+   7 |
+   8 |
+   9 | def unsafe_ldap() -> None:
+  10 |     dn = request.args[""dn""]
+  11 |     username = request.args[""username""]
+  12 |
+  13 |     search_filter = ""(&(objectClass=*)(uid="" + username + ""))""
+  14 |     ldap_connection = ldap.initialize(""ldap://127.0.0.1:389"")
+  15 |     # Noncompliant
+> 16 |     ldap_connection.search_s(dn, ldap.SCOPE_SUBTREE, search_filter)
+  17 |
+  18 |
+  19 | def safe_ldap() -> None:
+  20 |     # Escape distinguished names special characters
+  21 |     dn = ""dc=%s"" % ldap.dn.escape_dn_chars(request.args[""dc""])
+  22 |     # Escape search filters special characters
+  23 |     username = ldap.filter.escape_filter_chars(request.args[""username""])
+  24 |
+  25 |     search_filter = ""(&(objectClass=*)(uid="" + username + ""))""
+  26 |     ldap_connection = ldap.initialize(""ldap://127.0.0.1:389"")
+     ^ Col 0
+",python.python_ldap_injection
+Summary: 4 vulnerabilities were found in your targets.

@@ -1,0 +1,18 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+416. XAML injection,CWE-94,Potentially untrusted HTTP request input reaches a System.Windows.Markup.XamlReader Load method in namespace/skims/test/data/lib_root/f416/c_sharp_xaml_injection.cs,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/416,skims,SAST,11,"
+   1 | using System;
+   2 | using System.IO;
+   3 |
+   4 | public partial class WebForm : System.Web.UI.Page
+   5 | {
+   6 |     protected void Page_Load(object sender, EventArgs e)
+   7 |     {
+   8 |         string input = Request.Form[""in""];
+   9 |         byte[] bytes = Convert.FromBase64String(input);
+  10 |         MemoryStream ms = new MemoryStream(bytes);
+> 11 |         System.Windows.Markup.XamlReader.Load(ms);
+  12 |     }
+  13 | }
+     ^ Col 0
+",c_sharp.csharp_xaml_injection
+Summary: 1 vulnerabilities were found in your targets.

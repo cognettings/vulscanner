@@ -1,0 +1,24 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+169. Insecure service configuration - Keys,CWE-798,The application stores credentials in plain text. in namespace/skims/test/data/lib_root/f169/c_sharp_plain_text.cs,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/169,skims,SAST,10,"
+   1 | using System;
+   2 |
+   3 | namespace TestSpace
+   4 | {
+   5 |   public class Test
+   6 |   {
+   7 |     public static string unsafe_cred(string connString){
+   8 |       CryptLib _crypt = new CryptLib();
+   9 |       string key = CryptLib.getHashSha256(""bGZkYjIwMTgq"", 32);
+> 10 |       return _crypt.decrypt(connString, key, ""75npchtk5DpbTGbB"");
+  11 |     }
+  12 |
+  13 |     public static string safe_cred(string connString, string env_keys, string iv_secret){
+  14 |       CryptLib _crypt = new CryptLib();
+  15 |       string key = env_keys[""encrypted_key""];
+  16 |       return _crypt.decrypt(connString, key, iv_secret);
+  17 |     }
+  18 |   }
+  19 | }
+     ^ Col 0
+",c_sharp.c_sharp_plain_text_keys
+Summary: 1 vulnerabilities were found in your targets.

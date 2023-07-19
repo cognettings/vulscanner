@@ -1,0 +1,270 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+177. Insecure service configuration - Security Groups,CWE-16,Default security groups are in use.,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,CSPM,"/SecurityGroups/0/GroupName: [{'GroupName': 'default', 'GroupId': 'sg1_018de572ae43404d8'}]","
+   1 | {
+   2 |     ""InstanceId"": ""myinst1"",
+   3 |     ""InstanceType"": ""a1.medium"",
+   4 |     ""SecurityGroups"": [
+   5 |         {
+>  6 |             ""GroupName"": ""default"",
+   7 |             ""GroupId"": ""sg1-018de572ae43404d8""
+   8 |         }
+   9 |     ]
+  10 | }
+     ^ Col 0
+",aws.has_default_security_groups_in_use
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/aws_intance_test.tf",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,2,"
+   1 |
+>  2 | resource ""aws_instance"" ""foo"" {
+   3 |   ami           = ""ami-005e54dee72cc1d00""
+   4 |   instance_type = ""t2.micro""
+   5 |
+   6 |   network_interface {
+   7 |     network_interface_id = aws_network_interface.foo.id
+   8 |     device_index         = 0
+   9 |   }
+  10 |
+  11 |   credit_specification {
+  12 |     cpu_credits = ""unlimited""
+  13 |   }
+  14 | }
+     ^ Col 0
+",terraform.ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/aws_lanch_template_test.tf",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,1,"
+>  1 | resource ""aws_launch_template"" ""foo"" {
+   2 |   name = ""foo""
+   3 |
+   4 |   block_device_mappings {
+   5 |     device_name = ""/dev/sda1""
+   6 |
+   7 |     ebs {
+   8 |       volume_size = 20
+   9 |     }
+  10 |   }
+  11 |
+  12 |   capacity_reservation_specification {
+  13 |     capacity_reservation_preference = ""open""
+  14 |   }
+  15 |
+  16 |   cpu_options {
+  17 |     core_count       = 4
+  18 |     threads_per_core = 2
+  19 |   }
+  20 |
+  21 |   credit_specification {
+     ^ Col 0
+",terraform.ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,7,"
+   1 | ---
+   2 | Resources:
+   3 |   UnsafeLaunchTemplate1:
+   4 |     Type: AWS::EC2::LaunchTemplate
+   5 |     Properties:
+   6 |       LaunchTemplateName: MyLaunchTemplate
+>  7 |       LaunchTemplateData:
+   8 |         InstanceType: t2.micro
+   9 |         KeyName: MyKeyPair
+  10 |   UnsafeLaunchTemplate2:
+  11 |     Type: AWS::EC2::LaunchTemplate
+  12 |     Properties:
+  13 |       LaunchTemplateName: MyLaunchTemplate
+  14 |   SafeLaunchTemplate:
+  15 |     Type: AWS::EC2::LaunchTemplate
+  16 |     Properties:
+  17 |       LaunchTemplateName: MyLaunchTemplate
+  18 |       LaunchTemplateData:
+  19 |         InstanceType: t2.micro
+  20 |         KeyName: MyKeyPair
+  21 |         SecurityGroupIds:
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,12,"
+   2 | Resources:
+   3 |   UnsafeLaunchTemplate1:
+   4 |     Type: AWS::EC2::LaunchTemplate
+   5 |     Properties:
+   6 |       LaunchTemplateName: MyLaunchTemplate
+   7 |       LaunchTemplateData:
+   8 |         InstanceType: t2.micro
+   9 |         KeyName: MyKeyPair
+  10 |   UnsafeLaunchTemplate2:
+  11 |     Type: AWS::EC2::LaunchTemplate
+> 12 |     Properties:
+  13 |       LaunchTemplateName: MyLaunchTemplate
+  14 |   SafeLaunchTemplate:
+  15 |     Type: AWS::EC2::LaunchTemplate
+  16 |     Properties:
+  17 |       LaunchTemplateName: MyLaunchTemplate
+  18 |       LaunchTemplateData:
+  19 |         InstanceType: t2.micro
+  20 |         KeyName: MyKeyPair
+  21 |         SecurityGroupIds:
+  22 |           - sg-083cd3bfb8example
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,25,"
+  15 |     Type: AWS::EC2::LaunchTemplate
+  16 |     Properties:
+  17 |       LaunchTemplateName: MyLaunchTemplate
+  18 |       LaunchTemplateData:
+  19 |         InstanceType: t2.micro
+  20 |         KeyName: MyKeyPair
+  21 |         SecurityGroupIds:
+  22 |           - sg-083cd3bfb8example
+  23 |   UnsafeEC2Instance:
+  24 |     Type: AWS::EC2::Instance
+> 25 |     Properties:
+  26 |       ImageId: ami-79fd7eee
+  27 |       KeyName: testkey
+  28 |   UnsafeEC2Instance2:
+  29 |     Type: AWS::EC2::Instance
+  30 |     Properties:
+  31 |       ImageId: ami-79fd7eee
+  32 |       KeyName: testkey
+  33 |       NetworkInterfaces:
+  34 |         - AssociatePublicIpAddress: ""false""
+  35 |   SafeEC2Instance:
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,33,"
+  23 |   UnsafeEC2Instance:
+  24 |     Type: AWS::EC2::Instance
+  25 |     Properties:
+  26 |       ImageId: ami-79fd7eee
+  27 |       KeyName: testkey
+  28 |   UnsafeEC2Instance2:
+  29 |     Type: AWS::EC2::Instance
+  30 |     Properties:
+  31 |       ImageId: ami-79fd7eee
+  32 |       KeyName: testkey
+> 33 |       NetworkInterfaces:
+  34 |         - AssociatePublicIpAddress: ""false""
+  35 |   SafeEC2Instance:
+  36 |     Type: AWS::EC2::Instance
+  37 |     Properties:
+  38 |       ImageId: ami-79fd7eee
+  39 |       KeyName: testkey
+  40 |       SecurityGroups:
+  41 |         - name1
+  42 |   SafeEC2Instance2:
+  43 |     Type: AWS::EC2::Instance
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml.json",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,7,"
+   1 | {
+   2 |   ""Resources"": {
+   3 |     ""UnsafeLaunchTemplate1"": {
+   4 |       ""Type"": ""AWS::EC2::LaunchTemplate"",
+   5 |       ""Properties"": {
+   6 |         ""LaunchTemplateName"": ""MyLaunchTemplate"",
+>  7 |         ""LaunchTemplateData"": {
+   8 |           ""InstanceType"": ""t2.micro"",
+   9 |           ""KeyName"": ""MyKeyPair""
+  10 |         }
+  11 |       }
+  12 |     },
+  13 |     ""UnsafeLaunchTemplate2"": {
+  14 |       ""Type"": ""AWS::EC2::LaunchTemplate"",
+  15 |       ""Properties"": {
+  16 |         ""LaunchTemplateName"": ""MyLaunchTemplate""
+  17 |       }
+  18 |     },
+  19 |     ""SafeLaunchTemplate"": {
+  20 |       ""Type"": ""AWS::EC2::LaunchTemplate"",
+  21 |       ""Properties"": {
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml.json",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,15,"
+   5 |       ""Properties"": {
+   6 |         ""LaunchTemplateName"": ""MyLaunchTemplate"",
+   7 |         ""LaunchTemplateData"": {
+   8 |           ""InstanceType"": ""t2.micro"",
+   9 |           ""KeyName"": ""MyKeyPair""
+  10 |         }
+  11 |       }
+  12 |     },
+  13 |     ""UnsafeLaunchTemplate2"": {
+  14 |       ""Type"": ""AWS::EC2::LaunchTemplate"",
+> 15 |       ""Properties"": {
+  16 |         ""LaunchTemplateName"": ""MyLaunchTemplate""
+  17 |       }
+  18 |     },
+  19 |     ""SafeLaunchTemplate"": {
+  20 |       ""Type"": ""AWS::EC2::LaunchTemplate"",
+  21 |       ""Properties"": {
+  22 |         ""LaunchTemplateName"": ""MyLaunchTemplate"",
+  23 |         ""LaunchTemplateData"": {
+  24 |           ""InstanceType"": ""t2.micro"",
+  25 |           ""KeyName"": ""MyKeyPair"",
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml.json",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,34,"
+  24 |           ""InstanceType"": ""t2.micro"",
+  25 |           ""KeyName"": ""MyKeyPair"",
+  26 |           ""SecurityGroupIds"": [
+  27 |             ""sg-083cd3bfb8example""
+  28 |           ]
+  29 |         }
+  30 |       }
+  31 |     },
+  32 |     ""UnsafeEC2Instance"": {
+  33 |       ""Type"": ""AWS::EC2::Instance"",
+> 34 |       ""Properties"": {
+  35 |         ""ImageId"": ""ami-79fd7eee"",
+  36 |         ""KeyName"": ""testkey""
+  37 |       }
+  38 |     },
+  39 |     ""UnsafeEC2Instance2"": {
+  40 |       ""Type"": ""AWS::EC2::Instance"",
+  41 |       ""Properties"": {
+  42 |         ""ImageId"": ""ami-79fd7eee"",
+  43 |         ""KeyName"": ""testkey"",
+  44 |         ""NetworkInterfaces"": [
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+ in namespace/skims/test/data/lib_root/f177/cfn_ec2_use_default_security_group.yaml.json",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,SAST,44,"
+  34 |       ""Properties"": {
+  35 |         ""ImageId"": ""ami-79fd7eee"",
+  36 |         ""KeyName"": ""testkey""
+  37 |       }
+  38 |     },
+  39 |     ""UnsafeEC2Instance2"": {
+  40 |       ""Type"": ""AWS::EC2::Instance"",
+  41 |       ""Properties"": {
+  42 |         ""ImageId"": ""ami-79fd7eee"",
+  43 |         ""KeyName"": ""testkey"",
+> 44 |         ""NetworkInterfaces"": [
+  45 |           {
+  46 |             ""AssociatePublicIpAddress"": ""false""
+  47 |           }
+  48 |         ]
+  49 |       }
+  50 |     },
+  51 |     ""SafeEC2Instance"": {
+  52 |       ""Type"": ""AWS::EC2::Instance"",
+  53 |       ""Properties"": {
+  54 |         ""ImageId"": ""ami-79fd7eee"",
+     ^ Col 0
+",cloudformation.cfn_ec2_use_default_security_group
+177. Insecure service configuration - Security Groups,CWE-16,"EC2 Instances or Launch Templates are using the default security group
+",CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/177,skims,CSPM,"EC2 Instances or Launch Templates are using the default security group
+","
+  1 | {
+  2 |     ""LaunchTemplateId"": ""ltid1-018de572ae43404d8"",
+  3 |     ""LaunchTemplateName"": ""fluidtemplateunsafe"",
+  4 |     ""LaunchTemplateData"": {
+  5 |         ""EbsOptimized"": true
+  6 |     }
+  7 | }
+    ^ Col 0
+",aws.use_default_security_group
+Summary: 12 vulnerabilities were found in your targets.

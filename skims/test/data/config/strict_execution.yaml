@@ -1,0 +1,9 @@
+---
+checks:
+  - F007
+namespace: strict
+sast:
+  include:
+    - skims/test/data/lib_root/f007/java_csrf_protections_disabled.java
+  lib_root: true
+  lib_path: false

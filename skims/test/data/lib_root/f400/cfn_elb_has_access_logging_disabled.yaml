@@ -1,0 +1,32 @@
+---
+Resources:
+  LoadBalancer1:
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
+    Properties:
+      AccessLoggingPolicy:
+        Enabled: true
+        S3BucketName: bkname
+      Listeners:
+        - InstancePort: '80'
+          InstanceProtocol: HTTP
+          LoadBalancerPort: '443'
+          Protocol: HTTPS
+  LoadBalancer2:
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
+    Properties:
+      AccessLoggingPolicy:
+        Enabled: false
+        S3BucketName: bkname
+      Listeners:
+        - InstancePort: '80'
+          InstanceProtocol: HTTP
+          LoadBalancerPort: '443'
+          Protocol: HTTPS
+  LoadBalancer3:
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
+    Properties:
+      Listeners:
+        - InstancePort: '80'
+          InstanceProtocol: HTTP
+          LoadBalancerPort: '443'
+          Protocol: HTTPS

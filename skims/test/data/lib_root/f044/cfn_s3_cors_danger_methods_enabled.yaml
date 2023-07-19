@@ -1,0 +1,25 @@
+---
+Resources:
+  UnsafeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - GET
+              - DELETE
+            AllowedOrigins:
+              - '*'
+  SafeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - x-amz-*
+            AllowedMethods:
+              - GET
+            AllowedOrigins:
+              - 'https://fluidattacks.com'

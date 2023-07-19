@@ -1,0 +1,53 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+143. Inappropriate coding practices - Eval function,CWE-676,eval() calls in a file or directory. in namespace/skims/test/data/lib_root/f143/js_eval_open.js,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/143,skims,SAST,12,"
+   2 |     var a = 13
+   3 |     var c = Math.floor((Math.random() * 100) + 1);
+   4 |     localStorage.getItem('key');
+   5 |     try {
+   6 |         if(a == """") throw ""empty"";
+   7 |         if(isNaN(a)) throw ""not a number"";
+   8 |         c = Number(a);
+   9 |         if(c < 5) throw ""too low"";
+  10 |         if(c > 10) throw ""too high"";
+  11 |         eval('alert(""Your query string was ' + unescape(document.location.search) + '"");');
+> 12 |         eval(req.query.input)
+  13 |         eval(""Your query string is a literal string and it is reasonably safe."") // Compliant
+  14 |         // eval('alert(""Your query string was ' + unescape(document.location.search) + '"");');
+  15 |     }
+  16 |     catch(err) {
+  17 |         // a comment
+  18 |         /* a comment */
+  19 |         /*
+  20 |             a comment
+  21 |         */
+  22 |     }
+     ^ Col 0
+",javascript.js_uses_eval
+143. Inappropriate coding practices - Eval function,CWE-676,eval() calls in a file or directory. in namespace/skims/test/data/lib_root/f143/ts_uses_eval.ts,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/143,skims,SAST,5,"
+  1 | function insec_use_of_eval(req){
+  2 |     let input = req.query.input;
+  3 |     eval(input); // Noncompliant
+  4 |     (Function(input))(); // Noncompliant
+> 5 |     (new Function(input))(); // Noncompliant
+  6 | }
+    ^ Col 0
+",typescript.ts_uses_eval
+143. Inappropriate coding practices - Eval function,CWE-676,eval() calls in a file or directory. in namespace/skims/test/data/lib_root/f143/ts_uses_eval.ts,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/143,skims,SAST,4,"
+  1 | function insec_use_of_eval(req){
+  2 |     let input = req.query.input;
+  3 |     eval(input); // Noncompliant
+> 4 |     (Function(input))(); // Noncompliant
+  5 |     (new Function(input))(); // Noncompliant
+  6 | }
+    ^ Col 0
+",typescript.ts_uses_eval
+143. Inappropriate coding practices - Eval function,CWE-676,eval() calls in a file or directory. in namespace/skims/test/data/lib_root/f143/ts_uses_eval.ts,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/143,skims,SAST,3,"
+  1 | function insec_use_of_eval(req){
+  2 |     let input = req.query.input;
+> 3 |     eval(input); // Noncompliant
+  4 |     (Function(input))(); // Noncompliant
+  5 |     (new Function(input))(); // Noncompliant
+  6 | }
+    ^ Col 0
+",typescript.ts_uses_eval
+Summary: 4 vulnerabilities were found in your targets.

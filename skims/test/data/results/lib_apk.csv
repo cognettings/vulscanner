@@ -1,0 +1,1261 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+046. Missing secure obfuscation - APK,CWE-1269,android/support/annotation/RestrictTo$Scope is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.annotation;
+   2 | public final enum class RestrictTo$Scope extends java.lang.Enum {
+   3 |     private static final synthetic android.support.annotation.RestrictTo$Scope[] $VALUES;
+   4 |     public static final enum android.support.annotation.RestrictTo$Scope GROUP_ID;
+   5 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY;
+   6 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY_GROUP;
+   7 |     public static final enum android.support.annotation.RestrictTo$Scope SUBCLASSES;
+   8 |     public static final enum android.support.annotation.RestrictTo$Scope TESTS;
+   9 |
+  10 |     static RestrictTo$Scope()
+  11 |     {
+  12 |         android.support.annotation.RestrictTo$Scope.LIBRARY = new android.support.annotation.RestrictTo$Scope(""LIBRARY"",
+     |  0);
+  13 |         android.support.annotation.RestrictTo$Scope.LIBRARY_GROUP = new android.support.annotation.RestrictTo$Scope(""LIB
+     | RARY_GROUP"", 1);
+  14 |         android.support.annotation.RestrictTo$Scope.GROUP_ID = new android.support.annotation.RestrictTo$Scope(""GROUP_ID
+     | "", 2);
+  15 |         android.support.annotation.RestrictTo$Scope.TESTS = new android.support.annotation.RestrictTo$Scope(""TESTS"", 3);
+  16 |         android.support.annotation.RestrictTo$Scope.SUBCLASSES = new android.support.annotation.RestrictTo$Scope(""SUBCLA
+     | SSES"", 4);
+  17 |         android.support.annotation.RestrictTo$Scope[] v0_8 = new android.support.annotation.RestrictTo$Scope[5];
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,android/support/annotation/RestrictTo$Scope is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.annotation;
+   2 | public final enum class RestrictTo$Scope extends java.lang.Enum {
+   3 |     private static final synthetic android.support.annotation.RestrictTo$Scope[] $VALUES;
+   4 |     public static final enum android.support.annotation.RestrictTo$Scope GROUP_ID;
+   5 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY;
+   6 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY_GROUP;
+   7 |     public static final enum android.support.annotation.RestrictTo$Scope SUBCLASSES;
+   8 |     public static final enum android.support.annotation.RestrictTo$Scope TESTS;
+   9 |
+  10 |     static RestrictTo$Scope()
+  11 |     {
+  12 |         android.support.annotation.RestrictTo$Scope.LIBRARY = new android.support.annotation.RestrictTo$Scope(""LIBRARY"",
+     |  0);
+  13 |         android.support.annotation.RestrictTo$Scope.LIBRARY_GROUP = new android.support.annotation.RestrictTo$Scope(""LIB
+     | RARY_GROUP"", 1);
+  14 |         android.support.annotation.RestrictTo$Scope.GROUP_ID = new android.support.annotation.RestrictTo$Scope(""GROUP_ID
+     | "", 2);
+  15 |         android.support.annotation.RestrictTo$Scope.TESTS = new android.support.annotation.RestrictTo$Scope(""TESTS"", 3);
+  16 |         android.support.annotation.RestrictTo$Scope.SUBCLASSES = new android.support.annotation.RestrictTo$Scope(""SUBCLA
+     | SSES"", 4);
+  17 |         android.support.annotation.RestrictTo$Scope[] v0_8 = new android.support.annotation.RestrictTo$Scope[5];
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,android/support/annotation/RestrictTo$Scope is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.annotation;
+   2 | public final enum class RestrictTo$Scope extends java.lang.Enum {
+   3 |     private static final synthetic android.support.annotation.RestrictTo$Scope[] $VALUES;
+   4 |     public static final enum android.support.annotation.RestrictTo$Scope GROUP_ID;
+   5 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY;
+   6 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY_GROUP;
+   7 |     public static final enum android.support.annotation.RestrictTo$Scope SUBCLASSES;
+   8 |     public static final enum android.support.annotation.RestrictTo$Scope TESTS;
+   9 |
+  10 |     static RestrictTo$Scope()
+  11 |     {
+  12 |         android.support.annotation.RestrictTo$Scope.LIBRARY = new android.support.annotation.RestrictTo$Scope(""LIBRARY"",
+     |  0);
+  13 |         android.support.annotation.RestrictTo$Scope.LIBRARY_GROUP = new android.support.annotation.RestrictTo$Scope(""LIB
+     | RARY_GROUP"", 1);
+  14 |         android.support.annotation.RestrictTo$Scope.GROUP_ID = new android.support.annotation.RestrictTo$Scope(""GROUP_ID
+     | "", 2);
+  15 |         android.support.annotation.RestrictTo$Scope.TESTS = new android.support.annotation.RestrictTo$Scope(""TESTS"", 3);
+  16 |         android.support.annotation.RestrictTo$Scope.SUBCLASSES = new android.support.annotation.RestrictTo$Scope(""SUBCLA
+     | SSES"", 4);
+  17 |         android.support.annotation.RestrictTo$Scope[] v0_8 = new android.support.annotation.RestrictTo$Scope[5];
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,android/support/annotation/RestrictTo$Scope is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.annotation;
+   2 | public final enum class RestrictTo$Scope extends java.lang.Enum {
+   3 |     private static final synthetic android.support.annotation.RestrictTo$Scope[] $VALUES;
+   4 |     public static final enum android.support.annotation.RestrictTo$Scope GROUP_ID;
+   5 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY;
+   6 |     public static final enum android.support.annotation.RestrictTo$Scope LIBRARY_GROUP;
+   7 |     public static final enum android.support.annotation.RestrictTo$Scope SUBCLASSES;
+   8 |     public static final enum android.support.annotation.RestrictTo$Scope TESTS;
+   9 |
+  10 |     static RestrictTo$Scope()
+  11 |     {
+  12 |         android.support.annotation.RestrictTo$Scope.LIBRARY = new android.support.annotation.RestrictTo$Scope(""LIBRARY"",
+     |  0);
+  13 |         android.support.annotation.RestrictTo$Scope.LIBRARY_GROUP = new android.support.annotation.RestrictTo$Scope(""LIB
+     | RARY_GROUP"", 1);
+  14 |         android.support.annotation.RestrictTo$Scope.GROUP_ID = new android.support.annotation.RestrictTo$Scope(""GROUP_ID
+     | "", 2);
+  15 |         android.support.annotation.RestrictTo$Scope.TESTS = new android.support.annotation.RestrictTo$Scope(""TESTS"", 3);
+  16 |         android.support.annotation.RestrictTo$Scope.SUBCLASSES = new android.support.annotation.RestrictTo$Scope(""SUBCLA
+     | SSES"", 4);
+  17 |         android.support.annotation.RestrictTo$Scope[] v0_8 = new android.support.annotation.RestrictTo$Scope[5];
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,android/support/v4/app/INotificationSideChannel$Stub$Proxy is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.v4.app;
+   2 |  class INotificationSideChannel$Stub$Proxy implements android.support.v4.app.INotificationSideChannel {
+   3 |     private android.os.IBinder mRemote;
+   4 |
+   5 |     INotificationSideChannel$Stub$Proxy(android.os.IBinder p1)
+   6 |     {
+   7 |         this.mRemote = p1;
+   8 |         return;
+   9 |     }
+  10 |
+  11 |     public android.os.IBinder asBinder()
+  12 |     {
+  13 |         return this.mRemote;
+  14 |     }
+  15 |
+  16 |     public void cancel(String p6, int p7, String p8)
+  17 |     {
+  18 |         android.os.Parcel v0 = android.os.Parcel.obtain();
+  19 |         try {
+  20 |             v0.writeInterfaceToken(""android.support.v4.app.INotificationSideChannel"");
+  21 |             v0.writeString(p6);
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,android/support/v4/os/ResultReceiver$1 is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.v4.os;
+   2 |  class ResultReceiver$1 implements android.os.Parcelable$Creator {
+   3 |
+   4 |     ResultReceiver$1()
+   5 |     {
+   6 |         return;
+   7 |     }
+   8 |
+   9 |     public android.support.v4.os.ResultReceiver createFromParcel(android.os.Parcel p2)
+  10 |     {
+  11 |         return new android.support.v4.os.ResultReceiver(p2);
+  12 |     }
+  13 |
+  14 |     public bridge synthetic Object createFromParcel(android.os.Parcel p1)
+  15 |     {
+  16 |         return this.createFromParcel(p1);
+  17 |     }
+  18 |
+  19 |     public android.support.v4.os.ResultReceiver[] newArray(int p2)
+  20 |     {
+  21 |         android.support.v4.os.ResultReceiver[] v0 = new android.support.v4.os.ResultReceiver[p2];
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,android/support/v4/os/ResultReceiver$1 is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+>  1 | package android.support.v4.os;
+   2 | final class ResultReceiver$1 implements android.os.Parcelable$Creator {
+   3 |
+   4 |     ResultReceiver$1()
+   5 |     {
+   6 |         return;
+   7 |     }
+   8 |
+   9 |     public android.support.v4.os.ResultReceiver createFromParcel(android.os.Parcel p2)
+  10 |     {
+  11 |         return new android.support.v4.os.ResultReceiver(p2);
+  12 |     }
+  13 |
+  14 |     public bridge synthetic Object createFromParcel(android.os.Parcel p1)
+  15 |     {
+  16 |         return this.createFromParcel(p1);
+  17 |     }
+  18 |
+  19 |     public android.support.v4.os.ResultReceiver[] newArray(int p2)
+  20 |     {
+  21 |         android.support.v4.os.ResultReceiver[] v0 = new android.support.v4.os.ResultReceiver[p2];
+     ^ Col 0
+",analyze_bytecodes.no_obfuscation
+046. Missing secure obfuscation - APK,CWE-1269,androidx/activity/R$id is not obfuscated,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/046,skims,DAST,0,"
+> 1 | package androidx.activity;
+  2 | public final class R$id {
+  3 |     public static int view_tree_on_back_pressed_dispatcher_owner = 2131231203;
+  4 |
+  5 |     private R$id()
+  6 |     {
+  7 |         return;
+  8 |     }
+  9 | }
+    ^ Col 0
+",analyze_bytecodes.no_obfuscation
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/get_insecure.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZToColo
+     | r', 'XYZToLAB', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'abs', 'accept', 'acceptMatch', 'access$000', 'ac
+     | cess$001', 'access$100', 'access$101', 'access$200', 'access$300', 'access$400', 'access$500', 'accumField', 'acos', 'ac
+     | quire', 'acquireTempRect', 'actionBarOnMenuKeyEventPre28', 'actionFormatChanged', 'activeStateChanged', 'activitySuperDi
+     | spatchKeyEventPre28', 'add', 'addAccessibilityStateChangeListener', 'addAction', 'addActionBarHideOffset', 'addActions',
+     |  'addAddedFragments', 'addAll', 'addAnimation', 'addBackStackState', 'addCategory', 'addChild', 'addChildrenForAccessibi
+     | lity', 'addChildrenForExpandedActionView', 'addColorStateListToCache', 'addCommand', 'addCompatExtras', 'addContentView'
+     | , 'addCustomViewsWithGravity', 'addDataResultToIntent', 'addDelegate', 'addDrawableToCache', 'addDrawerListener', 'addDu
+     | rationItem', 'addEdge', 'addEmailBcc', 'addEmailCc', 'addEmailTo', 'addExtras', 'addFirst', 'addFlags', 'addFocusables',
+     |  'addFontFromAssetManager', 'addFontFromBuffer', 'addFontWeightStyle', 'addFragment', 'addFrame', 'addHeaderView', 'addH
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/has_frida.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['$$triggerInterfaceInit', '<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToX
+     | YZ', 'S_ISREG', 'XYZToColor', 'XYZToLAB', 'abandon', 'abbreviate', 'abort', 'abortAnimatedScroll', 'abortAnimation', 'ab
+     | ortCaptures', 'abortCreation', 'abortImageCaptureRequests', 'aboutToAcquire', 'aboveAll', 'aboveValue', 'abs', 'absent',
+     |  'absorbGlows', 'accept', 'acceptMatch', 'access$000', 'access$001', 'access$100', 'access$1000', 'access$10000', 'acces
+     | s$101', 'access$10100', 'access$102', 'access$10200', 'access$10300', 'access$10400', 'access$10500', 'access$10600', 'a
+     | ccess$10700', 'access$10800', 'access$10900', 'access$1100', 'access$11000', 'access$11100', 'access$11200', 'access$113
+     | 00', 'access$11400', 'access$11500', 'access$11600', 'access$11700', 'access$11800', 'access$11900', 'access$1200', 'acc
+     | ess$12000', 'access$12100', 'access$12200', 'access$12300', 'access$12400', 'access$12500', 'access$12600', 'access$1270
+     | 0', 'access$12800', 'access$12900', 'access$1300', 'access$13000', 'access$13100', 'access$13200', 'access$13300', 'acce
+     | ss$13400', 'access$13500', 'access$13600', 'access$13700', 'access$13800', 'access$13900', 'access$1400', 'access$14000'
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/http_refs.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZToColo
+     | r', 'XYZToLAB', 'a', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'aboveOnStack', 'abs', 'absUrl', 'accept', '
+     | acceptMatch', 'access$000', 'access$100', 'access$102', 'access$200', 'access$202', 'access$300', 'access$302', 'access$
+     | 400', 'access$402', 'access$500', 'access$600', 'accumField', 'accumulateParents', 'acquire', 'acquireTempRect', 'action
+     | BarOnMenuKeyEventPre28', 'activeStateChanged', 'activitySuperDispatchKeyEventPre28', 'add', 'addAccessibilityStateChange
+     | Listener', 'addAction', 'addActions', 'addAddedFragments', 'addAll', 'addAnimation', 'addApi', 'addApiIfAvailable', 'add
+     | Attributes', 'addBackStackState', 'addCategory', 'addChild', 'addChildren', 'addChildrenForAccessibility', 'addClass', '
+     | addCommand', 'addCompatExtras', 'addConnectionCallbacks', 'addCustomAction', 'addDataResultToIntent', 'addDataScheme', '
+     | addDrawerListener', 'addDurationItem', 'addEdge', 'addEditableKey', 'addElement', 'addEmailBcc', 'addEmailCc', 'addEmail
+     | To', 'addEnforcedAttribute', 'addExtension', 'addExtras', 'addFirst', 'addFlags', 'addFocusables', 'addFontFromAssetMana
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/js_open.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZToColo
+     | r', 'XYZToLAB', 'a', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'aboveOnStack', 'abs', 'absUrl', 'accept', '
+     | acceptMatch', 'access$000', 'access$100', 'access$102', 'access$200', 'access$202', 'access$300', 'access$302', 'access$
+     | 400', 'access$402', 'access$500', 'access$600', 'accumField', 'accumulateParents', 'acquire', 'acquireTempRect', 'action
+     | BarOnMenuKeyEventPre28', 'activeStateChanged', 'activitySuperDispatchKeyEventPre28', 'add', 'addAccessibilityStateChange
+     | Listener', 'addAction', 'addActions', 'addAddedFragments', 'addAll', 'addAnimation', 'addApi', 'addApiIfAvailable', 'add
+     | Attributes', 'addBackStackState', 'addCategory', 'addChild', 'addChildren', 'addChildrenForAccessibility', 'addClass', '
+     | addCommand', 'addCompatExtras', 'addConnectionCallbacks', 'addCustomAction', 'addDataResultToIntent', 'addDataScheme', '
+     | addDrawerListener', 'addDurationItem', 'addEdge', 'addEditableKey', 'addElement', 'addEmailBcc', 'addEmailCc', 'addEmail
+     | To', 'addEnforcedAttribute', 'addExtension', 'addExtras', 'addFirst', 'addFlags', 'addFocusables', 'addFontFromAssetMana
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/ssl_open.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZToColo
+     | r', 'XYZToLAB', 'a', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'aboveOnStack', 'abs', 'absUrl', 'accept', '
+     | acceptMatch', 'access$000', 'access$100', 'access$102', 'access$200', 'access$202', 'access$300', 'access$302', 'access$
+     | 400', 'access$402', 'access$500', 'access$600', 'accumField', 'accumulateParents', 'acquire', 'acquireTempRect', 'action
+     | BarOnMenuKeyEventPre28', 'activeStateChanged', 'activitySuperDispatchKeyEventPre28', 'add', 'addAccessibilityStateChange
+     | Listener', 'addAction', 'addActions', 'addAddedFragments', 'addAll', 'addAnimation', 'addApi', 'addApiIfAvailable', 'add
+     | Attributes', 'addBackStackState', 'addCategory', 'addChild', 'addChildren', 'addChildrenForAccessibility', 'addClass', '
+     | addCommand', 'addCompatExtras', 'addConnectionCallbacks', 'addCustomAction', 'addDataResultToIntent', 'addDataScheme', '
+     | addDrawerListener', 'addDurationItem', 'addEdge', 'addEditableKey', 'addElement', 'addEmailBcc', 'addEmailCc', 'addEmail
+     | To', 'addEnforcedAttribute', 'addExtension', 'addExtras', 'addFirst', 'addFlags', 'addFocusables', 'addFontFromAssetMana
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/unsafe_delete.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZToColo
+     | r', 'XYZToLAB', 'a', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'aboveOnStack', 'abs', 'absUrl', 'accept', '
+     | acceptMatch', 'access$000', 'access$100', 'access$102', 'access$200', 'access$202', 'access$300', 'access$302', 'access$
+     | 400', 'access$402', 'access$500', 'access$600', 'accumField', 'accumulateParents', 'acquire', 'acquireTempRect', 'action
+     | BarOnMenuKeyEventPre28', 'activeStateChanged', 'activitySuperDispatchKeyEventPre28', 'add', 'addAccessibilityStateChange
+     | Listener', 'addAction', 'addActions', 'addAddedFragments', 'addAll', 'addAnimation', 'addApi', 'addApiIfAvailable', 'add
+     | Attributes', 'addBackStackState', 'addCategory', 'addChild', 'addChildren', 'addChildrenForAccessibility', 'addClass', '
+     | addCommand', 'addCompatExtras', 'addConnectionCallbacks', 'addCustomAction', 'addDataResultToIntent', 'addDataScheme', '
+     | addDrawerListener', 'addDurationItem', 'addEdge', 'addEditableKey', 'addElement', 'addEmailBcc', 'addEmailCc', 'addEmail
+     | To', 'addEnforcedAttribute', 'addExtension', 'addExtras', 'addFirst', 'addFlags', 'addFocusables', 'addFontFromAssetMana
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('examples/tests/com.teleca.jamendo_35.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | ['<clinit>', '<init>', 'access$000', 'access$100', 'access$1000', 'access$1002', 'access$102', 'access$1100', 'access$12
+     | 00', 'access$1300', 'access$1400', 'access$1500', 'access$1600', 'access$1700', 'access$1800', 'access$1900', 'access$20
+     | 0', 'access$2000', 'access$202', 'access$300', 'access$302', 'access$400', 'access$402', 'access$500', 'access$502', 'ac
+     | cess$600', 'access$602', 'access$608', 'access$700', 'access$702', 'access$800', 'access$900', 'acquire', 'add', 'addAll
+     | ', 'addOnClick', 'addOnGesturePerformedListener', 'addPlaylistEntry', 'addPreferencesFromResource', 'addRadioToRecent',
+     | 'addSection', 'addTab', 'addToDownloadQueue', 'addToFavorites', 'addToLibrary', 'addToPlaylist', 'addTrack', 'addTracks'
+     | , 'albumClickHandler', 'albumSearch', 'animateClose', 'animateToggle', 'append', 'artistClickHandler', 'asList', 'build'
+     | , 'calculateOrder', 'cancel', 'cleanUp', 'clear', 'clone', 'close', 'commit', 'compare', 'connect', 'construct', 'contai
+     | ns', 'containsKey', 'convertStreamToString', 'create', 'createBitmap', 'createChooser', 'createFromResource', 'createPla
+     | ylist', 'createStringFromIds', 'createTables', 'createWifiLock', 'currentTimeMillis', 'd', 'decodeStream', 'deconstruct'
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+048. Lack of root detection,CWE-250,Missing rooted device detection,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/048,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('examples/tests/lineageos_nexus5_framework-res.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 | []
+     ^ Col 0
+",analyze_bytecodes.no_root_check
+075. Unauthorized access to files - APK Content Provider,CWE-284,application.android:grantUriPermissions enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/075,skims,DAST,0,"
+  1644 |   <activity android:configchanges=""0x000000A0"" android:name=""com.android.internal.app.PlatLogoActivity"" android:process=
+       | "":ui"" android:theme=""@android:01030060"">
+  1645 |   </activity>
+  1646 |   <activity android:excludefromrecents=""true"" android:name=""com.android.internal.app.DisableCarModeActivity"" android:pro
+       | cess="":ui"" android:theme=""@android:01030055"">
+  1647 |   </activity>
+  1648 |   <activity android:excludefromrecents=""true"" android:finishonclosesystemdialogs=""true"" android:label=""@android:0104043E
+       | "" android:name=""com.android.internal.app.DumpHeapActivity"" android:nohistory=""true"" android:process="":ui"" android:theme=
+       | ""@android:01030010"">
+  1649 |   </activity>
+> 1650 |   <provider android:authorities=""com.android.server.heapdump"" android:granturipermissions=""true"" android:multiprocess=""f
+       | alse"" android:name=""com.android.server.am.DumpHeapProvider"" android:singleuser=""true"">
+  1651 |   </provider>
+  1652 |   <activity android:excludefromrecents=""true"" android:exported=""true"" android:label=""@android:0104051C"" android:name=""an
+       | droid.accounts.ChooseAccountActivity"" android:process="":ui"" android:theme=""@android:01030132"">
+  1653 |   </activity>
+  1654 |   <activity android:excludefromrecents=""true"" android:exported=""true"" android:label=""@android:0104051C"" android:name=""an
+       | droid.accounts.ChooseTypeAndAccountActivity"" android:process="":ui"" android:theme=""@android:01030132"">
+  1655 |   </activity>
+  1656 |   <activity android:excludefromrecents=""true"" android:label=""@android:0104051C"" android:name=""android.accounts.ChooseAcc
+       | ountTypeActivity"" android:process="":ui"" android:theme=""@android:01030132"">
+       ^ Col 0
+",analyze_bytecodes.apk_exported_cp
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing pin-set(s),CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 | >>> # and version 4.9.3 of ""beautifulsoup4""
+   6 | >>> from bs4 import BeautifulSoup
+   7 |
+   8 | >>> # This object represents the APK to analyze
+   9 | >>> apk = APK('../universe/skims/test/data/lib/apk/http_refs.apk')
+  10 |
+  11 | >>> # Read and parse the Network Security Config manifest
+  12 | >>> nsc = apk.get_file(""res/xml/network_security_config.xml"")
+> 13 | >>> BeautifulSoup(nsc).find_all(""pin-set"")
+  14 | []  # Empty list means no <pin-set> tags were defined
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing pin-set(s),CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 | >>> # and version 4.9.3 of ""beautifulsoup4""
+   6 | >>> from bs4 import BeautifulSoup
+   7 |
+   8 | >>> # This object represents the APK to analyze
+   9 | >>> apk = APK('../universe/skims/test/data/lib/apk/unsafe_delete.apk')
+  10 |
+  11 | >>> # Read and parse the Network Security Config manifest
+  12 | >>> nsc = apk.get_file(""res/xml/network_security_config.xml"")
+> 13 | >>> BeautifulSoup(nsc).find_all(""pin-set"")
+  14 | []  # Empty list means no <pin-set> tags were defined
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing res/xml/network_security_config.xml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/get_insecure.apk')
+   8 |
+   9 | >>> # List all files in the APK
+  10 | >>> apk_files = apk.zip.nameslist()
+> 11 | >>> ""res/xml/network_security_config.xml"" in apk_files
+  12 | False  # No network security config exists
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing res/xml/network_security_config.xml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/has_frida.apk')
+   8 |
+   9 | >>> # List all files in the APK
+  10 | >>> apk_files = apk.zip.nameslist()
+> 11 | >>> ""res/xml/network_security_config.xml"" in apk_files
+  12 | False  # No network security config exists
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing res/xml/network_security_config.xml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/js_open.apk')
+   8 |
+   9 | >>> # List all files in the APK
+  10 | >>> apk_files = apk.zip.nameslist()
+> 11 | >>> ""res/xml/network_security_config.xml"" in apk_files
+  12 | False  # No network security config exists
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing res/xml/network_security_config.xml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/ssl_open.apk')
+   8 |
+   9 | >>> # List all files in the APK
+  10 | >>> apk_files = apk.zip.nameslist()
+> 11 | >>> ""res/xml/network_security_config.xml"" in apk_files
+  12 | False  # No network security config exists
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing res/xml/network_security_config.xml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('examples/tests/com.teleca.jamendo_35.apk')
+   8 |
+   9 | >>> # List all files in the APK
+  10 | >>> apk_files = apk.zip.nameslist()
+> 11 | >>> ""res/xml/network_security_config.xml"" in apk_files
+  12 | False  # No network security config exists
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+207. Security controls bypass or absence - SSLPinning,CWE-295,Missing res/xml/network_security_config.xml,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/207,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('examples/tests/lineageos_nexus5_framework-res.apk')
+   8 |
+   9 | >>> # List all files in the APK
+  10 | >>> apk_files = apk.zip.nameslist()
+> 11 | >>> ""res/xml/network_security_config.xml"" in apk_files
+  12 | False  # No network security config exists
+     ^ Col 0
+",analyze_bytecodes.no_certs_pinning
+313. Insecure service configuration - Certificates,CWE-295,"No network security config file found and SDK version allows user-supplied CAs by default.
+",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('examples/tests/com.teleca.jamendo_35.apk')
+   8 |
+   9 | >>> # Get SDK version
+> 10 | >>> apk.get_target_sdk_version()
+  11 | >>> No network security config file found and SDK version
+  12 | >>> allows user-supplied CAs by default
+     ^ Col 0
+",analyze_bytecodes.improper_certificate_validation
+206. Security controls bypass or absence - Anti hooking,CWE-295,The APK has Frida gadget embedded.,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/206,skims,DAST,0,"
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> apk_obj, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/has_frida.apk')
+   9 |
+  10 | >>> # Get the files attribute
+  11 | >>> apk_obj.get_files()
+  12 | # No method performs root detection
+> 13 | >>> ['res/drawable-v23/abc_control_background_material.xml', 'res/layout-v26/abc_screen_toolbar.xml', 'res/drawable-ldrt
+     | l-mdpi/abc_spinner_mtrl_am_alpha.9.png', 'res/drawable-ldrtl-mdpi/abc_ic_menu_cut_mtrl_alpha.png', 'res/drawable-ldrtl-m
+     | dpi/abc_ic_menu_copy_mtrl_am_alpha.png', 'res/layout-v22/abc_alert_dialog_button_bar_material.xml', 'res/color/switch_th
+     | umb_material_dark.xml', 'res/color/abc_tint_btn_checkable.xml', 'res/color/abc_primary_text_material_light.xml', 'res/co
+     | lor/switch_thumb_material_light.xml', 'res/color/abc_hint_foreground_material_light.xml', 'res/color/abc_hint_foreground
+     | _material_dark.xml', 'res/color/abc_tint_edittext.xml', 'res/color/abc_primary_text_material_dark.xml', 'res/color/abc_b
+     | tn_colored_borderless_text_material.xml', 'res/color/abc_secondary_text_material_dark.xml', 'res/color/abc_btn_colored_t
+     | ext_material.xml', 'res/color/abc_secondary_text_material_light.xml', 'res/color/abc_background_cache_hint_selector_mate
+     | rial_light.xml', 'res/color/abc_primary_text_disable_only_material_dark.xml', 'res/color/abc_search_url_text.xml', 'res/
+     | color/abc_tint_spinner.xml', 'res/color/abc_primary_text_disable_only_material_light.xml', 'res/color/abc_tint_default.x
+     | ml', 'res/color/abc_tint_switch_track.xml', 'res/color/abc_background_cache_hint_selector_material_dark.xml', 'res/color
+     ^ Col 0
+",analyze_bytecodes.has_frida
+313. Insecure service configuration - Certificates,CWE-295,The given APK allows to trust user-supplied CAs.,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/http_refs.apk')
+   8 |
+   9 | >>> # Get network security config file
+  10 | >>> apk.get_file(""res/xml/network_security_config.xml"")()
+> 11 | >>> ""b'\\x03\\x00\\x08\\x00\\x9c\\x02\\x00\\x00\\x01\\x00\\x1c\\x00\\xcc\\x00\\x00\\x00\\n\\x00\\x00\\x00\\x00\\x00\\x00
+     | \\x00\\x00\\x01\\x00\\x00D\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x0f\\x00\\x00\\x00\\x18\\x00\\x00\\x0
+     | 0(\\x00\\x00\\x00<\\x00\\x00\\x00V\\x00\\x00\\x00b\\x00\\x00\\x00h\\x00\\x00\\x00q\\x00\\x00\\x00\\x81\\x00\\x00\\x00\\x
+     | 0c\\x0ccertificates\\x00\\x06\\x06domain\\x00\\r\\rdomain-config\\x00\\x11\\x11includeSubdomains\\x00\\x17\\x17network-s
+     | ecurity-config\\x00\\t\\towasp.org\\x00\\x03\\x03src\\x00\\x06\\x06system\\x00\\r\\rtrust-anchors\\x00\\x04\\x04user\\x0
+     | 0\\x80\\x01\\x08\\x00\\x08\\x00\\x00\\x00\\x02\\x01\\x10\\x00$\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\x
+     | ff\\xff\\xff\\xff\\x04\\x00\\x00\\x00\\x14\\x00\\x14\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x02\\x01\\x10\\x00$\\
+     | x00\\x00\\x00\\x03\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\x02\\x00\\x00\\x00\\x14\\x00\\x14\\x00\\x00\\
+     | x00\\x00\\x00\\x00\\x00\\x00\\x00\\x02\\x01\\x10\\x008\\x00\\x00\\x00\\x04\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\xff\\xff\
+     | \xff\\xff\\x01\\x00\\x00\\x00\\x14\\x00\\x14\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\x03\\x00\
+     | \x00\\x00\\xff\\xff\\xff\\xff\\x08\\x00\\x00\\x12\\x00\\x00\\x00\\x00\\x04\\x01\\x10\\x00\\x1c\\x00\\x00\\x00\\x04\\x00\
+     ^ Col 0
+",analyze_bytecodes.improper_certificate_validation
+313. Insecure service configuration - Certificates,CWE-295,The given APK allows to trust user-supplied CAs.,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/unsafe_delete.apk')
+   8 |
+   9 | >>> # Get network security config file
+  10 | >>> apk.get_file(""res/xml/network_security_config.xml"")()
+> 11 | >>> ""b'\\x03\\x00\\x08\\x00\\x9c\\x02\\x00\\x00\\x01\\x00\\x1c\\x00\\xcc\\x00\\x00\\x00\\n\\x00\\x00\\x00\\x00\\x00\\x00
+     | \\x00\\x00\\x01\\x00\\x00D\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x0f\\x00\\x00\\x00\\x18\\x00\\x00\\x0
+     | 0(\\x00\\x00\\x00<\\x00\\x00\\x00V\\x00\\x00\\x00b\\x00\\x00\\x00h\\x00\\x00\\x00q\\x00\\x00\\x00\\x81\\x00\\x00\\x00\\x
+     | 0c\\x0ccertificates\\x00\\x06\\x06domain\\x00\\r\\rdomain-config\\x00\\x11\\x11includeSubdomains\\x00\\x17\\x17network-s
+     | ecurity-config\\x00\\t\\towasp.org\\x00\\x03\\x03src\\x00\\x06\\x06system\\x00\\r\\rtrust-anchors\\x00\\x04\\x04user\\x0
+     | 0\\x80\\x01\\x08\\x00\\x08\\x00\\x00\\x00\\x02\\x01\\x10\\x00$\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\x
+     | ff\\xff\\xff\\xff\\x04\\x00\\x00\\x00\\x14\\x00\\x14\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x02\\x01\\x10\\x00$\\
+     | x00\\x00\\x00\\x03\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\x02\\x00\\x00\\x00\\x14\\x00\\x14\\x00\\x00\\
+     | x00\\x00\\x00\\x00\\x00\\x00\\x00\\x02\\x01\\x10\\x008\\x00\\x00\\x00\\x04\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\xff\\xff\
+     | \xff\\xff\\x01\\x00\\x00\\x00\\x14\\x00\\x14\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xff\\xff\\xff\\xff\\x03\\x00\
+     | \x00\\x00\\xff\\xff\\xff\\xff\\x08\\x00\\x00\\x12\\x00\\x00\\x00\\x00\\x04\\x01\\x10\\x00\\x1c\\x00\\x00\\x00\\x04\\x00\
+     ^ Col 0
+",analyze_bytecodes.improper_certificate_validation
+103. Insufficient data authenticity validation - APK signing,CWE-325,The apk is not signed,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/103,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/certs_pinned.apk')
+   8 |
+   9 | >>> # Check the META-INF/ folder and retrieve signature pairs
+  10 | >>> # with extensions: .DSA & .DF, .EC & .DF, or .RSA & .DF
+  11 | >>> apk.get_signature_names()
+> 12 | []  # Empty list means no signatures exist
+     ^ Col 0
+",analyze_bytecodes.apk_unsigned
+103. Insufficient data authenticity validation - APK signing,CWE-325,The apk is not signed,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/103,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.core.bytecodes.apk import APK
+   5 |
+   6 | >>> # This object represents the APK to analyze
+   7 | >>> apk = APK('../universe/skims/test/data/lib/apk/has_frida.apk')
+   8 |
+   9 | >>> # Check the META-INF/ folder and retrieve signature pairs
+  10 | >>> # with extensions: .DSA & .DF, .EC & .DF, or .RSA & .DF
+  11 | >>> apk.get_signature_names()
+> 12 | []  # Empty list means no signatures exist
+     ^ Col 0
+",analyze_bytecodes.apk_unsigned
+060. Insecure service configuration - Host verification,CWE-396,The given APK doesn't verify the SSLSocket hostname.,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N/E:U/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/060,skims,DAST,0,"
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/ssl_open.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+> 12 | # No method performs root detection
+  13 | >>> 'package android.arch.lifecycle;\ninterface ReportFragment$ActivityInitializationListener {\n\n    public abstract v
+     | oid onCreate();\n\n    public abstract void onResume();\n\n    public abstract void onStart();\n}\npackage android.suppo
+     | rt.v4.app;\nfinal class ActivityCompat$1 implements java.lang.Runnable {\n    final synthetic android.app.Activity val$a
+     | ctivity;\n    final synthetic String[] val$permissions;\n    final synthetic int val$requestCode;\n\n    ActivityCompat$
+     | 1(String[] p1, android.app.Activity p2, int p3)\n    {\n        this.val$permissions = p1;\n        this.val$activity =
+     | p2;\n        this.val$requestCode = p3;\n        return;\n    }\n\n    public void run()\n    {\n        int[] v0_2 = ne
+     | w int[this.val$permissions.length];\n        android.content.pm.PackageManager v1_1 = this.val$activity.getPackageManage
+     | r();\n        String v2_1 = this.val$activity.getPackageName();\n        int v3_0 = this.val$permissions.length;\n
+     |   android.support.v4.app.ActivityCompat$OnRequestPermissionsResultCallback v4_0 = 0;\n        while (v4_0 < v3_0) {\n
+     |          v0_2[v4_0] = v1_1.checkPermission(this.val$permissions[v4_0], v2_1);\n            v4_0++;\n        }\n        (
+     ^ Col 0
+",analyze_bytecodes.not_verifies_ssl_hostname
+082. Insecurely deleted files,CWE-459,The given APK uses insecure delete of data.,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/082,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/http_refs.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 |  >>> ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZT
+     | oColor', 'XYZToLAB', 'a', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'aboveOnStack', 'abs', 'absUrl', 'accep
+     | t', 'acceptMatch', 'access$000', 'access$100', 'access$102', 'access$200', 'access$202', 'access$300', 'access$302', 'ac
+     | cess$400', 'access$402', 'access$500', 'access$600', 'accumField', 'accumulateParents', 'acquire', 'acquireTempRect', 'a
+     | ctionBarOnMenuKeyEventPre28', 'activeStateChanged', 'activitySuperDispatchKeyEventPre28', 'add', 'addAccessibilityStateC
+     | hangeListener', 'addAction', 'addActions', 'addAddedFragments', 'addAll', 'addAnimation', 'addApi', 'addApiIfAvailable',
+     |  'addAttributes', 'addBackStackState', 'addCategory', 'addChild', 'addChildren', 'addChildrenForAccessibility', 'addClas
+     | s', 'addCommand', 'addCompatExtras', 'addConnectionCallbacks', 'addCustomAction', 'addDataResultToIntent', 'addDataSchem
+     | e', 'addDrawerListener', 'addDurationItem', 'addEdge', 'addEditableKey', 'addElement', 'addEmailBcc', 'addEmailCc', 'add
+     | EmailTo', 'addEnforcedAttribute', 'addExtension', 'addExtras', 'addFirst', 'addFlags', 'addFocusables', 'addFontFromAsse
+     ^ Col 0
+",analyze_bytecodes.uses_insecure_delete
+082. Insecurely deleted files,CWE-459,The given APK uses insecure delete of data.,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/082,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/unsafe_delete.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+> 10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+  12 |  >>> ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZT
+     | oColor', 'XYZToLAB', 'a', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'aboveOnStack', 'abs', 'absUrl', 'accep
+     | t', 'acceptMatch', 'access$000', 'access$100', 'access$102', 'access$200', 'access$202', 'access$300', 'access$302', 'ac
+     | cess$400', 'access$402', 'access$500', 'access$600', 'accumField', 'accumulateParents', 'acquire', 'acquireTempRect', 'a
+     | ctionBarOnMenuKeyEventPre28', 'activeStateChanged', 'activitySuperDispatchKeyEventPre28', 'add', 'addAccessibilityStateC
+     | hangeListener', 'addAction', 'addActions', 'addAddedFragments', 'addAll', 'addAnimation', 'addApi', 'addApiIfAvailable',
+     |  'addAttributes', 'addBackStackState', 'addCategory', 'addChild', 'addChildren', 'addChildrenForAccessibility', 'addClas
+     | s', 'addCommand', 'addCompatExtras', 'addConnectionCallbacks', 'addCustomAction', 'addDataResultToIntent', 'addDataSchem
+     | e', 'addDrawerListener', 'addDurationItem', 'addEdge', 'addEditableKey', 'addElement', 'addEmailBcc', 'addEmailCc', 'add
+     | EmailTo', 'addEnforcedAttribute', 'addExtension', 'addExtras', 'addFirst', 'addFlags', 'addFocusables', 'addFontFromAsse
+     ^ Col 0
+",analyze_bytecodes.uses_insecure_delete
+082. Insecurely deleted files,CWE-459,The given APK uses sockets created with getInsecure.,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/082,skims,DAST,0,"
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse all Dalvik Executables (classes*.dex) in the APK
+   7 | >>> dex = AnalyzeAPK('../universe/skims/test/data/lib/apk/get_insecure.apk')[2]
+   8 |
+   9 | >>> # Get the method names from all classes in each .dex file
+  10 | >>> sorted(set(method.name for method in dex.get_methods()))
+  11 | # No method performs root detection
+> 12 |  >>> ['<clinit>', '<init>', 'HSLToColor', 'LABToColor', 'LABToXYZ', 'RGBToHSL', 'RGBToLAB', 'RGBToXYZ', 'S_ISREG', 'XYZT
+     | oColor', 'XYZToLAB', 'abandon', 'abort', 'abortAnimation', 'abortCreation', 'abs', 'accept', 'acceptMatch', 'access$000'
+     | , 'access$001', 'access$100', 'access$101', 'access$200', 'access$300', 'access$400', 'access$500', 'accumField', 'acos'
+     | , 'acquire', 'acquireTempRect', 'actionBarOnMenuKeyEventPre28', 'actionFormatChanged', 'activeStateChanged', 'activitySu
+     | perDispatchKeyEventPre28', 'add', 'addAccessibilityStateChangeListener', 'addAction', 'addActionBarHideOffset', 'addActi
+     | ons', 'addAddedFragments', 'addAll', 'addAnimation', 'addBackStackState', 'addCategory', 'addChild', 'addChildrenForAcce
+     | ssibility', 'addChildrenForExpandedActionView', 'addColorStateListToCache', 'addCommand', 'addCompatExtras', 'addContent
+     | View', 'addCustomViewsWithGravity', 'addDataResultToIntent', 'addDelegate', 'addDrawableToCache', 'addDrawerListener', '
+     | addDurationItem', 'addEdge', 'addEmailBcc', 'addEmailCc', 'addEmailTo', 'addExtras', 'addFirst', 'addFlags', 'addFocusab
+     | les', 'addFontFromAssetManager', 'addFontFromBuffer', 'addFontWeightStyle', 'addFragment', 'addFrame', 'addHeaderView',
+     | 'addHistoricalRecord', 'addIntentOptions', 'addInternal', 'addInvisibleAction', 'addItem', 'addItemView', 'addKeyboardNa
+     ^ Col 0
+",analyze_bytecodes.socket_uses_get_insecure
+398. Fragment Injection,CWE-470,The application is vulnerable to Fragment Injection,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/398,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> apk_obj, dex, _ = AnalyzeAPK('examples/tests/com.teleca.jamendo_35.apk')
+   9 |
+> 10 | >>> # Get the targetSdkVersion attribute
+  11 | >>> apk_obj.get_target_sdk_version()
+  12 | >>> 8
+  13 | >>> # Get the method names from all classes in each .dex file
+  14 | >>> sorted(set(method.name for method in dex.get_methods()))
+  15 | # No method performs root detection
+  16 | >>> 'package com.teleca.jamendo.activity;\n class AlbumActivity$1 implements android.widget.AdapterView$OnItemSelectedLi
+     | stener {\n    final synthetic com.teleca.jamendo.activity.AlbumActivity this$0;\n    final synthetic java.util.ArrayList
+     |  val$langs;\n\n    AlbumActivity$1(com.teleca.jamendo.activity.AlbumActivity p1, java.util.ArrayList p2)\n    {\n
+     |  this.this$0 = p1;\n        this.val$langs = p2;\n        return;\n    }\n\n    public void onItemSelected(android.widge
+     | t.AdapterView p3, android.view.View p4, int p5, long p6)\n    {\n        com.teleca.jamendo.activity.AlbumActivity.acces
+     | s$000(this.this$0).setLang(((String) this.val$langs.get(p5)));\n        return;\n    }\n\n    public void onNothingSelec
+     ^ Col 0
+",analyze_bytecodes.has_fragment_injection
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:networksecurityconfig=""@7F0B0000"" androi
+     | d:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+     ^ Col 0
+",analyze_bytecodes.apk_debugging_enabled
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:networksecurityconfig=""@7F0B0000"" androi
+     | d:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+     ^ Col 0
+",analyze_bytecodes.apk_debugging_enabled
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+  17 |   <activity android:excludefromrecents=""true"" android:exported=""false"" android:name=""com.google.android.gms.auth.api.sig
+     ^ Col 0
+",analyze_bytecodes.apk_debugging_enabled
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+  17 |   <activity android:excludefromrecents=""true"" android:exported=""false"" android:name=""com.google.android.gms.auth.api.sig
+     ^ Col 0
+",analyze_bytecodes.apk_debugging_enabled
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""29"" android:compilesdkversioncodename=""10"" android:versioncode=""1"" android:versionn
+     | ame=""1.0"" package=""com.example.android.activityscenetransitionbasic"" platformbuildversioncode=""29"" platformbuildversionn
+     | ame=""10"" xmlns:android=""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""14"" android:targetsdkversion=""29"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+>  6 |  <application android:allowbackup=""false"" android:appcomponentfactory=""androidx.core.app.CoreComponentFactory"" android:d
+     | ebuggable=""true"" android:icon=""@7F060054"" android:label=""@7F0A0027"" android:theme=""@7F0B0005"">
+   7 |   <activity android:label=""@7F0A0027"" android:name=""com.example.android.activityscenetransitionbasic.MainActivity"">
+   8 |    <intent-filter>
+   9 |     <action android:name=""android.intent.action.MAIN"">
+  10 |     </action>
+  11 |     <category android:name=""android.intent.category.LAUNCHER"">
+  12 |     </category>
+  13 |    </intent-filter>
+  14 |   </activity>
+  15 |   <activity android:name=""com.example.android.activityscenetransitionbasic.DetailActivity"">
+  16 |   </activity>
+  17 |  </application>
+  18 | </manifest>
+     ^ Col 0
+",analyze_bytecodes.apk_debugging_enabled
+058. Debugging enabled in production - APK,CWE-489,application.android:debuggable enabled,CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/058,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""33"" android:compilesdkversioncodename=""13"" android:versioncode=""1"" android:versionn
+     | ame=""1.0"" package=""com.example.myapplication"" platformbuildversioncode=""33"" platformbuildversionname=""13"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""24"" android:targetsdkversion=""33"">
+   3 |  </uses-sdk>
+>  4 |  <application android:allowbackup=""true"" android:appcomponentfactory=""androidx.core.app.CoreComponentFactory"" android:da
+     | taextractionrules=""@7F130001"" android:debuggable=""true"" android:extractnativelibs=""false"" android:fullbackupcontent=""@7F
+     | 130000"" android:icon=""@7F0D0000"" android:label=""@7F10001D"" android:roundicon=""@7F0D0001"" android:supportsrtl=""true"" andr
+     | oid:theme=""@7F11023D"">
+   5 |   <activity android:exported=""true"" android:label=""@7F10001D"" android:name=""com.example.myapplication.MainActivity"" andr
+     | oid:theme=""@7F11023F"">
+   6 |    <intent-filter>
+   7 |     <action android:name=""android.intent.action.MAIN"">
+   8 |     </action>
+   9 |     <category android:name=""android.intent.category.LAUNCHER"">
+  10 |     </category>
+  11 |    </intent-filter>
+  12 |   </activity>
+  13 |   <uses-library android:name=""androidx.window.extensions"" android:required=""false"">
+  14 |   </uses-library>
+  15 |   <uses-library android:name=""androidx.window.sidecar"" android:required=""false"">
+     ^ Col 0
+",analyze_bytecodes.apk_debugging_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,application.android:allowBackup enabled,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""23"" android:compilesdkversioncodename=""6.0-2438415"" package=""com.google.mediapipe.a
+     | pps.handtrackinggpu"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=""http://schemas.android.co
+     | m/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""21"" android:targetsdkversion=""27"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.CAMERA"">
+   5 |  </uses-permission>
+   6 |  <uses-feature android:name=""android.hardware.camera"">
+   7 |  </uses-feature>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""androidx.core.app.CoreComponentFactory"" android:ic
+     | on=""@7F0B0000"" android:label=""Hand Tracking"" android:roundicon=""@7F0B0002"" android:supportsrtl=""true"" android:theme=""@7F
+     | 0D0005"">
+   9 |   <activity android:exported=""true"" android:name=""com.google.mediapipe.apps.handtrackinggpu.MainActivity"" android:screen
+     | orientation=""1"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+     ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,application.android:allowBackup enabled,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:networksecurityconfig=""@7F0B0000"" androi
+     | d:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+     ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,application.android:allowBackup enabled,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:networksecurityconfig=""@7F0B0000"" androi
+     | d:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+     ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,application.android:allowBackup enabled,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+  17 |   <activity android:excludefromrecents=""true"" android:exported=""false"" android:name=""com.google.android.gms.auth.api.sig
+     ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,application.android:allowBackup enabled,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""28"" android:compilesdkversioncodename=""9"" android:versioncode=""1"" android:versionna
+     | me=""1.0"" package=""com.fluidattacks.integrates"" platformbuildversioncode=""28"" platformbuildversionname=""9"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""15"" android:targetsdkversion=""28"">
+   3 |  </uses-sdk>
+   4 |  <uses-permission android:name=""android.permission.INTERNET"">
+   5 |  </uses-permission>
+   6 |  <uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"">
+   7 |  </uses-permission>
+>  8 |  <application android:allowbackup=""true"" android:appcomponentfactory=""android.support.v4.app.CoreComponentFactory"" andro
+     | id:debuggable=""true"" android:icon=""@7F040016"" android:label=""@7F080000"" android:theme=""@android:0103006D"">
+   9 |   <activity android:label=""@7F080000"" android:name=""com.fluidattacks.integrates.WebViewActivity"" android:windowsoftinput
+     | mode=""0x00000002"">
+  10 |    <intent-filter>
+  11 |     <action android:name=""android.intent.action.MAIN"">
+  12 |     </action>
+  13 |     <category android:name=""android.intent.category.LAUNCHER"">
+  14 |     </category>
+  15 |    </intent-filter>
+  16 |   </activity>
+  17 |   <activity android:excludefromrecents=""true"" android:exported=""false"" android:name=""com.google.android.gms.auth.api.sig
+     ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,application.android:allowBackup enabled,CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+   1 | <manifest android:compilesdkversion=""33"" android:compilesdkversioncodename=""13"" android:versioncode=""1"" android:versionn
+     | ame=""1.0"" package=""com.example.myapplication"" platformbuildversioncode=""33"" platformbuildversionname=""13"" xmlns:android=
+     | ""http://schemas.android.com/apk/res/android"">
+   2 |  <uses-sdk android:minsdkversion=""24"" android:targetsdkversion=""33"">
+   3 |  </uses-sdk>
+>  4 |  <application android:allowbackup=""true"" android:appcomponentfactory=""androidx.core.app.CoreComponentFactory"" android:da
+     | taextractionrules=""@7F130001"" android:debuggable=""true"" android:extractnativelibs=""false"" android:fullbackupcontent=""@7F
+     | 130000"" android:icon=""@7F0D0000"" android:label=""@7F10001D"" android:roundicon=""@7F0D0001"" android:supportsrtl=""true"" andr
+     | oid:theme=""@7F11023D"">
+   5 |   <activity android:exported=""true"" android:label=""@7F10001D"" android:name=""com.example.myapplication.MainActivity"" andr
+     | oid:theme=""@7F11023F"">
+   6 |    <intent-filter>
+   7 |     <action android:name=""android.intent.action.MAIN"">
+   8 |     </action>
+   9 |     <category android:name=""android.intent.category.LAUNCHER"">
+  10 |     </category>
+  11 |    </intent-filter>
+  12 |   </activity>
+  13 |   <uses-library android:name=""androidx.window.extensions"" android:required=""false"">
+  14 |   </uses-library>
+  15 |   <uses-library android:name=""androidx.window.sidecar"" android:required=""false"">
+     ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,"application.android:allowBackup is enabled by default unless its value is set to False.
+",CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+     1 | <manifest android:shareduserid=""android.uid.system"" android:shareduserlabel=""@android:010401BD"" android:versioncode=""25""
+       |  android:versionname=""7.1.2"" coreapp=""true"" package=""android"" xmlns:android=""http://schemas.android.com/apk/res/android""
+       |  xmlns:androidprv=""http://schemas.android.com/apk/prv/res/android"">
+     2 |  --&gt;
+     3 |  <uses-sdk android:minsdkversion=""25"" android:targetsdkversion=""25"">
+     4 |  </uses-sdk>
+     5 |  <eat-comment>
+     6 |  </eat-comment>
+     7 |  <protected-broadcast android:name=""android.intent.action.SCREEN_OFF"">
+     8 |  </protected-broadcast>
+     9 |  <protected-broadcast android:name=""android.intent.action.SCREEN_ON"">
+    10 |  </protected-broadcast>
+    11 |  <protected-broadcast android:name=""android.intent.action.USER_PRESENT"">
+    12 |  </protected-broadcast>
+    13 |  <protected-broadcast android:name=""android.intent.action.TIME_SET"">
+    14 |  </protected-broadcast>
+    15 |  <protected-broadcast android:name=""android.intent.action.TIME_TICK"">
+    16 |  </protected-broadcast>
+    17 |  <protected-broadcast android:name=""android.intent.action.TIMEZONE_CHANGED"">
+    18 |  </protected-broadcast>
+    19 |  <protected-broadcast android:name=""android.intent.action.DATE_CHANGED"">
+       ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+055. Insecure service configuration - ADB Backups,CWE-530,"application.android:allowBackup is enabled by default unless its value is set to False.
+",CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/055,skims,DAST,0,"
+    1 | <manifest android:installlocation=""0"" android:versioncode=""35"" android:versionname=""1.0.4 [BETA]"" package=""com.teleca.ja
+      | mendo"" xmlns:android=""http://schemas.android.com/apk/res/android"">
+    2 |  <application android:icon=""@7F020016"" android:label=""@7F090002"" android:name=""JamendoApplication"">
+    3 |   <activity android:label=""@7F090002"" android:name="".activity.HomeActivity"">
+    4 |    <intent-filter>
+    5 |     <action android:name=""android.intent.action.VIEW"">
+    6 |     </action>
+    7 |     <category android:name=""android.intent.category.DEFAULT"">
+    8 |     </category>
+    9 |    </intent-filter>
+   10 |   </activity>
+   11 |   <activity android:label=""@7F090006"" android:name="".activity.AlbumActivity"">
+   12 |    <intent-filter>
+   13 |     <action android:name=""android.intent.action.VIEW"">
+   14 |     </action>
+   15 |     <category android:name=""android.intent.category.DEFAULT"">
+   16 |     </category>
+   17 |    </intent-filter>
+   18 |   </activity>
+   19 |   <activity android:label=""@7F090003"" android:launchmode=""1"" android:name="".activity.PlayerActivity"">
+   20 |    <intent-filter>
+      ^ Col 0
+",analyze_bytecodes.apk_backups_enabled
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and the clearCache method is not present.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/http_refs.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+> 12 | # The setJavaScriptEnabled method is enabled and the clearCache
+  13 | # method is not present.
+  14 | >>> 'package android.arch.lifecycle;\ninterface ReportFragment$ActivityInitializationListener {\n\n    public abstract v
+     | oid onCreate();\n\n    public abstract void onResume();\n\n    public abstract void onStart();\n}\npackage android.suppo
+     | rt.v4.app;\nfinal class ActivityCompat$1 implements java.lang.Runnable {\n    final synthetic android.app.Activity val$a
+     | ctivity;\n    final synthetic String[] val$permissions;\n    final synthetic int val$requestCode;\n\n    ActivityCompat$
+     | 1(String[] p1, android.app.Activity p2, int p3)\n    {\n        this.val$permissions = p1;\n        this.val$activity =
+     | p2;\n        this.val$requestCode = p3;\n        return;\n    }\n\n    public void run()\n    {\n        int[] v0_2 = ne
+     | w int[this.val$permissions.length];\n        android.content.pm.PackageManager v1_1 = this.val$activity.getPackageManage
+     | r();\n        String v2_1 = this.val$activity.getPackageName();\n        int v3_0 = this.val$permissions.length;\n
+     |   android.support.v4.app.ActivityCompat$OnRequestPermissionsResultCallback v4_0 = 0;\n        while (v4_0 < v3_0) {\n
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and the clearCache method is not present.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/js_open.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+> 12 | # The setJavaScriptEnabled method is enabled and the clearCache
+  13 | # method is not present.
+  14 | >>> 'package android.arch.lifecycle;\ninterface ReportFragment$ActivityInitializationListener {\n\n    public abstract v
+     | oid onCreate();\n\n    public abstract void onResume();\n\n    public abstract void onStart();\n}\npackage android.suppo
+     | rt.v4.app;\nfinal class ActivityCompat$1 implements java.lang.Runnable {\n    final synthetic android.app.Activity val$a
+     | ctivity;\n    final synthetic String[] val$permissions;\n    final synthetic int val$requestCode;\n\n    ActivityCompat$
+     | 1(String[] p1, android.app.Activity p2, int p3)\n    {\n        this.val$permissions = p1;\n        this.val$activity =
+     | p2;\n        this.val$requestCode = p3;\n        return;\n    }\n\n    public void run()\n    {\n        int[] v0_2 = ne
+     | w int[this.val$permissions.length];\n        android.content.pm.PackageManager v1_1 = this.val$activity.getPackageManage
+     | r();\n        String v2_1 = this.val$activity.getPackageName();\n        int v3_0 = this.val$permissions.length;\n
+     |   android.support.v4.app.ActivityCompat$OnRequestPermissionsResultCallback v4_0 = 0;\n        while (v4_0 < v3_0) {\n
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and the clearCache method is not present.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/ssl_open.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+> 12 | # The setJavaScriptEnabled method is enabled and the clearCache
+  13 | # method is not present.
+  14 | >>> 'package android.arch.lifecycle;\ninterface ReportFragment$ActivityInitializationListener {\n\n    public abstract v
+     | oid onCreate();\n\n    public abstract void onResume();\n\n    public abstract void onStart();\n}\npackage android.suppo
+     | rt.v4.app;\nfinal class ActivityCompat$1 implements java.lang.Runnable {\n    final synthetic android.app.Activity val$a
+     | ctivity;\n    final synthetic String[] val$permissions;\n    final synthetic int val$requestCode;\n\n    ActivityCompat$
+     | 1(String[] p1, android.app.Activity p2, int p3)\n    {\n        this.val$permissions = p1;\n        this.val$activity =
+     | p2;\n        this.val$requestCode = p3;\n        return;\n    }\n\n    public void run()\n    {\n        int[] v0_2 = ne
+     | w int[this.val$permissions.length];\n        android.content.pm.PackageManager v1_1 = this.val$activity.getPackageManage
+     | r();\n        String v2_1 = this.val$activity.getPackageName();\n        int v3_0 = this.val$permissions.length;\n
+     |   android.support.v4.app.ActivityCompat$OnRequestPermissionsResultCallback v4_0 = 0;\n        while (v4_0 < v3_0) {\n
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and the clearCache method is not present.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/unsafe_delete.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+> 12 | # The setJavaScriptEnabled method is enabled and the clearCache
+  13 | # method is not present.
+  14 | >>> 'package android.arch.lifecycle;\ninterface ReportFragment$ActivityInitializationListener {\n\n    public abstract v
+     | oid onCreate();\n\n    public abstract void onResume();\n\n    public abstract void onStart();\n}\npackage android.suppo
+     | rt.v4.app;\nfinal class ActivityCompat$1 implements java.lang.Runnable {\n    final synthetic android.app.Activity val$a
+     | ctivity;\n    final synthetic String[] val$permissions;\n    final synthetic int val$requestCode;\n\n    ActivityCompat$
+     | 1(String[] p1, android.app.Activity p2, int p3)\n    {\n        this.val$permissions = p1;\n        this.val$activity =
+     | p2;\n        this.val$requestCode = p3;\n        return;\n    }\n\n    public void run()\n    {\n        int[] v0_2 = ne
+     | w int[this.val$permissions.length];\n        android.content.pm.PackageManager v1_1 = this.val$activity.getPackageManage
+     | r();\n        String v2_1 = this.val$activity.getPackageName();\n        int v3_0 = this.val$permissions.length;\n
+     |   android.support.v4.app.ActivityCompat$OnRequestPermissionsResultCallback v4_0 = 0;\n        while (v4_0 < v3_0) {\n
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and there are additional ones that allow access to resources.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/http_refs.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+  12 | # The setJavaScriptEnabled method and the following dangerous
+  13 | # methods are enabled:
+> 14 | >>> ['setAllowFileAccess']
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and there are additional ones that allow access to resources.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/js_open.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+  12 | # The setJavaScriptEnabled method and the following dangerous
+  13 | # methods are enabled:
+> 14 | >>> ['setAllowFileAccess']
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and there are additional ones that allow access to resources.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/ssl_open.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+  12 | # The setJavaScriptEnabled method and the following dangerous
+  13 | # methods are enabled:
+> 14 | >>> ['setAllowFileAccess']
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+268. Insecure service configuration - Webview,CWE-749,"The setJavaScriptEnabled method is enabled and there are additional ones that allow access to resources.
+",CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N/E:P/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/268,skims,DAST,0,"
+   1 | $ python3.11
+   2 |
+   3 | >>> # We'll use the version 3.3.5 of ""androguard""
+   4 | >>> from androguard.misc import AnalyzeAPK
+   5 |
+   6 | >>> # Parse APK and all Dalvik Executables (classes*.dex)
+   7 | >>> # in the APK
+   8 | >>> _, dex, _ = AnalyzeAPK('../universe/skims/test/data/lib/apk/unsafe_delete.apk')
+   9 |
+  10 | >>> # Get the method names from all classes in each .dex file
+  11 | >>> sorted(set(method.name for method in dex.get_methods()))
+  12 | # The setJavaScriptEnabled method and the following dangerous
+  13 | # methods are enabled:
+> 14 | >>> ['setAllowFileAccess']
+     ^ Col 0
+",analyze_bytecodes.webview_vulnerabilities
+Summary: 58 vulnerabilities were found in your targets.

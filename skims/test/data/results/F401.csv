@@ -1,0 +1,17 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+401. Insecure service configuration - AKV Secret Expiration,CWE-521,Property expiration_date is either missing or misconfigured in namespace/skims/test/data/lib_root/f401/tfm_azure_kv_secret_no_expiration_date.tf,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N/E:U/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/401,skims,SAST,1,"
+>  1 | resource ""azurerm_key_vault_secret"" ""vulnerable"" {
+   2 |   name         = ""example""
+   3 |   value        = var.value_azsqlrevapp
+   4 |   key_vault_id = data.azurerm_key_vault.kv.id
+   5 | }
+   6 |
+   7 | resource ""azurerm_key_vault_secret"" ""not_vulnerable"" {
+   8 |   name            = ""kvAzsqlRevApphist""
+   9 |   expiration_date = ""2020-12-30T20:00:00Z""
+  10 |   value           = var.value_azsqlrevapphist
+  11 |   key_vault_id    = data.azurerm_key_vault.kv.id
+  12 | }
+     ^ Col 0
+",terraform.tfm_azure_kv_secret_no_expiration_date
+Summary: 1 vulnerabilities were found in your targets.

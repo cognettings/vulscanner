@@ -1,0 +1,17 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+052. Insecure encryption algorithm,CWE-310,Use of insecure hashing function in namespace/skims/test/data/lib_root/multifile/f052/java_insecure_ciphers_ii.java,CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:F/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/052,skims,SAST,9,"
+   1 | import java.security.MessageDigest;
+   2 | import com.gree.encryption.services.GreeEncryptionService;
+   3 |
+   4 | public class GFG1 {
+   5 |     public static void main(String[] argv)
+   6 |     {
+   7 |         GreeEncryptionService greeEncryptionService = new GreeEncryptionService();
+   8 |         String cipher = greeEncryptionService.getAlgo(true);
+>  9 |         MessageDigest sr = MessageDigest.getInstance(cipher);
+  10 |
+  11 |     }
+  12 | }
+     ^ Col 0
+",java.java_insecure_hash
+Summary: 1 vulnerabilities were found in your targets.

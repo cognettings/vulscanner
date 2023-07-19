@@ -1,0 +1,50 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+075. Unauthorized access to files - APK Content Provider,CWE-284,application.android:exported enabled in namespace/skims/test/data/lib_path/f075/AndroidManifest.xml,CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/075,skims,SAST,20,"
+  10 |         </activity>
+  11 |
+  12 |
+  13 |
+  14 |         <provider
+  15 |             android:authorities=""com.andriod.databasetest.contentprovider""
+  16 |             android:name="".db.ContentProviderDb""
+  17 |             android:grantUriPermissions=""true""
+  18 |         >
+  19 |         </provider>
+> 20 |         <provider
+  21 |             android:authorities=""com.andriod.databasetest.contentprovider""
+  22 |             android:name="".db.ContentProviderDb""
+  23 |             android:exported=""true""
+  24 |         >
+  25 |         </provider>
+  26 |     </application>
+  27 |     <!-- Safe Cases -->
+  28 |     <application android:label=""@7F040001"" android:icon=""@7F020002"">
+  29 |         <activity android:label=""@7F040000"" android:name="".ZeroSMS"" android:process=""com.android.phone"">
+  30 |         </activity>
+     ^ Col 0
+",android.apk_exported_cp
+075. Unauthorized access to files - APK Content Provider,CWE-284,application.android:grantUriPermissions enabled in namespace/skims/test/data/lib_path/f075/AndroidManifest.xml,CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/075,skims,SAST,14,"
+   4 |     <application android:label=""@7F040001"" android:icon=""@7F020002"">
+   5 |         <activity android:label=""@7F040000"" android:name="".ZeroSMS"" android:process=""com.android.phone"">
+   6 |             <intent-filter>
+   7 |                 <action android:name=""android.intent.action.MAIN""/>
+   8 |                 <category android:name=""android.intent.category.LAUNCHER""/>
+   9 |             </intent-filter>
+  10 |         </activity>
+  11 |
+  12 |
+  13 |
+> 14 |         <provider
+  15 |             android:authorities=""com.andriod.databasetest.contentprovider""
+  16 |             android:name="".db.ContentProviderDb""
+  17 |             android:grantUriPermissions=""true""
+  18 |         >
+  19 |         </provider>
+  20 |         <provider
+  21 |             android:authorities=""com.andriod.databasetest.contentprovider""
+  22 |             android:name="".db.ContentProviderDb""
+  23 |             android:exported=""true""
+  24 |         >
+     ^ Col 0
+",android.apk_exported_cp
+Summary: 2 vulnerabilities were found in your targets.

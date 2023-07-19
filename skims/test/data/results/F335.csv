@@ -1,0 +1,127 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+335. Insecure service configuration - Bucket,CWE-922,VersioningConfiguration.Status property must be Enabled in namespace/skims/test/data/lib_root/f335/cfn_s3_bucket_versioning_disabled.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/335,skims,SAST,17,"
+   1 | ---
+   2 | Resources:
+   3 |   S3Bucket:
+   4 |     Type: AWS::S3::Bucket
+   5 |     Properties:
+   6 |       BucketName: b1
+   7 |       VersioningConfiguration:
+   8 |         Status: Enabled
+   9 |   S3Bucket2:
+  10 |     Type: AWS::S3::Bucket
+  11 |     Properties:
+  12 |       BucketName: b2
+  13 |       VersioningConfiguration:
+  14 |         Status: Suspended
+  15 |   S3Bucket3:
+  16 |     Type: AWS::S3::Bucket
+> 17 |     Properties:
+  18 |       BucketName: b3
+     ^ Col 0
+",cloudformation.cfn_s3_bucket_versioning_disabled
+335. Insecure service configuration - Bucket,CWE-922,VersioningConfiguration.Status property must be Enabled in namespace/skims/test/data/lib_root/f335/cfn_s3_bucket_versioning_disabled.yaml,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/335,skims,SAST,14,"
+   1 | ---
+   2 | Resources:
+   3 |   S3Bucket:
+   4 |     Type: AWS::S3::Bucket
+   5 |     Properties:
+   6 |       BucketName: b1
+   7 |       VersioningConfiguration:
+   8 |         Status: Enabled
+   9 |   S3Bucket2:
+  10 |     Type: AWS::S3::Bucket
+  11 |     Properties:
+  12 |       BucketName: b2
+  13 |       VersioningConfiguration:
+> 14 |         Status: Suspended
+  15 |   S3Bucket3:
+  16 |     Type: AWS::S3::Bucket
+  17 |     Properties:
+  18 |       BucketName: b3
+     ^ Col 0
+",cloudformation.cfn_s3_bucket_versioning_disabled
+335. Insecure service configuration - Bucket,CWE-922,VersioningConfiguration.Status property must be Enabled in namespace/skims/test/data/lib_root/f335/cfn_s3_bucket_versioning_disabled.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/335,skims,SAST,17,"
+   7 |         ""VersioningConfiguration"": {
+   8 |           ""Status"": ""Enabled""
+   9 |         }
+  10 |       }
+  11 |     },
+  12 |     ""S3Bucket2"": {
+  13 |       ""Type"": ""AWS::S3::Bucket"",
+  14 |       ""Properties"": {
+  15 |         ""BucketName"": ""b2"",
+  16 |         ""VersioningConfiguration"": {
+> 17 |           ""Status"": ""Suspended""
+  18 |         }
+  19 |       }
+  20 |     },
+  21 |     ""S3Bucket3"": {
+  22 |       ""Type"": ""AWS::S3::Bucket"",
+  23 |       ""Properties"": {
+  24 |         ""BucketName"": ""b3""
+  25 |       }
+  26 |     }
+  27 |   }
+     ^ Col 0
+",cloudformation.cfn_s3_bucket_versioning_disabled
+335. Insecure service configuration - Bucket,CWE-922,VersioningConfiguration.Status property must be Enabled in namespace/skims/test/data/lib_root/f335/cfn_s3_bucket_versioning_disabled.yaml.json,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/335,skims,SAST,23,"
+   8 |           ""Status"": ""Enabled""
+   9 |         }
+  10 |       }
+  11 |     },
+  12 |     ""S3Bucket2"": {
+  13 |       ""Type"": ""AWS::S3::Bucket"",
+  14 |       ""Properties"": {
+  15 |         ""BucketName"": ""b2"",
+  16 |         ""VersioningConfiguration"": {
+  17 |           ""Status"": ""Suspended""
+  18 |         }
+  19 |       }
+  20 |     },
+  21 |     ""S3Bucket3"": {
+  22 |       ""Type"": ""AWS::S3::Bucket"",
+> 23 |       ""Properties"": {
+  24 |         ""BucketName"": ""b3""
+  25 |       }
+  26 |     }
+  27 |   }
+  28 | }
+     ^ Col 0
+",cloudformation.cfn_s3_bucket_versioning_disabled
+335. Insecure service configuration - Bucket,CWE-922,VersioningConfiguration.Status property must be Enabled in namespace/skims/test/data/lib_root/f335/tfm_s3_bucket_versioning_disabled.tf,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/335,skims,SAST,10,"
+   1 |
+   2 | resource ""aws_s3_bucket"" ""test"" {
+   3 |   bucket = ""yotto""
+   4 | }
+   5 |
+   6 | resource ""aws_s3_bucket_versioning"" ""vuln_bucket"" {
+   7 |   bucket = aws_s3_bucket.test.id
+   8 |
+   9 |   versioning_configuration {
+> 10 |     status = ""Disabled""
+  11 |   }
+  12 | }
+  13 |
+  14 | resource ""aws_s3_bucket_versioning"" ""safe_bucket"" {
+  15 |   bucket = aws_s3_bucket.test.id
+  16 |
+  17 |   versioning_configuration {
+  18 |     status = ""Enabled""
+  19 |   }
+  20 | }
+     ^ Col 0
+",terraform.tfm_s3_bucket_versioning_disabled
+335. Insecure service configuration - Bucket,CWE-922,VersioningConfiguration.Status property must be Enabled,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/335,skims,CSPM,/Status: Suspended,"
+  1 | {
+  2 |     ""Buckets"": [
+  3 |         {
+  4 |             ""Name"": ""unsafeBucket""
+  5 |         }
+  6 |     ],
+> 7 |     ""Status"": ""Suspended"",
+  8 |     ""MFADelete"": ""Disabled""
+  9 | }
+    ^ Col 0
+",aws.s3_bucket_versioning_disabled
+Summary: 6 vulnerabilities were found in your targets.

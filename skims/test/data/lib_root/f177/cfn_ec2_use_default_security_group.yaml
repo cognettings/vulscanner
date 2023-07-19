@@ -1,0 +1,51 @@
+---
+Resources:
+  UnsafeLaunchTemplate1:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: MyLaunchTemplate
+      LaunchTemplateData:
+        InstanceType: t2.micro
+        KeyName: MyKeyPair
+  UnsafeLaunchTemplate2:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: MyLaunchTemplate
+  SafeLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: MyLaunchTemplate
+      LaunchTemplateData:
+        InstanceType: t2.micro
+        KeyName: MyKeyPair
+        SecurityGroupIds:
+          - sg-083cd3bfb8example
+  UnsafeEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+  UnsafeEC2Instance2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: "false"
+  SafeEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      SecurityGroups:
+        - name1
+  SafeEC2Instance2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          GroupSet:
+            - Ref: "mysecGroup"

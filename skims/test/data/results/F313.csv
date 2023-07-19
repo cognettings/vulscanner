@@ -1,0 +1,135 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+313. Insecure service configuration - Certificates,CWE-295,Server certificates are not verified during SSL/TLS connections in namespace/skims/test/data/lib_root/f313/cfn_test.yaml,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,SAST,12,"
+   1 | service: my-service
+   2 | provider:
+   3 |   name: aws
+   4 |   runtime: nodejs14.x
+   5 |   stage: ${opt:stage,'dev'}
+   6 |   region: ${opt:region, 'us-east-1'}
+   7 |   timeout: 500
+   8 |   memorySize: 512
+   9 |   deploymentBucket:
+  10 |     name: mybucket
+  11 |   environment:
+> 12 |     NODE_TLS_REJECT_UNAUTHORIZED: 0
+  13 |     CIPHER_DEF: ""ECDHE_ECDSA""
+     ^ Col 0
+",cloudformation.cfn_unsafe_certificate
+313. Insecure service configuration - Certificates,CWE-295,Server certificates are not verified during SSL/TLS connections in namespace/skims/test/data/lib_root/f313/cfn_test.yaml.json,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,SAST,14,"
+   1 | {
+   2 |   ""service"": ""my-service"",
+   3 |   ""provider"": {
+   4 |     ""name"": ""aws"",
+   5 |     ""runtime"": ""nodejs14.x"",
+   6 |     ""stage"": ""${opt:stage,'dev'}"",
+   7 |     ""region"": ""${opt:region, 'us-east-1'}"",
+   8 |     ""timeout"": 500,
+   9 |     ""memorySize"": 512,
+  10 |     ""deploymentBucket"": {
+  11 |       ""name"": ""mybucket""
+  12 |     },
+  13 |     ""environment"": {
+> 14 |       ""NODE_TLS_REJECT_UNAUTHORIZED"": 0,
+  15 |       ""CIPHER_DEF"": ""ECDHE_ECDSA""
+  16 |     }
+  17 |   }
+  18 | }
+     ^ Col 0
+",cloudformation.cfn_unsafe_certificate
+313. Insecure service configuration - Certificates,CWE-295,Server certificates are not verified during SSL/TLS connections in namespace/skims/test/data/lib_root/f313/python_unsafe_ssl_vertificate.py,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,SAST,7,"
+   1 | # pylint: skip-file
+   2 | import requests  # type: ignore
+   3 | import ssl
+   4 |
+   5 | # Non compliant: Certificate validation is disabled
+   6 | requests.request(""GET"", ""https://example.domain"", verify=False)
+>  7 | requests.get(""https://example.domain"", verify=False)
+   8 |
+   9 | # Compliant: Certificate validation is enabled (Either by default or explicit)
+  10 | requests.request(""GET"", ""https://example.domain"")
+  11 | requests.get(""https://example.domain"", verify=True)
+  12 |
+  13 | # Noncompliant: by default certificate validation is not done
+  14 | unsafe_ctx = ssl._create_unverified_context()
+  15 | unsafe_ctx.verify_mode = ssl.CERT_NONE
+  16 |
+  17 | unsafe_ctx1 = ssl.create_default_context()
+  18 | unsafe_ctx1.verify_mode = ssl.CERT_NONE  # Noncompliant
+  19 |
+  20 |
+  21 | safe_ctx = ssl.create_default_context()
+     ^ Col 0
+",python.python_unsafe_certificate_validation
+313. Insecure service configuration - Certificates,CWE-295,Server certificates are not verified during SSL/TLS connections in namespace/skims/test/data/lib_root/f313/python_unsafe_ssl_vertificate.py,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,SAST,6,"
+   1 | # pylint: skip-file
+   2 | import requests  # type: ignore
+   3 | import ssl
+   4 |
+   5 | # Non compliant: Certificate validation is disabled
+>  6 | requests.request(""GET"", ""https://example.domain"", verify=False)
+   7 | requests.get(""https://example.domain"", verify=False)
+   8 |
+   9 | # Compliant: Certificate validation is enabled (Either by default or explicit)
+  10 | requests.request(""GET"", ""https://example.domain"")
+  11 | requests.get(""https://example.domain"", verify=True)
+  12 |
+  13 | # Noncompliant: by default certificate validation is not done
+  14 | unsafe_ctx = ssl._create_unverified_context()
+  15 | unsafe_ctx.verify_mode = ssl.CERT_NONE
+  16 |
+  17 | unsafe_ctx1 = ssl.create_default_context()
+  18 | unsafe_ctx1.verify_mode = ssl.CERT_NONE  # Noncompliant
+  19 |
+  20 |
+  21 | safe_ctx = ssl.create_default_context()
+     ^ Col 0
+",python.python_unsafe_certificate_validation
+313. Insecure service configuration - Certificates,CWE-295,Server certificates are not verified during SSL/TLS connections in namespace/skims/test/data/lib_root/f313/python_unsafe_ssl_vertificate.py,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,SAST,18,"
+   2 | import requests  # type: ignore
+   3 | import ssl
+   4 |
+   5 | # Non compliant: Certificate validation is disabled
+   6 | requests.request(""GET"", ""https://example.domain"", verify=False)
+   7 | requests.get(""https://example.domain"", verify=False)
+   8 |
+   9 | # Compliant: Certificate validation is enabled (Either by default or explicit)
+  10 | requests.request(""GET"", ""https://example.domain"")
+  11 | requests.get(""https://example.domain"", verify=True)
+  12 |
+  13 | # Noncompliant: by default certificate validation is not done
+  14 | unsafe_ctx = ssl._create_unverified_context()
+  15 | unsafe_ctx.verify_mode = ssl.CERT_NONE
+  16 |
+  17 | unsafe_ctx1 = ssl.create_default_context()
+> 18 | unsafe_ctx1.verify_mode = ssl.CERT_NONE  # Noncompliant
+  19 |
+  20 |
+  21 | safe_ctx = ssl.create_default_context()
+  22 | safe_ctx.verify_mode = ssl.CERT_REQUIRED
+     ^ Col 0
+",python.python_unsafe_certificate_validation
+313. Insecure service configuration - Certificates,CWE-295,Server certificates are not verified during SSL/TLS connections in namespace/skims/test/data/lib_root/f313/python_unsafe_ssl_vertificate.py,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/313,skims,SAST,15,"
+   2 | import requests  # type: ignore
+   3 | import ssl
+   4 |
+   5 | # Non compliant: Certificate validation is disabled
+   6 | requests.request(""GET"", ""https://example.domain"", verify=False)
+   7 | requests.get(""https://example.domain"", verify=False)
+   8 |
+   9 | # Compliant: Certificate validation is enabled (Either by default or explicit)
+  10 | requests.request(""GET"", ""https://example.domain"")
+  11 | requests.get(""https://example.domain"", verify=True)
+  12 |
+  13 | # Noncompliant: by default certificate validation is not done
+  14 | unsafe_ctx = ssl._create_unverified_context()
+> 15 | unsafe_ctx.verify_mode = ssl.CERT_NONE
+  16 |
+  17 | unsafe_ctx1 = ssl.create_default_context()
+  18 | unsafe_ctx1.verify_mode = ssl.CERT_NONE  # Noncompliant
+  19 |
+  20 |
+  21 | safe_ctx = ssl.create_default_context()
+  22 | safe_ctx.verify_mode = ssl.CERT_REQUIRED
+     ^ Col 0
+",python.python_unsafe_certificate_validation
+Summary: 6 vulnerabilities were found in your targets.

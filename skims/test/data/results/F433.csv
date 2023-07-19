@@ -1,0 +1,10 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+433. Non-encrypted confidential information - Redshift Cluster,CWE-16,Redshift clusters has encryption disabled.,CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/433,skims,CSPM,/Encrypted: False,"
+  1 | {
+  2 |     ""ClusterIdentifier"": ""fluidRedShiftCluster"",
+  3 |     ""KmsKeyId"": ""fluidkey/8888"",
+> 4 |     ""Encrypted"": false
+  5 | }
+    ^ Col 0
+",aws.redshift_has_encryption_disabled
+Summary: 1 vulnerabilities were found in your targets.

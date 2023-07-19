@@ -1,0 +1,130 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+320. Insecure service configuration - LDAP,CWE-90,LDAP connections should be authenticated in namespace/skims/test/data/lib_root/f320/c_sharp_insecure_ldap.cs,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/320,skims,SAST,9,"
+   1 | stem;
+   2 | pher{
+   3 |
+   4 | c void Encrypt()
+   5 |
+   6 | ectoryEntry myDirectoryEntry = new DirectoryEntry(adPath);
+   7 | ctoryEntry.AuthenticationType = AuthenticationTypes.None;
+   8 |
+>  9 | oryEntry sndDirectoryEntry = new DirectoryEntry(adPath, ""u"", ""p"", AuthenticationTypes.None);
+  10 | rectoryEntry thrdDirectoryEntry = new DirectoryEntry(adPath, ""u"", ""p"", AuthenticationTypes.Secure);
+  11 |
+  12 |
+  13 |
+     ^ Col 8
+",c_sharp.csharp_ldap_connections_authenticated
+320. Insecure service configuration - LDAP,CWE-90,LDAP connections should be authenticated in namespace/skims/test/data/lib_root/f320/c_sharp_insecure_ldap.cs,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/320,skims,SAST,7,"
+   1 | using System;
+   2 | class cipher{
+   3 |
+   4 |    public void Encrypt()
+   5 |  {
+   6 |      DirectoryEntry myDirectoryEntry = new DirectoryEntry(adPath);
+>  7 |   myDirectoryEntry.AuthenticationType = AuthenticationTypes.None;
+   8 |
+   9 |   DirectoryEntry sndDirectoryEntry = new DirectoryEntry(adPath, ""u"", ""p"", AuthenticationTypes.None);
+  10 |       DirectoryEntry thrdDirectoryEntry = new DirectoryEntry(adPath, ""u"", ""p"", AuthenticationTypes.Secure);
+  11 |  }
+  12 |
+  13 | }
+     ^ Col 0
+",c_sharp.csharp_ldap_connections_authenticated
+320. Insecure service configuration - LDAP,CWE-90,LDAP connections should be authenticated in namespace/skims/test/data/lib_root/f320/python_unsafe_ldap.py,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/320,skims,SAST,12,"
+   1 | # pylint: skip-file
+   2 | import ldap
+   3 | import os
+   4 |
+   5 |
+   6 | def unsafe_ldap() -> None:
+   7 |     server = ldap.initialize(""ldap://example:1389"")
+   8 |     # Noncompliant: No password, or stored directly as plain text
+   9 |     server.simple_bind(""cn=root"")
+  10 |     server.simple_bind_s(""cn=root"")
+  11 |     server.bind_s(""cn=root"", None)
+> 12 |     server.bind(""cn=root"", ""1234"")
+  13 |
+  14 |
+  15 | def safe_ldap(password: str) -> None:
+  16 |     connect = ldap.initialize(""ldap://example:1389"")
+  17 |     # Compliant, undeterministic password is used to bind the connection
+  18 |     connect.simple_bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  19 |     connect.simple_bind_s(""cn=root"", password)
+  20 |     connect.bind_s(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  21 |     connect.bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+     ^ Col 0
+",python.python_unsafe_ldap_connections
+320. Insecure service configuration - LDAP,CWE-90,LDAP connections should be authenticated in namespace/skims/test/data/lib_root/f320/python_unsafe_ldap.py,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/320,skims,SAST,11,"
+   1 | # pylint: skip-file
+   2 | import ldap
+   3 | import os
+   4 |
+   5 |
+   6 | def unsafe_ldap() -> None:
+   7 |     server = ldap.initialize(""ldap://example:1389"")
+   8 |     # Noncompliant: No password, or stored directly as plain text
+   9 |     server.simple_bind(""cn=root"")
+  10 |     server.simple_bind_s(""cn=root"")
+> 11 |     server.bind_s(""cn=root"", None)
+  12 |     server.bind(""cn=root"", ""1234"")
+  13 |
+  14 |
+  15 | def safe_ldap(password: str) -> None:
+  16 |     connect = ldap.initialize(""ldap://example:1389"")
+  17 |     # Compliant, undeterministic password is used to bind the connection
+  18 |     connect.simple_bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  19 |     connect.simple_bind_s(""cn=root"", password)
+  20 |     connect.bind_s(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  21 |     connect.bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+     ^ Col 0
+",python.python_unsafe_ldap_connections
+320. Insecure service configuration - LDAP,CWE-90,LDAP connections should be authenticated in namespace/skims/test/data/lib_root/f320/python_unsafe_ldap.py,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/320,skims,SAST,10,"
+   1 | # pylint: skip-file
+   2 | import ldap
+   3 | import os
+   4 |
+   5 |
+   6 | def unsafe_ldap() -> None:
+   7 |     server = ldap.initialize(""ldap://example:1389"")
+   8 |     # Noncompliant: No password, or stored directly as plain text
+   9 |     server.simple_bind(""cn=root"")
+> 10 |     server.simple_bind_s(""cn=root"")
+  11 |     server.bind_s(""cn=root"", None)
+  12 |     server.bind(""cn=root"", ""1234"")
+  13 |
+  14 |
+  15 | def safe_ldap(password: str) -> None:
+  16 |     connect = ldap.initialize(""ldap://example:1389"")
+  17 |     # Compliant, undeterministic password is used to bind the connection
+  18 |     connect.simple_bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  19 |     connect.simple_bind_s(""cn=root"", password)
+  20 |     connect.bind_s(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  21 |     connect.bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+     ^ Col 0
+",python.python_unsafe_ldap_connections
+320. Insecure service configuration - LDAP,CWE-90,LDAP connections should be authenticated in namespace/skims/test/data/lib_root/f320/python_unsafe_ldap.py,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/320,skims,SAST,9,"
+   1 | # pylint: skip-file
+   2 | import ldap
+   3 | import os
+   4 |
+   5 |
+   6 | def unsafe_ldap() -> None:
+   7 |     server = ldap.initialize(""ldap://example:1389"")
+   8 |     # Noncompliant: No password, or stored directly as plain text
+>  9 |     server.simple_bind(""cn=root"")
+  10 |     server.simple_bind_s(""cn=root"")
+  11 |     server.bind_s(""cn=root"", None)
+  12 |     server.bind(""cn=root"", ""1234"")
+  13 |
+  14 |
+  15 | def safe_ldap(password: str) -> None:
+  16 |     connect = ldap.initialize(""ldap://example:1389"")
+  17 |     # Compliant, undeterministic password is used to bind the connection
+  18 |     connect.simple_bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  19 |     connect.simple_bind_s(""cn=root"", password)
+  20 |     connect.bind_s(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+  21 |     connect.bind(""cn=root"", os.environ.get(""LDAP_PASSWORD""))
+     ^ Col 0
+",python.python_unsafe_ldap_connections
+Summary: 6 vulnerabilities were found in your targets.

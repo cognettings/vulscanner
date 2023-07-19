@@ -1,0 +1,50 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+007. Cross-site request forgery,CWE-352,Disabling of protection mechanism against CSRF attacks in namespace/skims/test/data/lib_root/f007/java_csrf_protections_disabled.java,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:X/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/007,skims,SAST,11,"
+   1 | import java.net.URI;
+   2 | import java.net.URISyntaxException;
+   3 | import java.util.Map;
+   4 | import java.util.Properties;
+   5 | import java.time.Duration;
+   6 |
+   7 | public class MainApplication implements CommandLineRunner {
+   8 |
+   9 |     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
+  10 |         http.csrf().ignoringAntMatchers(""/route/"");
+> 11 |         http.csrf().disable()
+  12 |             .headers(headerCustomizer -> {
+  13 |                 headerCustomizer.xssProtection().disable();
+  14 |                 headerCustomizer.contentSecurityPolicy(""frame-ancestors 'none'"");
+  15 |                 headerCustomizer.hsts()
+  16 |                     .includeSubdomains(true)
+  17 |                     .maxAge(Duration.ofDays(365));
+  18 |             });
+  19 |         return http.build();
+  20 |     }
+  21 | }
+     ^ Col 0
+",java.csrf_protections_disabled
+007. Cross-site request forgery,CWE-352,Disabling of protection mechanism against CSRF attacks in namespace/skims/test/data/lib_root/f007/java_csrf_protections_disabled.java,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:X/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/007,skims,SAST,10,"
+   1 | import java.net.URI;
+   2 | import java.net.URISyntaxException;
+   3 | import java.util.Map;
+   4 | import java.util.Properties;
+   5 | import java.time.Duration;
+   6 |
+   7 | public class MainApplication implements CommandLineRunner {
+   8 |
+   9 |     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
+> 10 |         http.csrf().ignoringAntMatchers(""/route/"");
+  11 |         http.csrf().disable()
+  12 |             .headers(headerCustomizer -> {
+  13 |                 headerCustomizer.xssProtection().disable();
+  14 |                 headerCustomizer.contentSecurityPolicy(""frame-ancestors 'none'"");
+  15 |                 headerCustomizer.hsts()
+  16 |                     .includeSubdomains(true)
+  17 |                     .maxAge(Duration.ofDays(365));
+  18 |             });
+  19 |         return http.build();
+  20 |     }
+  21 | }
+     ^ Col 0
+",java.csrf_protections_disabled
+Summary: 2 vulnerabilities were found in your targets.

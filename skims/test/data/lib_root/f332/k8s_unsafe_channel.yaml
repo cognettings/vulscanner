@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+spec:
+  selector:
+    app: testproject
+  serviceAccountName: account-name
+  containers:
+    - name: unsafe-container
+      readinessProbe:
+        httpGet:
+          scheme: HTTP
+          port: 200
+    - name: safe-container
+      startupProbe:
+        httpGet:
+          scheme: HTTPS
+          port: 80

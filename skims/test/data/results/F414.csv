@@ -1,0 +1,16 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+414. Insecure service configuration - Header Checking,CWE-644,"The property EnableHeaderChecking set as false disabled the encoding of the carriage return and newline characters, \r and \n, that are found in response headers. in namespace/skims/test/data/lib_root/f414/c_sharp_disabled_http_header_check.cs",CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/414,skims,SAST,9,"
+   1 |
+   2 | iguration;
+   3 |
+   4 |
+   5 |
+   6 | ethod()
+   7 |
+   8 | ction httpRuntimeSection = new HttpRuntimeSection();
+>  9 | ction.EnableHeaderChecking = false;
+  10 |
+  11 |
+     ^ Col 21
+",c_sharp.csharp_disabled_http_header_check
+Summary: 1 vulnerabilities were found in your targets.

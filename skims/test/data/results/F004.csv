@@ -1,0 +1,248 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/c_sharp_remote_command_1.cs",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,13,"
+   1 | using System.Diagnostics;
+   2 |
+   3 | namespace Application
+   4 | {
+   5 |     public class Executor
+   6 |     {
+   7 |
+   8 |         public bool Execute(HttpRequest req)
+   9 |         {
+  10 |             string command = req.QueryString[""command""];
+  11 |             var p = Diagnostics.Process.Start(command);
+  12 |             var executor = new Executor();
+> 13 |             var result = executor.Execute(command);
+  14 |         }
+  15 |     }
+  16 | }
+     ^ Col 0
+",c_sharp.c_sharp_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/c_sharp_remote_command_1.cs",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,11,"
+   1 | using System.Diagnostics;
+   2 |
+   3 | namespace Application
+   4 | {
+   5 |     public class Executor
+   6 |     {
+   7 |
+   8 |         public bool Execute(HttpRequest req)
+   9 |         {
+  10 |             string command = req.QueryString[""command""];
+> 11 |             var p = Diagnostics.Process.Start(command);
+  12 |             var executor = new Executor();
+  13 |             var result = executor.Execute(command);
+  14 |         }
+  15 |     }
+  16 | }
+     ^ Col 0
+",c_sharp.c_sharp_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/c_sharp_remote_command_2.cs",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,12,"
+   1 | using System.Diagnostics;
+   2 | using Microsoft.AspNetCore.Mvc;
+   3 |
+   4 | namespace Testcase
+   5 | {
+   6 |     public class Testclass : Controller
+   7 |     {
+   8 |         public UnsafeProcess Run(HttpRequest query)
+   9 |         {
+  10 |             Process p = new Process();
+  11 |             data = query.ReadLine();
+> 12 |             p.Start(data);
+  13 |         }
+  14 |     }
+  15 | }
+     ^ Col 0
+",c_sharp.c_sharp_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/java_remote_command.java",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,10,"
+   1 | import java.io.IOException;
+   2 | import javax.servlet.http.HttpServletRequest;
+   3 |
+   4 | public class Test1 {
+   5 |
+   6 |   public void runUnsafe(HttpServletRequest request) {
+   7 |     param = request.getHeader(""someheader"");
+   8 |     ProcessBuilder pb = new ProcessBuilder();
+   9 |     pb.command(param);
+> 10 |     Process p = pb.start();
+  11 |
+  12 |   }
+  13 | }
+  14 |
+  15 | public class Test2 {
+  16 |
+  17 |  public void doPost(HttpServletRequest request) {
+  18 |
+  19 |   String param = """";
+  20 |   java.util.Enumeration<String> headers = request.getHeaders(""BenchmarkTest00017"");
+  21 |   param = headers.nextElement();
+     ^ Col 0
+",java.java_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/java_remote_command.java",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,24,"
+   7 |     param = request.getHeader(""someheader"");
+   8 |     ProcessBuilder pb = new ProcessBuilder();
+   9 |     pb.command(param);
+  10 |     Process p = pb.start();
+  11 |
+  12 |   }
+  13 | }
+  14 |
+  15 | public class Test2 {
+  16 |
+  17 |  public void doPost(HttpServletRequest request) {
+  18 |
+  19 |   String param = """";
+  20 |   java.util.Enumeration<String> headers = request.getHeaders(""BenchmarkTest00017"");
+  21 |   param = headers.nextElement();
+  22 |   param = java.net.URLDecoder.decode(param, ""UTF-8"");
+  23 |   Runtime r = Runtime.getRuntime();
+> 24 |     Process p = r.exec(param);
+  25 |  }
+  26 |
+  27 | }
+     ^ Col 0
+",java.java_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/js_remote_command.js",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,6,"
+   1 | import { Router } from ""express"";
+   2 | var router = Router();
+   3 |
+   4 | router.get(""test"", function (req, res) {
+   5 |   var user = req.params[""user""];
+>  6 |   exec(""ls target/user_files/"" + user + ""/"", (error, stdout, stderr) => {
+   7 |     res.json(data);
+   8 |   });
+   9 | });
+  10 |
+  11 | export default router;
+     ^ Col 0
+",javascript.javascript_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/kotlin_remote_command_execution.kt",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,8,"
+   1 | import java.io.IOException
+   2 | import javax.servlet.http.HttpServletRequest
+   3 |
+   4 | class CookieController {
+   5 |     fun unsafe(request: HttpServletRequest) {
+   6 |         var input: String = request.getParameter(""input"") ?: """"
+   7 |         var process = Runtime.getRuntime()
+>  8 |         var execution = process.exec("" ls ${input}"", null, null)
+   9 |         process.waitFor()
+  10 |     }
+  11 |
+  12 |     fun safe(request: HttpServletRequest) {
+  13 |         var inputArray = request.getParameterValues(""input"") ?: emptyArray()
+  14 |         var validatedInput: String = inputArray.filter(matches(Regex())).joinToString("" "")
+  15 |         var process = ProcessBuilder(""ls"", validatedInput).start()
+  16 |         process.waitFor()
+  17 |     }
+  18 | }
+     ^ Col 0
+",kotlin.kt_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/python_remote_command.py",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,14,"
+   4 | )
+   5 | import os
+   6 | import shlex
+   7 | import subprocess
+   8 |
+   9 |
+  10 | def unsafe_command() -> None:
+  11 |     address = request.args.get(""address"")
+  12 |     cmd = ""ping -c 1 %s"" % address
+  13 |     # Noncompliant
+> 14 |     os.popen(cmd)
+  15 |     # Noncompliant; using shell=true is unsafe
+  16 |     subprocess.Popen(cmd, shell=True)
+  17 |
+  18 |
+  19 | def safe_command(param: str) -> None:
+  20 |     # Escape distinguished names special characters
+  21 |     address = shlex.quote(request.args[""address""])
+  22 |     cmd = ""ping -c 1 %s"" % address
+  23 |     # Compliant: Escaped user params
+  24 |     os.popen(cmd)
+     ^ Col 0
+",python.python_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/python_remote_command.py",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,16,"
+   6 | import shlex
+   7 | import subprocess
+   8 |
+   9 |
+  10 | def unsafe_command() -> None:
+  11 |     address = request.args.get(""address"")
+  12 |     cmd = ""ping -c 1 %s"" % address
+  13 |     # Noncompliant
+  14 |     os.popen(cmd)
+  15 |     # Noncompliant; using shell=true is unsafe
+> 16 |     subprocess.Popen(cmd, shell=True)
+  17 |
+  18 |
+  19 | def safe_command(param: str) -> None:
+  20 |     # Escape distinguished names special characters
+  21 |     address = shlex.quote(request.args[""address""])
+  22 |     cmd = ""ping -c 1 %s"" % address
+  23 |     # Compliant: Escaped user params
+  24 |     os.popen(cmd)
+  25 |     # Compliant: Do not execute user params
+  26 |     os.popen(param)
+     ^ Col 0
+",python.python_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/ts_remote_command.ts",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,8,"
+   1 | iant
+   2 |
+   3 | a = require('execa');
+   4 |
+   5 | tion injection_args(req, res) {
+   6 | d = ""ls -la ""+req.query.arg;
+   7 |
+>  8 | tdout} = await execa.command(cmd);
+   9 |
+  10 |
+  11 |  require('child_process');
+  12 |
+  13 | uln_injection_command(req, res) {
+  14 | d = 'ls '+req.query.arg;
+  15 |
+  16 | t = cp.execSync(cmd);
+  17 |
+  18 |
+  19 | t
+  20 |
+  21 | ec_injection_command(req, res) {
+     ^ Col 10
+",typescript.typescript_remote_command_execution
+004. Remote command execution,CWE-78,"The system builds system commands using inputs that can be manipulated externally, it does not properly override special elements that could modify the system command.
+ in namespace/skims/test/data/lib_root/f004/ts_remote_command.ts",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:P/RL:T/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/004,skims,SAST,16,"
+   6 |   const cmd = ""ls -la ""+req.query.arg;
+   7 |
+   8 |   const {stdout} = await execa.command(cmd);
+   9 | }
+  10 |
+  11 | const cp = require('child_process');
+  12 |
+  13 | function vuln_injection_command(req, res) {
+  14 |   const cmd = 'ls '+req.query.arg;
+  15 |
+> 16 |   const out = cp.execSync(cmd);
+  17 | }
+  18 |
+  19 | //Compliant
+  20 |
+  21 | function sec_injection_command(req, res) {
+  22 |   const out = cp.execFileSync(""ls"", [req.query.arg]); // Compliant
+  23 | }
+  24 |
+  25 |
+  26 | async function sec_injection_args(req, res) {
+     ^ Col 0
+",typescript.typescript_remote_command_execution
+Summary: 11 vulnerabilities were found in your targets.

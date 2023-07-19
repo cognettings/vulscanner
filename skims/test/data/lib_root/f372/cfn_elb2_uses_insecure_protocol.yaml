@@ -1,0 +1,37 @@
+---
+Resources:
+  UnsafeGroup1:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckEnabled: false
+      Name: MyTargets
+      Protocol: HTTP
+      TargetType: ip
+      Targets:
+        - Id: [MyLambdaFunction, Arn]
+  UnsafeGroup2:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckEnabled: false
+      Name: MyTargets
+      Protocol: HTTP
+      Targets:
+        - Id: [MyLambdaFunction, Arn]
+  SafeGroup1:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckEnabled: false
+      Name: MyTargets
+      Protocol: HTTPS
+      TargetType: ip
+      Targets:
+        - Id: [MyLambdaFunction, Arn]
+  SafeGroup2:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckEnabled: false
+      Name: MyTargets
+      Protocol: HTTP
+      TargetType: lambda
+      Targets:
+        - Id: [MyLambdaFunction, Arn]

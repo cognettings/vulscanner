@@ -1,0 +1,13 @@
+service: my-service
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage,'dev'}
+  region: ${opt:region, 'us-east-1'}
+  timeout: 500
+  memorySize: 512
+  deploymentBucket:
+    name: mybucket
+  environment:
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+    CIPHER_DEF: "ECDHE_ECDSA"

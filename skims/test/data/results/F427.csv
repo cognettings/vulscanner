@@ -1,0 +1,50 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+427. Use of an insecure channel - Docker,CWE-319,"Port 21 is exposed, which is insecure and could lead to more complex attacks such as information leaking and enumeration. in namespace/skims/test/data/lib_path/f427/docker_port_exposed/Dockerfile",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/427,skims,SAST,26,"
+   6 | RUN npm i
+   7 | COPY --chown=node:node . .
+   8 | USER node
+   9 |
+  10 | EXPOSE 22
+  11 |
+  12 | WORKDIR /usr/src/app
+  13 | COPY --chown=node:node package*.json ./
+  14 | COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
+  15 | COPY --chown=node:node . .
+  16 |
+  17 | RUN npm run build
+  18 |
+  19 | ENV NODE_ENV production
+  20 |
+  21 | RUN npm i --only=production && npm cache clean --force
+  22 | USER node
+  23 |
+  24 | EXPOSE 8081 53
+  25 |
+> 26 | EXPOSE 21/tcp
+     ^ Col 0
+",docker.docker_port_exposed
+427. Use of an insecure channel - Docker,CWE-319,"Port 53 is exposed, which is insecure and could lead to more complex attacks such as information leaking and enumeration. in namespace/skims/test/data/lib_path/f427/docker_port_exposed/Dockerfile",CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/427,skims,SAST,24,"
+   6 | RUN npm i
+   7 | COPY --chown=node:node . .
+   8 | USER node
+   9 |
+  10 | EXPOSE 22
+  11 |
+  12 | WORKDIR /usr/src/app
+  13 | COPY --chown=node:node package*.json ./
+  14 | COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
+  15 | COPY --chown=node:node . .
+  16 |
+  17 | RUN npm run build
+  18 |
+  19 | ENV NODE_ENV production
+  20 |
+  21 | RUN npm i --only=production && npm cache clean --force
+  22 | USER node
+  23 |
+> 24 | EXPOSE 8081 53
+  25 |
+  26 | EXPOSE 21/tcp
+     ^ Col 0
+",docker.docker_port_exposed
+Summary: 2 vulnerabilities were found in your targets.

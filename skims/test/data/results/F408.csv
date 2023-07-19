@@ -1,0 +1,58 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+408. Traceability Loss - API Gateway,CWE-778,Property AccessLogSetting is either missing or misconfigured in namespace/skims/test/data/lib_root/f408/cfn_api_gateway_access_logging_disabled.yaml,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/408,skims,SAST,16,"
+   1 | ---
+   2 | Resources:
+   3 |   Prod:
+   4 |     Type: AWS::ApiGateway::Stage
+   5 |     Properties:
+   6 |       AccessLogSetting:
+   7 |         DestinationArn: String
+   8 |         Format: String
+   9 |       StageName: Prod
+  10 |       Description: Prod Stage
+  11 |       RestApiId: MyRestApi
+  12 |       Variables:
+  13 |         Stack: Prod
+  14 |   Dev:
+  15 |     Type: AWS::ApiGateway::Stage
+> 16 |     Properties:
+  17 |       StageName: Dev
+  18 |       Description: Prod Stage
+  19 |       RestApiId: MyRestApi
+  20 |       Variables:
+  21 |         Stack: Prod
+     ^ Col 0
+",cloudformation.cfn_api_gateway_access_logging_disabled
+408. Traceability Loss - API Gateway,CWE-778,Property AccessLogSetting is either missing or misconfigured in namespace/skims/test/data/lib_root/f408/cfn_api_gateway_access_logging_disabled.yaml.json,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/408,skims,SAST,20,"
+  10 |         ""StageName"": ""Prod"",
+  11 |         ""Description"": ""Prod Stage"",
+  12 |         ""RestApiId"": ""MyRestApi"",
+  13 |         ""Variables"": {
+  14 |           ""Stack"": ""Prod""
+  15 |         }
+  16 |       }
+  17 |     },
+  18 |     ""Dev"": {
+  19 |       ""Type"": ""AWS::ApiGateway::Stage"",
+> 20 |       ""Properties"": {
+  21 |         ""StageName"": ""Dev"",
+  22 |         ""Description"": ""Prod Stage"",
+  23 |         ""RestApiId"": ""MyRestApi"",
+  24 |         ""Variables"": {
+  25 |           ""Stack"": ""Prod""
+  26 |         }
+  27 |       }
+  28 |     }
+  29 |   }
+  30 | }
+     ^ Col 0
+",cloudformation.cfn_api_gateway_access_logging_disabled
+408. Traceability Loss - API Gateway,CWE-778,Property access_log_settings is either missing or misconfigured in namespace/skims/test/data/lib_root/f408/tfm_api_gateway_access_logging_disabled.tf,CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/408,skims,SAST,1,"
+> 1 | resource ""aws_api_gateway_stage"" ""example"" {
+  2 |   deployment_id = aws_api_gateway_deployment.example.id
+  3 |   rest_api_id   = aws_api_gateway_rest_api.example.id
+  4 |   stage_name    = ""example""
+  5 | }
+    ^ Col 0
+",terraform.tfm_api_gateway_access_logging_disabled
+Summary: 3 vulnerabilities were found in your targets.

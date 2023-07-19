@@ -1,0 +1,50 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+127. Lack of data validation - Type confusion,CWE-843,Lack of data validation - Type confusion in namespace/skims/test/data/lib_root/f127/go_query_float.go,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/127,skims,SAST,11,"
+   1 | package f127
+   2 |
+   3 | import (
+   4 |  ""dabatase/sql""
+   5 |  ""math""
+   6 |  ""strconv""
+   7 | )
+   8 |
+   9 | func Dangerous(request *http.Request) {
+  10 |  amount := strconv.ParseFloat(request.Amount)
+> 11 |  sql.QueryRow(`INSERT INTO tbl $1`, amount)
+  12 | }
+  13 |
+  14 | func Dangerous2(request *http.Request) {
+  15 |  amount = strconv.ParseFloat(request.Amount)
+  16 |  sql.Exec(`INSERT INTO tbl $1, $2, $3`, amount)
+  17 | }
+  18 |
+  19 | func SafeMethod(request *http.Request) {
+  20 |  amount := strconv.ParseFloat(request.Amount)
+  21 |  if math.IsNaN(amount) || math.IsInf(amount, 0) {
+     ^ Col 0
+",go.go_insecure_query_float
+127. Lack of data validation - Type confusion,CWE-843,Lack of data validation - Type confusion in namespace/skims/test/data/lib_root/f127/go_query_float.go,CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L/E:U/RL:X/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/127,skims,SAST,16,"
+   5 |  ""math""
+   6 |  ""strconv""
+   7 | )
+   8 |
+   9 | func Dangerous(request *http.Request) {
+  10 |  amount := strconv.ParseFloat(request.Amount)
+  11 |  sql.QueryRow(`INSERT INTO tbl $1`, amount)
+  12 | }
+  13 |
+  14 | func Dangerous2(request *http.Request) {
+  15 |  amount = strconv.ParseFloat(request.Amount)
+> 16 |  sql.Exec(`INSERT INTO tbl $1, $2, $3`, amount)
+  17 | }
+  18 |
+  19 | func SafeMethod(request *http.Request) {
+  20 |  amount := strconv.ParseFloat(request.Amount)
+  21 |  if math.IsNaN(amount) || math.IsInf(amount, 0) {
+  22 |   return ""Not a valid value""
+  23 |  }
+  24 |  sql.QueryCol(`INSERT INTO tbl $1`, amount)
+  25 | }
+     ^ Col 0
+",go.go_insecure_query_float
+Summary: 2 vulnerabilities were found in your targets.

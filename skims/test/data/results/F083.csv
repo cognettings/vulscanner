@@ -1,0 +1,269 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/java_saxxmk_parser.java",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,12,"
+   2 | import javax.xml.parsers.DocumentBuilderFactory;
+   3 | import javax.xml.parsers.SAXParserFactory;
+   4 | import javax.xml.parsers.SAXParser;
+   5 |
+   6 | public class Test {
+   7 |
+   8 |     public String sAXParserVuln(HttpServletRequest request) {
+   9 |         String body = WebUtils.getRequestBody(request);
+  10 |         SAXParserFactory spf = SAXParserFactory.newInstance();
+  11 |         SAXParser parser = spf.newSAXParser();
+> 12 |         parser.parse(body);  // parse xml
+  13 |     }
+  14 |
+  15 |     public String sAXParserSec(HttpServletRequest request) {
+  16 |         String body = WebUtils.getRequestBody(request);
+  17 |         SAXParserFactory spf = SAXParserFactory.newInstance();
+  18 |         spf.setFeature(""http://apache.org/xml/features/disallow-doctype-decl"", true);
+  19 |         spf.setFeature(""http://xml.org/sax/features/external-general-entities"", false);
+  20 |         spf.setFeature(""http://xml.org/sax/features/external-parameter-entities"", false);
+  21 |         SAXParser parser = spf.newSAXParser();
+  22 |         parser.parse(body);  // parse xml
+     ^ Col 0
+",java.java_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/java_saxxmk_parser.java",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,28,"
+  18 |         spf.setFeature(""http://apache.org/xml/features/disallow-doctype-decl"", true);
+  19 |         spf.setFeature(""http://xml.org/sax/features/external-general-entities"", false);
+  20 |         spf.setFeature(""http://xml.org/sax/features/external-parameter-entities"", false);
+  21 |         SAXParser parser = spf.newSAXParser();
+  22 |         parser.parse(body);  // parse xml
+  23 |     }
+  24 |
+  25 |     public String xmlReaderVuln(HttpServletRequest request) {
+  26 |         String body = WebUtils.getRequestBody(request);
+  27 |         XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+> 28 |         xmlReader.parse(body);  // parse xml
+  29 |     }
+  30 |
+  31 |     public String xMLReaderSec(HttpServletRequest request) {
+  32 |         String body = WebUtils.getRequestBody(request);
+  33 |         XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+  34 |         xmlReader.setFeature(""http://apache.org/xml/features/disallow-doctype-decl"", true);
+  35 |         xmlReader.setFeature(""http://xml.org/sax/features/external-general-entities"", false);
+  36 |         xmlReader.setFeature(""http://xml.org/sax/features/external-parameter-entities"", false);
+  37 |         xmlReader.parse(body);
+  38 |     }
+     ^ Col 0
+",java.java_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/java_saxxmk_parser.java",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,44,"
+  34 |         xmlReader.setFeature(""http://apache.org/xml/features/disallow-doctype-decl"", true);
+  35 |         xmlReader.setFeature(""http://xml.org/sax/features/external-general-entities"", false);
+  36 |         xmlReader.setFeature(""http://xml.org/sax/features/external-parameter-entities"", false);
+  37 |         xmlReader.parse(body);
+  38 |     }
+  39 |
+  40 |     public String documentBuilderVuln(HttpServletRequest request) {
+  41 |         String body = WebUtils.getRequestBody(request);
+  42 |         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+  43 |         DocumentBuilder db = dbf.newDocumentBuilder();
+> 44 |         db.parse(body);  // parse xml
+  45 |     }
+  46 |
+  47 |     public String documentBuilderSec(HttpServletRequest request) {
+  48 |         String body = WebUtils.getRequestBody(request);
+  49 |         DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
+  50 |         df.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, """");
+  51 |         df.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, """");
+  52 |         DocumentBuilder db = df.newDocumentBuilder();
+  53 |         db.parse(body);  // parse xml
+  54 |     }
+     ^ Col 0
+",java.java_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/js_xml_parser_injection.js",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,12,"
+   2 | const fs = require(""fs"");
+   3 |
+   4 | function xml_parser_vuln() {
+   5 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+   6 |
+   7 |   const config = {
+   8 |     noblanks: true,
+   9 |     noent: true,
+  10 |     nocdata: true,
+  11 |   };
+> 12 |   const xmlDoc = libxmljs.parseXmlString(xml, config); // Noncompliant: noent set to true
+  13 |
+  14 |   const xmlGoodDoc = libxmljs.parseXmlString(xml); // Compliant: noent set to false by default
+  15 | }
+  16 |
+  17 | function xml_parser_fail() {
+  18 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+  19 |
+  20 |   const xmlDoc = libxmljs.parseXmlString(xml, {
+  21 |     noblanks: true,
+  22 |     noent: true,
+     ^ Col 0
+",javascript.js_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/js_xml_parser_injection.js",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,20,"
+  10 |     nocdata: true,
+  11 |   };
+  12 |   const xmlDoc = libxmljs.parseXmlString(xml, config); // Noncompliant: noent set to true
+  13 |
+  14 |   const xmlGoodDoc = libxmljs.parseXmlString(xml); // Compliant: noent set to false by default
+  15 | }
+  16 |
+  17 | function xml_parser_fail() {
+  18 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+  19 |
+> 20 |   const xmlDoc = libxmljs.parseXmlString(xml, {
+  21 |     noblanks: true,
+  22 |     noent: true,
+  23 |     nocdata: true,
+  24 |   });
+  25 | }
+  26 |
+  27 | function xml_parser_good() {
+  28 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+  29 |
+  30 |   const xmlGoodDoc = libxmljs.parseXmlString(xml); // Compliant: noent set to false by default
+     ^ Col 0
+",javascript.js_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/kotlin_xml_parsers.kt",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,35,"
+   25 |     private val EXCEPT = ""xxe except""
+   26 |
+   27 |     @RequestMapping(value = [""/SAXParser/vuln""], method = [RequestMethod.POST])
+   28 |     fun SAXParserVuln(request: HttpServletRequest): String {
+   29 |         try {
+   30 |             val body = WebUtils.getRequestBody(request)
+   31 |             logger.info(body)
+   32 |             // ruleid:owasp.java.xxe.javax.xml.parsers.SAXParserFactory
+   33 |             val spf = SAXParserFactory.newInstance()
+   34 |             val parser = spf.newSAXParser()
+>  35 |             parser.parse(InputSource(StringReader(body)), DefaultHandler())  // parse xml
+   36 |             return ""SAXParser xxe vuln code""
+   37 |         } catch (e: Exception) {
+   38 |             logger.error(e.toString())
+   39 |             return EXCEPT
+   40 |         }
+   41 |     }
+   42 |
+   43 |
+   44 |     @RequestMapping(value = [""/SAXParser/sec""], method = [RequestMethod.POST])
+   45 |     fun SAXParserSec(request: HttpServletRequest) {
+      ^ Col 0
+",java.java_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/kotlin_xml_parsers.kt",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:P/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,69,"
+   59 |         return ""SAXParser xxe security code""
+   60 |     }
+   61 |
+   62 |     @PostMapping(""/xmlReader/vuln"")
+   63 |     fun xmlReaderVuln(request: HttpServletRequest): String {
+   64 |         try {
+   65 |             val body = WebUtils.getRequestBody(request)
+   66 |             logger.info(body)
+   67 |             // ruleid:owasp.java.xxe.org.xml.sax.XMLReader
+   68 |             val xmlReader: XMLReader = XMLReaderFactory.createXMLReader()
+>  69 |             xmlReader.parse(InputSource(StringReader(body)))  // parse xml
+   70 |             return ""xmlReader xxe vuln code""
+   71 |         } catch (e: Exception) {
+   72 |             logger.error(e.toString())
+   73 |             return EXCEPT
+   74 |         }
+   75 |     }
+   76 |
+   77 |
+   78 |     @PostMapping(""/XMLReader/sec"")
+   79 |     fun XMLReaderSec(request: HttpServletRequest): String {
+      ^ Col 0
+",java.java_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/python_xml_parser_inj.py",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,12,"
+   1 | # pylint: skip-file
+   2 | from lxml import (
+   3 |     etree,
+   4 | )
+   5 |
+   6 | CONFIG_VAL = True
+   7 |
+   8 |
+   9 | def main_unsafe() -> None:
+  10 |     # Noncompliant: by default resolve_entities is set to true
+  11 |     etree.XMLParser()
+> 12 |     etree.XMLParser(resolve_entities=CONFIG_VAL)
+  13 |
+  14 |
+  15 | def main_safe() -> None:
+  16 |     config_val = False
+  17 |     etree.XMLParser(resolve_entities=config_val)  # Compliant
+     ^ Col 0
+",python.python_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/python_xml_parser_inj.py",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,11,"
+   1 | # pylint: skip-file
+   2 | from lxml import (
+   3 |     etree,
+   4 | )
+   5 |
+   6 | CONFIG_VAL = True
+   7 |
+   8 |
+   9 | def main_unsafe() -> None:
+  10 |     # Noncompliant: by default resolve_entities is set to true
+> 11 |     etree.XMLParser()
+  12 |     etree.XMLParser(resolve_entities=CONFIG_VAL)
+  13 |
+  14 |
+  15 | def main_safe() -> None:
+  16 |     config_val = False
+  17 |     etree.XMLParser(resolve_entities=config_val)  # Compliant
+     ^ Col 0
+",python.python_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/ts_xml_parser_injection.ts",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,14,"
+   4 | const fs = require(""fs"");
+   5 |
+   6 | function xml_parser_vuln() {
+   7 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+   8 |
+   9 |   const config = {
+  10 |     noblanks: true,
+  11 |     noent: true,
+  12 |     nocdata: true,
+  13 |   };
+> 14 |   const xmlDoc = libxmljs.parseXmlString(xml, config); // Noncompliant: noent set to true
+  15 |
+  16 |   const xmlGoodDoc = libxmljs.parseXmlString(xml); // Compliant: noent set to false by default
+  17 | }
+  18 |
+  19 | function xml_parser_fail() {
+  20 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+  21 |
+  22 |   const xmlDoc = libxmljs.parseXmlString(xml, {
+  23 |     noblanks: true,
+  24 |     noent: true,
+     ^ Col 0
+",typescript.ts_xml_parser
+083. XML injection (XXE),CWE-611,"Access to external entities in XML parsing is enabled.
+ in namespace/skims/test/data/lib_root/f083/ts_xml_parser_injection.ts",CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L/E:U/RL:O/RC:X,https://docs.fluidattacks.com/criteria/vulnerabilities/083,skims,SAST,22,"
+  12 |     nocdata: true,
+  13 |   };
+  14 |   const xmlDoc = libxmljs.parseXmlString(xml, config); // Noncompliant: noent set to true
+  15 |
+  16 |   const xmlGoodDoc = libxmljs.parseXmlString(xml); // Compliant: noent set to false by default
+  17 | }
+  18 |
+  19 | function xml_parser_fail() {
+  20 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+  21 |
+> 22 |   const xmlDoc = libxmljs.parseXmlString(xml, {
+  23 |     noblanks: true,
+  24 |     noent: true,
+  25 |     nocdata: true,
+  26 |   });
+  27 | }
+  28 |
+  29 | function xml_parser_good() {
+  30 |   const xml = fs.readFileSync(""xxe.xml"", ""utf8"");
+  31 |
+  32 |   const xmlGoodDoc = libxmljs.parseXmlString(xml); // Compliant: noent set to false by default
+     ^ Col 0
+",typescript.ts_xml_parser
+Summary: 11 vulnerabilities were found in your targets.

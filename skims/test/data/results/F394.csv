@@ -1,0 +1,142 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+394. Insufficient data authenticity validation - Cloudtrail Logs,CWE-117,The EnableLogFileValidation property is not enabled in namespace/skims/test/data/lib_root/f394/cfn_log_files_not_validated.yaml,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/394,skims,SAST,17,"
+   1 | ---
+   2 | Resources:
+   3 |   trail1:
+   4 |     Type: AWS::CloudTrail::Trail
+   5 |     Properties:
+   6 |       IsLogging: true
+   7 |       S3BucketName: bk1
+   8 |       EnableLogFileValidation: true
+   9 |   trail2:
+  10 |     Type: AWS::CloudTrail::Trail
+  11 |     Properties:
+  12 |       IsLogging: true
+  13 |       S3BucketName: bk2
+  14 |       EnableLogFileValidation: false
+  15 |   trail3:
+  16 |     Type: AWS::CloudTrail::Trail
+> 17 |     Properties:
+  18 |       IsLogging: true
+  19 |       S3BucketName: bk3
+     ^ Col 0
+",cloudformation.cfn_log_files_not_validated
+394. Insufficient data authenticity validation - Cloudtrail Logs,CWE-117,The EnableLogFileValidation property is not enabled in namespace/skims/test/data/lib_root/f394/cfn_log_files_not_validated.yaml,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/394,skims,SAST,14,"
+   1 | ---
+   2 | Resources:
+   3 |   trail1:
+   4 |     Type: AWS::CloudTrail::Trail
+   5 |     Properties:
+   6 |       IsLogging: true
+   7 |       S3BucketName: bk1
+   8 |       EnableLogFileValidation: true
+   9 |   trail2:
+  10 |     Type: AWS::CloudTrail::Trail
+  11 |     Properties:
+  12 |       IsLogging: true
+  13 |       S3BucketName: bk2
+> 14 |       EnableLogFileValidation: false
+  15 |   trail3:
+  16 |     Type: AWS::CloudTrail::Trail
+  17 |     Properties:
+  18 |       IsLogging: true
+  19 |       S3BucketName: bk3
+     ^ Col 0
+",cloudformation.cfn_log_files_not_validated
+394. Insufficient data authenticity validation - Cloudtrail Logs,CWE-117,The EnableLogFileValidation property is not enabled in namespace/skims/test/data/lib_root/f394/cfn_log_files_not_validated.yaml.json,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/394,skims,SAST,16,"
+   6 |         ""IsLogging"": true,
+   7 |         ""S3BucketName"": ""bk1"",
+   8 |         ""EnableLogFileValidation"": true
+   9 |       }
+  10 |     },
+  11 |     ""trail2"": {
+  12 |       ""Type"": ""AWS::CloudTrail::Trail"",
+  13 |       ""Properties"": {
+  14 |         ""IsLogging"": true,
+  15 |         ""S3BucketName"": ""bk2"",
+> 16 |         ""EnableLogFileValidation"": false
+  17 |       }
+  18 |     },
+  19 |     ""trail3"": {
+  20 |       ""Type"": ""AWS::CloudTrail::Trail"",
+  21 |       ""Properties"": {
+  22 |         ""IsLogging"": true,
+  23 |         ""S3BucketName"": ""bk3""
+  24 |       }
+  25 |     }
+  26 |   }
+     ^ Col 0
+",cloudformation.cfn_log_files_not_validated
+394. Insufficient data authenticity validation - Cloudtrail Logs,CWE-117,The EnableLogFileValidation property is not enabled in namespace/skims/test/data/lib_root/f394/cfn_log_files_not_validated.yaml.json,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/394,skims,SAST,21,"
+   7 |         ""S3BucketName"": ""bk1"",
+   8 |         ""EnableLogFileValidation"": true
+   9 |       }
+  10 |     },
+  11 |     ""trail2"": {
+  12 |       ""Type"": ""AWS::CloudTrail::Trail"",
+  13 |       ""Properties"": {
+  14 |         ""IsLogging"": true,
+  15 |         ""S3BucketName"": ""bk2"",
+  16 |         ""EnableLogFileValidation"": false
+  17 |       }
+  18 |     },
+  19 |     ""trail3"": {
+  20 |       ""Type"": ""AWS::CloudTrail::Trail"",
+> 21 |       ""Properties"": {
+  22 |         ""IsLogging"": true,
+  23 |         ""S3BucketName"": ""bk3""
+  24 |       }
+  25 |     }
+  26 |   }
+  27 | }
+     ^ Col 0
+",cloudformation.cfn_log_files_not_validated
+394. Insufficient data authenticity validation - Cloudtrail Logs,CWE-117,The enable_log_file_validation property is not enabled in namespace/skims/test/data/lib_root/f394/tfm_trail_log_files_not_validated.tf,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/394,skims,SAST,10,"
+   1 | resource ""aws_cloudtrail"" ""foobar"" {
+   2 |   enable_log_file_validation    = true
+   3 |   name                          = ""tf-trail-foobar""
+   4 |   s3_bucket_name                = aws_s3_bucket.foo.id
+   5 |   s3_key_prefix                 = ""prefix""
+   6 |   include_global_service_events = false
+   7 | }
+   8 |
+   9 | resource ""aws_cloudtrail"" ""foobar"" {
+> 10 |   enable_log_file_validation    = false
+  11 |   name                          = ""tf-trail-foobar""
+  12 |   s3_bucket_name                = aws_s3_bucket.foo.id
+  13 |   s3_key_prefix                 = ""prefix""
+  14 |   include_global_service_events = false
+  15 | }
+  16 |
+  17 | resource ""aws_cloudtrail"" ""foobar"" {
+  18 |   name                          = ""tf-trail-foobar""
+  19 |   s3_bucket_name                = aws_s3_bucket.foo.id
+  20 |   s3_key_prefix                 = ""prefix""
+  21 |   include_global_service_events = false
+     ^ Col 0
+",terraform.tfm_aws_s3_versioning_disabled
+394. Insufficient data authenticity validation - Cloudtrail Logs,CWE-117,The enable_log_file_validation property is not enabled in namespace/skims/test/data/lib_root/f394/tfm_trail_log_files_not_validated.tf,CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/394,skims,SAST,17,"
+   2 |   enable_log_file_validation    = true
+   3 |   name                          = ""tf-trail-foobar""
+   4 |   s3_bucket_name                = aws_s3_bucket.foo.id
+   5 |   s3_key_prefix                 = ""prefix""
+   6 |   include_global_service_events = false
+   7 | }
+   8 |
+   9 | resource ""aws_cloudtrail"" ""foobar"" {
+  10 |   enable_log_file_validation    = false
+  11 |   name                          = ""tf-trail-foobar""
+  12 |   s3_bucket_name                = aws_s3_bucket.foo.id
+  13 |   s3_key_prefix                 = ""prefix""
+  14 |   include_global_service_events = false
+  15 | }
+  16 |
+> 17 | resource ""aws_cloudtrail"" ""foobar"" {
+  18 |   name                          = ""tf-trail-foobar""
+  19 |   s3_bucket_name                = aws_s3_bucket.foo.id
+  20 |   s3_key_prefix                 = ""prefix""
+  21 |   include_global_service_events = false
+  22 | }
+     ^ Col 0
+",terraform.tfm_aws_s3_versioning_disabled
+Summary: 6 vulnerabilities were found in your targets.

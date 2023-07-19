@@ -1,0 +1,12 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+020. Non-encrypted confidential information,CWE-311,Cloudtrail logs should be encrypted in namespace/skims/test/data/lib_root/f020/non_encrypted_cloudtrail_logs.tf,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/020,skims,SAST,1,"
+> 1 | resource ""aws_cloudtrail"" ""test_file"" {
+  2 |   name                          = ""test-file""
+  3 |   include_global_service_events = true
+  4 |   enable_log_file_validation    = true
+  5 |   enable_logging                = true
+  6 |   is_multi_region_trail         = true
+  7 | }
+    ^ Col 0
+",terraform.tfm_cloudtrail_logs_not_encrypted
+Summary: 1 vulnerabilities were found in your targets.

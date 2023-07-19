@@ -1,0 +1,47 @@
+---
+Resources:
+  unsafeGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: groupDescription1
+      SecurityGroupIngress:
+        - CidrIp: 34.229.161.227/16
+          FromPort: 443
+          IpProtocol: tcp
+          ToPort: 443
+
+  safeGroup1:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      SecurityGroupIngress:
+        - CidrIp: 34.229.161.227/16
+          FromPort: 443
+          IpProtocol: tcp
+          ToPort: 443
+      SecurityGroupEgress:
+        - CidrIp: 34.229.161.227/16
+          FromPort: 8080
+          IpProtocol: tcp
+          ToPort: 8080
+
+  safeGroup2:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: groupDescription1
+      SecurityGroupIngress:
+        - CidrIp: 34.229.161.227/16
+          FromPort: 443
+          IpProtocol: tcp
+          ToPort: 443
+
+  EgresssafeGroup2:
+    Type: AWS::EC2::SecurityGroupEgress
+    Properties:
+      GroupId: !Ref safeGroup2
+      GroupDescription: groupDescription1
+
+  #A group without ingress or egress defined should not be marked
+  safeGroup3:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: groupDescription1

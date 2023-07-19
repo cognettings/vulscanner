@@ -1,0 +1,50 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+366. Inappropriate coding practices - Transparency Conflict,CWE-749,Members should not have conflicting transparency annotations in namespace/skims/test/data/lib_root/f366/c_sharp_transparency_conflict.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L/E:U/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/366,skims,SAST,12,"
+   2 | using System.Security;
+   3 |
+   4 | namespace MyLibrary
+   5 | {
+   6 |     // Should fail pointing to lines 12 and 19
+   7 |     [FilterOne]
+   8 |     [SecurityCritical]
+   9 |     [LastFilter]
+  10 |     public class HaveFails
+  11 |     {
+> 12 |         [SecuritySafeCritical]
+  13 |         [Fone]
+  14 |         [Hello]
+  15 |         public void FailsFirsFilter()
+  16 |         {
+  17 |         }
+  18 |
+  19 |         [SecuritySafeCritical]
+  20 |         public void MethodWhithOneFilter()
+  21 |         {
+  22 |         }
+     ^ Col 0
+",c_sharp.csharp_conflicting_annotations
+366. Inappropriate coding practices - Transparency Conflict,CWE-749,Members should not have conflicting transparency annotations in namespace/skims/test/data/lib_root/f366/c_sharp_transparency_conflict.cs,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L/E:U/RL:U/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/366,skims,SAST,19,"
+   9 |     [LastFilter]
+  10 |     public class HaveFails
+  11 |     {
+  12 |         [SecuritySafeCritical]
+  13 |         [Fone]
+  14 |         [Hello]
+  15 |         public void FailsFirsFilter()
+  16 |         {
+  17 |         }
+  18 |
+> 19 |         [SecuritySafeCritical]
+  20 |         public void MethodWhithOneFilter()
+  21 |         {
+  22 |         }
+  23 |
+  24 |         public void MethodWithoutFilters()
+  25 |         {
+  26 |         }
+  27 |
+  28 |         [FilterOne]
+  29 |         [OtherFilter]
+     ^ Col 0
+",c_sharp.csharp_conflicting_annotations
+Summary: 2 vulnerabilities were found in your targets.

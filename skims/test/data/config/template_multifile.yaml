@@ -1,0 +1,16 @@
+---
+language: EN
+namespace: namespace
+multifile: true
+output:
+  file_path: skims/test/outputs/multifile/{FINDING}.csv
+  format: CSV
+checks:
+  - {FINDING}
+dast:
+  aws_credentials:
+    - access_key_id: "000f"
+      secret_access_key: "000f"
+sast:
+  include:
+    - skims/test/data/lib_root/multifile/{FINDING_LOWER}

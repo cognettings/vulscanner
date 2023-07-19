@@ -1,0 +1,15 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+164. Insecure service configuration,CWE-16,"Ssl port was not configured properly, so the server will use a randomly available port to establish the connection. in namespace/skims/test/data/lib_root/f164/json_ssl_port_missing.json",CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N/E:U/RL:O/RC:R,https://docs.fluidattacks.com/criteria/vulnerabilities/164,skims,SAST,7,"
+   1 | {
+   2 |     ""iisSettings"": {
+   3 |         ""windowsAuthentication"": false,
+   4 |         ""anonymousAuthentication"": false,
+   5 |         ""iisExpress"": {
+   6 |             ""applicationUrl"": ""http://localhost:7287"",
+>  7 |             ""sslPort"": 0
+   8 |         }
+   9 |     }
+  10 | }
+     ^ Col 0
+",conf_files.json_ssl_port_missing
+Summary: 1 vulnerabilities were found in your targets.

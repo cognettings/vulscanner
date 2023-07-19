@@ -1,0 +1,20 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+149. Use of an insecure channel - SMTP,CWE-319,Ensure network tag has its enableSsl attribute set to true to avoid the transmission of not encrypted data. in namespace/skims/test/data/lib_path/f149/webVuln.config,CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N/E:P/RL:U/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/149,skims,SAST,5,"
+   1 | <configuration>
+   2 |   <system.net>
+   3 |     <mailSettings>
+   4 |       <smtp deliveryMethod=""Network"">
+>  5 |         <network
+   6 |           clientDomain=""test.com""
+   7 |           defaultCredentials=""true""
+   8 |           enableSsl=""false""
+   9 |           host=""mail.test.com""
+  10 |           port=""25""
+  11 |         />
+  12 |       </smtp>
+  13 |     </mailSettings>
+  14 |   </system.net>
+  15 | </configuration>
+     ^ Col 0
+",conf_files.xml_network_ssl_disabled
+Summary: 1 vulnerabilities were found in your targets.

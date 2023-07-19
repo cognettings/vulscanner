@@ -1,0 +1,72 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+034. Insecure generation of random numbers,CWE-330,The application uses insecure methods to generate random numbers and assigns them to sensitive parameters in namespace/skims/test/data/lib_root/f034/js_weak_random.js,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/034,skims,SAST,7,"
+   1 | import { Router } from ""express"";
+   2 |
+   3 | const router = Router();
+   4 |
+   5 | function routa(req, res) {
+   6 |   let key = Math.random().toString();
+>  7 |   res.cookie(""rememberKey"", key);
+   8 |   res.json({ ok: true });
+   9 | }
+  10 | router.get(""/test148"", routa);
+  11 |
+  12 | //Should not report
+  13 | const ran_numb = Math.random();
+     ^ Col 0
+",javascript.javascript_weak_random
+034. Insecure generation of random numbers,CWE-330,The application uses insecure methods to generate random numbers and assigns them to sensitive parameters in namespace/skims/test/data/lib_root/f034/kt_weak_random.kt,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/034,skims,SAST,6,"
+   1 | val sr_vuln = SecureRandom()
+   2 | val seed = 123456L
+   3 | sr_vuln.setSeed(seed) // Noncompliant
+   4 |
+   5 | val bytearray = ""abcdefghijklmnop"".toByteArray(charset(""us-ascii""))
+>  6 | val sr = SecureRandom(bytearray) // Noncompliant
+   7 |
+   8 | val sr = SecureRandom() //Compliant
+   9 |
+  10 | val v = sr.nextInt()
+     ^ Col 0
+",kotlin.kotlin_weak_random
+034. Insecure generation of random numbers,CWE-330,The application uses insecure methods to generate random numbers and assigns them to sensitive parameters in namespace/skims/test/data/lib_root/f034/kt_weak_random.kt,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/034,skims,SAST,3,"
+   1 | val sr_vuln = SecureRandom()
+   2 | val seed = 123456L
+>  3 | sr_vuln.setSeed(seed) // Noncompliant
+   4 |
+   5 | val bytearray = ""abcdefghijklmnop"".toByteArray(charset(""us-ascii""))
+   6 | val sr = SecureRandom(bytearray) // Noncompliant
+   7 |
+   8 | val sr = SecureRandom() //Compliant
+   9 |
+  10 | val v = sr.nextInt()
+     ^ Col 0
+",kotlin.kotlin_weak_random
+034. Insecure generation of random numbers,CWE-330,The application uses insecure methods to generate random numbers and assigns them to sensitive parameters in namespace/skims/test/data/lib_root/f034/ts_weak_random.ts,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:U/RL:O/RC:U,https://docs.fluidattacks.com/criteria/vulnerabilities/034,skims,SAST,6,"
+   1 | import { Router } from ""express"";
+   2 |
+   3 | const router = Router();
+   4 | function routa(req, res) {
+   5 |   let key = Math.random().toString();
+>  6 |   res.cookie(""rememberKey"", key);
+   7 |   res.json({ ok: true });
+   8 | }
+   9 | router.get(""/test148"", routa);
+  10 |
+  11 | export default router;
+     ^ Col 0
+",typescript.typescript_weak_random
+034. Insecure generation of random numbers,CWE-521,The application uses insecure methods to generate random numbers and assigns them to sensitive parameters in namespace/skims/test/data/lib_root/f034/java_weak_random.java,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N/E:P/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/034,skims,SAST,9,"
+   1 | import java.util.Random;
+   2 |
+   3 | public class BenchmarkTest00167 extends HttpServlet {
+   4 |  @Override
+   5 |  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   6 |   long l = new java.util.Random().nextLong();
+   7 |   String rememberMeKey = Long.toString(l);
+   8 |   String cookieName = ""rememberMe"";
+>  9 |     request.getSession().setAttribute(cookieName, rememberMeKey);
+  10 |  }
+  11 | }
+     ^ Col 0
+",java.java_weak_random
+Summary: 5 vulnerabilities were found in your targets.

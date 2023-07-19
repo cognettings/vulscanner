@@ -1,0 +1,25 @@
+---
+Resources:
+  UnsafeCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DBClusterParameterGroupName:
+        Ref: RDSDBClusterParameterGroup
+      PubliclyAccessible: true
+  UnsafeDBCluster:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBClusterIdentifier:
+        Ref: RDSCluster
+      PubliclyAccessible: true
+  SafeCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DBClusterParameterGroupName:
+        Ref: RDSDBClusterParameterGroup
+  SafeDBCluster:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBClusterIdentifier:
+        Ref: RDSCluster
+      PubliclyAccessible: false

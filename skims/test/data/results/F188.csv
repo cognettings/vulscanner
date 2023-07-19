@@ -1,0 +1,50 @@
+title,cwe,description,cvss,finding,stream,kind,where,snippet,method
+188. Lack of data validation - Modify DOM Elements,CWE-489,The application allows the creation of dynamic DOM (Document Object Model) elements from user controlled inputs. The event origin is not checked in namespace/skims/test/data/lib_root/f188/jsx_eventListenner.jsx,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/188,skims,SAST,116,"
+  106 |
+  107 |         break
+  108 |       }
+  109 |     }}
+  110 |
+  111 |   }
+  112 |   )
+  113 | }
+  114 |
+  115 | if (canUseDOM) {
+> 116 |   window.addEventListener('message', function handleEvents(e) {
+  117 |     {switch (e.data.eventName) {
+  118 |       case 'vtex:promoView': {
+  119 |         const dataEvent = e.data.promotions
+  120 |         e.origin
+  121 |         setTimeout(() => {
+  122 |           window.dataLayer.push({
+  123 |             event: 'view_promotion',
+  124 |             ecommerce: {
+  125 |               view_promotion: dataEvent.map(item => {
+  126 |                 return {
+      ^ Col 0
+",javascript.tsx_lack_of_validation_event_listener
+188. Lack of data validation - Modify DOM Elements,CWE-489,The application allows the creation of dynamic DOM (Document Object Model) elements from user controlled inputs. The event origin is not checked in namespace/skims/test/data/lib_root/f188/tsx_eventListenner.tsx,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N/E:U/RL:O/RC:C,https://docs.fluidattacks.com/criteria/vulnerabilities/188,skims,SAST,7,"
+   1 | import { canUseDOM } from 'vtex.render-runtime'
+   2 | import type { PixelMessage } from './shared'
+   3 |
+   4 | declare let window: any
+   5 |
+   6 | // Unsafe
+>  7 | window.addEventListener('message', function handleEvents(e: PixelMessage) {
+   8 |     switch (e.data.eventName) {
+   9 |       case 'vtex:promoView': {
+  10 |         const dataEvent = e.data.promotions
+  11 |         e.origin
+  12 |         setTimeout(() => {
+  13 |           window.dataLayer.push({
+  14 |             event: 'view_promotion',
+  15 |           })
+  16 |         }, 1000)
+  17 |         break
+  18 |       }
+  19 |     }
+  20 |   }
+  21 | )
+     ^ Col 0
+",typescript.tsx_lack_of_validation_event_listener
+Summary: 2 vulnerabilities were found in your targets.

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vulnerable for not checking integrity of resources</title>
+		<!-- No sub resource_integrity but not a vuln archive -->
+		<link rel="dns-prefetch" href="http://www.google-analytics.com" async>
+	</head>
+	<body>
+	</body>
+	<!-- No sub resource_integrity -->
+	<script defer src="https://example.com/example-framework?jhdsoe=1" type="text/javascript"></script>
+</html>

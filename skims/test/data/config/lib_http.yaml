@@ -1,0 +1,21 @@
+---
+dast:
+  urls:
+    - https://this.host.should.not.exist
+    - http://localhost:48000/
+    - http://localhost:48000/error
+    - http://localhost:48000/headers_f015_2
+    - http://localhost:48000/headers_f023_0
+    - http://localhost:48000/headers_f023_1
+    - http://localhost:48000/headers_cookies_unsafe_0
+    - http://localhost:48000/headers_cookies_safe_0
+    - http://localhost:48000/headers_safe_0
+    - http://localhost:48000/headers_unsafe_0
+    - http://localhost:48000/content_f036_0
+    - http://localhost:48000/content_f086_0
+  http_checks: true
+language: EN
+namespace: namespace
+output:
+  file_path: skims/test/outputs/lib_http.csv
+  format: CSV

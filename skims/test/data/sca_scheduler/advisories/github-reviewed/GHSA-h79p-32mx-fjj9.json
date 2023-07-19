@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.4.0",
+  "id": "GHSA-h79p-32mx-fjj9",
+  "modified": "2022-10-06T18:15:00Z",
+  "published": "2020-05-21T21:09:04Z",
+  "aliases": [
+    "CVE-2020-11973"
+  ],
+  "summary": "Apache Camel Netty enables Java deserialization by default",
+  "details": "Apache Camel Netty enables Java deserialization by default.",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.camel:camel-netty"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "3.0.0"
+            },
+            {
+              "fixed": "3.2.0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "database_specific": {
+    "cwe_ids": [
+      "CWE-502"
+    ],
+    "severity": "CRITICAL",
+    "github_reviewed": true,
+    "github_reviewed_at": "2020-05-21T17:42:21Z",
+    "nvd_published_at": "2020-05-14T17:15:00Z"
+  }
+}
