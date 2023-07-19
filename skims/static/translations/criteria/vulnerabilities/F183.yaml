@@ -1,0 +1,7 @@
+---
+lib_path.f183.dotnetconfig_has_debug_enabled:
+  en: Debug flag is enabled in Web.config.
+  es: Debug esta habilitado en Web.config.
+lib_root.f183.debugger_enabled:
+  en: Debugger statement used in production
+  es: Debugger usado en producción

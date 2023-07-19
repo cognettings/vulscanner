@@ -1,0 +1,18 @@
+---
+lib_apk.analyze_bytecodes.allow_user_ca_by_default:
+  en: >
+    No network security config file found and SDK version
+    allows user-supplied CAs by default.
+  es: >
+    No se encontró ningún archivo de configuración de seguridad de red
+    y la versión SDK permite las CA proporcionadas por el usuario
+    de manera predeterminada.
+lib_apk.analyze_bytecodes.allow_user_ca:
+  en: The given APK allows to trust user-supplied CAs.
+  es: El APK dado permite confiar en las CA proporcionadas por el usuario.
+lib_apk.analyze_bytecodes.uses_get_insecure:
+  en: The given APK uses sockets created with getInsecure.
+  es: El APK dado usa sockets creados con el método getInsecure.
+lib_root.f313.unsafe_certificate_validation:
+  en: Server certificates are not verified during SSL/TLS connections
+  es: Los certificados del servidor no son validados durante conexiones SSL/TLS

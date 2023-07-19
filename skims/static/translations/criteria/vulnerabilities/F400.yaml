@@ -1,0 +1,34 @@
+---
+f400.bucket_has_logging_disabled:
+  en: Missing LoggingEnabled property to make traceability
+  es: Falta la propiedad LoggingEnabled para hacer trazabilidad
+f400.bucket_has_logging_conf_disabled:
+  en: Missing LoggingConfiguration property to make traceability
+  es: Falta la propiedad LoggingConfiguration para hacer trazabilidad
+f400.elb_has_access_logging_disabled:
+  en: The AccessLoggingPolicy property must be enabled
+  es: La propiedad AccessLoggingPolicy debe estar habilitada
+f400.elb2_has_access_logs_s3_disabled:
+  en: The access_logs.s3.enabled property must be enabled
+  es: La propiedad access_logs.s3.enabled debe estar habilitada
+f400.trails_not_multiregion:
+  en: The IsMultiRegionTrail property must be enabled
+  es: La propiedad IsMultiRegionTrail debe estar habilitada
+f400.has_logging_disabled:
+  en: Missing Logging property to make traceability
+  es: Falta la propiedad Logging para hacer trazabilidad
+f400.has_monitoring_disabled:
+  en: The Monitoring property should be enabled
+  es: La propiedad Monitoring debería estar habilitada
+f400.tfm_has_logging_config_disabled:
+  en: Missing logging_config property to make traceability
+  es: Falta la propiedad logging_config para hacer trazabilidad
+f400.tfm_lambda_func_has_trace_disabled:
+  en: Missing tracing_config property or is misconfigured to make traceability
+  es: Falta la propiedad tracing_config o esta mal configurada para hacer trazabilidad
+f400.is_trail_bucket_logging_disabled:
+  en: Trail buckets have logging disabled
+  es: Trail Buckets tienen el registro deshabilitado
+f400.eks_has_disable_cluster_logging:
+  en: EkS clusters have control plane logging disabled.
+  es: Los clústeres de EkS tienen el registro del plano de control deshabilitado.

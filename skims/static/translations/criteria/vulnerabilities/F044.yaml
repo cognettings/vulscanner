@@ -1,0 +1,7 @@
+---
+f044.resource_has_https_methods_enabled:
+  en: All http methods are enabled in the resource
+  es: Todos los metodos http estan activados en el recurso
+f044.resource_has_danger_https_methods_enabled:
+  en: Dangerous http methods are enabled in the resource
+  es: Algunos métodos http peligrosos están habilitados en el recurso

@@ -1,0 +1,4 @@
+---
+src.lib_path.f346.dangerous_permission:
+  en: The application defines dangerous permissions that can be abused by an attacker.
+  es: La aplicación define permisos peligrosos que pueden ser explotados por un atacante.

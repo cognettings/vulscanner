@@ -1,0 +1,20 @@
+---
+f332.use_insecure_http_protocol:
+  en: Use of the http protocol which is insecure
+  es: Uso del protocolo http el cual es inseguro
+f332.container_disabled_ssl:
+  en: >
+    Disabled SSL protocol, therefore, communications are unencrypted and
+    might be intercepted
+  es: >
+    Se deshabilita el protocolo SSL, por lo que las comunicaciones
+    no son encriptadas y pueden ser interceptadas.
+f332.elb2_uses_insecure_protocol:
+  en: TargetGroup should use a safe protocol (HTTPS)
+  es: El TargetGroup debería usar un protocolo seguro (HTTPS)
+f332.tfm_aws_sec_group_using_tcp:
+  en: The AWS SecurityGroup should use a safe protocol (HTTPS)
+  es: El AWS SecurityGroup debería usar un protocolo seguro (HTTPS)
+f332.unencrypted_channel:
+  en: Use of unencrypted protocol
+  es: Uso de canal no cifrado

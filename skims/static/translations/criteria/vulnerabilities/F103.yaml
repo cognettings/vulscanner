@@ -1,0 +1,4 @@
+---
+lib_apk.analyze_bytecodes.apk_unsigned:
+  en: The apk is not signed
+  es: El apk se encuentra sin firma

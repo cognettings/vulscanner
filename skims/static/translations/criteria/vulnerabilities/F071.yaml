@@ -1,0 +1,7 @@
+---
+lib_http.analyze_headers.referrer_policy.missing:
+  en: Missing Referrer-Policy header
+  es: La cabecera Referrer-Policy está ausente
+lib_http.analyze_headers.referrer_policy.weak:
+  en: The Referrer-Policy header is set with the weak value {header_value}
+  es: La cabecera Referrer-Policy posee el valor débil {header_value}

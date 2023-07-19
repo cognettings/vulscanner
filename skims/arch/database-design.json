@@ -1,0 +1,190 @@
+{
+  "ModelName": "database-design",
+  "ModelMetadata": {
+    "Author": "",
+    "DateCreated": "Jul 14, 2022, 02:09 PM",
+    "DateLastModified": "Apr 4, 2023, 11:10 AM",
+    "Description": "",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "skims_sca",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "pk",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sk",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "associated_advisory",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "cwe_ids",
+          "AttributeType": "L"
+        },
+        {
+          "AttributeName": "package_name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "package_manager",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "vulnerable_version",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "severity",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "source",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "created_at",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "modified_at",
+          "AttributeType": "S"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "advisories",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "PLATFORM#platform#PACKAGE#pkg_name",
+            "SortKeyAlias": "SOURCE#src#ADVISORY#id"
+          },
+          "TableData": [
+            {
+              "pk": {
+                "S": "PLATFORM#maven#PACKAGE#axis:axis"
+              },
+              "sk": {
+                "S": "SOURCE#MANUAL#ADVISORY#CVE-2012-5784"
+              },
+              "associated_advisory": {
+                "S": "CVE-2012-5784"
+              },
+              "cwe_ids":{
+                "L": [
+                  {
+                    "S": "CWE-1035"
+                  },
+                  {
+                    "S": "CWE-264"
+                  }
+                ]
+              },
+              "package_name": {
+                "S": "axis:axis"
+              },
+              "package_manager": {
+                "S": "maven"
+              },
+              "vulnerable_version": {
+                "S": "<=1.4"
+              },
+              "severity": {
+                "S": "test"
+              },
+              "source": {
+                "S": "MANUAL"
+              },
+              "created_at": {
+                "S": "2022-08-23 09:08:27.502715"
+              }
+            },
+            {
+              "pk": {
+                "S": "PLATFORM#maven#PACKAGE#axis:axis"
+              },
+              "sk": {
+                "S": "SOURCE#MANUAL#ADVISORY#CVE-2014-3596"
+              },
+              "associated_advisory": {
+                "S": "CVE-2014-3596"
+              },
+              "cwe_ids":{
+                "L": [
+                  {
+                    "S": "CWE-1035"
+                  },
+                  {
+                    "S": "CWE-264"
+                  }
+                ]
+              },
+              "package_name": {
+                "S": "axis:axis"
+              },
+              "package_manager": {
+                "S": "maven"
+              },
+              "vulnerable_version": {
+                "S": "<=1.4"
+              },
+              "severity": {
+                "S": "test"
+              },
+              "source": {
+                "S": "MANUAL"
+              },
+              "created_at": {
+                "S": "2022-08-23 09:08:27.502715"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "associated_advisory",
+            "cwe_ids",
+            "package_name",
+            "package_manager",
+            "vulnerable_version",
+            "severity",
+            "source",
+            "created_at",
+            "modified_at"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "inverted_index",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "sk",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "pk",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PAY_PER_REQUEST"
+    }
+  ]
+}

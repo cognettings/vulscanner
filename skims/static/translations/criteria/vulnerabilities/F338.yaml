@@ -1,0 +1,6 @@
+---
+f338.salt_is_hardcoded:
+  en: The salt is a string that is hardcoded into the code. Which could be a
+    security issue if an attacker were to discover the salt.
+  es: La variable salt esta hardcodeada en el código. Lo cual podría ser un
+    riesgo de seguridad si un atacante la descubriera.

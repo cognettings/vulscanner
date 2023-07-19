@@ -1,0 +1,7 @@
+---
+f109.rds_is_not_inside_a_db_subnet_group:
+  en: Property db_subnet_group_name is either missing or misconfigured
+  es: Falta la propiedad db_subnet_group_name o está mal configurada
+f109.rds_unrestricted_db_security_groups:
+  en: RDS DB security groups allow unrestricted access (0.0.0.0/0)
+  es: Grupos de seguridad para RDS DB permiten acceso no restringido (0.0.0.0/0)

@@ -1,0 +1,35 @@
+---
+f363.insecure_generate_secret_string:
+  en: |
+    Secret is weakly configured
+    - It must contain uppercase and lowercase letters
+    - It must contain numbers and punctuation symbols
+    - Must be more than 14 characters
+    - Must not exclude certain characters
+  es: |-
+    El secreto está debilmente configurado
+    - Debe contener mayusculas y minusculas
+    - Debe contener numeros y signos de puntuación
+    - Debe tener mas de 14 caracteres
+    - No debe excluir ciertos caracteres
+f363.not_requires_uppercase:
+  en: Account/PasswordPolicy must require uppercase chars
+  es: PasswordPolicy debe requerir caracteres en mayusculas
+f363.not_requires_lowercase:
+  en: Account/PasswordPolicy must require lowercase chars
+  es: PasswordPolicy debe requerir caracteres en minusculas
+f363.not_requires_symbols:
+  en: Account/PasswordPolicy must require symbols chars
+  es: PasswordPolicy debe requerir caracteres simbolicos
+f363.not_requires_numbers:
+  en: Account/PasswordPolicy must require numbers
+  es: PasswordPolicy debe requerir el uso de numeros
+f363.min_password_len_unsafe:
+  en: Account/PasswordPolicy minimun password length unsafe
+  es: PasswordPolicy el largo mínimo de la contraseña es inseguro
+f363.password_reuse_unsafe:
+  en: Account/PasswordPolicy allows reusing passwords
+  es: PasswordPolicy permite el reuso de contraseñas.
+f363.password_expiration_unsafe:
+  en: Account/PasswordPolicy expires the passwords within 90 days or less.
+  es: PasswordPolicy la contraseña expira dentro de 90 dias o menos

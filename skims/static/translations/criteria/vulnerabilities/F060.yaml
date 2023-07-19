@@ -1,0 +1,31 @@
+---
+src.lib_path.f060.insecure_exceptions.description:
+  en: Insecure {lang} exception
+  es: Excepción insegura de {lang}
+lib_apk.analyze_bytecodes.not_verifies_ssl_hostname:
+  en: The given APK doesn't verify the SSLSocket hostname.
+  es: El APK dado no verifica el hostname del SSLSocket.
+lib_path.dotnetconfig.has_ssl_disabled:
+  en: SSL is disabled in ApplicationHost.config, check the sslFlags attribute.
+  es: >-
+    SSl esta desabilitado en ApplicationHost.config,
+    revisa el atributo sslFlags.
+lib_root.f060.json_allowed_hosts:
+  en: Make sure the host property is different from *
+  es: Asegurese de que la propiedad host sea diferente de *
+lib_root.f060.insecure_certificate_validation:
+  en: Server certificates should be verified during SSL/TLS connections
+  es: Certificados de servidores deberian ser validados en conexiones SSL/TLS
+lib_root.f060.json_disable_host_check:
+  en: The host check is disabled in config file.
+  es: El chequeo de hosts esta desabilitado en el archivo de configuracion.
+lib_root.f060.common_unsafe_origin:
+  en: >-
+    While performing communication between windows objects of different origins
+    we must validate the identity of those origins.
+  es: >-
+    Al realizar la comunicación entre objetos windows de diferentes orígenes
+    debemos validar la identidad de dichos orígenes.
+lib_root.f060.xml_allowed_domains:
+  en: Make sure the domains property is different from *
+  es: Asegurese de que la propiedad domains sea diferente de *

@@ -1,0 +1,39 @@
+---
+src.lib_path.f031.iam_user_missing_role_based_security:
+  en: IAM User is granted privileges but not through a Role
+  es: Al usuario de IAM se le otorgan privilegios, pero no a través de un rol
+src.lib_path.f031.iam_group_missing_role_based_security:
+  en: IAM Group is granted privileges but not through a Role
+  es: El grupo de IAM se le otorgan privilegios, pero no a través de un rol
+src.lib_path.f031.bucket_policy_allows_public_access:
+  en: S3 buckets allow unauthorized public access via bucket policies
+  es: Los buckets de S3 permiten el acceso público no autorizado a través de políticas
+    del bucket
+src.lib_path.f031_aws.open_passrole:
+  en: iam:PassRole with wildcard resource allows an elevation of privileges
+  es: iam:PassRole con recurso no especifico permite una elevación de privilegios
+src.lib_path.f031_aws.permissive_policy:
+  en: Excessive privileges, complete access over all resources
+  es: Privilegios excesivos, acceso completo sobre todos los recursos
+src.lib_path.f031_aws.negative_statement:
+  en: Excessive privileges, avoid the use of negative statements
+  es: Privilegios excesivos, evitar el uso de políticas negativas
+src.lib_path.f031.iam_has_full_access_to_ssm:
+  en: There are policy documents that allow full access to ssm agent
+  es: Hay documentos de políticas que permiten el acceso completo al agente ssm
+src.lib_path.f031.iam_excessive_role_policy:
+  en: The policy grant excessive privileges for attachment to a specific role.
+  es: La política da privilegios excesivos de adjuntar a un rol especifico.
+src.lib_path.f031.policies_attached_to_users:
+  en: Users must not have policies directly attached.
+  es: Los usuarios no deben tener politicas directamente agregadas.
+src.lib_path.f031.has_permissive_role_policies:
+  en: IAM Role Policy grants wildcard privileges.
+  es: IAM Role otorga privilegio usando wildcards
+src.lib_path.f031.users_with_password_and_access_keys:
+  en: Users must not have both password and access keys activated
+  es: >
+    Los usuarios no deben tener contraseña y clave de acceso activados al tiempo
+src.lib_path.f031.vpc_endpoints_exposed:
+  en: Users or IAM service must not have access to the VPC endpoint.
+  es: Los usuarios o el servicio IAM no deben tener acceso a los endpoints de las VPC

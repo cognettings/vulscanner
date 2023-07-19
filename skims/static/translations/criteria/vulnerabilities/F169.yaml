@@ -1,0 +1,4 @@
+---
+lib_root.f169.plain_text_keys:
+  en: The application stores credentials in plain text.
+  es: La aplicación guarda credenciales sensibles en texto plano.

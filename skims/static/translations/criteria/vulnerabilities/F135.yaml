@@ -1,0 +1,15 @@
+---
+lib_path.conf_files.has_x_xss_protection_header:
+  en: >
+    Ensure that your Web.config source file or package
+    suppress 'X-XSS-Protection' headers.
+  es: >-
+    Asegúrese de que su paquete o archivo fuente de Web.config
+    elimine los encabezados 'X-XSS-Protection'.
+lib_root.f135.ts_unsafe_http_xss_protection:
+  en: >
+    Ensure that the HttpHeaders constructor
+    suppresses 'X-XSS-Protection' headers.
+  es: >-
+    Asegúrese de que el constructor HttpHeaders
+    elimine los encabezados 'X-XSS-Protection'.

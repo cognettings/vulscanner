@@ -1,0 +1,6 @@
+---
+lib_root.f091.log_injection:
+  en: The system logs entries that contain input from untrusted sources without
+    properly validating, sanitizing or escaping their content
+  es: Se guardan entradas sin validar en los logs del sistema,
+    permitiendo la inyección de entradas maliciosas.

@@ -1,0 +1,8 @@
+---
+lib_root.f237.has_print_statements:
+  en: >
+    Using print or println on production, which exposes data
+    that increases the attack surface.
+  es: >-
+    Uso de print o println en producción,
+    expone información lo que aumenta la superficie de ataque.

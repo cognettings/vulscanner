@@ -1,0 +1,7 @@
+---
+f134.cors_policy_allows_any_origin:
+  en: The cors policy allows any origin
+  es: La política de cors permite cualquier origen
+f134.wildcard_in_allowed_origins:
+  en: The cors policy allows any origin
+  es: La política de cors permite cualquier origen

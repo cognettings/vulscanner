@@ -1,0 +1,7 @@
+---
+lib_http.analyze_headers.set_cookie_secure.missing_secure:
+  en: '{cookie_name} is missing Secure'
+  es: '{cookie_name} sin Secure'
+lib_root.f130.set_cookie_set_secure:
+  en: 'The cookie service used is missing Secure'
+  es: 'El servicio de Cookie no tiene Secure'

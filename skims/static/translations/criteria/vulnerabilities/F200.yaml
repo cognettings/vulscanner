@@ -1,0 +1,10 @@
+---
+src.lib_path.f200.vpcs_without_flowlog:
+  en: VPC Flow logs not enabled
+  es: VPC Flow logs no habilitados
+src.lib_path.f200.redshift_has_audit_logging_disabled:
+  en: Redshift clusters has audit logging disabled
+  es: Clusters de Redshift tiene el registro de auditoría deshabilitado.
+src.lib_path.f200.redshift_is_user_activity_logging_disabled:
+  en: Redshift clusters do not log user activity.
+  es: Clusters de Redshift no registran la actividad de los usuarios.

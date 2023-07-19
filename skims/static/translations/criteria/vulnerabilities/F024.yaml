@@ -1,0 +1,50 @@
+---
+f024.ec2_has_unrestricted_ports:
+  en: Avoid SecurityGroup ingress/egress rules with port ranges
+  es: Evite las reglas de entrada/salida de SecurityGroup con rangos de puertos
+f024.ec2_has_security_groups_ip_ranges_in_rfc1918:
+  en: Security groups contain RFC-1918 CIDRs open
+  es: Los grupos de seguridad contienen RFC-1918 CIDRs abiertas
+f024.aws_unrestricted_protocols:
+  en: The ingress/egress rules of the SecurityGroup allow the use of all ip protocols
+  es: Las reglas ingress/egress de los SecurityGroup permiten el uso de todos los protocolos ip
+f024.aws_allows_anyone_to_admin_ports:
+  en: The ingress rules of the SecurityGroups allow access to administrative ports to everyone
+  es: Las reglas ingress de los SecurityGroups permiten el acceso a puertos administrativos a todo el mundo
+f024.aws_unrestricted_cidrs:
+  en: The ingress/egress rules of the SecurityGroup use cidrs open to everyone
+  es: Las reglas ingress/egress de los SecurityGroup usan cidrs abiertos a todo el mundo
+f024.aws_security_group_without_egress:
+  en: Missing egress rules allow all egress traffic, explicitly define egress rules
+  es: La falta de reglas de salida permite todo el tráfico de salida, defina
+    explícitamente las reglas de salida
+f024.aws_instances_without_profile:
+  en: EC2 instances should have an IamInstanceProfile associated
+  es: Las instancias EC2 deberían tener asociado un IamInstanceProfile
+f024.aws_public_buckets:
+  en: S3 buckets are publicly accessible for read or write operations
+  es: Los buckets S3 son accesibles públicamente para operaciones de lectura o escritura
+f024.ec2_sg_allows_anyone_to_admin_ports:
+  en: SecurityGroup allows connection from internet to admin services
+  es: SecurityGroup permite la conexión desde Internet a servicios de administración
+f024.ec2_has_open_all_ports_to_the_public:
+  en: Security groups has all ports open to the public
+  es: Los grupos de seguridad tienen todos los puertos abiertos al público
+f024.ec2_has_unrestricted_ftp_access:
+  en: Group must restrict access to TCP port 20/21 to the necessary IP addresses
+  es: El grupo debe restringir el acceso al puerto TCP 20/21 a las direcciones IP necesarias
+f024.ec2_has_unrestricted_dns_access:
+  en: Group must restrict access to TCP port and UDP 53 to the necessary IP addresses
+  es: El grupo debe restringir el acceso al puerto TCP y UDP 53 a las direcciones IP necesarias
+f024.default_seggroup_allows_all_traffic:
+  en: Default security group allows connection to or from any address.
+  es: El grupo de seguridad por default permite la conexión hacia o desde cualquier dirección.
+f024.network_acls_allow_all_ingress_traffic:
+  en: Network ACLs allow all ingress traffic for all ports.
+  es: Las ACL de red permiten todo el tráfico de entrada para todos los puertos.
+f024.network_acls_allow_egress_traffic:
+  en: Network ACLs allow egress traffic for all ports.
+  es: Las ACL de red permiten todo el tráfico de salida para todos los puertos.
+f024.allows_anyone_to_admin_ports:
+  en: Allows connection to admin port {port}
+  es: Permite conexiones al puerto administrativo {port}

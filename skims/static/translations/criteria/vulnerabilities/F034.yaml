@@ -1,0 +1,6 @@
+---
+f034.use_insecure_random_method:
+  en: The application uses insecure methods to generate random numbers and
+    assigns them to sensitive parameters
+  es: La aplicación utiliza metodos inseguros para generar numeros aleatorios
+    y los asigna a parametros sensibles

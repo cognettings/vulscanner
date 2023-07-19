@@ -1,0 +1,38 @@
+# Sort order is:
+#  *
+#  .
+#  [a-zA-Z] (caseless)
+
+/**/*.class
+/**/*.egg-info
+/**/*.interp
+/**/*.tokens
+/**/.skims
+/**/.venv
+/**/log
+/**/log.ast
+/**/log.ast.svg
+/**/log.cfg
+/**/log.cfg.svg
+/**/log.model.json
+/**/log.svg
+/benchmark.json
+/coverage*
+/docs/skims
+/dist
+/modules.lst
+/poetry.lock
+/skims.*.svg
+/static/parsers/antlr/.gradle
+/static/parsers/antlr/build/
+/static/parsers/antlr/gradle/wrapper
+/static/parsers/antlr/gradlew
+/static/parsers/antlr/src/main/java/parse/CSharp*
+/static/parsers/antlr/src/main/java/parse/Java9*
+/static/parsers/antlr/src/main/java/parse/Scala*
+/static/parsers/babel/node_modules/
+/static/parsers/babel/package-lock.json
+/test/**/*.yaml.json
+/test/data/config/*.dev.yaml
+/test/outputs/
+/test/lib_dast/outputs/

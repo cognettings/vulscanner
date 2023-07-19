@@ -1,0 +1,15 @@
+---
+lib_apk.analyze_bytecodes.webview_caches_javascript:
+  en: >
+    The setJavaScriptEnabled method is enabled
+    and the clearCache method is not present.
+  es: >
+    El método setJavaScriptEnabled esta habilitado
+    y el método clearCache no esta presente
+lib_apk.analyze_bytecodes.webview_allows_resource_access:
+  en: >
+    The setJavaScriptEnabled method is enabled
+    and there are additional ones that allow access to resources.
+  es: >-
+    El método setJavaScriptEnabled esta habilitado
+    y hay otros adicionales que permiten acceso a los recursos.

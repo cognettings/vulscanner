@@ -1,0 +1,22 @@
+---
+lib_path.f411.tfm_aws_secret_encrypted_without_kms_key:
+  en: Property kms_key_id is either missing or misconfigured
+  es: Falta la propiedad kms_key_id o está mal configurada
+lib_path.f411.cfn_aws_secret_encrypted_without_kms_key:
+  en: Property KmsKeyId is either missing or misconfigured
+  es: Falta la propiedad KmsKeyId o está mal configurada
+lib_path.f411.ebs_uses_default_kms_key:
+  en: EBS Volumes encrypted with default KMS key
+  es: Volumenes EBS encriptados con KMS key por defecto.
+lib_path.f411.efs_uses_default_kms_key:
+  en: EFS filesystem with default KMS key
+  es: EFS encriptados con KMS key por defecto.
+lib_path.f411.fsx_uses_default_kms_key:
+  en: FSX with default KMS key
+  es: FSX encriptados con KMS key por defecto.
+lib_path.f411.secrets_encrypted_with_default_keys:
+  en: Secrets are encrypted with default encryption key provided by KMS.
+  es: Secretos estan encriptados con la llave de encriptacion por defecto proporcionada por KMS.
+lib_path.f411.redshift_uses_default_kms_key:
+  en: Redshift clusters use default KMS key.
+  es: Redshift clusters usan KMS key por defecto.

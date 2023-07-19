@@ -1,0 +1,74 @@
+---
+lib_path.f267.k8s_check_add_capability:
+  en: >
+    Ensure securityContext.capabilities.add property is set to nil or NET_BIND_SERVICE
+  es: >
+    Asegúrese de que la propiedad securityContext.capabilities.add esté establecida
+    en nil o NET_BIND_SERVICE
+lib_path.f267.k8s_allow_privilege_escalation_enabled:
+  en: >
+    Ensure securityContext.allowPrivilegeEscalation container property
+    is present and set to false
+  es: >
+    Asegúrese de que la propiedad securityContext.allowPrivilegeEscalation
+    de los contenedores esté presente y establecida en false
+lib_path.f267.k8s_root_container:
+  en: >
+    Ensure securityContext.runAsNonRoot property is set to true
+  es: >
+    Asegúrese de que la propiedad securityContext.runAsNonRoot esté establecida en
+    true
+lib_path.f267.k8s_root_filesystem_read_only:
+  en: >
+    Ensure securityContext.readOnlyRootFilesystem container property
+    is present and set to true
+  es: >
+    Asegúrese de que la propiedad securityContext.readOnlyRootFilesystem
+    de los contenedores esté presente y establecida en true
+lib_path.f267.k8s_check_run_as_user:
+  en: >
+    Containers must set securityContext.runAsUser property higher than 10000 
+    to avoid conflicts with the host's user table
+  es: >
+    Los contenedores no deben establecer la propiedad securityContext.runAsUser en
+    un valor mayor a 10000 para evitar conflictos con la la tabla de usuarios del host
+lib_path.f267.k8s_check_seccomp_profile:
+  en: >
+    Ensure securityContext.seccompProfile.type property is present and set set to
+    a value other than Unconfined
+  es: >
+    Asegúrese de que la propiedad securityContext.seccompProfile.type este presente
+    y establecida en un valor diferente a Unconfined
+lib_path.f267.k8s_check_privileged_used:
+  en: >
+    Ensure securityContext.privileged property is set to false
+  es: >
+    Asegúrese de que la propiedad securityContext.privileged esté establecida
+    en false
+lib_path.f267.k8s_check_drop_capability:
+  en: >
+    Ensure securityContext.capabilities.drop property contains the value all
+  es: >-
+    Asegúrese de que la propiedad securityContext.capabilities.drop contenga el valor
+    all
+lib_path.f267.k8s_check_if_capability_exists:
+  en: >
+    Ensure securityContext.capabilities is defined
+  es: >-
+    Asegúrese de que la propiedad securityContext.capabilities esta definida
+lib_path.f267.k8s_container_without_securitycontext:
+  en: >
+    No securityContext is applied to pods or containers
+  es: >
+    No se aplica securityContext a los pods o containers
+lib_path.f267.k8s_check_if_sys_admin_exists:
+  en: >
+    Ensure securityContext.capabilities.add property not contains the value SYS_ADMIN
+  es: >
+    Asegúrese de que la propiedad securityContext.capabilities.add no contenga
+    el valor SYS_ADMIN
+lib_path.f267.k8s_check_host_pid:
+  en: >
+    Ensure hostPID property is set to false
+  es: >
+    Asegúrese de que la propiedad hostPID este establecida en falso

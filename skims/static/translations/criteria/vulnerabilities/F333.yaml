@@ -1,0 +1,41 @@
+---
+lib_path.f333.tfm_ec2_allows_shutdown_command:
+  en: Property instance_initiated_shutdown_behavior.terminate is either missing or
+    misconfigured
+  es: Falta la propiedad instance_initiated_shutdown_behavior.terminate o está mal
+    configurada
+lib_path.f333.has_unused_ec2_key_pairs:
+  en: Unused Amazon EC2 key pairs
+  es: Amazon EC2 key pair no usada
+lib_path.f333.has_publicly_shared_amis:
+  en: EC2 has publicly shared AMI's
+  es: EC2 tiene AMI's publicamente compartidas
+lib_path.f333.has_unused_secgroups:
+  en: EC2 has unused security groups
+  es: EC2 tiene security groups no utilizados
+lib_path.f333.has_unencrypted_amis:
+  en: EC2 has unencrypted AMI's
+  es: EC2 tiene AMI's sin encriptar
+lib_path.f333.has_defined_user_data:
+  en: EC2::instance has defined userData attribute.
+  es: EC2::instance tiene definido el atributo userData
+lib_path.f333.has_instances_using_unapproved_amis:
+  en: EC2 has instances using unapproved AMI's.
+  es: EC2 tiene instancia usando AMI's no aprobadas
+lib_path.f333.has_unencrypted_snapshots:
+  en: EC2 has unencrypted snapshots
+  es: EC2 tiene snapshots no encriptados
+lib_path.f333.cfn_ec2_allows_shutdown_command:
+  en: Property LaunchTemplateData.InstanceInitiatedShutdownBehavior is either missing
+    or misconfigured
+  es: Falta la propiedad LaunchTemplateData.InstanceInitiatedShutdownBehavior o está
+    mal configurada
+lib_path.f333.ec2_public_ip_addresses:
+  en: Property associate_public_ip_address is either missing or misconfigured
+  es: Falta la propiedad associate_public_ip_address o está mal configurada
+lib_path.f333.cfn_ec2_associate_public_ip_address:
+  en: Property NetworkInterfaces.AssociatePublicIpAddress is either missing or misconfigured
+  es: Falta la propiedad NetworkInterfaces.AssociatePublicIpAddress o está mal configurada
+src.lib_path.f333.ec2_has_not_an_iam_instance_profile:
+  en: Property iam_instance_profile is either missing or misconfigured
+  es: Falta la propiedad iam_instance_profile o está mal configurada

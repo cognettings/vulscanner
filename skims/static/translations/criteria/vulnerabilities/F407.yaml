@@ -1,0 +1,7 @@
+---
+f407.tfm_aws_ebs_volumes_unencrypted:
+  en: Property root_block_device.encrypted is either missing or misconfigured
+  es: Falta la propiedad root_block_device.encrypted o está mal configurada
+f407.cfn_aws_ebs_volumes_unencrypted:
+  en: Property BlockDeviceMappings.Ebs.Encrypted should be enabled
+  es: La propiedad BlockDeviceMappings.Ebs.Encrypted debería estar habilitada

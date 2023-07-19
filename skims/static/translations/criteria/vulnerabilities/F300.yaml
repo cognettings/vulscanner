@@ -1,0 +1,7 @@
+---
+lib_path.f300.tfm_azure_as_client_certificates_enabled:
+  en: Property client_cert_enabled is either missing or misconfigured
+  es: Falta la propiedad client_cert_enabled o está mal configurada
+lib_path.f300.tfm_azure_app_authentication_off:
+  en: Property auth_settings.enabled is either missing or misconfigured
+  es: Falta la propiedad auth_settings.enabled o está mal configurada

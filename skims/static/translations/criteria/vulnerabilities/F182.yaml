@@ -1,0 +1,4 @@
+---
+lib_http.analyze_dns.missing_dmarc:
+  en: Missing DMARC record in the DNS
+  es: Registro DMARC ausente en el DNS

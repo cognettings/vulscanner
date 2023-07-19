@@ -1,0 +1,7 @@
+---
+lib_apk.analyze_bytecodes.debugging_enabled:
+  en: application.android:debuggable enabled
+  es: application.android:debuggable habilitado
+f058.app_manifest_debugging_enabled:
+  en: application.android:debuggable enabled
+  es: application.android:debuggable habilitado

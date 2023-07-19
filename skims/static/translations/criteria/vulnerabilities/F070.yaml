@@ -1,0 +1,7 @@
+---
+f070.elb2_uses_insecure_security_policy:
+  en: Listener uses unsafe security policy
+  es: El Listener usa una política de seguridad insegura
+f070.eks_allows_insecure_inbound_traffic:
+  en: EKS security groups allow access on ports other than TCP port 443.
+  es: Grupos de seguridad de EKS permiten acceso en puertos distintos al 443

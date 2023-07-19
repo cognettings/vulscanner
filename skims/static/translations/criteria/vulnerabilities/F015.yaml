@@ -1,0 +1,22 @@
+---
+lib_http.analyze_headers.www_authenticate.basic:
+  en: The application uses Basic authentication over HTTP
+  es: La aplicación usa autenticación de tipo Basic sobre HTTP
+f015.unsafe_basic_auth:
+  en: The basic method is used in the headers
+  es: Se utiliza el metodo basic en los headers
+f015.basic_auth_method:
+  en: The basic method is used in the XML config
+  es: Se utiliza el metodo basic en la configuracion XML
+f015.tfm_azure_virtual_machine_insecure_authentication:
+  en: Property ssh_keys is either missing or misconfigured
+  es: Falta la propiedad ssh_keys o está mal configurada
+f015.tfm_azure_linux_vm_insecure_authentication:
+  en: Property admin_ssh_key is either missing or misconfigured
+  es: Falta la propiedad admin_ssh_key o está mal configurada
+f015.insecure_authentication:
+  en: The server uses Basic authentication over an insecure channel.
+  es: Se utiliza autenticación básica a través de un canal inseguro.
+f015.basic_authentication:
+  en: The application uses setHeader with Basic authentication.
+  es: La aplicación utiliza el método setHeader con autenticación básica.

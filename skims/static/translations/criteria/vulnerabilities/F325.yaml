@@ -1,0 +1,42 @@
+---
+f325.iam_has_privileges_over_iam:
+  en: Policies have privileges over IAM
+  es: Las políticas tienen privilegios sobre IAM
+f325.tfm_iam_has_privileges_over_iam:
+  en: Policies have privileges over IAM
+  es: Las políticas tienen privilegios sobre IAM
+f325.iam_is_policy_miss_configured:
+  en: >
+    IAM Policy should consider the next rules:
+    - Should not allow wildcard (*) action.
+    - Should not apply directly to users, Should be on group.
+    - Should not allow wildcard (*) resource with PassRole action.
+    - Should not allow wildcard (*) resource.
+    - Should not allow Allow+NotAction.
+    - Should not allow Allow+NotResource.
+  es: >
+    La política de IAM debe considerar las siguientes reglas:
+    - No debe permitir acción de comodín (*).
+    - No debe aplicarse directamente a los usuarios, debe estar en el grupo.
+    - No debe permitir recurso comodín (*) con acción PassRole.
+    - No debe permitir recurso comodín (*).
+    - No debe permitir Allow + NotAction.
+    - No debe permitir Allow + NotResource.
+f325.iam_has_wildcard_resource_on_write_action:
+  en: Write actions are allowed on all resources
+  es: Acciones de escritura estan permitidas para todos los recursos
+f325.kms_key_has_master_keys_exposed_to_everyone:
+  en: Amazon KMS master keys are exposed to everyone
+  es: Las llaves de Amazon KMS están expuestas a todos
+f325.json_principal_wildcard:
+  en: The wildcard (*) is used to give access to any user, including anonymous users
+  es: Se usa el comodín (*) para brindar acceso a cualquier usuario, incluyendo usuarios anónimos
+f325.iam_allow_wildcard_action_trust_policy:
+  en: IAM Role should not allow wildcard (*) action on its trust policy
+  es: El Role de IAM no debe permitir acciones de comodín (*) sobre su política de confianza
+f325.iam_allow_wilcard_actions_permissions_policy:
+  en: IAM Role should not allow wildcard (*) action on its permissions policy
+  es: El Role de IAM no debe permitir acciones de comodín (*) en su política de permisos
+f325.permissive_policy:
+  en: Should not allow wildcard (*) resource
+  es: No debe permitir recurso (*)

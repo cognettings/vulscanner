@@ -1,0 +1,105 @@
+---
+f165.iam_allow_not_principal_trust_policy:
+  en: >
+    IAM Role is miss configured:
+    - Should not allow Allow+NotPrincipal in its trust policy
+  es: >
+    El Role de IAM está mal configurado:
+    - No debe permitir Allow + NotPrincipal en su política de confianza
+
+f165.iam_allow_not_action_trust_policy:
+  en: >
+    IAM Role is miss configured:
+    - Should not allow Allow+NotAction on trust policy
+  es: >
+    El Role de IAM está mal configurado:
+    - No debe permitir Allow + NotAction en politicas de confianza
+
+f165.iam_allow_not_resourse_permissions_policy:
+  en: >
+    IAM Role is miss configured:
+    - Should not allow Allow+NotResource
+  es: >
+    El Role de IAM está mal configurado:
+    - No debe permitir Allow + NotResource
+
+f165.iam_allow_not_action_permissions_policy:
+  en: >
+    IAM Role is miss configured:
+    - Should not allow Allow+NotAction
+  es: >
+    El Role de IAM está mal configurado:
+    - No debe permitir Allow + NotAction
+
+f165.iam_wildcard_resources_permissions_policy:
+  en: >
+    IAM Role is miss configured:
+    - Should not allow * resource with PassRole action on its permissions policy
+    - Should not allow * resource on its permissions policy
+  es: >
+    El Role de IAM está mal configurado:
+    - No debe permitir recursos * con acción PassRole en su política de permisos
+    - No debe permitir recursos * en su política de permisos
+f165.users_with_multiple_access_keys:
+  en: IAM User have multiple access keys.
+  es: El usuario IAM tiene multiples llaves de acceso.
+f165.iam_policies_applying_to_users:
+  en: IAM policy should not apply directly to users, Should be on group.
+  es: IAM policy no debe aplicarse directamente a los usuarios, debe estar en el grupo.
+f165.root_has_access_keys:
+  en: Root user must not have access keys
+  es: El usuario root no debe tener IAM access keys
+f165.has_not_support_role:
+  en: There are not entities attached to the AWSSupportAccess policy
+  es: No hay entidades con la politica AWSSupportAccess vinculada
+f165.has_root_active_signing_certificates:
+  en: Root user has the unsafe X.509 signing certificates active.
+  es: El usuario root tiene activados los certificados firmados X.509.
+f165.dynamob_encrypted_with_aws_master_keys:
+  en: DynamoDB tables uses AWS-owned Master Keys for Server-Side Encryption.
+  es: Las tablas DynamoDB usan claves maestras propiedad de AWS para la encripcion al lado del servidor.
+f165.eks_has_endpoints_publicly_accessible:
+  en: The endpoints of the Kubernetes API server of the EKS clusters are publicly accessible from the Internet.
+  es: El endpoint del servidor API de Kubernates de los cluster EKS son publicamente accesibles desde internet.
+f165.rds_has_public_snapshots:
+  en: RDS snapshots must not allow public access
+  es: RDS snapshots no deben permitir el acceso publico.
+f165.not_uses_iam_authentication:
+  en: The DB instances are not using IAM database authentication.
+  es: La instancia de BD no esta usando auntentication de base de datos IAM.
+f165.redshift_has_public_clusters:
+  en: Clusters are publicly accessible
+  es: Los clusters son publicamente accesibles
+f165.redshift_not_requires_ssl:
+  en: Redshift clusters must require using SSL.
+  es: Los clústeres de Redshift deben requerir el uso de SSL.
+f165.elasticache_uses_default_port:
+  en: Elasticache clusters use default ports
+  es: Los clústeres de Elasticache usan los puertos por defecto.
+f165.elasticache_is_transit_encryption_disabled:
+  en: Elasticache cluster has transit encryption disabled
+  es: Los clústeres de Elasticache tien el cifrado de tránsito deshabilitado.
+f165.elasticache_is_at_rest_encryption_disabled:
+  en: Elasticache cluster has transit encryption disabled
+  es: Los clústeres de Elasticache tiene el cifrado de tránsito deshabilitado.
+f165.sns_is_server_side_encryption_disabled:
+  en: SNS Topics have serverside encryption disabled
+  es: SNS Topics tiene desabilitada la encriptacion al lado del servidor
+f165.sns_is_server_side_encryption_disabled:
+  en: SNS Topics use default KMS key
+  es: SNS Topics usan claves KMS por defecto.
+f165.sqs_is_encryption_disabled:
+  en: SQS Queues have serverside encryption disabled.
+  es: Las colas SQS tienen el cifrado del lado del servidor deshabilitado.
+f165.sqs_uses_default_kms_key:
+  en: SQS Queues are encrypted with the default KMS key.
+  es: Las colas SQS estan encriptadas usando claves KMS por defecto
+f165.sqs_is_public:
+  en: SQS Queues are exposed to the public.
+  es: Las colas SQS estan expuestas al publico
+f165.sns_can_anyone_publish:
+  en: SNS Topics have public publishing permissions
+  es: Los temas de SNS tienen permisos de publicación pública.
+f165.sns_can_anyone_subscribe:
+  en: SNS Topics have public subscribing permissions
+  es: Los temas de SNS tienen permisos de suscripción pública.

@@ -1,0 +1,4 @@
+---
+f099.s3_has_server_side_encryption_disabled:
+  en: Buckets have Server-Side Encryption disabled
+  es: Los Buckets tienen el cifrado del lado del servidor deshabilitado

@@ -1,0 +1,1218 @@
+{
+  "F001": {
+    "EN": {
+      "title": "001. SQL injection - C Sharp SQL API"
+    },
+    "ES": {
+      "title": "001. SQL injection - C Sharp SQL API"
+    }
+  },
+  "F004": {
+    "EN": {
+      "title": "004. Remote command execution"
+    },
+    "ES": {
+      "title": "004. Remote command execution"
+    }
+  },
+  "F005": {
+    "EN": {
+      "title": "004. Remote command execution"
+    },
+    "ES": {
+      "title": "004. Remote command execution"
+    }
+  },
+  "F007": {
+    "EN": {
+      "title": "007. Cross-site request forgery"
+    },
+    "ES": {
+      "title": "007. Cross-site request forgery"
+    }
+  },
+  "F008": {
+    "EN": {
+      "title": "008. Reflected cross-site scripting (XSS)"
+    },
+    "ES": {
+      "title": "008. Reflected cross-site scripting (XSS)"
+    }
+  },
+  "F009": {
+    "EN": {
+      "title": "009. Sensitive information in source code"
+    },
+    "ES": {
+      "title": "009. Sensitive information in source code"
+    }
+  },
+  "F011": {
+    "EN": {
+      "title": "011. Use of software with known vulnerabilities"
+    },
+    "ES": {
+      "title": "011. Use of software with known vulnerabilities"
+    }
+  },
+  "F012": {
+    "EN": {
+      "title": "012. SQL injection - Java Persistence API"
+    },
+    "ES": {
+      "title": "012. SQL injection - Java Persistence API"
+    }
+  },
+  "F015": {
+    "EN": {
+      "title": "015. Insecure authentication method - Basic"
+    },
+    "ES": {
+      "title": "015. Insecure authentication method - Basic"
+    }
+  },
+  "F016": {
+    "EN": {
+      "title": "016. Insecure encryption algorithm - SSL/TLS"
+    },
+    "ES": {
+      "title": "016. Insecure encryption algorithm - SSL/TLS"
+    }
+  },
+  "F017": {
+    "EN": {
+      "title": "017. Sensitive information sent insecurely"
+    },
+    "ES": {
+      "title": "017. Sensitive information sent insecurely"
+    }
+  },
+  "F021": {
+    "EN": {
+      "title": "021. XPath injection"
+    },
+    "ES": {
+      "title": "021. XPath injection"
+    }
+  },
+  "F022": {
+    "EN": {
+      "title": "022. Use of an insecure channel"
+    },
+    "ES": {
+      "title": "022. Use of an insecure channel"
+    }
+  },
+  "F023": {
+    "EN": {
+      "title": "023. Uncontrolled external site redirect - Host Header Injection"
+    },
+    "ES": {
+      "title": "023. Uncontrolled external site redirect - Host Header Injection"
+    }
+  },
+  "F024": {
+    "EN": {
+      "title": "024. Unrestricted access between network segments - AWS"
+    },
+    "ES": {
+      "title": "024. Unrestricted access between network segments - AWS"
+    }
+  },
+  "F031": {
+    "EN": {
+      "title": "031. Excessive privileges - AWS"
+    },
+    "ES": {
+      "title": "031. Excessive privileges - AWS"
+    }
+  },
+  "F034": {
+    "EN": {
+      "title": "034. Insecure generation of random numbers"
+    },
+    "ES": {
+      "title": "034. Insecure generation of random numbers"
+    }
+  },
+  "F035": {
+    "EN": {
+      "title": "035. Weak credential policy"
+    },
+    "ES": {
+      "title": "035. Weak credential policy"
+    }
+  },
+  "F036": {
+    "EN": {
+      "title": "036. ViewState not encrypted"
+    },
+    "ES": {
+      "title": "036. ViewState not encrypted"
+    }
+  },
+  "F037": {
+    "EN": {
+      "title": "037. Technical information leak"
+    },
+    "ES": {
+      "title": "037. Technical information leak"
+    }
+  },
+  "F042": {
+    "EN": {
+      "title": "042. Insecurely generated cookies"
+    },
+    "ES": {
+      "title": "042. Insecurely generated cookies"
+    }
+  },
+  "F043": {
+    "EN": {
+      "title": "043. Insecure or unset HTTP headers - Content-Security-Policy"
+    },
+    "ES": {
+      "title": "043. Insecure or unset HTTP headers - Content-Security-Policy"
+    }
+  },
+  "F044": {
+    "EN": {
+      "title": "044. Insecure HTTP methods enabled"
+    },
+    "ES": {
+      "title": "044. Insecure HTTP methods enabled"
+    }
+  },
+  "F046": {
+    "EN": {
+      "title": "046. Missing secure obfuscation - APK"
+    },
+    "ES": {
+      "title": "046. Missing secure obfuscation - APK"
+    }
+  },
+  "F048": {
+    "EN": {
+      "title": "048. Lack of root detection"
+    },
+    "ES": {
+      "title": "048. Lack of root detection"
+    }
+  },
+  "F052": {
+    "EN": {
+      "title": "052. Insecure encryption algorithm"
+    },
+    "ES": {
+      "title": "052. Insecure encryption algorithm"
+    }
+  },
+  "F055": {
+    "EN": {
+      "title": "055. Insecure service configuration - ADB Backups"
+    },
+    "ES": {
+      "title": "055. Insecure service configuration - ADB Backups"
+    }
+  },
+  "F056": {
+    "EN": {
+      "title": "056. Anonymous connection"
+    },
+    "ES": {
+      "title": "056. Anonymous connection"
+    }
+  },
+  "F058": {
+    "EN": {
+      "title": "058. Debugging enabled in production - APK"
+    },
+    "ES": {
+      "title": "058. Debugging enabled in production - APK"
+    }
+  },
+  "F059": {
+    "EN": {
+      "title": "059. Sensitive information stored in logs"
+    },
+    "ES": {
+      "title": "059. Sensitive information stored in logs"
+    }
+  },
+  "F060": {
+    "EN": {
+      "title": "060. Insecure service configuration - Host verification"
+    },
+    "ES": {
+      "title": "060. Insecure service configuration - Host verification"
+    }
+  },
+  "F063": {
+    "EN": {
+      "title": "063. Lack of data validation - Path Traversal"
+    },
+    "ES": {
+      "title": "063. Lack of data validation - Path Traversal"
+    }
+  },
+  "F064": {
+    "EN": {
+      "title": "064. Traceability loss - Server's clock"
+    },
+    "ES": {
+      "title": "064. Traceability loss - Server's clock"
+    }
+  },
+  "F065": {
+    "EN": {
+      "title": "065. Cached form fields"
+    },
+    "ES": {
+      "title": "065. Cached form fields"
+    }
+  },
+  "F066": {
+    "EN": {
+      "title": "066. Technical information leak - Console functions"
+    },
+    "ES": {
+      "title": "066. Technical information leak - Console functions"
+    }
+  },
+  "F070": {
+    "EN": {
+      "title": "070. Insecure service configuration - ELB"
+    },
+    "ES": {
+      "title": "070. Insecure service configuration - ELB"
+    }
+  },
+  "F071": {
+    "EN": {
+      "title": "071. Insecure or unset HTTP headers - Referrer-Policy"
+    },
+    "ES": {
+      "title": "071. Insecure or unset HTTP headers - Referrer-Policy"
+    }
+  },
+  "F073": {
+    "EN": {
+      "title": "073. Improper authorization control for web services - RDS"
+    },
+    "ES": {
+      "title": "073. Improper authorization control for web services - RDS"
+    }
+  },
+  "F075": {
+    "EN": {
+      "title": "075. Unauthorized access to files - APK Content Provider"
+    },
+    "ES": {
+      "title": "075. Unauthorized access to files - APK Content Provider"
+    }
+  },
+  "F079": {
+    "EN": {
+      "title": "079. Non-upgradable dependencies"
+    },
+    "ES": {
+      "title": "079. Non-upgradable dependencies"
+    }
+  },
+  "F081": {
+    "EN": {
+      "title": "081. Lack of multi-factor authentication"
+    },
+    "ES": {
+      "title": "081. Lack of multi-factor authentication"
+    }
+  },
+  "F082": {
+    "EN": {
+      "title": "082. Insecurely deleted files"
+    },
+    "ES": {
+      "title": "082. Insecurely deleted files"
+    }
+  },
+  "F083": {
+    "EN": {
+      "title": "083. XML injection (XXE)"
+    },
+    "ES": {
+      "title": "083. XML injection (XXE)"
+    }
+  },
+  "F085": {
+    "EN": {
+      "title": "085. Sensitive data stored in client-side storage"
+    },
+    "ES": {
+      "title": "085. Sensitive data stored in client-side storage"
+    }
+  },
+  "F086": {
+    "EN": {
+      "title": "086. Missing subresource integrity check"
+    },
+    "ES": {
+      "title": "086. Missing subresource integrity check"
+    }
+  },
+  "F089": {
+    "EN": {
+      "title": "089. Lack of data validation - Trust boundary violation"
+    },
+    "ES": {
+      "title": "089. Lack of data validation - Trust boundary violation"
+    }
+  },
+  "F091": {
+    "EN": {
+      "title": "091. Log injection"
+    },
+    "ES": {
+      "title": "091. Log injection"
+    }
+  },
+  "F094": {
+    "EN": {
+      "title": "094. Insecure encryption algorithm - Cipher Block Chaining"
+    },
+    "ES": {
+      "title": "094. Insecure encryption algorithm - Cipher Block Chaining"
+    }
+  },
+  "F096": {
+    "EN": {
+      "title": "096. Insecure deserialization"
+    },
+    "ES": {
+      "title": "096. Insecure deserialization"
+    }
+  },
+  "F097": {
+    "EN": {
+      "title": "097. Reverse tabnabbing"
+    },
+    "ES": {
+      "title": "097. Reverse tabnabbing"
+    }
+  },
+  "F098": {
+    "EN": {
+      "title": "098. External control of file name or path"
+    },
+    "ES": {
+      "title": "098. External control of file name or path"
+    }
+  },
+  "F099": {
+    "EN": {
+      "title": "099. Non-encrypted confidential information - S3 Server Side Encryption"
+    },
+    "ES": {
+      "title": "099. Non-encrypted confidential information - S3 Server Side Encryption"
+    }
+  },
+  "F100": {
+    "EN": {
+      "title": "100. Server-side request forgery (SSRF)"
+    },
+    "ES": {
+      "title": "100. Server-side request forgery (SSRF)"
+    }
+  },
+  "F101": {
+    "EN": {
+      "title": "101. Lack of protection against deletion"
+    },
+    "ES": {
+      "title": "101. Lack of protection against deletion"
+    }
+  },
+  "F103": {
+    "EN": {
+      "title": "103. Insufficient data authenticity validation - APK signing"
+    },
+    "ES": {
+      "title": "103. Insufficient data authenticity validation - APK signing"
+    }
+  },
+  "F107": {
+    "EN": {
+      "title": "107. LDAP injection"
+    },
+    "ES": {
+      "title": "107. LDAP injection"
+    }
+  },
+  "F109": {
+    "EN": {
+      "title": "109. Unrestricted access between network segments - RDS"
+    },
+    "ES": {
+      "title": "109. Unrestricted access between network segments - RDS"
+    }
+  },
+  "F112": {
+    "EN": {
+      "title": "112. SQL injection - Java SQL API"
+    },
+    "ES": {
+      "title": "112. SQL injection - Java SQL API"
+    }
+  },
+  "F117": {
+    "EN": {
+      "title": "117. Unverifiable files"
+    },
+    "ES": {
+      "title": "117. Unverifiable files"
+    }
+  },
+  "F120": {
+    "EN": {
+      "title": "120. Improper dependency pinning"
+    },
+    "ES": {
+      "title": "120. Improper dependency pinning"
+    }
+  },
+  "F127": {
+    "EN": {
+      "title": "127. Lack of data validation - Type confusion"
+    },
+    "ES": {
+      "title": "127. Lack of data validation - Type confusion"
+    }
+  },
+  "F128": {
+    "EN": {
+      "title": "128. Insecurely generated cookies - HttpOnly"
+    },
+    "ES": {
+      "title": "128. Insecurely generated cookies - HttpOnly"
+    }
+  },
+  "F129": {
+    "EN": {
+      "title": "129. Insecurely generated cookies - SameSite"
+    },
+    "ES": {
+      "title": "129. Insecurely generated cookies - SameSite"
+    }
+  },
+  "F130": {
+    "EN": {
+      "title": "130. Insecurely generated cookies - Secure"
+    },
+    "ES": {
+      "title": "130. Insecurely generated cookies - Secure"
+    }
+  },
+  "F131": {
+    "EN": {
+      "title": "131. Insecure or unset HTTP headers - Strict Transport Security"
+    },
+    "ES": {
+      "title": "131. Insecure or unset HTTP headers - Strict Transport Security"
+    }
+  },
+  "F132": {
+    "EN": {
+      "title": "132. Insecure or unset HTTP headers - X-Content-Type-Options"
+    },
+    "ES": {
+      "title": "132. Insecure or unset HTTP headers - X-Content-Type-Options"
+    }
+  },
+  "F133": {
+    "EN": {
+      "title": "133. Insecure encryption algorithm - Perfect Forward Secrecy"
+    },
+    "ES": {
+      "title": "133. Insecure encryption algorithm - Perfect Forward Secrecy"
+    }
+  },
+  "F134": {
+    "EN": {
+      "title": "134. Insecure or unset HTTP headers - CORS"
+    },
+    "ES": {
+      "title": "134. Insecure or unset HTTP headers - CORS"
+    }
+  },
+  "F135": {
+    "EN": {
+      "title": "135. Insecure or unset HTTP headers - X-XSS Protection"
+    },
+    "ES": {
+      "title": "135. Insecure or unset HTTP headers - X-XSS Protection"
+    }
+  },
+  "F143": {
+    "EN": {
+      "title": "143. Inappropriate coding practices - Eval function"
+    },
+    "ES": {
+      "title": "143. Inappropriate coding practices - Eval function"
+    }
+  },
+  "F148": {
+    "EN": {
+      "title": "148. Use of an insecure channel - FTP"
+    },
+    "ES": {
+      "title": "148. Use of an insecure channel - FTP"
+    }
+  },
+  "F149": {
+    "EN": {
+      "title": "149. Use of an insecure channel - SMTP"
+    },
+    "ES": {
+      "title": "149. Use of an insecure channel - SMTP"
+    }
+  },
+  "F152": {
+    "EN": {
+      "title": "152. Insecure or unset HTTP headers - X-Frame Options"
+    },
+    "ES": {
+      "title": "152. Insecure or unset HTTP headers - X-Frame Options"
+    }
+  },
+  "F153": {
+    "EN": {
+      "title": "153. Insecure or unset HTTP headers - Accept"
+    },
+    "ES": {
+      "title": "153. Insecure or unset HTTP headers - Accept"
+    }
+  },
+  "F157": {
+    "EN": {
+      "title": "157. Unrestricted access between network segments"
+    },
+    "ES": {
+      "title": "157. Unrestricted access between network segments"
+    }
+  },
+  "F160": {
+    "EN": {
+      "title": "160. Excessive privileges - Temporary Files"
+    },
+    "ES": {
+      "title": "160. Excessive privileges - Temporary Files"
+    }
+  },
+  "F164": {
+    "EN": {
+      "title": "164. Insecure service configuration"
+    },
+    "ES": {
+      "title": "164. Insecure service configuration"
+    }
+  },
+  "F165": {
+    "EN": {
+      "title": "165. Insecure service configuration - AWS"
+    },
+    "ES": {
+      "title": "165. Insecure service configuration - AWS"
+    }
+  },
+  "F169": {
+    "EN": {
+      "title": "169. Insecure service configuration - Keys"
+    },
+    "ES": {
+      "title": "169. Insecure service configuration - Keys"
+    }
+  },
+  "F176": {
+    "EN": {
+      "title": "176. Insecure service configuration - SSH"
+    },
+    "ES": {
+      "title": "176. Insecure service configuration - SSH"
+    }
+  },
+  "F177": {
+    "EN": {
+      "title": "177. Insecure service configuration - Security Groups"
+    },
+    "ES": {
+      "title": "177. Insecure service configuration - Security Groups"
+    }
+  },
+  "F182": {
+    "EN": {
+      "title": "182. Email spoofing"
+    },
+    "ES": {
+      "title": "182. Email spoofing"
+    }
+  },
+  "F183": {
+    "EN": {
+      "title": "183. Debugging enabled in production"
+    },
+    "ES": {
+      "title": "183. Debugging enabled in production"
+    }
+  },
+  "F188": {
+    "EN": {
+      "title": "188. Lack of data validation - Modify DOM Elements"
+    },
+    "ES": {
+      "title": "188. Lack of data validation - Modify DOM Elements"
+    }
+  },
+  "F200": {
+    "EN": {
+      "title": "200. Traceability loss"
+    },
+    "ES": {
+      "title": "200. Traceability loss"
+    }
+  },
+  "F203": {
+    "EN": {
+      "title": "203. Unauthorized access to files - S3 Bucket"
+    },
+    "ES": {
+      "title": "203. Unauthorized access to files - S3 Bucket"
+    }
+  },
+  "F206": {
+    "EN": {
+      "title": "206. Security controls bypass or absence - Anti hooking"
+    },
+    "ES": {
+      "title": "206. Security controls bypass or absence - Anti hooking"
+    }
+  },
+  "F207": {
+    "EN": {
+      "title": "207. Security controls bypass or absence - SSLPinning"
+    },
+    "ES": {
+      "title": "207. Security controls bypass or absence - SSLPinning"
+    }
+  },
+  "F211": {
+    "EN": {
+      "title": "211. Asymmetric denial of service - ReDoS"
+    },
+    "ES": {
+      "title": "211. Asymmetric denial of service - ReDoS"
+    }
+  },
+  "F234": {
+    "EN": {
+      "title": "234. Technical information leak - Stacktrace"
+    },
+    "ES": {
+      "title": "234. Technical information leak - Stacktrace"
+    }
+  },
+  "F236": {
+    "EN": {
+      "title": "236. Technical information leak - SourceMap"
+    },
+    "ES": {
+      "title": "236. Technical information leak - SourceMap"
+    }
+  },
+  "F237": {
+    "EN": {
+      "title": "237. Technical information leak - Print Functions"
+    },
+    "ES": {
+      "title": "237. Technical information leak - Print Functions"
+    }
+  },
+  "F239": {
+    "EN": {
+      "title": "239. Technical information leak - Errors"
+    },
+    "ES": {
+      "title": "239. Technical information leak - Errors"
+    }
+  },
+  "F246": {
+    "EN": {
+      "title": "246. Non-encrypted confidential information - DB"
+    },
+    "ES": {
+      "title": "246. Non-encrypted confidential information - DB"
+    }
+  },
+  "F250": {
+    "EN": {
+      "title": "250. Non-encrypted hard drives"
+    },
+    "ES": {
+      "title": "250. Non-encrypted hard drives"
+    }
+  },
+  "F256": {
+    "EN": {
+      "title": "256. Lack of protection against deletion - RDS"
+    },
+    "ES": {
+      "title": "256. Lack of protection against deletion - RDS"
+    }
+  },
+  "F257": {
+    "EN": {
+      "title": "257. Lack of protection against deletion - EC2"
+    },
+    "ES": {
+      "title": "257. Lack of protection against deletion - EC2"
+    }
+  },
+  "F258": {
+    "EN": {
+      "title": "258. Lack of protection against deletion - ELB"
+    },
+    "ES": {
+      "title": "258. Lack of protection against deletion - ELB"
+    }
+  },
+  "F259": {
+    "EN": {
+      "title": "259. Lack of protection against deletion - DynamoDB"
+    },
+    "ES": {
+      "title": "259. Lack of protection against deletion - DynamoDB"
+    }
+  },
+  "F266": {
+    "EN": {
+      "title": "266. Excessive Privileges - Docker"
+    },
+    "ES": {
+      "title": "266. Excessive Privileges - Docker"
+    }
+  },
+  "F267": {
+    "EN": {
+      "title": "267. Excessive Privileges - Kubernetes"
+    },
+    "ES": {
+      "title": "267. Excessive Privileges - Kubernetes"
+    }
+  },
+  "F268": {
+    "EN": {
+      "title": "268. Insecure service configuration - Webview"
+    },
+    "ES": {
+      "title": "268. Insecure service configuration - Webview"
+    }
+  },
+  "F277": {
+    "EN": {
+      "title": "277. Weak credential policy - Password Expiration"
+    },
+    "ES": {
+      "title": "277. Weak credential policy - Password Expiration"
+    }
+  },
+  "F280": {
+    "EN": {
+      "title": "280. Session Fixation"
+    },
+    "ES": {
+      "title": "280. Session Fixation"
+    }
+  },
+  "F281": {
+    "EN": {
+      "title": "281. Use of an insecure channel - AWS"
+    },
+    "ES": {
+      "title": "281. Use of an insecure channel - AWS"
+    }
+  },
+  "F297": {
+    "EN": {
+      "title": "297. SQL injection - Code"
+    },
+    "ES": {
+      "title": "297. SQL injection - Code"
+    }
+  },
+  "F300": {
+    "EN": {
+      "title": "300. Authentication mechanism absence or evasion - Azure"
+    },
+    "ES": {
+      "title": "300. Authentication mechanism absence or evasion - Azure"
+    }
+  },
+  "F309": {
+    "EN": {
+      "title": "309. Insecurely generated token - JWT"
+    },
+    "ES": {
+      "title": "309. Insecurely generated token - JWT"
+    }
+  },
+  "F313": {
+    "EN": {
+      "title": "313. Insecure service configuration - Certificates"
+    },
+    "ES": {
+      "title": "313. Insecure service configuration - Certificates"
+    }
+  },
+  "F320": {
+    "EN": {
+      "title": "320. Insecure service configuration - LDAP"
+    },
+    "ES": {
+      "title": "320. Insecure service configuration - LDAP"
+    }
+  },
+  "F325": {
+    "EN": {
+      "title": "325. Excessive privileges - Wildcards"
+    },
+    "ES": {
+      "title": "325. Excessive privileges - Wildcards"
+    }
+  },
+  "F332": {
+    "EN": {
+      "title": "332. Use of insecure channel - Source code"
+    },
+    "ES": {
+      "title": "332. Use of insecure channel - Source code"
+    }
+  },
+  "F333": {
+    "EN": {
+      "title": "333. Insecure service configuration - EC2"
+    },
+    "ES": {
+      "title": "333. Insecure service configuration - EC2"
+    }
+  },
+  "F335": {
+    "EN": {
+      "title": "335. Insecure service configuration - Bucket"
+    },
+    "ES": {
+      "title": "335. Insecure service configuration - Bucket"
+    }
+  },
+  "F338": {
+    "EN": {
+      "title": "338. Insecure service configuration - Salt"
+    },
+    "ES": {
+      "title": "338. Insecure service configuration - Salt"
+    }
+  },
+  "F343": {
+    "EN": {
+      "title": "343. Insecure service configuration - BREACH Attack"
+    },
+    "ES": {
+      "title": "343. Insecure service configuration - BREACH Attack"
+    }
+  },
+  "F344": {
+    "EN": {
+      "title": "344. Lack of data validation - Non Sanitized Variables"
+    },
+    "ES": {
+      "title": "344. Lack of data validation - Non Sanitized Variables"
+    }
+  },
+  "F346": {
+    "EN": {
+      "title": "346. Excessive privileges - Mobile App"
+    },
+    "ES": {
+      "title": "346. Excessive privileges - Mobile App"
+    }
+  },
+  "F350": {
+    "EN": {
+      "title": "350. Insecure digital certificates - Chain of trust"
+    },
+    "ES": {
+      "title": "350. Insecure digital certificates - Chain of trust"
+    }
+  },
+  "F353": {
+    "EN": {
+      "title": "353. Lack of data validation - Token"
+    },
+    "ES": {
+      "title": "353. Lack of data validation - Token"
+    }
+  },
+  "F354": {
+    "EN": {
+      "title": "354. Insecure file upload - Files Limit"
+    },
+    "ES": {
+      "title": "354. Insecure file upload - Files Limit"
+    }
+  },
+  "F358": {
+    "EN": {
+      "title": "358. Insecure service configuration - DocumentBuilderFactory"
+    },
+    "ES": {
+      "title": "358. Insecure service configuration - DocumentBuilderFactory"
+    }
+  },
+  "F363": {
+    "EN": {
+      "title": "363. Weak credential policy - Password strength"
+    },
+    "ES": {
+      "title": "363. Weak credential policy - Password strength"
+    }
+  },
+  "F366": {
+    "EN": {
+      "title": "366. Inappropriate coding practices - Transparency Conflict"
+    },
+    "ES": {
+      "title": "366. Inappropriate coding practices - Transparency Conflict"
+    }
+  },
+  "F368": {
+    "EN": {
+      "title": "368. Unrestricted access between network segments - StrictHostKeyChecking"
+    },
+    "ES": {
+      "title": "368. Unrestricted access between network segments - StrictHostKeyChecking"
+    }
+  },
+  "F371": {
+    "EN": {
+      "title": "371. DOM-Based cross-site scripting (XSS)"
+    },
+    "ES": {
+      "title": "371. DOM-Based cross-site scripting (XSS)"
+    }
+  },
+  "F372": {
+    "EN": {
+      "title": "372. Use of an insecure channel - HTTP"
+    },
+    "ES": {
+      "title": "372. Use of an insecure channel - HTTP"
+    }
+  },
+  "F379": {
+    "EN": {
+      "title": "379. Inappropriate coding practices - Unnecessary imports"
+    },
+    "ES": {
+      "title": "379. Inappropriate coding practices - Unnecessary imports"
+    }
+  },
+  "F380": {
+    "EN": {
+      "title": "380. Supply Chain Attack - Docker"
+    },
+    "ES": {
+      "title": "380. Supply Chain Attack - Docker"
+    }
+  },
+  "F381": {
+    "EN": {
+      "title": "381. Supply Chain Attack - Terraform"
+    },
+    "ES": {
+      "title": "381. Supply Chain Attack - Terraform"
+    }
+  },
+  "F393": {
+    "EN": {
+      "title": "393. Use of software with known vulnerabilities in development"
+    },
+    "ES": {
+      "title": "393. Use of software with known vulnerabilities in development"
+    }
+  },
+  "F394": {
+    "EN": {
+      "title": "394. Insufficient data authenticity validation - Cloudtrail Logs"
+    },
+    "ES": {
+      "title": "394. Insufficient data authenticity validation - Cloudtrail Logs"
+    }
+  },
+  "F396": {
+    "EN": {
+      "title": "396. Insecure service configuration - KMS"
+    },
+    "ES": {
+      "title": "396. Insecure service configuration - KMS"
+    }
+  },
+  "F398": {
+    "EN": {
+      "title": "398. Fragment Injection"
+    },
+    "ES": {
+      "title": "398. Fragment Injection"
+    }
+  },
+  "F400": {
+    "EN": {
+      "title": "400. Traceability Loss - AWS"
+    },
+    "ES": {
+      "title": "400. Traceability Loss - AWS"
+    }
+  },
+  "F401": {
+    "EN": {
+      "title": "401. Insecure service configuration - AKV Secret Expiration"
+    },
+    "ES": {
+      "title": "401. Insecure service configuration - AKV Secret Expiration"
+    }
+  },
+  "F402": {
+    "EN": {
+      "title": "402. Traceability Loss - Azure"
+    },
+    "ES": {
+      "title": "402. Traceability Loss - Azure"
+    }
+  },
+  "F403": {
+    "EN": {
+      "title": "403. Insecure service configuration - usesCleartextTraffic"
+    },
+    "ES": {
+      "title": "403. Insecure service configuration - usesCleartextTraffic"
+    }
+  },
+  "F405": {
+    "EN": {
+      "title": "405. Excessive privileges - Access Mode"
+    },
+    "ES": {
+      "title": "405. Excessive privileges - Access Mode"
+    }
+  },
+  "F406": {
+    "EN": {
+      "title": "406. Non-encrypted confidential information - EFS"
+    },
+    "ES": {
+      "title": "406. Non-encrypted confidential information - EFS"
+    }
+  },
+  "F407": {
+    "EN": {
+      "title": "407. Non-encrypted confidential information - EBS Volumes"
+    },
+    "ES": {
+      "title": "407. Non-encrypted confidential information - EBS Volumes"
+    }
+  },
+  "F408": {
+    "EN": {
+      "title": "408. Traceability Loss - API Gateway"
+    },
+    "ES": {
+      "title": "408. Traceability Loss - API Gateway"
+    }
+  },
+  "F411": {
+    "EN": {
+      "title": "411. Insecure encryption algorithm - Default encryption"
+    },
+    "ES": {
+      "title": "411. Insecure encryption algorithm - Default encryption"
+    }
+  },
+  "F412": {
+    "EN": {
+      "title": "412. Lack of protection against deletion - Azure Key Vault"
+    },
+    "ES": {
+      "title": "412. Lack of protection against deletion - Azure Key Vault"
+    }
+  },
+  "F413": {
+    "EN": {
+      "title": "413. Insecure file upload - DLL Injection"
+    },
+    "ES": {
+      "title": "413. Insecure file upload - DLL Injection"
+    }
+  },
+  "F414": {
+    "EN": {
+      "title": "414. Insecure service configuration - Header Checking"
+    },
+    "ES": {
+      "title": "414. Insecure service configuration - Header Checking"
+    }
+  },
+  "F416": {
+    "EN": {
+      "title": "416. XAML injection"
+    },
+    "ES": {
+      "title": "416. XAML injection"
+    }
+  },
+  "F418": {
+    "EN": {
+      "title": "418. Insecure service configuration - Docker"
+    },
+    "ES": {
+      "title": "418. Insecure service configuration - Docker"
+    }
+  },
+  "F423": {
+    "EN": {
+      "title": "423. Inappropriate coding practices - System exit"
+    },
+    "ES": {
+      "title": "423. Inappropriate coding practices - System exit"
+    }
+  },
+  "F426": {
+    "EN": {
+      "title": "426. Supply Chain Attack - Kubernetes"
+    },
+    "ES": {
+      "title": "426. Supply Chain Attack - Kubernetes"
+    }
+  },
+  "F427": {
+    "EN": {
+      "title": "427. Use of an insecure channel - Docker"
+    },
+    "ES": {
+      "title": "427. Use of an insecure channel - Docker"
+    }
+  },
+  "F433": {
+    "EN": {
+      "title": "433. Non-encrypted confidential information - Redshift Cluster"
+    },
+    "ES": {
+      "title": "433. Non-encrypted confidential information - Redshift Cluster"
+    }
+  }
+}

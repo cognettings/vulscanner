@@ -1,0 +1,7 @@
+---
+f022.unencrypted_channel:
+  en: Use of unencrypted protocol
+  es: Uso de canal no cifrado
+f022.http_insecure_channel:
+  en: Information is transmitted through an unencrypted channel
+  es: La información es transmitida por un canal sin cifrado

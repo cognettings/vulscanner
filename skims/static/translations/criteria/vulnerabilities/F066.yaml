@@ -1,0 +1,12 @@
+---
+lib_root.f066.has_console_functions:
+  en: >
+    Technical information about the application is obtained due to the use of the
+    Console.WriteLine() which could potentially show
+    sensitive information about the application.
+  es: >
+    Se obtiene información técnica de la aplicación debido al uso de la función Console.WriteLine()
+    exponiendose a mostrar información sensible de la aplicación.
+lib_root.f066.generic_uses_console_log:
+  en: console.log() is being invoked in a {lang} file or directory.
+  es: Se esta invocando console.log() en un archivo o un directorio {lang}

@@ -1,0 +1,4 @@
+---
+lib_dast.f433.redshift_has_encryption_disabled:
+  en: Redshift clusters has encryption disabled.
+  es: Clusters de redshift tienen desabilitada la encriptacion.

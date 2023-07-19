@@ -1,0 +1,28 @@
+---
+f009.docker_compose_env_secrets:
+  en: Environmental variables may have sensitive values in plain-text
+  es: Las variables de entorno pueden tener valores sensibles en texto plano
+f009.java_properties_sensitive_data:
+  en: Sensitive information
+  es: Información sensible
+f009.aws_credentials_exposed:
+  en: AWS credential publicly exposed
+  es: Credencial de AWS expuesta publicamente
+f009.jwt_token_exposed:
+  en: JWT token publicly exposed
+  es: Token JWT expuesto publicamente
+f009.crypto_js_credentials_exposed:
+  en: CryptoJS plaintext data source
+  es: Fuente de datos en texto plano para CryptoJS
+f009.dockerfile_env_secrets_exposed:
+  en: Dockerfile credentials publicly exposed
+  es: Credenciales de Docker expuestas públicamente
+f009.sensitive_key_in_json_exposed:
+  en: Sensitive key value stored as plain text
+  es: Credenciales almacenadas como texto plano
+f009.web_config_db_connection_exposed:
+  en: Database connection string exposed publicly
+  es: Cadena de conexión a la base de datos almacenada como texto plano
+f009.web_config_user_pass_exposed:
+  en: Sensitive information stored on the source code as plain text
+  es: Información sensible almacenada en el código como texto plano

@@ -1,0 +1,15 @@
+---
+lib_path.f097.has_reverse_tabnabbing:
+  en: >
+    External links with target="_blank" must have rel="noopener noreferrer"
+    set in order to avoid reverse tabnabbing.
+  es: >-
+    Los links externos con target="_blank" deben tener configurado
+    rel="noopener noreferrer" para prevenir ataques de tabnabbing inverso.
+lib_root.f097.has_reverse_tabnabbing:
+  en: >
+    Use of window.open() method without "noopener, noreferrer" window features
+    allows target page to change the contents of original page.
+  es: >-
+    El uso de el método window.open() sin los attributos de ventana "noopener, noreferrer"
+    habilita a la página destino para cambiar los contenidos de la página original.

@@ -1,0 +1,13 @@
+---
+lib_apk.analyze_bytecodes.exported:
+  en: application.android:exported enabled
+  es: application.android:exported habilitado
+lib_apk.analyze_bytecodes.grants_uri_permissions:
+  en: application.android:grantUriPermissions enabled
+  es: application.android:grantUriPermissions habilitado
+f075.android_manifest_exported_enabled:
+  en: application.android:exported enabled
+  es: application.android:exported habilitado
+f075.android_manifest_UriPermissions_enabled:
+  en: application.android:grantUriPermissions enabled
+  es: application.android:grantUriPermissions habilitado
