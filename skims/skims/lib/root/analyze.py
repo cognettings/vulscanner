@@ -120,12 +120,13 @@ def get_futures(
 
     if not shard or not shard.syntax_graph:
         return futures
+
+    # worker submit
+    log_blocking("info", "submitting analysis of %s", path)
     for label, nodes in nodes_by_type(shard.syntax_graph).items():
         if queries_node := QUERIES[lang].get(label):
             for finding, query in queries_node:
                 if finding in ctx.SKIMS_CONFIG.checks:
-                    # worker submit
-                    log_blocking("info", "submitting analysis of %s", path)
                     future = worker.submit(
                         _analyze_one,
                         config=ctx.SKIMS_CONFIG,
