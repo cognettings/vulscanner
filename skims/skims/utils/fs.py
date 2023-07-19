@@ -34,7 +34,7 @@ from utils.logs import (
     log_blocking,
 )
 
-MAX_FILE_SIZE: int = os.getenv('MAX_FILE_SIZE', 102400) # default to 100 KiB
+MAX_FILE_SIZE: int = int(os.getenv('MAX_FILE_SIZE', 102400)) # default to 100 KiB
 
 
 class FileTooLarge(Exception):
