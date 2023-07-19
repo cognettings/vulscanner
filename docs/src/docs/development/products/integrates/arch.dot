@@ -1,0 +1,302 @@
+digraph integates {
+  label="Integrates Architecture"
+  labelloc="t"
+  compound="true"
+  // concentrate="true"
+  rankdir="LR"
+  ranksep="6.0"
+  nodesep="1.0"
+  overlap="scalexy"
+
+  node[style="filled" margin="0.8,0.0"]
+  graph[style="dashed,rounded"]
+
+  subgraph cluster_aws {
+    label="AWS"
+    bgcolor="0.1 0.1 1.0"
+    node[fillcolor="0.1 0.5 1.0"]
+
+    subgraph cluster_aws_backup {
+      label="Backup"
+
+      subgraph cluster_aws_backup_vaults {
+        label="Backup Vaults"
+
+        aws_backup_vaults_integrates_dynamodb_backup_vault[label="integrates-dynamodb-backup-vault"]
+      }
+    }
+
+    subgraph cluster_aws_dynamodb {
+      label="DynamoDB"
+
+      cluster_aws_dynamodb[label="" style="invis"]
+
+      subgraph cluster_aws_dynamodb_tables {
+        label="Tables"
+
+        aws_dynamodb_tables_integrates[label="integrates*" peripheries="2"]
+        aws_dynamodb_tables_fi[label="fi*" peripheries="2"]
+        aws_dynamodb_tables_FI[label="FI*" peripheries="2"]
+      }
+
+      subgraph cluster_aws_dynamodb_streams {
+        label="Streams"
+
+        aws_dynamodb_streams_integrates[label="integrates_vms"]
+      }
+    }
+
+    subgraph cluster_aws_ec2 {
+      label="EC2 Instances"
+
+      aws_ec2_dev[label="dev" peripheries="2"]
+      aws_ec2_prod_integrates[label="prod_integrates" peripheries="2"]
+    }
+
+    subgraph cluster_aws_ec2_elb {
+      label="ELB"
+
+      aws_ec2_elb_prod[label="integrates-trunk"]
+      aws_ec2_elb_dev[label="integrates-*atfluid" peripheries="2"]
+    }
+
+    // certain api calls -> batch /integrates/jobs/execute_machine
+    // schedulers requeue_actions -> batch /integrates/jobs/execute_machine
+    // schedulers review_machine_executions -> batch /integrates/jobs/execute_machine
+
+    // /integrates/jobs/execute_machine
+    //    submit_task --execution-id
+    //      -> submits process-machine-result to celery queue (upload vulns in sarifs)
+
+    //    finish_execution
+    //    start_execution
+    //    start_execution
+
+    subgraph cluster_aws_eks {
+      label="EKS"
+
+      subgraph cluster_aws_eks_common {
+        label="common"
+
+        subgraph cluster_aws_eks_common_namespaces {
+          label="Namespaces"
+
+          subgraph cluster_aws_eks_common_namespaces_dev {
+            label="dev"
+
+            subgraph cluster_aws_eks_common_namespaces_dev_deployments {
+              label="Deployments"
+
+              aws_eks_common_namespaces_dev_deployments_integrates_atfluid[label="integrates-*atfluid" peripheries="2"]
+            }
+
+            subgraph cluster_aws_eks_common_namespaces_dev_ingress {
+              label="Ingresses"
+
+              aws_eks_common_namespaces_dev_ingress_dev[label="integrates-*atfluid" peripheries="2"]
+            }
+          }
+
+          subgraph cluster_aws_eks_common_namespaces_prod_integrates {
+            label="prod-integrates"
+
+            subgraph cluster_aws_eks_common_namespaces_prod_integrates_deployments {
+              label="Deployments"
+
+              aws_eks_common_namespaces_prod_integrates_deployments_integrates_trunk[label="integrates-trunk"]
+              aws_eks_common_namespaces_prod_integrates_deployments_machine_report_trunk[label="machine-report-trunk"]
+            }
+
+            subgraph cluster_aws_eks_common_namespaces_prod_integrates_ingress {
+              label="Ingresses"
+
+              aws_eks_common_namespaces_prod_integrates_ingress_integrates_trunk[label="integrates-trunk"]
+            }
+          }
+        }
+      }
+    }
+
+    subgraph cluster_aws_opensearch {
+      label="OpenSearch"
+
+      subgraph cluster_aws_opensearch_domains {
+        label="Domains"
+
+        aws_opensearch_domains_integrates[label="integrates"]
+      }
+    }
+
+    subgraph cluster_aws_s3 {
+      label="S3"
+
+      cluster_aws_s3[label="" style="invis"]
+
+      subgraph cluster_aws_s3_integrates {
+        label="integrates"
+
+        aws_s3_integrates_analytics_branch_documents[label="/analytics/<branch>/documents"]
+        aws_s3_integrates_analytics_branch_snapshots[label="/analytics/<branch>/snapshots"]
+      }
+
+      subgraph cluster_aws_s3_integrates_front_dev {
+        label="integrates.front.development.fluidattacks.com"
+
+        cluster_aws_s3_integrates_front_dev[label="" style="invis" width="6.0"]
+        aws_s3_integrates_front_dev_atfluid[label="/<branch>/*" peripheries="2"]
+      }
+
+      subgraph cluster_aws_s3_integrates_front_prod {
+        label="integrates.front.production.fluidattacks.com"
+
+        cluster_aws_s3_integrates_front_prod[label="" style="invis" width="6.0"]
+        aws_s3_integrates_front_production_trunk[label="/trunk/*"]
+      }
+    }
+
+    subgraph cluster_aws_sqs {
+      label="SQS"
+
+      subgraph cluster_aws_sqs_queues {
+        label="Queues"
+
+        aws_sqs_queues_celery[label="celery"]
+      }
+    }
+
+    subgraph cluster_aws_vpc {
+      label="VPC"
+
+      subgraph cluster_aws_vpc_fluid_vpc {
+        label="fluid-vpc (192.168.0.0/16)"
+
+        subgraph cluster_aws_vpc_fluid_vpc_subnets {
+          label="Subnets"
+
+          cluster_aws_vpc_fluid_vpc_subnets_k8s[label="k8s_* 192.168.[12-20].0/22 us-east-1*" peripheries="2"]
+        }
+      }
+    }
+  }
+
+  subgraph cluster_cloudflare {
+    label="Cloudflare"
+    bgcolor="0.6 0.1 1.0"
+    node[fillcolor="0.6 0.5 1.0"]
+
+    subgraph cluster_cloudflare_zones {
+      label="Zones"
+
+      subgraph cluster_cloudflare_zone_fluidattacks_com {
+        label="fluidattacks.com"
+
+        subgraph cluster_cloudflare_zone_fluidattacks_com_dns {
+          label="DNS"
+
+          cloudflare_zone_fluidattacks_com_dns_cname_app[label="CNAME app"]
+          cloudflare_zone_fluidattacks_com_dns_cname_atfluid_app[label="CNAME *atfluid.app"]
+          cloudflare_zone_fluidattacks_com_dns_cname_integrates_front_development[label="CNAME integrates.front.development"]
+          cloudflare_zone_fluidattacks_com_dns_cname_integrates_front_production[label="CNAME integrates.front.production"]
+        }
+
+        subgraph cluster_cloudflare_zone_fluidattacks_com_rules {
+          label="Rules"
+
+          subgraph cluster_cloudflare_zone_fluidattacks_com_page_rules {
+            label="Page Rules"
+
+            cloudflare_zone_fluidattacks_com_page_rules_integrates_front_dev[label="CACHE integrates.front.development.fluidattacks.com/*"]
+            cloudflare_zone_fluidattacks_com_page_rules_integrates_front_prod[label="CACHE integrates.front.production.fluidattacks.com/*"]
+          }
+        }
+      }
+    }
+  }
+
+  subgraph cluster_common {
+    label="Common"
+    bgcolor="0.0 0.0 0.95"
+    node[fillcolor="0.0 0.0 0.8"]
+
+    subgraph cluster_common_compute {
+      label="Compute"
+
+      subgraph cluster_common_compute_schedules {
+        label="Schedules"
+
+        common_compute_schedules_integrates_charts_documents[label="/integrates/charts/documents"]
+        common_compute_schedules_integrates_charts_snapshots[label="/integrates/charts/snapshots"]
+        common_compute_schedules_integrates_utils_scheduler[label="/integrates/utils/scheduler"]
+      }
+    }
+  }
+
+  subgraph cluster_gitlab {
+    label="GitLab"
+    bgcolor="0.8 0.1 1.0"
+    node[fillcolor="0.8 0.5 1.0"]
+
+    subgraph cluster_gitlab_git {
+      label="Git"
+
+      subgraph cluster_gitlab_integrates {
+        label="/integrates"
+
+        gitlab_integrates[label="Source Code"]
+        gitlab_integrates_back[label="/back"]
+        gitlab_integrates_charts[label="/charts"]
+        gitlab_integrates_front[label="/front"]
+      }
+    }
+  }
+
+  edge[color="0.1 1.0 1.0"]
+  aws_ec2_elb_dev -> aws_eks_common_namespaces_dev_deployments_integrates_atfluid[]
+  aws_ec2_elb_prod -> aws_eks_common_namespaces_prod_integrates_deployments_integrates_trunk[]
+  aws_eks_common_namespaces_dev_ingress_dev -> aws_ec2_elb_dev[]
+  aws_eks_common_namespaces_prod_integrates_ingress_integrates_trunk -> aws_ec2_elb_prod[]
+  aws_ec2_dev -> cluster_aws_vpc_fluid_vpc_subnets_k8s[]
+  aws_ec2_prod_integrates -> cluster_aws_vpc_fluid_vpc_subnets_k8s[]
+  aws_backup_vaults_integrates_dynamodb_backup_vault -> cluster_aws_dynamodb[lhead="cluster_aws_dynamodb"]
+  aws_eks_common_namespaces_dev_deployments_integrates_atfluid -> aws_ec2_dev[]
+  aws_eks_common_namespaces_prod_integrates_deployments_integrates_trunk -> aws_ec2_prod_integrates[]
+  aws_eks_common_namespaces_prod_integrates_deployments_machine_report_trunk -> aws_sqs_queues_celery[]
+  aws_eks_common_namespaces_prod_integrates_deployments_machine_report_trunk -> aws_ec2_prod_integrates[]
+  aws_opensearch_domains_integrates -> cluster_aws_vpc_fluid_vpc_subnets_k8s[]
+
+  edge[color="0.6 1.0 1.0"]
+  cloudflare_zone_fluidattacks_com_dns_cname_app -> aws_ec2_elb_prod[]
+  cloudflare_zone_fluidattacks_com_dns_cname_atfluid_app -> aws_ec2_elb_dev[]
+  cloudflare_zone_fluidattacks_com_dns_cname_integrates_front_development -> cluster_aws_s3_integrates_front_dev[lhead="cluster_aws_s3_integrates_front_dev"]
+  cloudflare_zone_fluidattacks_com_dns_cname_integrates_front_production -> cluster_aws_s3_integrates_front_prod[lhead="cluster_aws_s3_integrates_front_prod"]
+
+  edge[color="0.8 1.0 1.0"]
+  gitlab_integrates -> gitlab_integrates_back[]
+  gitlab_integrates -> gitlab_integrates_charts[]
+  gitlab_integrates -> gitlab_integrates_front[]
+  gitlab_integrates_back -> aws_sqs_queues_celery[]
+  gitlab_integrates_back -> aws_opensearch_domains_integrates[]
+  gitlab_integrates_back -> aws_eks_common_namespaces_dev_deployments_integrates_atfluid[]
+  gitlab_integrates_back -> aws_eks_common_namespaces_prod_integrates_deployments_integrates_trunk[]
+  gitlab_integrates_back -> aws_eks_common_namespaces_prod_integrates_deployments_machine_report_trunk[]
+  gitlab_integrates_back -> cluster_aws_dynamodb[lhead="cluster_aws_dynamodb"]
+  gitlab_integrates_back -> cluster_aws_s3[lhead="cluster_aws_s3"]
+  gitlab_integrates_front -> aws_s3_integrates_front_dev_atfluid[]
+  gitlab_integrates_front -> aws_s3_integrates_front_production_trunk[]
+
+  node[fillcolor="0.0 0.0 0.8"]
+  end_user[label="End User"]
+  developer[label="Developer"]
+
+  edge[color="0.0 0.0 0.0"]
+  common_compute_schedules_integrates_charts_documents -> aws_s3_integrates_analytics_branch_documents[]
+  common_compute_schedules_integrates_charts_documents -> gitlab_integrates_charts[]
+  common_compute_schedules_integrates_charts_snapshots -> aws_s3_integrates_analytics_branch_snapshots[]
+  common_compute_schedules_integrates_charts_snapshots -> gitlab_integrates_charts[]
+  common_compute_schedules_integrates_utils_scheduler -> aws_sqs_queues_celery[]
+  common_compute_schedules_integrates_utils_scheduler -> aws_opensearch_domains_integrates[]
+  common_compute_schedules_integrates_utils_scheduler -> aws_dynamodb_streams_integrates
+  end_user -> cloudflare_zone_fluidattacks_com_dns_cname_app[]
+  developer -> cloudflare_zone_fluidattacks_com_dns_cname_atfluid_app[]
+  developer -> gitlab_integrates[]
+}

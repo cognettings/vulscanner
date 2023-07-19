@@ -1,0 +1,27 @@
+Content-Type: multipart/mixed; boundary="==BOUNDARY=="
+MIME-Version: 1.0
+
+--==BOUNDARY==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+disk_setup:
+  /dev/nvme1n1:
+    table_type: mbr
+    layout: true
+    overwrite: true
+
+fs_setup:
+  - label: nvme
+    filesystem: ext4
+    device: /dev/nvme1n1
+    partition: auto
+    overwrite: true
+
+mounts:
+  - [/dev/nvme1n1, /var/lib/containerd/]
+
+--==BOUNDARY==--

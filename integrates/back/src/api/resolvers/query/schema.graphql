@@ -1,0 +1,191 @@
+"Main Query object"
+type Query {
+  "Billing entity"
+  billing: Billing
+
+  "Environments according to the Git Roots added to them"
+  environmentUrl(
+    "Name of the group to query"
+    groupName: String!
+    "Id of url"
+    urlId: String!
+  ): GitEnvironmentUrl
+
+  "Identifier that helps us to classify an event individually"
+  event(
+    "Name of the Group to which the Event belongs"
+    groupName: String!
+    "ID of the event to query"
+    identifier: String!
+  ): Event
+
+  "List of events from a specific group"
+  events(
+    "Name of the group to query"
+    groupName: String
+  ): [Event]
+
+  "Type of a vulnerability"
+  finding(
+    "ID of the finding to query"
+    identifier: String!
+  ): Finding
+
+  """
+  Get a specific execution of forces where you specify
+  that one according to the ID
+  """
+  forcesExecution(
+    "Name of the group where Forces was executed"
+    groupName: String
+    "ID of the forcesExecution"
+    executionId: String!
+  ): ForcesExecution
+
+  "Single project to manage their vulnerabilities separately"
+  group(
+    "Name of the group to query"
+    groupName: String!
+  ): Group
+
+  "List groups a user is subscribed to"
+  listUserGroups(
+    "Email address of the user to query"
+    userEmail: String!
+  ): [Group]
+
+  "General user information"
+  me(
+    "User endpoint in use, either API or FRONT"
+    callerOrigin: String
+  ): Me
+
+  """
+  Refers to the different macro projects,
+  which are divided into other subprojects (Groups)
+  """
+  organization(
+    "ID of the organization to query"
+    organizationId: String!
+  ): Organization
+
+  "Get complete organization data from its name"
+  organizationId(
+    "Name of the organization to query"
+    organizationName: String!
+  ): Organization
+
+  "Reports generated in the ARM (Executive & Technical)"
+  report(
+    "Age of the Type in days (last N days) to include"
+    age: Int
+    "Closing date to include, in the format `yyyy-MM-ddThh:mm:ssZ`"
+    closingDate: DateTime
+    "Finding's number and name to include"
+    findingTitle: String
+    "Name of the group to which the report belongs"
+    groupName: String
+    "Type of the report/export"
+    reportType: ReportType!
+    "Language of the requested report"
+    lang: ReportLang
+    "Days since the last reported vulnerability in Types (last N days) to include"
+    lastReport: Int
+    "Location to include"
+    location: String
+    "Maximum CVSS 3.1 score of findings to include"
+    maxSeverity: Float
+    "Maximum release date of types to include"
+    maxReleaseDate: DateTime
+    "Minimum release date of types to include, in the format `yyyy-MM-ddThh:mm:ssZ`"
+    minReleaseDate: DateTime
+    "Minimum CVSS 3.1 score of findings to include"
+    minSeverity: Float
+    "States to include"
+    states: [VulnerabilityState!]
+    "Treatments to include"
+    treatments: [VulnerabilityTreatment!]
+    "Verification states to include"
+    verifications: [VulnerabilityVerification!]
+    "OTP code to verify the stakeholder"
+    verificationCode: String!
+  ): Report
+
+  "Get resource file and the metadata from group"
+  resources(
+    "Name of the Group containing the files to be queried"
+    groupName: String
+  ): Resource
+
+  "Get a root, can be Git, IP or URL"
+  root(
+    "Name of the group"
+    groupName: String!
+    "Identifier of the root"
+    rootId: ID!
+  ): Root!
+
+  "Get user info from group"
+  stakeholder(
+    "Entity to which the user belongs to"
+    entity: StakeholderEntity!
+    "ID of the organization, if applicable"
+    organizationId: String
+    "Name of the group, if applicable"
+    groupName: String
+    "Email address of the user to query"
+    userEmail: String!
+  ): Stakeholder
+
+  "How to identify the vulnerability according to the customer"
+  tag(
+    "Content of the tag to be queried e.g. test-projects"
+    tag: String!
+    "ID of the organization, if applicable"
+    organizationId: String
+  ): Tag
+
+  "Toe lines report generated in the ARM"
+  toeLinesReport(
+    "Name of the group to which the report belongs"
+    groupName: String!
+    "OTP code to verify the stakeholder"
+    verificationCode: String!
+  ): Report
+
+  "Get the url for the unfulfilled standard report"
+  unfulfilledStandardReportUrl(
+    "Name of the group to which the report belongs"
+    groupName: String!
+    "OTP code to verify the stakeholder"
+    verificationCode: String!
+    "Unfulfilled standards to generate the report"
+    unfulfilledStandards: [String!]
+  ): String!
+
+  "Gets True if the AWS credentials follow our indication"
+  verifyAwsCredentials(
+    "Access Key ID credential"
+    accessKeyId: String!
+    "Secret Access Key credential"
+    secretAccessKey: String!
+  ): Boolean!
+
+  "Check if URL gets status 200"
+  verifyUrlStatus(
+    "Environment URL"
+    url: String!
+  ): Boolean!
+
+  "Gets vulnerabilities pending to reattack"
+  vulnerabilitiesToReattack(
+    "Name of the group to which the vulnerabilities belong to"
+    group: String
+  ): [Vulnerability]
+
+  "The specific location where the vulnerability is found"
+  vulnerability(
+    "Identifier of the vulnerability to query"
+    uuid: String!
+  ): Vulnerability
+}

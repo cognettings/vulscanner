@@ -1,0 +1,32 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_magnifying %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_magnifying('Type of Vulnerability Deleted') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          A type of vulnerability in the group
+          <strong>{{ group }}</strong> has been deleted by
+          <strong>
+            <a
+              href="mailto:{{ hacker_email }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ hacker_email -}}</a></strong>:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Type:</strong><br/>{{ finding_name }}<br><br/>
+            <strong>ID:</strong><br/>{{ finding_id }}<br><br/>
+            <strong>Justification:</strong><br/>{{ justification }}
+          </p>
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

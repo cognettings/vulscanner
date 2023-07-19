@@ -1,0 +1,9 @@
+"Requirement type definition"
+type Requirement {
+  "Id of the requirement"
+  id: ID!
+  "Summary of the requirement"
+  summary: String!
+  "Title of the requirement"
+  title: String!
+}

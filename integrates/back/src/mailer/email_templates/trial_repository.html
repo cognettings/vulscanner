@@ -1,0 +1,51 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      <div class="main-content">
+        <h2>Hi {{ name }},</h2>
+        <p>
+          You’re a few steps away from discovering vulnerabilities fast through
+          our scanning tool. To enjoy Fluid Attacks’ free trial, you need to
+          <strong>add a Git Repository</strong>.
+        </p>
+        <p>
+          You can rest assured that your information is in good hands.
+          At Fluid Attacks, we take your company’s security seriously.
+          We invite you to read about our
+          <a
+            href="https://docs.fluidattacks.com/about/security"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            security measures</a>.
+        </p>
+        <p>
+          Don’t just take our word for it, see some of our satisfied clients
+          <a
+            href="https://fluidattacks.com/clients/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here</a>.
+        </p>
+        <p>
+          We look forward to having you!
+        </p>
+        {{ go_to_button('Go back to Free Trial', 'https://app.fluidattacks.com/SignUp', 'primary-button') }}
+        <p>
+          Contact us at
+          <a
+            href="mailto:help@fluidattacks.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >help@fluidattacks.com</a>
+          if you have any questions.
+        </p>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

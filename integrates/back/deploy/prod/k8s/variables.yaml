@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: integrates-${NAME}
+  namespace: prod-integrates
+type: Opaque
+data:
+  CACHIX_AUTH_TOKEN: ${B64_CACHIX_AUTH_TOKEN}
+  CI_COMMIT_REF_NAME: ${B64_CI_COMMIT_REF_NAME}
+  CI_COMMIT_SHA: ${B64_CI_COMMIT_SHA}
+  UNIVERSE_API_TOKEN: ${B64_UNIVERSE_API_TOKEN}

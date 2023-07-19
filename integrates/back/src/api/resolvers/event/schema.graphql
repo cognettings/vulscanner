@@ -1,0 +1,39 @@
+"Event type definition"
+type Event {
+  """
+  Vulnerabilities requested for a reattack that had to be put on hold
+  because of this Event
+  """
+  affectedReattacks: [Vulnerability!]!
+  "ID of the organization where the event was created"
+  client: String
+  "Datetime of solving of the Event, in the format yyyy-MM-ddThh:mm:ssZ"
+  closingDate: String
+  "Comment/consult array regarding the event"
+  consulting: [Consult!]
+  "Comment laying out or explaining the event"
+  detail: String
+  "Date the event was created with the format `yyyy-MM-ddThh:mm:ssZ`"
+  eventDate: String
+  "Current status of the Event which can be: solved, unsolved or pending"
+  eventStatus: String
+  "The kind of event that happened"
+  eventType: EventType
+  """
+  Evidence of the event where shows us how it is no
+  posible to continue with analyse the inputs
+  """
+  evidences: EventEvidence!
+  "Name of the group linked to the event"
+  groupName: String
+  "Person who reported the event"
+  hacker: String
+  "Identifier of the event"
+  id: String
+  "Description for other solving reason"
+  otherSolvingReason: String
+  "Nickname of the root where the event was reported"
+  root: Root
+  "Reason of solving the Event"
+  solvingReason: SolveEventReason
+}

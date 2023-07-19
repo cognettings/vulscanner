@@ -1,0 +1,2656 @@
+/deployTerraform/observes:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  resource_group: $CI_JOB_NAME
+  rules:
+    - if: $CI_COMMIT_BRANCH != "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /deployTerraform/observes
+  stage: deploy-infra
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesArch:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesArch
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesCommonPaginator:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/paginator/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesCommonPaginator
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesCommonPostgresClient:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/postgres-client/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesCommonPostgresClient
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesCommonSingerIo:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/singer-io/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesCommonSingerIo
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapAnnounceKit:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-announcekit/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapAnnounceKit
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapBugsnag:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - /observes/singer/tap-bugsnag/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapBugsnag
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapDelighted:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-delighted/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapDelighted
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapFormstack:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-formstack/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapFormstack
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapMailchimp:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mailchimp/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapMailchimp
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapMatomo:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-matomo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapMatomo
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapMixpanel:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mixpanel/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapMixpanel
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/imports/observesTapTimedoctor:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-timedoctor/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/imports/observesTapTimedoctor
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesCommonPaginator:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/paginator/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesCommonPaginator
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesCommonPostgresClient:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/postgres-client/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesCommonPostgresClient
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesCommonPostgresClientTests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/postgres-client/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesCommonPostgresClientTests
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesCommonSingerIo:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/singer-io/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesCommonSingerIo
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesCommonSingerIoTests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/singer-io/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesCommonSingerIoTests
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapAnnounceKit:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-announcekit/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapAnnounceKit
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapAnnounceKitTests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-announcekit/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapAnnounceKitTests
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapBugsnag:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-bugsnag/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapBugsnag
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapDelighted:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-delighted/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapDelighted
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapFormstack:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-formstack/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapFormstack
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapMailchimp:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mailchimp/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapMailchimp
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapMailchimpTests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mailchimp/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapMailchimpTests
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapMatomo:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-matomo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapMatomo
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapMixpanel:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mixpanel/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapMixpanel
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapMixpanelTests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mixpanel/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapMixpanelTests
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTapTimedoctor:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-timedoctor/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTapTimedoctor
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/observesTargetRedshift:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-redsfhit/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintPython/module/observesTargetRedshift
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintTerraform/observes:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/infra/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /lintTerraform/observes
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/asm-dal/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/asm-dal/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/asm-dal/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/asm-dal/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/asm-dal/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/asm-dal/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/asm-dal/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/asm-dal/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/asm-dal/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/asm-dal/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/asm-dal/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/asm-dal/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/singer-io/test:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/singer-io/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/singer-io/test
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/utils-logger-2/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/utils-logger-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/utils-logger-2/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/utils-logger-2/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/utils-logger-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/utils-logger-2/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/common/utils-logger-2/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/common/utils-logger-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/common/utils-logger-2/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/code/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/code/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/code/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/code/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/code/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/code/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/code/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/code/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/code/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/code/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/code/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/code/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/dynamo/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/dynamo/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/dynamo/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/dynamo/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/dynamo/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/dynamo/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/dynamo/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/dynamo/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/google-sheets/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/google-sheets/**/*
+        - observes/singer/tap-google-sheets/**/*
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/google-sheets/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/google-sheets/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/google-sheets/**/*
+        - observes/singer/tap-google-sheets/**/*
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/google-sheets/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/google-sheets/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/google-sheets/**/*
+        - observes/singer/tap-google-sheets/**/*
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/google-sheets/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/etl/google-sheets/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/etl/google-sheets/**/*
+        - observes/singer/tap-google-sheets/**/*
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/etl/google-sheets/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/db-snapshot/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/db-snapshot/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/db-snapshot/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/db-snapshot/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/db-snapshot/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/db-snapshot/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/db-snapshot/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/db-snapshot/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/db-snapshot/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/db-snapshot/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/db-snapshot/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/db-snapshot/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/success-indicators/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/success-indicators/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/success-indicators/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/success-indicators/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/success-indicators/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/success-indicators/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/success-indicators/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/success-indicators/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/success-indicators/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/service/success-indicators/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/service/success-indicators/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/service/success-indicators/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-announcekit/fx-test:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-announcekit/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-announcekit/fx-test
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-announcekit/test:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-announcekit/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-announcekit/test
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-checkly/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-checkly/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-checkly/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-checkly/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-checkly/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-checkly/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-checkly/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-checkly/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-checkly/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-checkly/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-checkly/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-checkly/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-csv/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-csv/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-csv/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-csv/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-csv/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-csv/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-csv/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-csv/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-csv/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-csv/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-csv/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-csv/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-dynamo/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-dynamo/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-dynamo/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-dynamo/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-dynamo/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-dynamo/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-dynamo/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-dynamo/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-dynamo/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-gitlab/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-gitlab/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-gitlab/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-gitlab/check/arch:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-gitlab/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-gitlab/check/arch
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-gitlab/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-gitlab/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-gitlab/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-gitlab/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-gitlab/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-gitlab/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-gitlab/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-gitlab/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-gitlab/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-json/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-json/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-json/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-json/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-json/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-json/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-json/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-json/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-json/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-json/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-json/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-json/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-mailchimp/test:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mailchimp/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-mailchimp/test
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-mandrill/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mandrill/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-mandrill/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-mandrill/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mandrill/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-mandrill/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-mandrill/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mandrill/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-mandrill/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-mandrill/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mandrill/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-mandrill/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-mixpanel/test:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-mixpanel/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-mixpanel/test
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-zoho-crm/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-zoho-crm/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-zoho-crm/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-zoho-crm/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-zoho-crm/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-zoho-crm/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-zoho-crm/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-zoho-crm/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-zoho-crm/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/tap-zoho-crm/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/tap-zoho-crm/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/tap-zoho-crm/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-redshift-2/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-redshift-2/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-redshift-2/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-redshift-2/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-redshift-2/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-redshift-2/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-redshift-2/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-redshift-2/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-redshift-2/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-s3/bin --help:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-s3/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-s3/bin --help
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-s3/check/tests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-s3/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-s3/check/tests
+  stage: test-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-s3/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-s3/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-s3/check/types
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/observes/singer/target-s3/env/dev:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/singer/target-s3/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /observes/singer/target-s3/env/dev
+  stage: build
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/pipelineOnGitlab/observes:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/pipeline/**/*
+        - observes/.gitlab-ci.yml
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /pipelineOnGitlab/observes
+  stage: lint-code
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/testTerraform/observes:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - observes/infra/**/*
+        - observes/common/**/*
+        - observes/pipeline/**/*
+      if: $CI_COMMIT_TITLE =~ /^(all|observes)/
+  script:
+    - m . /testTerraform/observes
+  stage: test-infra
+  tags:
+    - observes-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1

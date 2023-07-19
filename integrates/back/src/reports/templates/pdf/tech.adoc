@@ -1,0 +1,125 @@
+= {{full_group}}
+:lang:		{{lang}}
+:author:	{{team}}
+:email:		{{team_mail}}
+:date: 	    {{report_date}}
+:language:	python
+:revnumber:	{{version}}
+:revdate:	{{revdate}}
+:revmark:	Versión inicial
+
+
+'''
+
+
+ifdef::env-en[]
+This report was requested by {{user}} on {{date}}, and its use is intended for that person only.
+If you are not that person, you are not authorized to read nor keep this document. Please refrain from reading anything but the instructions in this paragraph, report this incident to {{user}} and securely delete this email, as well as the document, in case you had downloaded it. To obtain an updated version of this report for your use, please request it in the following link: [{{link}}[Fluid] > Reports > Executive].
+endif::[]
+ifdef::env-es[]
+Este informe fue solicitado por {{user}} el {{date}} y es para el uso exclusivo de dicho solicitante.
+Si usted no es esta persona, no está autorizado para leer ni conservar este documento. Absténgase de leer más allá de las indicaciones de este párrafo, informe sobre el incidente a {{user}} y elimine este correo de forma segura, así como el documento, en caso de haberlo descargado. Para obtener una versión actualizada de este informe dirijida a usted, solicítela en el siguiente enlace: [{{link}}[Fluid] > Reports > Executive].
+endif::[]
+
+
+//Primera pagina - Contenido
+<<<
+=== {{fluid_tpl['content_title']}}
+{% for li in fluid_tpl['content_list'] %}
+{{"==== "+li+"\n"}}
+{%- endfor %}
+
+//Segunda pagina - Objetivos
+<<<
+[%notitle]
+=== {{fluid_tpl['goals_title']}}
+{{goals_pdf}}
+
+//Tercera pagina - Explicacion severity
+<<<
+=== {{severity_title}}
+{{fluid_tpl['severity_img']}}
+
+//Scope
+<<<
+=== {{root_scope_title}}
+==== {{root_git_title}}
+[cols="50%,15%,23%,12%"]
+|===
+|{{root_url}} |{{root_branch}} |{{root_nickname}} |{{root_state}}
+{% for root in git_root %}
+    {{"| "+root.url|string}}
+    {{"| "+root.branch|string}}
+    {{"| "+root.nickname|string}}
+    {{"| "+(root.status|string).capitalize()}}
+{%- endfor %}
+|===
+
+===== {{root_environment_title}}
+|===
+|{{root_url}}
+{% for url in environment_urls %}
+    {{"| "+url|string}}
+{%- endfor %}
+|===
+
+==== {{root_ip_title}}
+[cols="40%,40%,20%"]
+|===
+|{{root_address}} |{{root_nickname}} |{{root_state}}
+{% for root in ip_root %}
+    {{"| "+root.address|string}}
+    {{"| "+root.nickname|string}}
+    {{"| "+(root.status|string).capitalize()}}
+{%- endfor %}
+|===
+
+==== {{root_url_title}}
+[cols="42%,14%,10%,22%,12%"]
+|===
+|{{root_host}} |{{path}} |{{port}} |{{root_nickname}} |{{root_state}}
+{% for root in url_root %}
+    {{"| "+root.host|string}}
+    {{"| "+root.path|string}}
+    {{"| "+root.port|string}}
+    {{"| "+root.nickname|string}}
+    {{"| "+(root.status|string).capitalize()}}
+{%- endfor %}
+|===
+
+//Cuarta pagina - Tabla de hallazgos
+<<<
+[%notitle]
+=== {{resume_table_title}}
+{{finding_table_title_pdf}}
+<<<
+{{finding_table_pdf}}
+
+//Quinta pagina - Vista general
+<<<
+[%notitle]
+=== {{resume_page_title}}
+{{general_view_pdf}}
+
+//Sexta pagina - Vista general
+<<<
+.{{resume_top_title}}
+|===
+|{{resume_vnum_title}}|{{severity_title}}|{{resume_vname_title}}
+{% for row in main_tables['top'] %}
+    {% for col in row %}
+        {{"| "+col|string }}
+    {%-  endfor %}
+{%- endfor %}
+|===
+
+//Septima en adelante - Resumen hallazgos
+<<<
+[%notitle]
+=== {{finding_section_title}}
+{{finding_summary_title_pdf}}
+<<<
+{{finding_summary_pdf}}
+
+<<<
+{{fluid_tpl['footer_adoc']}}

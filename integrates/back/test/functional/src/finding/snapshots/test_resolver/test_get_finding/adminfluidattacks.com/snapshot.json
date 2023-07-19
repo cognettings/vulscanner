@@ -1,0 +1,220 @@
+{
+  "data": {
+    "finding": {
+      "age": 1067,
+      "hacker": "test1@gmail.com",
+      "attackVectorDescription": "This is an updated attack vector",
+      "closedVulnerabilities": 1,
+      "consulting": [
+        {
+          "content": "Regarding vulnerabilities: \n  - 192.168.1.20 (9999)\n\nJustification:\n  This is a test observations",
+          "created": "2019/05/28 15:09:37",
+          "email": "admin@fluidattacks.com",
+          "fullName": "test one"
+        }
+      ],
+      "currentState": "APPROVED",
+      "cvssVersion": "3.1",
+      "description": "I just have updated the description",
+      "draftsConnection": {
+        "edges": [
+          {
+            "node": {
+              "id": "b99d5450-2fdc-44e7-9e1f-01a7e288d317",
+              "state": "REJECTED"
+            }
+          },
+          {
+            "node": {
+              "id": "3bb9de0a-9232-4280-b730-b0607f6455e3",
+              "state": "SUBMITTED"
+            }
+          }
+        ],
+        "pageInfo": {
+          "endCursor": "eyJwayI6ICJWVUxOIzNiYjlkZTBhLTkyMzItNDI4MC1iNzMwLWIwNjA3ZjY0NTVlMyIsICJzayI6ICJGSU4jM2M0NzUzODQtODM0Yy00N2IwLWFjNzEtYTQxYTAyMmU0MDFjIiwgInBrXzYiOiAiRklOIzNjNDc1Mzg0LTgzNGMtNDdiMC1hYzcxLWE0MWEwMjJlNDAxYyIsICJza182IjogIlZVTE4jREVMRVRFRCNmYWxzZSNSRUxFQVNFRCNmYWxzZSNaUiNmYWxzZSNTVEFURSNzdWJtaXR0ZWQjVkVSSUYjbm9uZSJ9",
+          "hasNextPage": false
+        }
+      },
+      "evidence": {
+        "animation": {
+          "date": "2020-11-19 08:37:10",
+          "description": "animation",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-animation"
+        },
+        "evidence1": {
+          "date": "2020-11-19 08:37:10",
+          "description": "evidence1",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-evidence1"
+        },
+        "evidence2": {
+          "date": "2020-11-19 08:37:10",
+          "description": "evidence2",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-evidence2"
+        },
+        "evidence3": {
+          "date": "2020-11-19 08:37:10",
+          "description": "evidence3",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-evidence3"
+        },
+        "evidence4": {
+          "date": "2020-11-19 08:37:10",
+          "description": "evidence4",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-evidence4"
+        },
+        "evidence5": {
+          "date": "2020-11-19 08:37:10",
+          "description": "evidence5",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-evidence5"
+        },
+        "exploitation": {
+          "date": "2020-11-19 08:37:10",
+          "description": "exploitation",
+          "url": "group1-3c475384-834c-47b0-ac71-a41a022e401c-exploitation"
+        }
+      },
+      "groupName": "group1",
+      "id": "3c475384-834c-47b0-ac71-a41a022e401c",
+      "isExploitable": false,
+      "lastStateDate": "2018-04-07 19:45:15",
+      "lastVulnerability": 1066,
+      "maxOpenSeverityScore": 4.1,
+      "minTimeToRemediate": 4,
+      "observations": [
+        {
+          "content": "This is a test observations",
+          "email": "admin@fluidattacks.com",
+          "fullName": "test one"
+        }
+      ],
+      "openAge": 400,
+      "openVulnerabilities": 1,
+      "recommendation": "Updated recommendation",
+      "records": "[]",
+      "rejectedVulnerabilities": 1,
+      "releaseDate": "2018-04-27 19:45:11",
+      "remediated": false,
+      "reportDate": "2018-04-27 19:45:11",
+      "requirements": "REQ.0132. Passwords (phrase type) must be at least 3 words long.",
+      "severity": {
+        "attackComplexity": 0.44,
+        "attackVector": 0.2,
+        "availabilityImpact": 0.22,
+        "availabilityRequirement": 1.5,
+        "confidentialityImpact": 0.22,
+        "confidentialityRequirement": 0.5,
+        "exploitability": 0.94,
+        "integrityImpact": 0.22,
+        "integrityRequirement": 1.0,
+        "modifiedAttackComplexity": 0.44,
+        "modifiedAttackVector": 0.85,
+        "modifiedAvailabilityImpact": 0.22,
+        "modifiedConfidentialityImpact": 0.22,
+        "modifiedIntegrityImpact": 0.0,
+        "modifiedPrivilegesRequired": 0.27,
+        "modifiedSeverityScope": 0.0,
+        "modifiedUserInteraction": 0.62,
+        "privilegesRequired": 0.62,
+        "remediationLevel": 0.95,
+        "reportConfidence": 1.0,
+        "severityScope": 1.0,
+        "userInteraction": 0.85
+      },
+      "severityScore": 4.1,
+      "severityVector": "CVSS:3.1/AV:P/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:L/E:P/RL:O/CR:L/AR:H/MAV:N/MAC:H/MPR:H/MUI:R/MS:U/MC:L/MA:L",
+      "sorts": "NO",
+      "status": "VULNERABLE",
+      "submittedVulnerabilities": 1,
+      "threat": "Updated threat",
+      "title": "001. SQL injection - C Sharp SQL API",
+      "tracking": [
+        {
+          "accepted": 0,
+          "acceptedUndefined": 0,
+          "cycle": 0,
+          "date": "2018-04-08",
+          "justification": "",
+          "assigned": "",
+          "safe": 0,
+          "vulnerable": 1
+        },
+        {
+          "accepted": 0,
+          "acceptedUndefined": 0,
+          "cycle": 1,
+          "date": "2018-04-08",
+          "justification": "",
+          "assigned": "",
+          "safe": 1,
+          "vulnerable": 0
+        },
+        {
+          "accepted": 1,
+          "acceptedUndefined": 0,
+          "cycle": 2,
+          "date": "2018-04-09",
+          "justification": "justification",
+          "assigned": "anything@gmail.com",
+          "safe": 0,
+          "vulnerable": 0
+        }
+      ],
+      "totalOpenCVSSF": 1.149,
+      "treatmentSummary": {
+        "accepted": 1,
+        "acceptedUndefined": 2,
+        "inProgress": 3,
+        "untreated": 4
+      },
+      "verificationSummary": {
+        "requested": 1,
+        "onHold": 2,
+        "verified": 3
+      },
+      "verified": false,
+      "vulnerabilitiesConnection": {
+        "edges": [
+          {
+            "node": {
+              "id": "be09edb7-cd5c-47ed-bee4-97c645acdce8",
+              "state": "SAFE"
+            }
+          },
+          {
+            "node": {
+              "id": "6401bc87-8633-4a4a-8d8e-7dae0ca57e6a",
+              "state": "VULNERABLE"
+            }
+          }
+        ],
+        "pageInfo": {
+          "endCursor": "eyJwayI6ICJWVUxOIzY0MDFiYzg3LTg2MzMtNGE0YS04ZDhlLTdkYWUwY2E1N2U2YSIsICJzayI6ICJGSU4jM2M0NzUzODQtODM0Yy00N2IwLWFjNzEtYTQxYTAyMmU0MDFjIiwgInBrXzYiOiAiRklOIzNjNDc1Mzg0LTgzNGMtNDdiMC1hYzcxLWE0MWEwMjJlNDAxYyIsICJza182IjogIlZVTE4jREVMRVRFRCNmYWxzZSNSRUxFQVNFRCN0cnVlI1pSI2ZhbHNlI1NUQVRFI3Z1bG5lcmFibGUjVkVSSUYjbm9uZSJ9",
+          "hasNextPage": false
+        }
+      },
+      "vulnerabilitiesToReattackConnection": {
+        "edges": [],
+        "pageInfo": {
+          "endCursor": "bnVsbA==",
+          "hasNextPage": false
+        }
+      },
+      "zeroRiskConnection": {
+        "edges": [
+          {
+            "node": {
+              "id": "7771bc87-8633-4a4a-8d8e-7dae0ca57e7a",
+              "state": "VULNERABLE"
+            }
+          }
+        ],
+        "pageInfo": {
+          "endCursor": "eyJwayI6ICJWVUxOIzc3NzFiYzg3LTg2MzMtNGE0YS04ZDhlLTdkYWUwY2E1N2U3YSIsICJzayI6ICJGSU4jM2M0NzUzODQtODM0Yy00N2IwLWFjNzEtYTQxYTAyMmU0MDFjIiwgInBrXzYiOiAiRklOIzNjNDc1Mzg0LTgzNGMtNDdiMC1hYzcxLWE0MWEwMjJlNDAxYyIsICJza182IjogIlZVTE4jREVMRVRFRCNmYWxzZSNSRUxFQVNFRCN0cnVlI1pSI3RydWUjU1RBVEUjdnVsbmVyYWJsZSNWRVJJRiNub25lIn0=",
+          "hasNextPage": false
+        }
+      },
+      "where": "192.168.1.1",
+      "__typename": "Finding"
+    }
+  }
+}

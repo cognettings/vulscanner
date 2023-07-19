@@ -1,0 +1,167 @@
+"Finding type definition"
+type Finding {
+  "Age of the Finding in days"
+  age: Int!
+  "Malicious actions that can be performed by exploiting the vulnerability"
+  attackVectorDescription: String!
+  "Quantity of closed vulnerabilities within the Finding"
+  closedVulnerabilities: Int!
+  "Information about the Finding shared by the stakeholders via comments"
+  consulting: [Consult]
+  """
+  Finding transactional status which can be `APPROVED`, `CREATED`,
+  `DELETED`, `MASKED`, `REJECTED` or `SUBMITTED`
+  """
+  currentState: FindingStateStatus
+  "Common Vulnerability Scoring System (CVSS v3.1)"
+  cvssVersion: String!
+  "Brief explanation of the vulnerability and how it works"
+  description: String!
+  "List of unreleased vulnerabilities within the Finding"
+  draftsConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+  ): VulnerabilitiesConnection!
+  "Evidences of the Finding where shows us how to exploit this vulnerability"
+  evidence: FindingEvidence!
+  "Name of the Group where the Finding is in"
+  groupName: String!
+  "Hacker responsible for the Finding"
+  hacker: String
+  "Finding Identifier"
+  id: String!
+  "Is the Finding still exploitable?"
+  isExploitable: Boolean!
+  "Date from last state status"
+  lastStateDate: String
+  "Time in days since the last closed vulnerability in this Finding"
+  lastVulnerability: Int
+  "Machine (Skims) checks and tests associated with this Finding"
+  machineJobs: [MachineJob!]
+  "Maximum CVSS v3.1 temporal score among all open vulnerabilities"
+  maxOpenSeverityScore: Float!
+  """
+  Minimum time in minutes to remediate a typical vulnerability in this
+  Finding
+  """
+  minTimeToRemediate: Int
+  "Consults/Comments about the Finding. This query is exclusive to hackers"
+  observations: [Consult]
+  "Age of the oldest open vulnerability in the Finding in days"
+  openAge: Int
+  "Quantity of remaining open vulnerabilities"
+  openVulnerabilities: Int!
+  "Recommended course of action to close the vulnerabilities"
+  recommendation: String!
+  """
+  Information that was compromised or disclosed by exploiting the
+  vulnerability
+  """
+  records: JSONString
+  "Quantity of rejected vulnerabilities within the Finding"
+  rejectedVulnerabilities: Int!
+  "Date when the finding is approved"
+  releaseDate: String
+  "All open locations of a finding that have requested a re-attack"
+  remediated: Boolean
+  "Date when the Finding was reported or when the Draft was submitted"
+  reportDate: String
+  "Rules that are broken and lead to the existence of the vulnerability"
+  requirements: String!
+    @deprecated(
+      reason: """
+      This field will be removed after 2023/08/21.
+      Use `unfulfilledRequirements` instead.
+      """
+    )
+  "Set of CVSS metrics used to assign the respective score"
+  severity: Severity!
+  "CVSS temporal score already calculated"
+  severityScore: Float!
+  "CVSS vector string"
+  severityVector: String!
+  "Was Sorts involved in finding the vulnerability?"
+  sorts: Sorts
+  "Current status of the finding which can be `SAFE`, `VULNERABLE` or `DRAFT`"
+  status: String!
+  "Quantity of submitted vulnerabilities within the Finding"
+  submittedVulnerabilities: Int!
+  "Actor and scenery where the vulnerability can be exploited"
+  threat: String!
+  "Finding number and name"
+  title: String!
+  """
+  Sum of all open vulnerabilities' CVSSF score.
+  Used in calculations of Risk Exposure
+  """
+  totalOpenCVSSF: Float!
+  "Timeline of actions in this Finding"
+  tracking: [Tracking!]
+  "Summary of the number of vulnerabilities in every treatment status"
+  treatmentSummary: TreatmentSummary!
+  "Rules that are broken and lead to the existence of the vulnerability"
+  unfulfilledRequirements: [Requirement!]!
+  "Summary of the number of vulnerabilities in every verification status"
+  verificationSummary: VerificationSummary!
+  "Is it verified i.e. with open and no remediated vulnerabilities?"
+  verified: Boolean!
+  "Vulnerabilities associated with the Finding"
+  vulnerabilitiesConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+    "Filter by the reattack status of the vulnerability"
+    reattack: String
+    "Filter vulnerabilities by their current state"
+    state: VulnerabilityState
+    "Filter by the treatment given to the vulnerability"
+    treatment: VulnerabilityTreatment
+    "Filter by the location where the vulnerability was found"
+    where: String
+  ): VulnerabilitiesConnection!
+  "Vulnerabilities that have been requested for a reattack"
+  vulnerabilitiesToReattackConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+  ): VulnerabilitiesConnection!
+  """
+  General locations of the Vulnerabilities, can be files, URLs or IPs.
+  It is limited to 20 locations.
+  """
+  where: String
+  """
+  List of requested and confirmed zero-risk vulnerabilities within the
+  Finding
+  """
+  zeroRiskConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+    "Filter vulnerabilities by their current state"
+    state: VulnerabilityState
+  ): VulnerabilitiesConnection!
+}
+
+"Finding Edge type definition"
+type FindingEdge implements Edge {
+  "The cursor for the edge"
+  cursor: String!
+  "The node with the payload"
+  node: Finding!
+}
+
+"Findings Connection type definition"
+type FindingsConnection {
+  "A list of Findings edges"
+  edges: [FindingEdge]!
+  "Information to aid in pagination"
+  pageInfo: PageInfo!
+  "Total findings found"
+  total: Int
+}

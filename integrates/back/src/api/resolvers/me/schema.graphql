@@ -1,0 +1,114 @@
+"Me type definition"
+type Me {
+  "Access API token metadata"
+  accessToken: String!
+    @deprecated(
+      reason: """
+      This field will be removed after 2023/12/21. Use `accessTokens` instead.
+      """
+    )
+  "Access tokens metadata that belong to the stakeholder"
+  accessTokens: [AccessToken]
+  "Origin of the requests made to the endpoint by this user"
+  callerOrigin: CallerOrigin!
+  "Credentials that belong to the stakeholder"
+  credentials: [Credentials!]
+  "New findings yet to be approved"
+  drafts: [Finding!]
+  "New findings yet to be approved"
+  draftsConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of drafts to return"
+    first: Int
+  ): FindingsConnection!
+  "If true, the user has completed initial enrollment process successfully"
+  enrolled: Boolean!
+  "Evidence drafts in all groups where the user has access"
+  findingEvidenceDrafts(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of findings to return"
+    first: Int
+  ): FindingsConnection!
+  "Open vulnerabilities with a re-attack request status"
+  findingReattacksConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of findings to return"
+    first: Int
+  ): FindingsConnection!
+  "Indicator to see if there's more than one open session currently"
+  isConcurrentSession: Boolean!
+  """
+  This query allows to know the configuration of
+  the notification preferences for the user
+  """
+  notificationsPreferences: NotificationsPreferences!
+  "List of Organizations the user is a member of"
+  organizations: [Organization!]
+  "List of pending events from the groups the stakeholders belongs"
+  pendingEvents: [Event!]
+  "Gets the  user-level permissions of the current stakeholder/user"
+  permissions: [String!]
+  "Stakeholder's phone information"
+  phone: Phone
+  "Vulnerabilities that the hacker is assigned to reattack"
+  reattacks(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+  ): VulnerabilitiesConnection!
+  "If true, the legal notice modal won't appear after every ARM login"
+  remember: Boolean!
+  "Gets the user-level role of the current stakeholder/user"
+  role: String!
+  """
+  Unix timestamp representing the moment where the user's API access
+  token will expire
+  """
+  sessionExpiration: String!
+  "Tags associated with the organization/groups"
+  tags(
+    "Identifier of the organization to query for tags"
+    organizationId: String!
+  ): [Tag!]
+  "New users workflow skipping information"
+  tours: Tours!
+  "Free trial information"
+  trial: Trial
+  "Email address of the user"
+  userEmail: String!
+  "Current user name"
+  userName: String!
+  "Assigned vulnerabilities of the current user"
+  vulnerabilitiesAssigned: [Vulnerability!]
+  "Vulnerability drafts in all groups where the user has access"
+  vulnerabilityDrafts(
+    "The cursor for the forward pagination"
+    after: String
+    "Title of the finding"
+    findingTitle: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+    "From the report date moment"
+    fromReportDate: DateTime
+    "Group of the vulnerability"
+    groupName: String
+    "The hacker that created the vulnerability"
+    hacker: String
+    "Maximum severity temporal score"
+    maxSeverityTemporalScore: Float
+    "Minimum severity temporal score"
+    minSeverityTemporalScore: Float
+    "Organization of the vulnerability"
+    organizationName: String
+    "The type of vulnerability source"
+    sourceType: VulnerabilitySourceType
+    "Vulnerability status"
+    stateStatus: String
+    "To the report date moment"
+    toReportDate: DateTime
+  ): VulnerabilitiesConnection!
+}

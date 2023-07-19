@@ -1,0 +1,50 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share, go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Root Status') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          {% if not is_failed %}
+          The <strong>{{ root_nickname }}</strong> root of the group
+          <strong>{{ group }}</strong> is cloning again
+            {%- if cloning_time_delta %}
+          after {{ cloning_time_delta -}}
+            {%- endif -%}.
+        </p>
+        <p>
+            {% if last_clone_date %}
+          <strong>Last cloning date:</strong> {{ last_clone_date }}
+              {% if days_to_clone %}
+          ({{ days_to_clone }} days ago).
+              {% endif %}<br>
+            {% endif %}
+          {% else %}
+          The <strong>{{ root_nickname }}</strong> root of the group
+          <strong>{{ group }}</strong> failed to clone
+          {{ report_date }}.
+          {% endif %}
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>ID:</strong><br/>{{ root_id }}<br/><br/>
+            <strong>Creation date:</strong><br/>{{ root_creation_date }}<br/><br/>
+            <strong>Last modified by:</strong><br/>
+            <a
+              href="mailto:{{ modified_by }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ modified_by -}}
+            </a>
+          </p>
+        </div>
+        {{ go_to_button('Go to scope', scope_url, 'primary-button') }}
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

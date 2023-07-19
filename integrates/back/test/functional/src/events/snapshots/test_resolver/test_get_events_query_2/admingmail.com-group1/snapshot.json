@@ -1,0 +1,29 @@
+{
+  "data": {
+    "group": {
+      "events": [
+        {
+          "eventDate": "2018-06-27 07:00:00",
+          "detail": "ARM unit test1",
+          "id": "418900971",
+          "groupName": "group1",
+          "eventStatus": "CREATED",
+          "eventType": "OTHER",
+          "closingDate": "-",
+          "root": null
+        },
+        {
+          "eventDate": "2018-06-27 07:00:00",
+          "detail": "ARM unit test2",
+          "id": "418900980",
+          "groupName": "group1",
+          "eventStatus": "CREATED",
+          "eventType": "OTHER",
+          "closingDate": "-",
+          "root": null
+        }
+      ],
+      "name": "group1"
+    }
+  }
+}

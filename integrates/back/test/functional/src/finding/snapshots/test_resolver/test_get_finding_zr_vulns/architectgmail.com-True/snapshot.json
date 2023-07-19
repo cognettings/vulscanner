@@ -1,0 +1,52 @@
+{
+  "data": {
+    "finding": {
+      "__typename": "Finding",
+      "id": "3c475384-834c-47b0-ac71-a41a022e401c",
+      "zeroRiskConnection": {
+        "edges": [
+          {
+            "node": {
+              "externalBugTrackingSystem": null,
+              "findingId": "3c475384-834c-47b0-ac71-a41a022e401c",
+              "id": "7771bc87-8633-4a4a-8d8e-7dae0ca57e7a",
+              "lastStateDate": "2018-04-07 19:45:11",
+              "lastTreatmentDate": "2018-04-08 19:45:11",
+              "lastVerificationDate": null,
+              "remediated": false,
+              "reportDate": "2018-04-07 19:45:11",
+              "rootNickname": "",
+              "severity": null,
+              "severityTemporalScore": 4.1,
+              "snippet": null,
+              "source": "asm",
+              "specific": "77777",
+              "state": "VULNERABLE",
+              "stream": null,
+              "tag": "",
+              "technique": "SCR",
+              "treatmentAcceptanceDate": "2018-04-08 19:45:11",
+              "treatmentAcceptanceStatus": null,
+              "treatmentAssigned": "anything@gmail.com",
+              "treatmentJustification": "justification",
+              "treatmentStatus": "ACCEPTED",
+              "treatmentUser": "anything@gmail.com",
+              "verification": null,
+              "vulnerabilityType": "ports",
+              "where": "192.168.1.7",
+              "zeroRisk": "Confirmed",
+              "__typename": "Vulnerability"
+            },
+            "__typename": "VulnerabilityEdge"
+          }
+        ],
+        "pageInfo": {
+          "endCursor": "eyJwayI6ICJWVUxOIzc3NzFiYzg3LTg2MzMtNGE0YS04ZDhlLTdkYWUwY2E1N2U3YSIsICJzayI6ICJGSU4jM2M0NzUzODQtODM0Yy00N2IwLWFjNzEtYTQxYTAyMmU0MDFjIiwgInBrXzYiOiAiRklOIzNjNDc1Mzg0LTgzNGMtNDdiMC1hYzcxLWE0MWEwMjJlNDAxYyIsICJza182IjogIlZVTE4jREVMRVRFRCNmYWxzZSNSRUxFQVNFRCN0cnVlI1pSI3RydWUjU1RBVEUjdnVsbmVyYWJsZSNWRVJJRiNub25lIn0=",
+          "hasNextPage": false,
+          "__typename": "PageInfo"
+        },
+        "__typename": "VulnerabilitiesConnection"
+      }
+    }
+  }
+}

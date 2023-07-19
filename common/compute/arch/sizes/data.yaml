@@ -1,0 +1,56 @@
+clone:
+  cpu: 1
+  memory: 3800
+  queue: clone
+common_small:
+  cpu: 1
+  memory: 3800
+  queue: common_small
+integrates_small:
+  cpu: 1
+  memory: 3800
+  queue: integrates_small
+integrates_medium:
+  cpu: 2
+  memory: 7600
+  queue: integrates_medium
+integrates_large:
+  cpu: 4
+  memory: 15200
+  queue: integrates_large
+observes_clone:
+  cpu: 1
+  memory: 3800
+  queue: observes_clone
+observes_small:
+  cpu: 1
+  memory: 3800
+  queue: observes_small
+observes_medium:
+  cpu: 2
+  memory: 7600
+  queue: observes_medium
+observes_large:
+  cpu: 4
+  memory: 15200
+  queue: observes_large
+skims_small:
+  cpu: 1
+  memory: 3800
+  queue: skims_small
+skims_medium:
+  cpu: 2
+  memory: 7600
+  queue: skims_medium
+skims_large:
+  cpu: 4
+  memory: 15200
+  queue: skims_large
+sorts_small:
+  cpu: 1
+  memory: 3800
+  queue: sorts_small
+sorts_large:
+  cpu: 4
+  memory: 15200
+  queue: sorts_large

@@ -1,0 +1,163 @@
+digraph airs {
+  label="Airs Architecture"
+  labelloc="t"
+  compound="true"
+  concentrate="true"
+  rankdir="LR"
+  ranksep="4.0"
+  nodesep="0.5"
+  overlap="scalexy"
+
+  node[style="filled" margin="0.8,0.0"]
+  graph[style="dashed,rounded"]
+
+  subgraph cluster_algolia {
+    label="Algolia"
+    bgcolor="0.0 0.0 0.95"
+    node[fillcolor="0.0 0.0 0.8"]
+
+    subgraph cluster_algolia_index {
+      label="Indexes"
+
+      algolia_airs[label="fluidattacks_airs"]
+    }
+  }
+
+  subgraph cluster_aws {
+    label="AWS"
+    bgcolor="0.1 0.1 1.0"
+    node[fillcolor="0.1 0.5 1.0"]
+
+    subgraph cluster_aws_s3 {
+      label="S3"
+
+      subgraph cluster_aws_s3_airs_dev {
+        label="web.eph.fluidattacks.com"
+
+        aws_s3_airs_dev_static[label="Static Content" width="3.0"]
+      }
+
+      subgraph cluster_aws_s3_airs_prod {
+        label="fluidattacks.com"
+
+        aws_s3_airs_prod_static[label="Static Content" width="3.0"]
+      }
+    }
+  }
+
+  subgraph cluster_cloudflare {
+    label="Cloudflare"
+    bgcolor="0.6 0.1 1.0"
+    node[fillcolor="0.6 0.5 1.0"]
+
+    subgraph cluster_cloudflare_workers {
+      label="Workers"
+
+      cluster_cloudflare_workers_airs_headers[label="airs_headers"]
+    }
+
+    subgraph cluster_cloudflare_zones {
+      label="Zones"
+
+      subgraph cluster_cloudflare_zone_fluidattacks_com {
+        label="fluidattacks.com"
+
+        subgraph cluster_cloudflare_zone_fluidattacks_com_dns {
+          label="DNS"
+
+          cloudflare_zone_fluidattacks_com_dns_cname[label="CNAME"]
+          cloudflare_zone_fluidattacks_com_dns_cname_web_eph[label="CNAME web.eph"]
+        }
+
+        subgraph cluster_cloudflare_zone_fluidattacks_com_rules {
+          label="Rules"
+
+          subgraph cluster_cloudflare_zone_fluidattacks_com_rules_page {
+            label="Page Rules"
+
+            cloudflare_zone_fluidattacks_com_rules_page[label="fluidattacks.com/*"]
+            cloudflare_zone_fluidattacks_com_rules_page_cache[label="cache"]
+            cloudflare_zone_fluidattacks_com_rules_page_web_eph[label="web.eph.fluidattacks.com/$1"]
+            cloudflare_zone_fluidattacks_com_rules_page_web_eph_cache[label="cache"]
+          }
+        }
+
+        subgraph cluster_cloudflare_zone_fluidattacks_com_worker_routes {
+          label="Worker Routes"
+
+          cloudflare_zone_fluidattacks_com_worker_route_dev[label="web.eph.fluidattacks.com/*"]
+          cloudflare_zone_fluidattacks_com_worker_route_prod[label="fluidattacks.com/*"]
+        }
+      }
+    }
+  }
+
+  subgraph cluster_cloudinary {
+    label="Cloudinary"
+    bgcolor="0.0 0.0 0.95"
+    node[fillcolor="0.0 0.0 0.8"]
+
+    subgraph cluster_cloudinary_media {
+      label="Media"
+
+      cloudinary_media_airs[label="airs"]
+      cloudinary_media_blog[label="blog"]
+    }
+  }
+
+  subgraph cluster_gitlab {
+    label="GitLab"
+    bgcolor="0.8 0.1 1.0"
+    node[fillcolor="0.8 0.5 1.0"]
+
+    subgraph cluster_gitlab_git {
+      label="Git"
+
+      subgraph cluster_gitlab_airs {
+        label="Airs"
+
+        gitlab_airs[label="Source Code"]
+        gitlab_airs_gatsby[label="Gatsby"]
+        gitlab_airs_markdown[label="Markdown"]
+        gitlab_airs_typescript[label="TypeScript"]
+        gitlab_airs_tachyons[label="Tachyons"]
+        gitlab_airs_react[label="React"]
+      }
+    }
+  }
+
+  edge[color="0.1 1.0 1.0"]
+  aws_s3_airs_dev_static -> algolia_airs[]
+  aws_s3_airs_dev_static -> cloudinary_media_blog[]
+  aws_s3_airs_dev_static -> cloudinary_media_airs[]
+  aws_s3_airs_prod_static -> algolia_airs[]
+  aws_s3_airs_prod_static -> cloudinary_media_blog[]
+  aws_s3_airs_prod_static -> cloudinary_media_airs[]
+
+  edge[color="0.6 1.0 1.0"]
+  cloudflare_zone_fluidattacks_com_worker_route_dev -> cluster_cloudflare_workers_airs_headers[]
+  cloudflare_zone_fluidattacks_com_worker_route_prod -> cluster_cloudflare_workers_airs_headers[]
+  cloudflare_zone_fluidattacks_com_dns_cname -> cloudflare_zone_fluidattacks_com_worker_route_prod[]
+  cloudflare_zone_fluidattacks_com_dns_cname_web_eph -> cloudflare_zone_fluidattacks_com_worker_route_dev[]
+  cloudflare_zone_fluidattacks_com_dns_cname -> aws_s3_airs_dev_static[lhead="cluster_aws_s3_airs_dev"]
+  cloudflare_zone_fluidattacks_com_dns_cname_web_eph -> aws_s3_airs_prod_static[lhead="cluster_aws_s3_airs_prod"]
+  cloudflare_zone_fluidattacks_com_rules_page -> cloudflare_zone_fluidattacks_com_rules_page_cache[]
+  cloudflare_zone_fluidattacks_com_rules_page_web_eph -> cloudflare_zone_fluidattacks_com_rules_page_web_eph_cache[]
+
+  edge[color="0.8 1.0 1.0"]
+  gitlab_airs -> aws_s3_airs_dev_static[lhead="cluster_aws_s3_airs_dev"]
+  gitlab_airs -> aws_s3_airs_prod_static[lhead="cluster_aws_s3_airs_prod"]
+  gitlab_airs -> gitlab_airs_gatsby[]
+  gitlab_airs -> gitlab_airs_markdown[]
+  gitlab_airs -> gitlab_airs_typescript[]
+  gitlab_airs -> gitlab_airs_tachyons[]
+  gitlab_airs -> gitlab_airs_react[]
+
+  node[fillcolor="0.0 0.0 0.8"]
+  customer[label="End User"]
+  fluid_attacks_developer[label="Developer"]
+
+  edge[color="0.0 0.0 0.0"]
+  customer -> cloudflare_zone_fluidattacks_com_dns_cname[]
+  fluid_attacks_developer -> cloudflare_zone_fluidattacks_com_dns_cname_web_eph[]
+}

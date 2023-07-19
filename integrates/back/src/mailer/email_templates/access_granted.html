@@ -1,0 +1,55 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share, go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Access Granted') }}
+      <div class="main-content">
+        <h2>Good news!</h2>
+        <p>You have been invited by
+          <strong><a
+              href="mailto:{{ responsible }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ responsible -}}
+            </a></strong>
+          to use our <strong>Fluid Attacks' Platform</strong>.
+          Please confirm your access and check vulnerabilities in:
+        </p>
+        <div class="data-container">
+          <p>
+            {% if group_description %}
+              <strong>Group:</strong><br/>{{ group }}<br/><br/>
+              <strong>Description:</strong><br/>{{ group_description }}
+            {% else %}
+              <strong>Organization:</strong><br/>{{ group }}
+            {% endif %}
+          </p>
+        </div>
+        <p>
+          This invitation is valid for seven calendar days from now.
+          By clicking on <strong>Confirm access</strong>,
+          you accept to join Fluid Attacks' Platform and agree to our
+          <a
+            href="https://fluidattacks.com/privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Privacy Policy</a>.
+          If you click on <strong>Reject access</strong>
+          or do not confirm the invitation before the deadline,
+          it will be removed from our systems.
+          You will need a new invitation,
+          which you will have to accept in order to gain access to our platform.
+        </p>
+        <p>
+          <br/>
+          {{ go_to_button('Confirm access', confirm_access_url, 'primary-button') }}
+          {{ go_to_button('Reject access', reject_access_url, 'secondary-button') }}
+        </p>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

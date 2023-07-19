@@ -1,0 +1,103 @@
+= {{full_group}}
+:lang:		{{lang}}
+:author:	{{team}}
+:email:		{{team_mail}}
+:date: 	    {{report_date}}
+:language:	python
+:revnumber:	{{version}}
+:revdate:	{{revdate}}
+:revmark:	Versión inicial
+
+//Primera pagina - Contenido
+<<<
+=== {{fluid_tpl['content_title']}}
+{% for li in fluid_tpl['content_list'] %}
+{{"==== "+li+"\n"}}
+{%- endfor %}
+
+//Segunda pagina - Objetivos
+<<<
+=== {{fluid_tpl['goals_title']}}
+{{fluid_tpl['goals_img']}}
+
+//Tercera pagina - Explicacion severity
+<<<
+=== {{severity_title}}
+{{fluid_tpl['severity_img']}}
+
+//Cuarta pagina - Tabla de hallazgos
+<<<
+=== {{resume_table_title}}
+.{{resume_table_title}}
+|===
+|{{finding_title}} |{{severity_title}} |{{cardinality_title}} |{{state_title}} |{{treatment_title}}
+{% for finding in findings %}
+    {{"| "+finding.title}}
+    {{"| "+finding.severity_score|string}}
+    {{"| "+finding.open_vulnerabilities|string}}
+    {{"| "+finding.state+"\n"}}
+    {{"| "+finding.treatment+"\n"}}
+{%- endfor %}
+|===
+
+//Quinta pagina - Vista general
+<<<
+=== {{resume_page_title}}
+{{main_pie_filename}}
+.{{resume_ttab_title}}
+[cols="^,^,^,^", options="header"]
+|===
+|{{severity_title}}|{{finding_title}}s|{{resume_perc_title}}|{{resume_vuln_title}}
+{% for row in main_tables['resume'] %}
+  {% for col in row %}
+    {{"| "+col|string}}
+  {%- endfor %}
+
+{%- endfor %}
+|===
+//Sexta pagina - Vista general
+<<<
+.{{resume_top_title}}
+|===
+|{{resume_vnum_title}}|{{severity_title}}|{{resume_vname_title}}
+{% for row in main_tables['top'] %}
+    {% for col in row %}
+        {{"| "+col|string }}
+    {%-  endfor %}
+{%- endfor %}
+|===
+
+//Septima en adelante - Resumen hallazgos
+<<<
+=== {{finding_section_title}}
+{% for finding in findings %}
+==== {{finding.title + "\n"}}
+|===
+|{{severity_title}}|{{cardinality_title}}|{{state_title}}
+{{"|"+finding.severity_score|string+"|"+finding.open_vulnerabilities|string+"|"+finding.state}}
+|===
+===== {{description_title}}
+{{finding.title + "\n"}}
+===== {{threat_title}}
+{{finding.threat + "\n"}}
+
+===== {{attack_vector_title}}
+{{finding.attack_vector_description  + "\n"}}
+
+===== {{solution_title}}
+{{finding.recommendation + "\n"}}
+===== {{requisite_title}}
+    {% for req in finding.requirements.split("\n") %}
+        - {{req + "\n"}}
+    {% endfor %}
+<<<
+==== {{evidence_title}}
+{% for evidence in finding.evidence_set %}
+{{evidence['explanation'] + "\n"}}
+{{evidence['name']+"\n"}}
+{% endfor %}
+<<<
+{%- endfor %}
+
+<<<
+{{fluid_tpl['footer_adoc']}}

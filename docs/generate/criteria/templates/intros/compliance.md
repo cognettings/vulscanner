@@ -1,0 +1,32 @@
+---
+id: introduction
+title: Introduction
+sidebar_label: Introduction
+sidebar_position: 1
+slug: /criteria/compliance/
+---
+
+<head>
+  <title>Compliance | Criteria | Fluid Attacks Documentation</title>
+</head>
+
+This section consists of security standards,
+regulations and requirements that are known,
+used and implemented internationally
+in different types of organizations.
+
+## Index
+
+__argIndex__
+
+:::tip free trial
+**Search for vulnerabilities in your apps for free
+with our automated security testing!**
+Start your [21-day free trial](https://app.fluidattacks.com/SignUp)
+and discover the benefits of our [Continuous Hacking](https://fluidattacks.com/services/continuous-hacking/)
+[Machine Plan](https://fluidattacks.com/plans/).
+If you prefer a full service
+that includes the expertise of our ethical hackers,
+don't hesitate to [contact us](https://fluidattacks.com/contact-us/)
+for our Continuous Hacking Squad Plan.
+:::

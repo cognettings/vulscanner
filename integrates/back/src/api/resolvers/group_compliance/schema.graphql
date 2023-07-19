@@ -1,0 +1,5 @@
+"GroupCompliance type definition"
+type GroupCompliance {
+  "Compliance information by standard"
+  unfulfilledStandards: [UnfulfilledStandard]!
+}

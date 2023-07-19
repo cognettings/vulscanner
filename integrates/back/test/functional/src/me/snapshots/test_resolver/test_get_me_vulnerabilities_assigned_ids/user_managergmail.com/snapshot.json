@@ -1,0 +1,13 @@
+{
+  "data": {
+    "me": {
+      "vulnerabilitiesAssigned": [
+        {
+          "id": "de70c2f7-7ec7-49aa-9a84-aff4fbe5d1ad"
+        }
+      ],
+      "userEmail": "user_manager@gmail.com",
+      "__typename": "Me"
+    }
+  }
+}

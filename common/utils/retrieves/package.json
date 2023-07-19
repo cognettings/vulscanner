@@ -1,0 +1,302 @@
+{
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "author": "development@fluidattacks.com",
+  "bugs": {
+    "url": "https://gitlab.com/fluidattacks/universe/issues"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.acceptVulnerabilityTemporary",
+        "title": "Accept Vulnerability Temporarily"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.addSelectedText",
+        "title": "Add selected text to YAML"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.clone",
+        "title": "Clone Git Root"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.environmentUrls",
+        "title": "Environment URLs"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.goToCriteria",
+        "title": "Go to criteria"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.lines",
+        "title": "Attacked Lines"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.requestReattack",
+        "title": "Request Reattack"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.setToken",
+        "title": "Set Fluid Attacks token"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.showOutput",
+        "title": "Show Extension Log"
+      },
+      {
+        "category": "Fluid Attacks",
+        "command": "fluidattacks.updateToeLinesAttackedLines",
+        "title": "Mark file as attacked"
+      }
+    ],
+    "configuration": [
+      {
+        "properties": {
+          "fluidattacks.apiToken": {
+            "markdownDescription": "Your Fluid Attacks API token. Check our [docs](https://docs.fluidattacks.com/machine/api/#authentication-with-fluid-attacks-platform-api-token) for more information on how to generate one",
+            "type": "string"
+          },
+          "fluidattacks.extraGroups": {
+            "default": [],
+            "description": "Add Fluid Attacks groups that are not automatically listed",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "fluidattacks.useRole": {
+            "default": "",
+            "description": "Assume this role, if available",
+            "enum": [
+              "analyst"
+            ],
+            "enumDescriptions": [
+              "The hacker is a security analyst whose main objectives are identifying, exploiting and reporting vulnerabilities in organizations' systems"
+            ],
+            "type": "string"
+          }
+        },
+        "title": "Fluid Attacks"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "fluidattacks.addSelectedText",
+          "when": "fluidattacks.hackerMode"
+        },
+        {
+          "command": "fluidattacks.clone",
+          "when": "fluidattacks.hackerMode"
+        },
+        {
+          "command": "fluidattacks.environmentUrls",
+          "when": "fluidattacks.hackerMode"
+        },
+        {
+          "command": "fluidattacks.lines",
+          "when": "fluidattacks.hackerMode"
+        },
+        {
+          "command": "fluidattacks.updateToeLinesAttackedLines",
+          "when": "fluidattacks.hackerMode"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "fluidattacks.addSelectedText",
+          "group": "fluidattacks",
+          "when": "fluidattacks.hackerMode && fluidattacks.groupsAvailable && editorHasSelection"
+        },
+        {
+          "command": "fluidattacks.goToCriteria",
+          "group": "fluidattacks",
+          "when": "editorTextFocus && fluidattacks.identifiedRepository || fluidattacks.groupsAvailable && editorTextFocus"
+        },
+        {
+          "command": "fluidattacks.requestReattack",
+          "group": "fluidattacks",
+          "when": "fluidattacks.identifiedRepository && editorHasSelection || fluidattacks.identifiedRepository && editorTextFocus"
+        },
+        {
+          "command": "fluidattacks.acceptVulnerabilityTemporary",
+          "group": "fluidattacks",
+          "when": "fluidattacks.identifiedRepository && editorHasSelection || fluidattacks.identifiedRepository && editorTextFocus"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "fluidattacks.clone",
+          "group": "git",
+          "when": "fluidattacks.groupsAvailable && config.git.enabled"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "fluidattacks.clone",
+          "group": "git",
+          "when": "fluidattacks.hackerMode && fluidattacks.groupsAvailable && config.git.enabled && resourcePath =~ **/services/groups/([a-z]*)/fusion/([a-z]*)$/"
+        },
+        {
+          "command": "fluidattacks.updateToeLinesAttackedLines",
+          "group": "navigation",
+          "when": "fluidattacks.hackerMode && fluidattacks.groupsAvailable && resourcePath =~ **/groups/** && resourceScheme == file"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "fluidattacks.clone",
+          "when": "fluidattacks.hackerMode && view == user_groups && viewItem == gitRoot"
+        },
+        {
+          "command": "fluidattacks.environmentUrls",
+          "when": "fluidattacks.hackerMode && view == user_groups && viewItem == gitRoot"
+        },
+        {
+          "command": "fluidattacks.lines",
+          "when": "fluidattacks.hackerMode && view == user_groups && viewItem == gitRoot"
+        }
+      ],
+      "webview/context": [
+        {
+          "command": "fluidattacks.updateToeLinesAttackedLines",
+          "when": "fluidattacks.hackerMode && fluidattacks.groupsAvailable && webviewSection == 'filename'"
+        }
+      ]
+    },
+    "views": {
+      "groups_explorer": [
+        {
+          "contextualTitle": "Retrieves",
+          "icon": "media/icon.svg",
+          "id": "user_groups",
+          "name": "User Groups",
+          "when": "fluidattacks.groupsAvailable"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "icon": "media/icon.svg",
+          "id": "groups_explorer",
+          "title": "Groups Manager"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "user_groups",
+        "contents": "In order to use the Fluid Attacks extension, you must enter your Fluid Attacks API token.\n[Add token](command:fluidattacks.setToken)\nTo learn more about how to use Fluid Attacks in VS Code and how to integrate it to your workflow [read our docs](https://docs.fluidattacks.com/machine/vscode-extension).",
+        "when": "!config.fluidattacks.apiToken"
+      }
+    ]
+  },
+  "dependencies": {
+    "@apollo/client": "3.7.16",
+    "cross-fetch": "4.0.0",
+    "glob": "10.3.1",
+    "graphql": "16.7.1",
+    "html-creator": "0.7.0",
+    "js-yaml": "4.1.0",
+    "lodash": "4.17.21",
+    "luxon": "3.3.0",
+    "ramda": "0.29.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.14.1",
+    "simple-git": "3.19.1",
+    "tar-stream": "3.1.6",
+    "tmp": "0.2.1"
+  },
+  "description": "Integrate your Fluid Attacks' vulnerability reports to your development workflow",
+  "devDependencies": {
+    "@estruyf/vscode": "1.1.0",
+    "@types/chai": "4.3.5",
+    "@types/glob": "8.1.0",
+    "@types/js-yaml": "4.0.5",
+    "@types/lodash": "4.14.195",
+    "@types/luxon": "3.3.0",
+    "@types/mocha": "10.0.1",
+    "@types/node": "20.4.0",
+    "@types/ramda": "0.29.3",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "@types/tar-stream": "2.2.2",
+    "@types/tmp": "0.2.3",
+    "@types/uuid": "9.0.2",
+    "@types/vscode": "1.75.0",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0",
+    "@vscode/test-electron": "2.3.3",
+    "@vscode/vsce": "2.19.0",
+    "chai": "4.3.7",
+    "css-loader": "6.8.1",
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-formatter-codeframe": "7.32.1",
+    "eslint-import-resolver-typescript": "3.5.5",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-mocha": "10.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-storybook": "0.6.12",
+    "mocha": "10.2.0",
+    "npm-run-all": "4.1.5",
+    "postcss-loader": "7.3.3",
+    "prettier": "2.8.8",
+    "react-refresh": "0.14.0",
+    "rimraf": "5.0.1",
+    "style-loader": "3.3.3",
+    "ts-loader": "9.4.4",
+    "typescript": "5.1.6",
+    "webpack": "5.88.1",
+    "webpack-cli": "5.1.4"
+  },
+  "displayName": "Fluid Attacks",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "homepage": "https://fluidattacks.com",
+  "icon": "media/icon.png",
+  "main": "./dist/extension.js",
+  "name": "fluidattacks",
+  "overrides": {
+    "semver": "7.5.2"
+  },
+  "publisher": "fluidattacks",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/fluidattacks/universe"
+  },
+  "scripts": {
+    "bundle": "rimraf dist && npm-run-all --parallel bundle:*",
+    "bundle:extension": "webpack --mode production --config ./webpack/extension.config.js",
+    "bundle:webview": "cd webview-ui && npm run build",
+    "lint": "tsc --noEmit -p tsconfig.json && eslint . --ext .ts,.tsx --format codeframe",
+    "package": "vsce package",
+    "pretest": "tsc -p ./ && npm run compile-dev",
+    "test": "node ./out/test/runTest.js",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:extension": "tsc -watch -p ./",
+    "watch:webview": "cd webview-ui && npm run start"
+  },
+  "version": "0.56.1"
+}

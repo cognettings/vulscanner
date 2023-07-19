@@ -1,0 +1,11 @@
+{
+  "language": "typescript",
+  "app": "npx ts-node main.ts",
+  "projectId": "66b45a3d-8528-4bfe-9f6e-d76c6c76e3e3",
+  "sendCrashReports": "true",
+  "terraformProviders": [
+    "BetterStackHQ/better-uptime@~> 0.3"
+  ],
+  "terraformModules": [],
+  "context": {}
+}

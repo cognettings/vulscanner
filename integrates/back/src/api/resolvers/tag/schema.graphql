@@ -1,0 +1,30 @@
+"Tag type definition"
+type Tag {
+  "Groups where the tag is present"
+  groups: [Group!]
+  """Days since last remediation of a vulnerability in the groups where the tag
+  is present"""
+  lastClosedVulnerability: Int
+  """Maximum severity of a currently open vulnerability in the groups where
+  the tag is present"""
+  maxOpenSeverity: Float
+  """Mean time in days to remediate a vulnerability in the groups where the tag
+  is present"""
+  meanRemediate: Float
+  """Mean time in days to remediate a critical vulnerability in the groups
+  where the tag is present"""
+  meanRemediateCriticalSeverity: Float
+  """Mean time in days to remediate a high-severity vulnerability in the groups
+  where the tag is present"""
+  meanRemediateHighSeverity: Float
+  """Mean time in days to remediate a low-severity vulnerability in the groups
+  where the tag is present"""
+  meanRemediateLowSeverity: Float
+  """Mean time in days to remediate a medium-severity vulnerability in the
+  groups where the tag is present"""
+  meanRemediateMediumSeverity: Float
+  "Tag name, also its content"
+  name: String
+  "Organization where the tag is present"
+  organization: String
+}

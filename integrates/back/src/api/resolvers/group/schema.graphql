@@ -1,0 +1,421 @@
+"Group type definition"
+type Group {
+  "Analytics and graph data from the group"
+  analytics(
+    """
+    The name of each graph presented in the
+    Analytics section of the organization,
+    group,
+    and portfolio level
+    """
+    documentName: String!
+    """
+    The different types of graphs that are handled in analytics can be bars,
+    pie,
+    lines,
+    columns,
+    etc
+    """
+    documentType: String!
+  ): GenericScalar
+  "Billing information for the group"
+  billing(
+    """
+    Get billing information according to the provided date
+    (year and month)
+    """
+    date: DateTime
+  ): GroupBilling
+  "Official business registration number"
+  businessId: String
+  "Name of the business related to this Group"
+  businessName: String
+  "Amount of currently closed vulnerabilities in the group"
+  closedVulnerabilities: Int
+  "Language distribution in a group"
+  codeLanguages: [CodeLanguages!]
+  "Compliance with the standards in the Group"
+  compliance: GroupCompliance!
+  "Information about the group shared by the stakeholders via comments"
+  consulting: [Consult!]
+  "Credentials associated to the group"
+  credentials: [Credentials!]
+  "Brief description to identify the group"
+  description: String
+  "Necessary clarifications on what should be tested"
+  disambiguation: String
+  "Situations affecting the group"
+  events: [Event!]
+  "List of Forces executions paginated within the provided time period"
+  executionsConnections(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of executions to return"
+    first: Int
+    "DateTime to filter from specific date"
+    fromDate: DateTime
+    "DateTime to filter to specific date"
+    toDate: DateTime
+    "Root nickname"
+    gitRepo: String
+    "Search query for execution attributes"
+    search: String
+    "Status to vulnerabilities"
+    status: String
+    "Execution mode"
+    strictness: String
+    "Type of execution"
+    type: String
+  ): ExecutionsConnection!
+    @deprecated(
+      reason: """
+      This field will be removed after 2023/09/30.
+      Use `forcesExecutionsConnection` instead.
+      """
+    )
+  "Approved findings with discovered vulnerabilities"
+  findings(
+    """
+    Filters findings in this Group. A dict-like object must be provided
+    e.g. `{verified: True}`
+    """
+    filters: GenericScalar
+  ): [Finding]
+    "List of Forces executions paginated within the provided time period"
+  forcesExecutionsConnection(
+    "The cursor for the forward pagination"
+    after: [String]
+    "The maximum amount of executions to return"
+    first: Int
+    "DateTime to filter from specific date"
+    fromDate: DateTime
+    "DateTime to filter to specific date"
+    toDate: DateTime
+    "Root nickname"
+    gitRepo: String
+    "Search query for execution attributes"
+    search: String
+    "Status to vulnerabilities"
+    status: String
+    "Execution mode"
+    strictness: String
+    "Type of execution"
+    type: String
+  ): ExecutionsConnection!
+  "Forces's token expiration date"
+  forcesExpDate: String
+  "Current DevSecOps (Forces) token to allow access to your CI/CD pipelines"
+  forcesToken: String
+  """
+  Vulnerabilities that have been reported to the group. Vulnerabilities
+  reported as Zero risks and Accepted are excluded
+  """
+  forcesVulnerabilities(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+    "Filter vulnerabilities by their current state"
+    state: VulnerabilityState
+  ): VulnerabilitiesConnection!
+  "How to access the group ToE"
+  groupContext: String
+  "State of ARM services. Either true or the Group will be deleted soon"
+  hasAsm: Boolean
+  "State of the CI/CD agent Forces"
+  hasForces: Boolean
+  "State of the Machine plan within the Group"
+  hasMachine: Boolean
+  "State of the Squad plan within the Group"
+  hasSquad: Boolean
+  "Language in which findings should be reported"
+  language: Language
+  "Time since last closed vulnerability in days"
+  lastClosedVulnerability: Int
+  "Identifier of the last closed finding"
+  lastClosedVulnerabilityFinding: Finding
+  "If the group is managed manually"
+  managed: ManagedType
+  "Maximum number of calendar days a finding can be temporarily accepted"
+  maxAcceptanceDays: Int
+  "Maximum CVSS 3.1 score in which a finding can be temporarily accepted"
+  maxAcceptanceSeverity: Float!
+  "Maximum number of times a finding can be temporarily accepted"
+  maxNumberAcceptances: Int
+  "Current highest severity of an open vulnerability in the group"
+  maxOpenSeverity: Float
+  "Current open vulnerability with the highest severity"
+  maxOpenSeverityFinding: Finding
+  "Mean time to remediate vulnerabilities in days"
+  meanRemediate: Int
+  "Mean time to remediate critical vulnerabilities in days"
+  meanRemediateCriticalSeverity: Int
+  "Mean time to remediate high-severity vulnerabilities in days"
+  meanRemediateHighSeverity: Int
+  "Mean time to remediate low-severity vulnerabilities in days"
+  meanRemediateLowSeverity: Int
+  "Mean time to remediate medium-severity vulnerabilities in days"
+  meanRemediateMediumSeverity: Int
+  "Minimum CVSS 3.1 score in which a finding can be temporarily accepted"
+  minAcceptanceSeverity: Float!
+  """
+  Minimum CVSS 3.1 score of an `open` vulnerability for DevSecOps to break
+  the build in strict mode
+  """
+  minBreakingSeverity: Float
+  "Name of the group"
+  name: String
+  "Amount of currently open Findings in the group"
+  openFindings: Int
+  "Amount of currently open Vulnerabilities in the group"
+  openVulnerabilities: Int
+  "Organization name to which the group belongs"
+  organization: String!
+  "Id of payment method selected for the group"
+  paymentId: String
+  "Permissions of the current user within the group"
+  permissions: [String]
+  "Group roots, can be IP, URL or Git Roots"
+  roots: [Root!]
+  "Black or White box type of hacking service"
+  service: ServiceType!
+  "Currently active service attributes"
+  serviceAttributes: [String]
+  "Average Sprint length in weeks"
+  sprintDuration: Int!
+  "DateTime of the start date of sprint"
+  sprintStartDate: DateTime!
+  "Stakeholders of the group"
+  stakeholders: [Stakeholder!]
+  "Continuous or one-shot hacking"
+  subscription: String
+  "Group-wide tags"
+  tags: [String!]
+  "Group tier (Free, One-Shot, Other, Machine or Squad)"
+  tier: TierType
+  "Target of Evaluation inputs information"
+  toeInputs(
+    "The cursor for the forward pagination"
+    after: String
+    "If the input is present in the root"
+    bePresent: Boolean
+    "Amount of element to return"
+    first: Int
+    "Id of the root the input is associated with"
+    rootId: ID
+  ): ToeInputsConnection!
+  "Target of Evaluation lines information which is paginated"
+  toeLines(
+    "The cursor for the forward pagination"
+    after: String
+    "Filter by hacker email"
+    attackedBy: String
+    "ToE comment"
+    comments: String
+    "If the file is present in the repository"
+    bePresent: Boolean
+    "ToE Filename to filter"
+    filename: String
+    "Amount of element to return"
+    first: Int
+    "From attack moment in iso format"
+    fromAttackedAt: DateTime
+    "To attack moment in iso format"
+    toAttackedAt: DateTime
+    "From date until lines was present in ToE"
+    fromBePresentUntil: DateTime
+    "To date until lines was present in ToE"
+    toBePresentUntil: DateTime
+    "From modified date to filter"
+    fromModifiedDate: DateTime
+    "To modified date to filter"
+    toModifiedDate: DateTime
+    "From the first time the file was seen"
+    fromSeenAt: DateTime
+    "To the first time the file was seen"
+    toSeenAt: DateTime
+    "From first attack moment"
+    fromFirstAttackAt: DateTime
+    "To first attack moment"
+    toFirstAttackAt: DateTime
+    """
+    True if the associated `filename` has OPEN vulnerabilities.
+    This field is eventually consistent.
+    """
+    hasVulnerabilities: Boolean
+    "Last author to modify this file"
+    lastAuthor: String
+    "SHA-1 commit hash in short form in which this file was modified"
+    lastCommit: String
+    "Max loc value for lines"
+    maxLoc: Int
+    "Min loc value for lines"
+    minLoc: Int
+    "Maximum Attacked lines"
+    maxAttackedLines: Int
+    "Minimum Attacked lines"
+    minAttackedLines: Int
+    "Id of the root the lines is associated with"
+    rootId: ID
+    "Min sorts priority"
+    minSortsRiskLevel: Int
+      @deprecated(
+        reason: """
+        This field will be removed after 2023/12/27. Use `minSortsPriorityFactor` instead.
+        """
+      )
+    "Max sorts priority"
+    maxSortsRiskLevel: Int
+      @deprecated(
+        reason: """
+        This field will be removed after 2023/12/27. Use `maxSortsPriorityFactor` instead.
+        """
+      )
+    "Min sorts priority factor"
+    minSortsPriorityFactor: Int
+    "Max sorts priority factor"
+    maxSortsPriorityFactor: Int
+  ): ToeLinesConnection!
+  "Target of Evaluation lines information which is paginated"
+  toeLinesConnection(
+    "The cursor for the forward pagination"
+    after: [String]
+    "Filter by hacker email"
+    attackedBy: String
+    "ToE comment"
+    comments: String
+    "If the file is present in the repository"
+    bePresent: Boolean
+    "ToE Filename to filter"
+    filename: String
+    "Amount of element to return"
+    first: Int
+    "From attack moment in iso format"
+    fromAttackedAt: DateTime
+    "To attack moment in iso format"
+    toAttackedAt: DateTime
+    "From date until lines was present in ToE"
+    fromBePresentUntil: DateTime
+    "To date until lines was present in ToE"
+    toBePresentUntil: DateTime
+    "From modified date to filter"
+    fromModifiedDate: DateTime
+    "To modified date to filter"
+    toModifiedDate: DateTime
+    "From the first time the file was seen"
+    fromSeenAt: DateTime
+    "To the first time the file was seen"
+    toSeenAt: DateTime
+    "From first attack moment"
+    fromFirstAttackAt: DateTime
+    "To first attack moment"
+    toFirstAttackAt: DateTime
+    """
+    True if the associated `filename` has OPEN vulnerabilities.
+    This field is eventually consistent.
+    """
+    hasVulnerabilities: Boolean
+    "Last author to modify this file"
+    lastAuthor: String
+    "SHA-1 commit hash in short form in which this file was modified"
+    lastCommit: String
+    "Max coverage value for lines"
+    maxCoverage: Int
+    "Min coverage value for lines"
+    minCoverage: Int
+    "Max loc value for lines"
+    maxLoc: Int
+    "Min loc value for lines"
+    minLoc: Int
+    "Maximum Attacked lines"
+    maxAttackedLines: Int
+    "Minimum Attacked lines"
+    minAttackedLines: Int
+    "Id of the root the lines is associated with"
+    rootId: ID
+    "Min sorts priority"
+    minSortsRiskLevel: Int
+      @deprecated(
+        reason: """
+        This field will be removed after 2023/12/27. Use `minSortsPriorityFactor` instead.
+        """
+      )
+    "Max sorts priority"
+    maxSortsRiskLevel: Int
+      @deprecated(
+        reason: """
+        This field will be removed after 2023/12/27. Use `maxSortsPriorityFactor` instead.
+        """
+      )
+    "Min sorts priority factor"
+    minSortsPriorityFactor: Int
+    "Max sorts priority factor"
+    maxSortsPriorityFactor: Int
+    "Sort lines by this criteria"
+    sort: LinesSortInput
+  ): ToeLinesConnection!
+  "Target of Evaluation ports information"
+  toePorts(
+    "The cursor for the forward pagination"
+    after: String
+    "If the port is present in the root"
+    bePresent: Boolean
+    "Amount of element to return"
+    first: Int
+    "Id of the root the port is associated with"
+    rootId: ID
+  ): ToePortsConnection!
+  "Last removed user from the group"
+  userDeletion: String
+  "Role of the current user within the group"
+  userRole: String
+  "Vulnerabilities that have been reported to the group"
+  vulnerabilities(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+    "Search query for vulnerability attributes"
+    search: String
+    "Min severity value for vulnerability"
+    minSeverity: String
+    "Max severity value for vulnerability"
+    maxSeverity: String
+    "Vulnerability root"
+    root: String
+    "Vulnerability status"
+    stateStatus: String
+    "Treatment status for vulnerability"
+    treatment: String
+    "Type of vulnerability"
+    type: String
+    "Reattack verification status for vulnerability"
+    verificationStatus: String
+    "Zero risk status for vulnerability"
+    zeroRisk: VulnerabilityZeroRiskStatus
+  ): VulnerabilitiesConnection!
+  "Vulnerability drafts that have been submitted to the group"
+  vulnerabilityDrafts(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount of vulnerabilities to return"
+    first: Int
+    "Search query for vulnerability attributes"
+    search: String
+    "Min severity value for vulnerability"
+    minSeverity: String
+    "Max severity value for vulnerability"
+    maxSeverity: String
+    "Vulnerability root"
+    root: String
+    "Vulnerability status"
+    stateStatus: String
+    "Type of vulnerability"
+    type: String
+  ): VulnerabilitiesConnection!
+  """
+  Grace period in days where newly reported vulnerabilities won't break the
+  build (DevSecOps only)
+  """
+  vulnerabilityGracePeriod: Int!
+}

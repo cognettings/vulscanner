@@ -1,0 +1,11 @@
+---
+inputs:
+  - field: contact (en) [CVE-1111-1111]
+    state: submitted
+    url: https://example.com
+    stream: home,info,contact_us
+    repo_nickname: universe
+    source: analyst
+    tool:
+      name: tool-3
+      impact: direct

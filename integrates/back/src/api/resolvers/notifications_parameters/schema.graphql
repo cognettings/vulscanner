@@ -1,0 +1,5 @@
+"Parameters of notifications preferences type definition"
+type NotificationsParameters {
+  "Minimum severity to send the vulnerability alert notification"
+  minSeverity: Float!
+}

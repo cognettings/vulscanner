@@ -1,0 +1,53 @@
+{
+  "data": {
+    "columns": [
+      [
+        "Infra open exposure",
+        -6.380821783940931
+      ]
+    ],
+    "colors": {
+      "Infra open exposure": "#ac0a17"
+    },
+    "labels": null,
+    "type": "bar"
+  },
+  "legend": {
+    "show": false
+  },
+  "padding": {
+    "bottom": 0
+  },
+  "axis": {
+    "rotated": true,
+    "x": {
+      "categories": [
+        "001. SQL injection - C Sharp SQL API"
+      ],
+      "type": "category",
+      "tick": {
+        "multiline": false,
+        "outer": false,
+        "rotate": 0
+      }
+    },
+    "y": {
+      "label": {
+        "text": "CVSSF",
+        "position": "outer-top"
+      },
+      "min": 0,
+      "padding": {
+        "bottom": 0
+      }
+    }
+  },
+  "maxValue": 0.012,
+  "maxValueLog": -6.380821783940931,
+  "originalValues": [
+    0.0
+  ],
+  "exposureTrendsByCategories": true,
+  "keepToltipColor": true,
+  "originalIds": null
+}

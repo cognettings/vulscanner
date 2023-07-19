@@ -1,0 +1,88 @@
+"Organization type definition"
+type Organization {
+  "Analytics and stats of the organization"
+  analytics(
+    "Analytics chart name"
+    documentName: String!
+    "Analytics chart type"
+    documentType: String!
+  ): GenericScalar
+  "Billing information for the organization"
+  billing(
+    """
+    Get billing information according to the provided date
+    (year and month)
+    """
+    date: DateTime
+  ): OrganizationBilling
+  "Compliance with the standards in the organization"
+  compliance: OrganizationCompliance!
+  "Country where the organization is based"
+  country: String
+  "Number of authors in the repositories of the scope"
+  coveredAuthors: Int
+  "Number of repositories covered in scope"
+  coveredRepositories: Int
+  "Credential associated to the organization by Id"
+  credential(
+    "Creedential Id"
+    id: String
+  ): Credentials
+  "Credentials associated to the organization"
+  credentials: [Credentials!]
+  "Enacted and pending Finding policies within the organization"
+  findingPolicies: [FindingPolicy]
+  "Groups belonging to the organization"
+  groups: [Group]
+  "Identifier of the organization"
+  id: String!
+  """
+  Number of days to remove a stakeholder from the organization
+  due to inactivity
+  """
+  inactivityPeriod: Int!
+  "Repositories integration within the organization"
+  integrationRepositoriesConnection(
+    "The cursor for the forward pagination"
+    after: String
+    "The maximum amount to return"
+    first: Int
+  ): IntegrationRepositoriesConnection
+  "Maximum number of calendar days a finding can be temporally accepted"
+  maxAcceptanceDays: Int
+  "Maximum CVSS 3.1 score in which a finding can be temporally accepted"
+  maxAcceptanceSeverity: Float!
+  "Maximum number of times a finding can be temporally accepted"
+  maxNumberAcceptances: Int
+  "Minimum CVSS 3.1 score in which a finding can be temporally accepted"
+  minAcceptanceSeverity: Float!
+  """
+  Minimum CVSS 3.1 score of an `open` vulnerability for DevSecOps to break
+  the build in strict mode
+  """
+  minBreakingSeverity: Float
+  "Number of authors of integration repositories outside"
+  missedAuthors: Int
+  "Number of integration repositories outside"
+  missedRepositories: Int
+  "Name of the organization"
+  name: String!
+  "Permissions of the current user within the organization"
+  permissions: [String]
+  "Users who have access to the organization"
+  stakeholders: [Stakeholder]
+  "Free trial information"
+  trial: Trial
+  "Role of the current user within the organization"
+  userRole: String
+  "Signed URL for organization vulnerabilities csv file"
+  vulnerabilitiesUrl(
+    "OTP code to verify the stakeholder"
+    verificationCode: String
+  ): String
+  """
+  Grace period in days where newly reported vulnerabilities won't break the
+  build (DevSecOps only)
+  """
+  vulnerabilityGracePeriod: Int!
+}

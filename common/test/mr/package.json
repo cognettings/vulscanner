@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "danger": "11.2.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.41.0",
+    "@typescript-eslint/parser": "5.41.0",
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-formatter-codeframe": "7.32.1",
+    "eslint-import-resolver-typescript": "2.7.1",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "typescript": "4.9.4"
+  }
+}

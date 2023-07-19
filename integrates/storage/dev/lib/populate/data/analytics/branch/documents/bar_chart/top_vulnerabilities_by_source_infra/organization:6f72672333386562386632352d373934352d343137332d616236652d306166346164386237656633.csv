@@ -1,0 +1,4 @@
+Type,Infra open exposure
+orgs/okada/groups/unittesting/vulns/988493279/014. Insecure functionality,25
+orgs/okada/groups/unittesting/vulns/436992569/038. Business information leak,3.8
+orgs/okada/groups/unittesting/vulns/463461507/083. XML injection (XXE),0.7

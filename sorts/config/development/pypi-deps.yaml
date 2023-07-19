@@ -1,0 +1,6 @@
+boto3: 1.26.131
+pandas: 1.5.3
+pytest-cov: 4.0.0
+pytest-rerunfailures: 11.1.2
+pytest: 7.2.2
+sagemaker: 2.163.0

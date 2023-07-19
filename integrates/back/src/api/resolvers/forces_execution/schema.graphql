@@ -1,0 +1,33 @@
+"Forces Execution type definition"
+type ForcesExecution {
+  "Date forces was executed in the format yyyy-MM-ddThh:mm:ssZ"
+  date: DateTime!
+  "Identifier of the Forces execution"
+  executionId: String!
+  "Forces exit code, 0 for success, 1 for anything else"
+  exitCode: String
+  "Tested repo branch"
+  gitBranch: String
+  "Full SHA-1 hash of the tested commit"
+  gitCommit: String
+  "Repository in which the agent was executed"
+  gitOrigin: String
+  "Root nickname"
+  gitRepo: String
+  "Grace period in days for new vulnerabilities at the time of execution"
+  gracePeriod: Int!
+  "Name of the Group where the Forces log will be in"
+  groupName: String!
+  "Kind of application security testing technique applied"
+  kind: String
+  """Forces execution log. It is recommended to check this string with a
+  viewer capable of reading ANSI escape codes"""
+  log: String!
+  """Minimum CVSS score of an `open` vulnerability for DevSecOps to break the
+  build in strict mode"""
+  severityThreshold: Float!
+  "The mode of execution of the DevSecOps agent, can be lax or strict"
+  strictness: String
+  "Object containing arrays of accepted, open and closed vulnerabilities"
+  vulnerabilities: ExecutionVulnerabilities
+}

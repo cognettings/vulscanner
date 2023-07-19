@@ -1,0 +1,16 @@
+# Sort order is:
+#  *
+#  .
+#  [a-zA-Z] (caseless)
+
+# JS files
+*.js
+*.js.map
+# Dependencies
+node_modules
+dist/
+*.js
+# Tests
+.vscode-test/
+out
+*.vsix

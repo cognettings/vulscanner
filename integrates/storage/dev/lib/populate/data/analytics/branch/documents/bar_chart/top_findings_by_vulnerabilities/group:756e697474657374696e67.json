@@ -1,0 +1,60 @@
+{
+  "data": {
+    "columns": [
+      [
+        "# Open Vulnerabilities",
+        24,
+        2,
+        1,
+        1,
+        1
+      ]
+    ],
+    "colors": {
+      "# Open Vulnerabilities": "#cc6699"
+    },
+    "labels": null,
+    "type": "bar"
+  },
+  "legend": {
+    "show": false
+  },
+  "padding": {
+    "bottom": 0
+  },
+  "exposureTrendsByCategories": true,
+  "keepToltipColor": true,
+  "axis": {
+    "rotated": true,
+    "x": {
+      "categories": [
+        "038. Business information leak",
+        "083. XML injection (XXE)",
+        "007. Cross-site request forgery",
+        "014. Insecure functionality",
+        "060. Insecure service configuration - Host verification"
+      ],
+      "type": "category",
+      "tick": {
+        "multiline": false,
+        "outer": false,
+        "rotate": 0
+      }
+    },
+    "y": {
+      "min": 0,
+      "padding": {
+        "bottom": 0
+      }
+    }
+  },
+  "barChartYTickFormat": true,
+  "maxValue": 24.0,
+  "originalIds": [
+    "orgs/okada/groups/unittesting/vulns/436992569",
+    "orgs/okada/groups/unittesting/vulns/463461507",
+    "orgs/okada/groups/unittesting/vulns/463558592",
+    "orgs/okada/groups/unittesting/vulns/988493279",
+    "orgs/okada/groups/unittesting/vulns/422286126"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "data": {
+    "finding": {
+      "__typename": "Finding",
+      "id": "3c475384-834c-47b0-ac71-a41a022e401c",
+      "draftsConnection": {
+        "edges": [
+          {
+            "node": {
+              "externalBugTrackingSystem": null,
+              "findingId": "3c475384-834c-47b0-ac71-a41a022e401c",
+              "id": "b99d5450-2fdc-44e7-9e1f-01a7e288d317",
+              "lastStateDate": "2018-04-07 19:45:11",
+              "lastTreatmentDate": "2018-04-07 19:45:11",
+              "lastVerificationDate": null,
+              "remediated": false,
+              "reportDate": "2018-04-07 19:45:11",
+              "rootNickname": "",
+              "severity": null,
+              "severityTemporalScore": 4.1,
+              "snippet": null,
+              "source": "asm",
+              "specific": "22222",
+              "state": "REJECTED",
+              "stream": null,
+              "tag": "",
+              "technique": "SAST",
+              "treatmentAcceptanceDate": null,
+              "treatmentAcceptanceStatus": null,
+              "treatmentAssigned": null,
+              "treatmentJustification": null,
+              "treatmentStatus": "UNTREATED",
+              "treatmentUser": null,
+              "verification": null,
+              "vulnerabilityType": "ports",
+              "where": "192.168.1.20",
+              "zeroRisk": null,
+              "__typename": "Vulnerability"
+            },
+            "__typename": "VulnerabilityEdge"
+          },
+          {
+            "node": {
+              "externalBugTrackingSystem": null,
+              "findingId": "3c475384-834c-47b0-ac71-a41a022e401c",
+              "id": "3bb9de0a-9232-4280-b730-b0607f6455e3",
+              "lastStateDate": "2018-04-07 19:45:11",
+              "lastTreatmentDate": "2018-04-07 19:45:11",
+              "lastVerificationDate": null,
+              "remediated": false,
+              "reportDate": "2018-04-07 19:45:11",
+              "rootNickname": "",
+              "severity": null,
+              "severityTemporalScore": 4.1,
+              "snippet": null,
+              "source": "asm",
+              "specific": "11111",
+              "state": "SUBMITTED",
+              "stream": null,
+              "tag": "",
+              "technique": "SCR",
+              "treatmentAcceptanceDate": null,
+              "treatmentAcceptanceStatus": null,
+              "treatmentAssigned": null,
+              "treatmentJustification": null,
+              "treatmentStatus": "UNTREATED",
+              "treatmentUser": null,
+              "verification": null,
+              "vulnerabilityType": "ports",
+              "where": "192.168.1.20",
+              "zeroRisk": null,
+              "__typename": "Vulnerability"
+            },
+            "__typename": "VulnerabilityEdge"
+          }
+        ],
+        "pageInfo": {
+          "endCursor": "eyJwayI6ICJWVUxOIzNiYjlkZTBhLTkyMzItNDI4MC1iNzMwLWIwNjA3ZjY0NTVlMyIsICJzayI6ICJGSU4jM2M0NzUzODQtODM0Yy00N2IwLWFjNzEtYTQxYTAyMmU0MDFjIiwgInBrXzYiOiAiRklOIzNjNDc1Mzg0LTgzNGMtNDdiMC1hYzcxLWE0MWEwMjJlNDAxYyIsICJza182IjogIlZVTE4jREVMRVRFRCNmYWxzZSNSRUxFQVNFRCNmYWxzZSNaUiNmYWxzZSNTVEFURSNzdWJtaXR0ZWQjVkVSSUYjbm9uZSJ9",
+          "hasNextPage": false,
+          "__typename": "PageInfo"
+        },
+        "__typename": "VulnerabilitiesConnection"
+      }
+    }
+  }
+}

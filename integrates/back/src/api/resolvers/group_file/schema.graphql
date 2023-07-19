@@ -1,0 +1,14 @@
+"Group file type definition"
+type GroupFile {
+  """
+  Meaningful description for the usage or purpose
+  of the added file
+  """
+  description: String!
+  "Name of the uploaded file and with which it will be available in Scope"
+  fileName: String!
+  "Date when the file was uploaded"
+  uploadDate: String
+  "Email of user who uploaded the file"
+  uploader: String!
+}

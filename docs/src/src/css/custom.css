@@ -1,0 +1,87 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --ifm-color-primary: rgba(191, 11, 26, 1);
+  --ifm-color-primary-dark: rgba(191, 11, 26, 1);
+  --ifm-color-primary-darker: rgba(191, 11, 26, 1);
+  --ifm-color-primary-darkest: rgba(191, 11, 26, 1);
+  --ifm-color-primary-light: rgba(191, 11, 26, 1);
+  --ifm-color-primary-lighter: rgba(191, 11, 26, 1);
+  --ifm-color-primary-lightest: rgba(191, 11, 26, 1);
+  --ifm-font-family-base: 'Roboto';
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="rgba(191, 11, 26, 1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+}
+
+.navbar__search {
+  padding-left: 1rem;
+}
+
+.navbar__search-input {
+  width: 15rem;
+  outline: transparent;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.div-button {
+  display: flex;
+  justify-content: center;
+}
+
+.link-button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: normal;
+  background-color: #bf2626;
+  border-color: #bf2626;
+  border-radius: 4px;
+  color: #fff;
+  padding: 7px 24px;
+  outline: none;
+}
+
+.link-button:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.trial-button{
+  background-color: #bf0b1a;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 16px;
+}
+
+.trial-button:hover{
+  background-color: #da1e28;
+}
+
+div[class^='announcementBar'] button:hover {
+  background-color: #f4f4f6;
+}
+
+p > img {
+  width: auto;
+  margin: auto;
+  display: block;
+  border: 1px solid #a5a5b6;
+  border-radius: 8px;
+}

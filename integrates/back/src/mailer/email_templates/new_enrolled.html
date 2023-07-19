@@ -1,0 +1,32 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share%}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('New Enrolled User!') }}
+      <div class="main-content">
+        <h2>Good news!</h2>
+        <p>
+          A new user has enrolled to our Fluid Attacks' Platform:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Name:</strong><br/>
+              <a
+                href="https://www.linkedin.com/search/results/all/?keywords={{ enrolled_name | urlencode }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ enrolled_name }}
+              </a><br/><br/>
+            <strong>Email:</strong><br/>{{ email }}<br/><br/>
+            <strong>Country:</strong><br/>{{ country }}<br/><br/>
+            <strong>Enroll timestamp:</strong><br/>{{ enrolled_date }}
+          </p>
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

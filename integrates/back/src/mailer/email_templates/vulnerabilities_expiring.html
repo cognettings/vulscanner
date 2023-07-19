@@ -1,0 +1,47 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Temporary Treatment Alert') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          These are vulnerabilities whose temporary acceptance period
+          is close to expiring:
+        </p>
+        <div class="data-container">
+          {% for group_name, group_data in groups_data.items() %}
+            {%- if group_data["group_expiring_findings"] -%}
+              {%- for i in range(group_data["group_expiring_findings"]|length) -%}
+                {% for finding_id, vulnerabilities in group_data["group_expiring_findings"][i].items() %}
+          <p>
+            <strong>
+              <a
+                href="https://app.fluidattacks.com/orgs/{{- group_data['org_name'].lower() -}}/groups/{{- group_name.lower() -}}/vulns/{{- finding_id.lower() -}}/locations"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {{ group_name.capitalize() }} - {{ group_data['finding_title'][i] }}
+              </a>
+            </strong>
+            <ul class="big-list-icon">
+                  {% for vulnerability, days_remaining in vulnerabilities.items() %}
+              <li>
+                {{ vulnerability }} ({{ days_remaining }} days remaining)
+              </li>
+                  {% endfor %}
+            </ul>
+            <br />
+          </p>
+                {% endfor %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

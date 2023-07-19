@@ -1,0 +1,30 @@
+"Stakeholder type definition"
+type Snippet {
+  """
+  It returns an integer where it highlights in which
+  column of the vulnerable code line it is located
+  """
+  column: Int
+  "Total number of columns taken in each of the snippet's code lines"
+  columnsPerLine: Int!
+  "All the code portion of the snippet code"
+  content: String!
+  """
+  It gives us a Boolean.
+  It is True if the snippet has the characteristic of having
+  more visibility and clarity and False if it is the raw portion
+  of the code
+  """
+  highlightLineNumber: Boolean!
+  "The vulnerability line"
+  line: Int!
+  """
+  Number of lines before and after the focus line
+  (the line where the vulnerability is present)
+  """
+  lineContext: Int!
+  "Total number of lines upwards before the snippet"
+  offset: Int!
+  "Show the number of lines in the snippet"
+  showLineNumbers: Boolean!
+}

@@ -1,0 +1,45 @@
+closure:
+  types-aiofiles: 23.1.0.1
+  types-pytz: 2023.2.0.1
+  types-pyyaml: 6.0.12.9
+  types-requests: 2.28.11.17
+  types-simplejson: 3.18.0.3
+  types-urllib3: 1.26.25.10
+links:
+  - name: types_aiofiles-23.1.0.1-py3-none-any.whl
+    sha256: 15miwswrbpnqcjmmpsjr7fg4jvci407qak43sqxl5wxij806a14z
+    url: https://files.pythonhosted.org/packages/3d/f2/9321bf478b2a1cf63839719455cc2a78a532d168a234e92629488287bc0a/types_aiofiles-23.1.0.1-py3-none-any.whl
+  - name: types-aiofiles-23.1.0.1.tar.gz
+    sha256: 0xm7n73nin4rbmgp3q8ryx6b6hj9iz9aq00c1x5pzrkvkw0k105y
+    url: https://files.pythonhosted.org/packages/f1/23/f77852509bd45121ffdb80c23a2cb1b71cb0916610e0a7f806123e46f177/types-aiofiles-23.1.0.1.tar.gz
+  - name: types_pytz-2023.2.0.1-py3-none-any.whl
+    sha256: 02kfk1mzyx5hcj27hy4id9liiqlwpif9nry3bfvs8vsh3n77a8ll
+    url: https://files.pythonhosted.org/packages/af/66/dc8fea3a90cb4124337fb9361773dd7e7837ac3c97e7dd2409be16c3a5a5/types_pytz-2023.2.0.1-py3-none-any.whl
+  - name: types-pytz-2023.2.0.1.tar.gz
+    sha256: 1dmjci2nyabs44w5qp5lg0flrpkv694lg7m9kpnrrs20fxkagn1d
+    url: https://files.pythonhosted.org/packages/0a/a3/02ffdea40d1e40114a912a6e918a646351594c7246b90f17e9849e77825e/types-pytz-2023.2.0.1.tar.gz
+  - name: types_PyYAML-6.0.12.9-py3-none-any.whl
+    sha256: 1s738yvd6wa8577k1w2rhncdw3jpb6q25njxyxcf3lnjdfk5mvas
+    url: https://files.pythonhosted.org/packages/88/93/a98be346729157d9f085fd68e58fcbba823188829ac8488a9d7f12614e53/types_PyYAML-6.0.12.9-py3-none-any.whl
+  - name: types-PyYAML-6.0.12.9.tar.gz
+    sha256: 1dpfz42h16jg7xfik4n2c910mxzb22434yjai2i0mpwxv7b1n6y5
+    url: https://files.pythonhosted.org/packages/05/6f/f19081de5ba81864f89e354560a60637822f7d6d54d9a2a907785e9b5cc4/types-PyYAML-6.0.12.9.tar.gz
+  - name: types_requests-2.28.11.17-py3-none-any.whl
+    sha256: 16vqx51dvrl36f6y28ksi0fank4rxaqlw4zdn83960bm4n3bl6nc
+    url: https://files.pythonhosted.org/packages/98/e3/bc20bde5e6ae3e8f2ad84c52fad3adb2c31640feda53d4304bdbf10888b1/types_requests-2.28.11.17-py3-none-any.whl
+  - name: types-requests-2.28.11.17.tar.gz
+    sha256: 1c7dja81dwswyvbpl37agjjpwdi93p84sj9vihzn8gwhrr90cn0d
+    url: https://files.pythonhosted.org/packages/4a/a9/e3d407a7410ea08ef45f54086a56a5719e7cd2d94b6f8f51a5c41dcaba54/types-requests-2.28.11.17.tar.gz
+  - name: types_simplejson-3.18.0.3-py3-none-any.whl
+    sha256: 1wnk1gkpckl2d331x4998fkq4xdxpiv1lzzg1q5wkbph99klkfb9
+    url: https://files.pythonhosted.org/packages/f2/7c/9a04eb22fcf981d80a66662209ebab6ef1bc4f4791220d137fab84686a3d/types_simplejson-3.18.0.3-py3-none-any.whl
+  - name: types-simplejson-3.18.0.3.tar.gz
+    sha256: 1yzjk67cnmyvdmjmna8khlwwgzji44z3vcklsdy5cy2v1jl82nn0
+    url: https://files.pythonhosted.org/packages/9f/9e/9de7e0f42dd48ea22c3664f756da003638a78ef380cd7a1b2ced5dd248f4/types-simplejson-3.18.0.3.tar.gz
+  - name: types_urllib3-1.26.25.10-py3-none-any.whl
+    sha256: 07ar88m73m4ngap6pydwjf3zqs80hyzk7ls5gsh410sqkmh49iqj
+    url: https://files.pythonhosted.org/packages/a4/ac/52e7adc38af8bfdcfa6c7117f4d499ec672ccd71a32e2e400ace9d1195b3/types_urllib3-1.26.25.10-py3-none-any.whl
+  - name: types-urllib3-1.26.25.10.tar.gz
+    sha256: 1ml669js1a5h19bm28smj80b47k8qi81zcnnbb85d0pwx76q2j64
+    url: https://files.pythonhosted.org/packages/24/fe/3d379bc854adb3e89309939273dc29471bf790c574cc7cf8bcc3eb8aa840/types-urllib3-1.26.25.10.tar.gz
+python: "3.11"

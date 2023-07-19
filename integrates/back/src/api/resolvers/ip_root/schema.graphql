@@ -1,0 +1,16 @@
+"""
+The IP address who is the unique identifier
+on the Internet or a local network
+"""
+type IPRoot implements IRoot {
+  "IP address of the environment to test"
+  address: String!
+  "ID of the root"
+  id: ID!
+  "Nickname for the root"
+  nickname: String!
+  "Whether the root is active or not"
+  state: ResourceState!
+  "Vulnerabilities associated to the root"
+  vulnerabilities: [Vulnerability!]
+}

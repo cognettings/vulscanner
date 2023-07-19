@@ -1,0 +1,91 @@
+closure:
+  atomicwrites: 1.4.1
+  attrs: 23.1.0
+  colorama: 0.4.6
+  freezegun: 1.2.2
+  iniconfig: 2.0.0
+  packaging: "23.1"
+  pluggy: 0.13.1
+  py: 1.11.0
+  pytest: 6.2.2
+  pytest-freezegun: 0.4.2
+  python-dateutil: 2.8.2
+  six: 1.16.0
+  toml: 0.10.2
+links:
+  - name: atomicwrites-1.4.1.tar.gz
+    sha256: 04fgf66lmjp51k97735wzdy5crnbr3pfaw01fxzpldj9383wkcl1
+    url: https://files.pythonhosted.org/packages/87/c6/53da25344e3e3a9c01095a89f16dbcda021c609ddb42dd6d7c0528236fb2/atomicwrites-1.4.1.tar.gz
+  - name: attrs-23.1.0-py3-none-any.whl
+    sha256: 012x6glahfkg28ncs726dcnbm76gib3j1861d8jv8byw5i9b8a0z
+    url: https://files.pythonhosted.org/packages/f0/eb/fcb708c7bf5056045e9e98f62b93bd7467eb718b0202e7698eb11d66416c/attrs-23.1.0-py3-none-any.whl
+  - name: attrs-23.1.0.tar.gz
+    sha256: 05g0a3y9hv74zblgf51zd0ar3g1ksfngjdgj3dps44qmb1nq6yb2
+    url: https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz
+  - name: colorama-0.4.6-py2.py3-none-any.whl
+    sha256: 1ijz53xpmxds2qf02l9yf0rnp7bznwh3ci4xkw8wmh5cyn8rj7ag
+    url: https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl
+  - name: colorama-0.4.6.tar.gz
+    sha256: 0i3fpq0w5mbfdpy3z9p5raw4fg17jxr6jwh5l8qhavpdnxf5ys88
+    url: https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz
+  - name: freezegun-1.2.2-py3-none-any.whl
+    sha256: 17vcc25rhzixi1h4z9hd3faxlgspinj97n6vb8cymf9wk4xrc6za
+    url: https://files.pythonhosted.org/packages/50/cd/ba1c8319c002727ccfa03049127218d1767232a77219924d03ba170e0601/freezegun-1.2.2-py3-none-any.whl
+  - name: freezegun-1.2.2.tar.gz
+    sha256: 0ijlq32qvpm5zprfzbyzawpl9qjsknlxhryr1i0q84wl0sxd28nd
+    url: https://files.pythonhosted.org/packages/1d/97/002ac49ec52858538b4aa6f6831f83c2af562c17340bdf6043be695f39ac/freezegun-1.2.2.tar.gz
+  - name: iniconfig-2.0.0-py3-none-any.whl
+    sha256: 0x43fyv1hpwpmvvqh73ldcyac9j2hb14mffis8i3nblxlxqmia5n
+    url: https://files.pythonhosted.org/packages/ef/a6/62565a6e1cf69e10f5727360368e451d4b7f58beeac6173dc9db836a5b46/iniconfig-2.0.0-py3-none-any.whl
+  - name: iniconfig-2.0.0.tar.gz
+    sha256: 1cxqanj28jqk0alx2xq4ddgvab5822k6vh8p1d0imlvjpwsy349d
+    url: https://files.pythonhosted.org/packages/d7/4b/cbd8e699e64a6f16ca3a8220661b5f83792b3017d0f79807cb8708d33913/iniconfig-2.0.0.tar.gz
+  - name: packaging-23.1-py3-none-any.whl
+    sha256: 0qfwgvgx5f74cqlzjjlpzslw21wxc9jgcsxz5vmc80lm8apr6iwr
+    url: https://files.pythonhosted.org/packages/ab/c3/57f0601a2d4fe15de7a553c00adbc901425661bf048f2a22dfc500caf121/packaging-23.1-py3-none-any.whl
+  - name: packaging-23.1.tar.gz
+    sha256: 0krkvmkqgm7y1i7w6zhyklqm2l84n1abx60q8d2adzvc5c6ri4m3
+    url: https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz
+  - name: pluggy-0.13.1-py2.py3-none-any.whl
+    sha256: 0b8x12j6394w3spk8xzp991khyv8102gas1q7hn515iwv1f18v4n
+    url: https://files.pythonhosted.org/packages/a0/28/85c7aa31b80d150b772fbe4a229487bc6644da9ccb7e427dd8cc60cb8a62/pluggy-0.13.1-py2.py3-none-any.whl
+  - name: pluggy-0.13.1.tar.gz
+    sha256: 1c35qyhvy27q9ih9n899f3h4sdnpgq027dbiilly2qb5cvgarchm
+    url: https://files.pythonhosted.org/packages/f8/04/7a8542bed4b16a65c2714bf76cf5a0b026157da7f75e87cc88774aa10b14/pluggy-0.13.1.tar.gz
+  - name: py-1.11.0-py2.py3-none-any.whl
+    sha256: 0y5k0mjcr85i9xrd2wifc7gww596nq6dbz6d9bzpsr1jhwhm6z30
+    url: https://files.pythonhosted.org/packages/f6/f0/10642828a8dfb741e5f3fbaac830550a518a775c7fff6f04a007259b0548/py-1.11.0-py2.py3-none-any.whl
+  - name: py-1.11.0.tar.gz
+    sha256: 06c7m7sfcn7587xd4s2bng8m6q1gsfd3j93afhplfjq74r0mrisi
+    url: https://files.pythonhosted.org/packages/98/ff/fec109ceb715d2a6b4c4a85a61af3b40c723a961e8828319fbcb15b868dc/py-1.11.0.tar.gz
+  - name: pytest-6.2.2-py3-none-any.whl
+    sha256: 0f9qj4ibnzn6l84vjfizysj99wdaj3xa2z70f83226784dsbax5m
+    url: https://files.pythonhosted.org/packages/a1/cf/7f67585bd2fc0359ec482cf3c430bce3ef6d3f40bc468137225a733e3069/pytest-6.2.2-py3-none-any.whl
+  - name: pytest-6.2.2.tar.gz
+    sha256: 1yfpcfzkd2apvn9019pjx2jl7dazncigvkfvlcpdg10bgngdy7lx
+    url: https://files.pythonhosted.org/packages/d1/80/b4f47a1f933699cd531a7b336a6f3d82912e3e5e66e4a3bb1d8f0d1d98b0/pytest-6.2.2.tar.gz
+  - name: pytest_freezegun-0.4.2-py2.py3-none-any.whl
+    sha256: 19wrvsf8ih8pv7y5pnh2xsrpff0i6c04vjbihjf70jxsp2zsc62k
+    url: https://files.pythonhosted.org/packages/9e/09/0bdd7d24b9d21453ad3364ae1efbd65082045bb6081b5fd5eade91a9b644/pytest_freezegun-0.4.2-py2.py3-none-any.whl
+  - name: pytest-freezegun-0.4.2.zip
+    sha256: 0jb92x165z9nckgz11flgdwc3apzbkxq396ajbng66vm6db2vj0r
+    url: https://files.pythonhosted.org/packages/f0/e3/c39d7c3d3afef5652f19323f3483267d7e6b0d9911c3867e10d6e2d3c9ae/pytest-freezegun-0.4.2.zip
+  - name: python_dateutil-2.8.2-py2.py3-none-any.whl
+    sha256: 1aaxjfp4lrz8c6qls3vdhw554lan3khy9afyvdcvrssk6kf067cn
+    url: https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl
+  - name: python-dateutil-2.8.2.tar.gz
+    sha256: 11iy7m4bp2lgfkcl0r6xzf34bvk7ppjmsyn2ygfikbi72v6cl8q1
+    url: https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz
+  - name: six-1.16.0-py2.py3-none-any.whl
+    sha256: 0m02dsi8lvrjf4bi20ab6lm7rr6krz7pg6lzk3xjs2l9hqfjzfwa
+    url: https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl
+  - name: six-1.16.0.tar.gz
+    sha256: 09n9qih9rpj95q3r4a40li7hk6swma11syvgwdc68qm1fxsc6q8y
+    url: https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz
+  - name: toml-0.10.2-py2.py3-none-any.whl
+    sha256: 16sgpg57kxx5jh467d9qwc2hwshfvdbl0xkafdp3qspvbfp46qc0
+    url: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+  - name: toml-0.10.2.tar.gz
+    sha256: 13z6rff86bzdpl094x0vmfvls779931xj90dlbs9kpfm138s3gdk
+    url: https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz
+python: "3.8"

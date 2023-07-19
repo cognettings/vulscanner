@@ -1,0 +1,27 @@
+include:
+  - local: integrates/pipeline/default.yaml
+  - local: integrates/pipeline/back-test-functional.yaml
+
+integrates/web/forces/container:
+  image: fluidattacks/forces:${CI_COMMIT_REF_NAME}
+  needs:
+    - /deployContainerImage/forcesDev
+    - /integrates/back/deploy/dev
+  retry: 2
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|integrates)/
+  script:
+    - forces --token "${TEST_FORCES_TOKEN}" --lax
+  stage: post-deploy
+  tags:
+    - common-small-x86
+  variables:
+    API_ENDPOINT: https://${CI_COMMIT_REF_NAME}.app.fluidattacks.com/api

@@ -1,0 +1,199 @@
+digraph common {
+  label="Common's /vpn Architecture"
+  labelloc="t"
+  compound="true"
+  // concentrate="true"
+  rankdir="LR"
+  ranksep="4.0"
+  nodesep="0.5"
+  overlap="scalexy"
+
+  node[style="filled" margin="0.8,0.0"]
+  graph[style="dashed,rounded"]
+
+  subgraph cluster_aws {
+    label="AWS"
+    bgcolor="0.1 0.1 1.0"
+    node[fillcolor="0.1 0.5 1.0"]
+
+    subgraph cluster_aws_vpc {
+      label="VPC"
+
+      subgraph cluster_aws_vpc_fluid_vpc {
+        label="fluid-vpc (192.168.0.0/16)"
+
+        cluster_aws_vpc_fluid_vpc[label="" style="invis"]
+
+        subgraph cluster_aws_client_vpn {
+          label="Client VPN Endpoints"
+
+          aws_client_vpn[label="main"]
+        }
+
+        subgraph cluster_aws_route53_inbound_resolver {
+          label="Route53 Inbound Resolvers"
+
+          aws_route53_inbound_resolver_vpn[label="vpn"]
+        }
+
+        subgraph cluster_aws_route53_zones {
+          label="Private Route53 Zones"
+
+          cluster_aws_route53_zones[label="" style="invis"]
+
+          subgraph cluster_aws_route53_zones_customer_1 {
+            label="customer1.com"
+
+            subgraph cluster_aws_route53_zones_customer_1_records {
+              label="Records"
+
+              aws_route53_zones_customer_1_records_A_1[label="subdomain1.customer1.com"]
+              aws_route53_zones_customer_1_records_A_2[label="subdomain2.customer1.com"]
+            }
+          }
+
+          subgraph cluster_aws_route53_zones_customer_2 {
+            label="customer2.com"
+
+            subgraph cluster_aws_route53_zones_customer_2_records {
+              label="Records"
+
+              aws_route53_zones_customer_2_records_A_1[label="subdomain1.customer2.com"]
+              aws_route53_zones_customer_2_records_A_2[label="subdomain2.customer2.com"]
+            }
+          }
+        }
+
+        subgraph cluster_aws_vpc_fluid_vpc_cg {
+          label="Customer Gateways"
+
+          aws_vpc_fluid_vpc_cg1_main[label="metadata" style="dashed"]
+          aws_vpc_fluid_vpc_cg2_main[label="metadata" style="dashed"]
+        }
+
+        subgraph cluster_aws_vpc_fluid_vpc_route_tables {
+          label="Route Tables"
+
+          subgraph cluster_aws_vpc_fluid_vpc_route_tables_main {
+            label="main"
+
+            cluster_aws_vpc_fluid_vpc_route_tables_main[label="" style="invis"]
+
+            aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_1[label="$customer_1_CIDR_1"]
+            aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_2[label="$customer_1_CIDR_2"]
+            aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_3[label="$customer_1_CIDR_3"]
+            aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_1[label="$customer_2_CIDR_1"]
+            aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_2[label="$customer_2_CIDR_2"]
+            aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_3[label="$customer_2_CIDR_3"]
+          }
+        }
+
+        subgraph cluster_aws_vpc_fluid_vpc_vpnc {
+          label="Site-to-Site VPN Connections"
+
+          aws_vpc_fluid_vpc_vpnc1[label="Customer 1"]
+          aws_vpc_fluid_vpc_vpnc2[label="Customer 2"]
+        }
+
+        subgraph cluster_aws_vpc_fluid_vpc_subnets {
+          label="Subnets"
+
+          aws_vpc_fluid_vpc_subnets_batch_clone[label="batch_clone 192.168.8.0/24 us-east-1a"]
+          aws_vpc_fluid_vpc_subnets_common[label="common 192.168.10.0/23 us-east-1b"]
+        }
+
+        subgraph cluster_aws_vpc_fluid_vpc_vpg {
+          label="Virtual Private Gateways"
+
+          aws_vpc_fluid_vpc_vpg_main[label="main"]
+        }
+      }
+    }
+  }
+
+  subgraph cluster_customer1_network {
+    label="Customer1 Network"
+    bgcolor="0.0 0.0 0.95"
+    node[fillcolor="0.0 0.0 0.8"]
+
+    cluster_customer1_network[label="" style="invis"]
+    customer1_network_gateway[label="Gateway Device (phisical)"]
+  }
+
+  subgraph cluster_customer2_network {
+    label="Customer2 Network"
+    bgcolor="0.0 0.0 0.95"
+    node[fillcolor="0.0 0.0 0.8"]
+
+    cluster_customer2_network[label="" style="invis"]
+    customer2_network_gateway[label="Gateway Device (phisical)"]
+  }
+
+  subgraph cluster_gitlab {
+    label="GitLab"
+    bgcolor="0.8 0.1 1.0"
+    node[fillcolor="0.8 0.5 1.0"]
+
+    subgraph cluster_gitlab_git {
+      label="Git"
+
+      subgraph cluster_gitlab_git_common {
+        label="/common"
+
+        subgraph cluster_gitlab_git_common_vpn {
+          label="/vpn"
+
+          cluster_gitlab_git_common_vpn[label="" style="invis"]
+          gitlab_git_common_vpn[label="Source Code"]
+          gitlab_git_common_vpn_sops[label="SOPS YAML (encrypted customer data)"]
+          gitlab_git_common_vpn_terraform[label="Terraform"]
+        }
+      }
+    }
+  }
+
+  edge[color="0.1 1.0 1.0"]
+  aws_client_vpn -> aws_route53_inbound_resolver_vpn[]
+  aws_client_vpn -> cluster_aws_vpc_fluid_vpc_route_tables_main[lhead="cluster_aws_vpc_fluid_vpc_route_tables_main" ]
+  aws_vpc_fluid_vpc_subnets_batch_clone -> aws_route53_inbound_resolver_vpn[]
+  aws_vpc_fluid_vpc_subnets_common -> aws_route53_inbound_resolver_vpn[]
+  aws_route53_inbound_resolver_vpn -> cluster_aws_route53_zones[lhead="cluster_aws_route53_zones"]
+  aws_route53_zones_customer_1_records_A_1 -> aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_1[label="A"]
+  aws_route53_zones_customer_1_records_A_2 -> aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_2[label="A"]
+  aws_route53_zones_customer_2_records_A_1 -> aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_1[label="A"]
+  aws_route53_zones_customer_2_records_A_2 -> aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_2[label="A"]
+  aws_vpc_fluid_vpc_cg1_main -> customer1_network_gateway[style="dashed"]
+  aws_vpc_fluid_vpc_cg2_main -> customer2_network_gateway[style="dashed"]
+  aws_vpc_fluid_vpc_vpg_main -> aws_vpc_fluid_vpc_vpnc1[]
+  aws_vpc_fluid_vpc_vpg_main -> aws_vpc_fluid_vpc_vpnc2[]
+  aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_1 -> aws_vpc_fluid_vpc_vpg_main[]
+  aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_2 -> aws_vpc_fluid_vpc_vpg_main[]
+  aws_vpc_fluid_vpc_route_tables_main_customer_1_cidr_3 -> aws_vpc_fluid_vpc_vpg_main[]
+  aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_1 -> aws_vpc_fluid_vpc_vpg_main[]
+  aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_2 -> aws_vpc_fluid_vpc_vpg_main[]
+  aws_vpc_fluid_vpc_route_tables_main_customer_2_cidr_3 -> aws_vpc_fluid_vpc_vpg_main[]
+  // aws_vpc_fluid_vpc_vpnc1 -> cluster_aws_vpc_fluid_vpc_route_tables_main[label="Propagates Route" style="dashed" constraint="false" lhead="cluster_aws_vpc_fluid_vpc_route_tables_main"]
+  // aws_vpc_fluid_vpc_vpnc2 -> cluster_aws_vpc_fluid_vpc_route_tables_main[label="Propagates Route" style="dashed" constraint="false" lhead="cluster_aws_vpc_fluid_vpc_route_tables_main"]
+  aws_vpc_fluid_vpc_vpnc1 -> aws_vpc_fluid_vpc_subnets_batch_clone[]
+  aws_vpc_fluid_vpc_vpnc2 -> aws_vpc_fluid_vpc_subnets_batch_clone[]
+  aws_vpc_fluid_vpc_vpnc1 -> aws_vpc_fluid_vpc_cg1_main[]
+  aws_vpc_fluid_vpc_vpnc2 -> aws_vpc_fluid_vpc_cg2_main[]
+
+  edge[color="0.6 1.0 1.0"]
+
+  edge[color="0.8 1.0 1.0"]
+  gitlab_git_common_vpn -> gitlab_git_common_vpn_sops[]
+  gitlab_git_common_vpn -> gitlab_git_common_vpn_terraform[]
+
+  node[fillcolor="0.0 0.0 0.8"]
+  developer[label="Developer"]
+  end_user_customer[label="End User (Customer)"]
+  end_user_hacker[label="End User (Fluid Attacks Hacker)"]
+
+  edge[color="0.0 0.0 0.0"]
+  end_user_customer -> cluster_customer1_network[lhead="cluster_customer1_network"]
+  end_user_customer -> cluster_customer2_network[lhead="cluster_customer2_network"]
+  end_user_hacker -> aws_client_vpn[]
+  developer -> cluster_aws_vpc_fluid_vpc[lhead="cluster_aws_vpc_fluid_vpc"]
+  developer -> cluster_gitlab_git_common_vpn[lhead="cluster_gitlab_git_common_vpn"]
+}

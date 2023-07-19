@@ -1,0 +1,664 @@
+"Billing subscription type enum definition"
+enum BillingSubscriptionType {
+  "Free"
+  FREE
+  "Continuous Machine"
+  MACHINE
+  "Continuous Squad"
+  SQUAD
+}
+
+"Origin of requests made"
+enum CallerOrigin {
+  "The request came from the API"
+  API
+  "The request came from the ARM Frontend"
+  FRONT
+}
+
+"Git root cloning status"
+enum CloningStatus {
+  "Cloning in progress"
+  CLONING
+  "Cloning failed"
+  FAILED
+  "Cloning was successful"
+  OK
+  "Cloning was requested but has not started yet"
+  QUEUED
+  "Cloning status unknown"
+  UNKNOWN
+}
+
+"Reasons to remove a Finding"
+enum RemoveFindingJustification {
+  "Finding is a duplicate of another"
+  DUPLICATED
+  "Finding is a false positive"
+  FALSE_POSITIVE
+  "Finding is not required"
+  NOT_REQUIRED
+}
+
+"Reasons to remove a Vulnerability"
+enum RemoveVulnerabilityJustification {
+  "Vulnerability is a duplicate of another"
+  DUPLICATED
+  "Vulnerability is a false positive"
+  FALSE_POSITIVE
+  "Vulnerability was mistakenly reported"
+  REPORTING_ERROR
+}
+
+"Reasons to downgrade a Group's services/plans"
+enum UpdateGroupReason {
+  "Budget constraints"
+  BUDGET
+  "Client decided to end the security testing"
+  GROUP_FINALIZATION
+  "Client decided to put on hold the security testing"
+  GROUP_SUSPENSION
+  "No particular reason"
+  NONE
+  "Another reason not covered"
+  OTHER
+}
+
+"Reasons to close an event enum definition"
+enum SolveEventReason {
+  "Access granted"
+  ACCESS_GRANTED
+  "Affected resource removed from scope"
+  AFFECTED_RESOURCE_REMOVED_FROM_SCOPE
+  "Cloned successfully"
+  CLONED_SUCCESSFULLY
+  "Credentials are working now"
+  CREDENTIALS_ARE_WORKING_NOW
+  "Data updated"
+  DATA_UPDATED
+  "Environment is working now"
+  ENVIRONMENT_IS_WORKING_NOW
+  "Installer is working now"
+  INSTALLER_IS_WORKING_NOW
+  "Is ok to resume"
+  IS_OK_TO_RESUME
+  "Moved to another group"
+  MOVED_TO_ANOTHER_GROUP
+  "New credentials provided"
+  NEW_CREDENTIALS_PROVIDED
+  "New environment provided"
+  NEW_ENVIRONMENT_PROVIDED
+  "Other"
+  OTHER
+  "Permission Denied"
+  PERMISSION_DENIED
+  "Permission Granted"
+  PERMISSION_GRANTED
+  "Problem Solved"
+  PROBLEM_SOLVED
+  "Supplies were given"
+  SUPPLIES_WERE_GIVEN
+  "ToE change approved"
+  TOE_CHANGE_APPROVED
+  "ToE will remain unchanged"
+  TOE_WILL_REMAIN_UNCHANGED
+}
+
+"Types of Event evidence"
+enum EventEvidenceType {
+  "File 1"
+  FILE_1
+  "Image 1"
+  IMAGE_1
+  "Image 2"
+  IMAGE_2
+  "Image 3"
+  IMAGE_3
+  "Image 4"
+  IMAGE_4
+  "Image 5"
+  IMAGE_5
+  "Image 6"
+  IMAGE_6
+}
+
+"Event type enum definition"
+enum EventType {
+  "Authorization for a special attack"
+  AUTHORIZATION_SPECIAL_ATTACK
+  "The client cancels a project milestone"
+  CLIENT_CANCELS_PROJECT_MILESTONE
+  "The client explicitly suspends the project"
+  CLIENT_EXPLICITLY_SUSPENDS_PROJECT
+  "Repository cloning issues"
+  CLONING_ISSUES
+  "Repository credentials issues"
+  CREDENTIAL_ISSUES
+  "Request for an user modification or updating a workflow"
+  DATA_UPDATE_REQUIRED
+  "Environment issues"
+  ENVIRONMENT_ISSUES
+  "Installer issues"
+  INSTALLER_ISSUES
+  "Missing supplies"
+  MISSING_SUPPLIES
+  "Network access issues"
+  NETWORK_ACCESS_ISSUES
+  "Other"
+  OTHER
+  "Remote access issues"
+  REMOTE_ACCESS_ISSUES
+  "Target of Evaluation different than agreed upon"
+  TOE_DIFFERS_APPROVED
+  "VPN issues"
+  VPN_ISSUES
+}
+
+"Evidence description enum definition"
+enum EvidenceDescriptionType {
+  "Animated exploitation"
+  ANIMATION
+  "Evidence 1"
+  EVIDENCE1
+  "Evidence 2"
+  EVIDENCE2
+  "Evidence 3"
+  EVIDENCE3
+  "Evidence 4"
+  EVIDENCE4
+  "Evidence 5"
+  EVIDENCE5
+  "Exploitation"
+  EXPLOITATION
+}
+
+"Evidence type enum definition"
+enum EvidenceType {
+  "Animated exploitation"
+  ANIMATION
+  "Evidence 1"
+  EVIDENCE1
+  "Evidence 2"
+  EVIDENCE2
+  "Evidence 3"
+  EVIDENCE3
+  "Evidence 4"
+  EVIDENCE4
+  "Evidence 5"
+  EVIDENCE5
+  "Exploitation"
+  EXPLOITATION
+  "Records"
+  RECORDS
+}
+
+"Stakeholder invitation state enum definition"
+enum InvitationState {
+  "Acceptance pending"
+  PENDING
+  "Accepted"
+  REGISTERED
+  "Unregistered invitation"
+  UNREGISTERED
+}
+
+"Type of Finding consult enum definition"
+enum FindingConsultType {
+  "To share information about the finding"
+  CONSULT
+  "To review the finding and suggest adjustments"
+  OBSERVATION
+}
+
+"Language for Findings"
+enum Language {
+  "English"
+  EN
+  "Spanish"
+  ES
+}
+
+"Group managed state"
+enum ManagedType {
+  "Managed"
+  MANAGED
+  "Not managed"
+  NOT_MANAGED
+  "Trial"
+  TRIAL
+  "Under review"
+  UNDER_REVIEW
+}
+
+"Trial state"
+enum TrialState {
+  "On extended trial"
+  EXTENDED
+  "Extended trial ended"
+  EXTENDED_ENDED
+  "On trial"
+  TRIAL
+  "Trial ended"
+  TRIAL_ENDED
+}
+
+"Approval status of an organization finding policy"
+enum OrganizationFindingPolicy {
+  "Policy was approved and enacted"
+  APPROVED
+  "Policy was rejected and discarded"
+  REJECTED
+}
+
+"Status of an organization finding policy"
+enum OrganizationFindingPolicyStatus {
+  "Approved"
+  APPROVED
+  "Inactive"
+  INACTIVE
+  "Rejected"
+  REJECTED
+  "Submitted"
+  SUBMITTED
+}
+
+"Organization stakeholder role enum definition"
+enum OrganizationRole {
+  "Customer Manager"
+  CUSTOMER_MANAGER
+  "User"
+  USER
+  "User Manager"
+  USER_MANAGER
+}
+
+"Reasons allowed for removing a group enum definition"
+enum RemoveGroupReason {
+  "Different security testing strategy"
+  DIFF_SECTST
+  "Information will be moved to a different group"
+  MIGRATION
+  "Created by mistake"
+  MISTAKE
+  "No more security testing"
+  NO_SECTST
+  "System will be deprecated"
+  NO_SYSTEM
+  "Other reason not mentioned above"
+  OTHER
+  "PoC Over"
+  POC_OVER
+  "Group rename"
+  RENAME
+  "Testing request cancelled"
+  TR_CANCELLED
+}
+
+"Language for Group Reports enum definition"
+enum ReportLang {
+  "English"
+  EN
+}
+
+"Group Reports type enum definition"
+enum ReportType {
+  "PDF (Security Testing Certificate)"
+  CERT
+  "ZIP file (Findings data)"
+  DATA
+  "PDF (Executive)"
+  PDF
+  "Excel Spreadsheet (Technical)"
+  XLS
+}
+
+"Root state enum definition"
+enum ResourceState {
+  "Active root"
+  ACTIVE
+  "Inactive root"
+  INACTIVE
+}
+
+"Testing service type enum definition"
+enum ServiceType {
+  "Black-box testing"
+  BLACK
+  "White-box testing"
+  WHITE
+}
+
+"Use of Sorts enum definition"
+enum Sorts {
+  "Sorts wasn't involved"
+  NO
+  "Sorts was involved"
+  YES
+}
+
+"Stakeholder entity scope enum definition"
+enum StakeholderEntity {
+  "Group"
+  GROUP
+  "Organization"
+  ORGANIZATION
+}
+
+"Stakeholder role enum definition"
+enum StakeholderRole {
+  "Administrator"
+  ADMIN
+  "Architect"
+  ARCHITECT
+  "Customer Manager"
+  CUSTOMER_MANAGER
+  "Hacker"
+  HACKER
+  "Internal Manager"
+  INTERNAL_MANAGER
+  "Reattacker"
+  REATTACKER
+  "Resourcer"
+  RESOURCER
+  "Reviewer"
+  REVIEWER
+  "Forces"
+  SERVICE_FORCES
+  "User"
+  USER
+  "User Manager"
+  USER_MANAGER
+  "Vulnerability Manager"
+  VULNERABILITY_MANAGER
+}
+
+"notifications name enum definition"
+enum NotificationsName {
+  "access_granted"
+  ACCESS_GRANTED
+  "agent_token"
+  AGENT_TOKEN
+  "event_report"
+  EVENT_REPORT
+  "file_update"
+  FILE_UPDATE
+  "group_information"
+  GROUP_INFORMATION
+  "group_report"
+  GROUP_REPORT
+  "new_comment"
+  NEW_COMMENT
+  "new_draft"
+  NEW_DRAFT
+  "portfolio_update"
+  PORTFOLIO_UPDATE
+  "remediate_finding"
+  REMEDIATE_FINDING
+  "reminder_notification"
+  REMINDER_NOTIFICATION
+  "root_update"
+  ROOT_UPDATE
+  "service_update"
+  SERVICE_UPDATE
+  "unsubscripton_alert"
+  UNSUBSCRIPTION_ALERT
+  "updated_treatment"
+  UPDATED_TREATMENT
+  "vulnerability_assigned"
+  VULNERABILITY_ASSIGNED
+  "vulnerability_report"
+  VULNERABILITY_REPORT
+}
+
+"Group subscription type enum definition"
+enum SubscriptionType {
+  "Continuous Hacking"
+  CONTINUOUS
+  "One-Shot Hacking"
+  ONESHOT
+}
+
+"Technique enum definition"
+enum Technique {
+  "CLOUD"
+  CLOUD
+  "CSPM"
+  CSPM
+  "DAST"
+  DAST
+  "MPT"
+  MPT
+  "RE"
+  RE
+  "SAST"
+  SAST
+  "SCA"
+  SCA
+  "SCR"
+  SCR
+}
+
+"Group tier type enum definition"
+enum TierType {
+  "Free Tier"
+  FREE
+  "Continuous Machine Tier"
+  MACHINE
+  "One-Shot Tier"
+  ONESHOT
+  "Other custom tier (old)"
+  OTHER
+  "Continuous Squad Tier"
+  SQUAD
+}
+
+"Update client description treatment enum definition"
+enum UpdateClientDescriptionTreatment {
+  "Temporally accepted"
+  ACCEPTED
+  "Permanently accepted"
+  ACCEPTED_UNDEFINED
+  "In progress"
+  IN_PROGRESS
+}
+
+"Vulnerability source"
+enum VulnerabilitySource {
+  "Analyst"
+  ANALYST
+  "Customer"
+  CUSTOMER
+  "Deterministic"
+  DETERMINISTIC
+  "Escape"
+  ESCAPE
+  "Machine"
+  MACHINE
+}
+
+"Types of vulnerability source"
+enum VulnerabilitySourceType {
+  "Machine"
+  MACHINE
+  "Squad"
+  SQUAD
+}
+
+"Vulnerability state"
+enum VulnerabilityState {
+  "Deleted"
+  DELETED
+  "Rejected"
+  REJECTED
+  "Safe"
+  SAFE
+  "Submitted"
+  SUBMITTED
+  "Vulnerable"
+  VULNERABLE
+}
+
+"Vulnerability verification"
+enum VulnerabilityVerification {
+  "On hold"
+  ON_HOLD
+  "Requested"
+  REQUESTED
+  "Verified"
+  VERIFIED
+}
+
+"Vulnerability exploit state"
+enum VulnerabilityExploitState {
+  "Accepted"
+  ACCEPTED
+  "Closed/Solved"
+  CLOSED
+  "Open"
+  OPEN
+  "Unknown state"
+  UNKNOWN
+}
+
+"Treatment given to a vulnerability"
+enum VulnerabilityTreatment {
+  "The client opted to temporarily assume the risk"
+  ACCEPTED
+  "The client opted to indefinitely assume the risk"
+  ACCEPTED_UNDEFINED
+  "The client is working on a solution"
+  IN_PROGRESS
+  "No treatment has been given yet"
+  UNTREATED
+}
+
+"Reason to reject a vulnerability"
+enum VulnerabilityRejectionReason {
+  """
+  There are consistency issues with the vulnerabilities, the severity or
+  the evidence
+  """
+  CONSISTENCY
+  "The evidence is insufficient"
+  EVIDENCE
+  "The vulnerabilities should be submitted under another Finding type"
+  NAMING
+  "More data should be gathered before submission"
+  OMISSION
+  "Other justification"
+  OTHER
+  "Faulty severity scoring"
+  SCORING
+  "The writing could be improved"
+  WRITING
+}
+
+"Vulnerability zero risk status"
+enum VulnerabilityZeroRiskStatus {
+  "Confirmed"
+  CONFIRMED
+  "Rejected"
+  REJECTED
+  "Requested"
+  REQUESTED
+}
+
+"Finding transactional status"
+enum FindingStateStatus {
+  "Finding submission was approved"
+  APPROVED
+    @deprecated(
+      reason: """
+      This value is deprecated and will be removed after 2024/01/12.
+      Finding submission is not used anymore.
+      """
+    )
+  "Finding normal state"
+  CREATED
+  "Finding was deleted"
+  DELETED
+  "Finding's group was deleted"
+  MASKED
+  "Finding submission was rejected"
+  REJECTED
+    @deprecated(
+      reason: """
+      This value is deprecated and will be removed after 2024/01/12.
+      Finding submission is not used anymore.
+      """
+    )
+  "Finding submission was created"
+  SUBMITTED
+    @deprecated(
+      reason: """
+      This value is deprecated and will be removed after 2024/01/12.
+      Finding submission is not used anymore.
+      """
+    )
+}
+
+"Protocol to use in URLRoots enum definition"
+enum URLProtocol {
+  "FILE"
+  FILE
+  "HTTP"
+  HTTP
+  "HTTPS"
+  HTTPS
+}
+
+"Reasons to deactivate a Root enum definition"
+enum RootDeactivationReason {
+  "Other reason not covered"
+  OTHER
+  "The Root is out of the scope for this group"
+  OUT_OF_SCOPE
+  "The Root was registered by mistake"
+  REGISTERED_BY_MISTAKE
+}
+
+"Types of authentication to a Git repository"
+enum CredentialType {
+  "HTTPS"
+  HTTPS
+  "SSH"
+  SSH
+}
+
+"Git Environment url types"
+enum GitEnvironmentCloud {
+  "APK"
+  APK
+  "Cloud"
+  CLOUD
+  "URl"
+  URL
+}
+
+"Values for sorting drafts"
+enum LinesSort {
+  "lines of code sort"
+  LOC
+  "Sorts priority factor sort"
+  SORTS_PRIORITY_FACTOR
+  "Sorts risk level sort"
+  SORTS_RISK_LEVEL
+}
+
+"Order values in sort"
+enum OrderSort {
+  "Ascending sort"
+  ASC
+  "Descending sort"
+  DESC
+}
+
+"Channel to send notifications"
+enum VerificationChannel {
+  "Voice channel"
+  CALL
+  "SMS Channel"
+  SMS
+  "Whatsapp channel"
+  WHATSAPP
+}

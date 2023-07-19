@@ -1,0 +1,49 @@
+"ToeLines type definition"
+type ToeLines {
+  "Attack moment in iso format"
+  attackedAt: DateTime
+  "Hacker email"
+  attackedBy: String!
+  "Attacked lines"
+  attackedLines: Int!
+  "If the file is present in the repository"
+  bePresent: Boolean!
+  "Date until lines was present in ToE"
+  bePresentUntil: DateTime
+  "ToE comment"
+  comments: String!
+  "ToE Filename"
+  filename: String!
+  "First attack moment in iso format"
+  firstAttackAt: DateTime
+  """
+  True if the associated `filename` has OPEN vulnerabilities.
+  This field is eventually consistent.
+  """
+  hasVulnerabilities: Boolean
+  "Last author to modify this file"
+  lastAuthor: String!
+  "SHA-1 commit hash in short form in which this file was modified"
+  lastCommit: String!
+  "Lines of code"
+  loc: Int!
+  "Modified date in iso format"
+  modifiedDate: DateTime!
+  "Toe lines Git Root"
+  root: GitRoot!
+  "First time the file was seen"
+  seenAt: DateTime!
+  "Sorts priority factor"
+  sortsPriorityFactor: Int!
+  "Sorts priority"
+  sortsRiskLevel: Int!
+    @deprecated(
+      reason: """
+      This field will be removed after 2023/12/27. Use `sortsPriorityFactor` instead.
+      """
+    )
+  "The last time that Priority was updated"
+  sortsRiskLevelDate: DateTime
+  "Sorts suggestions for vulnerabilities"
+  sortsSuggestions: [ToeLinesSortSuggestion]
+}

@@ -1,0 +1,44 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      <div class="main-content">
+        <h2>Hi {{ name }},</h2><br />
+        {% if have_vulnerabilities %}
+        <p>
+          Our scanning tool has detected
+          <em>
+            vulnerabilities in your company’s software.
+          </em>
+          It’s time to remediate them before they can be exploited.
+          <br /><br />
+        </p>
+        {{ go_to_button('Proceed to remediate', app_link, 'primary-button') }}
+        {% else %}
+        <p>
+          Oops! We have not found
+          {% if cloning_status == 'FAILED' %}
+            vulnerabilities in your repository because of a cloning failure.
+            To get the most out of Fluid Attacks’ free trial, we suggest you
+            check again your repository data or add a new one.
+          {% else %}
+            vulnerabilities in your repository. To get
+            the most out of Fluid Attacks’ free trial, we suggest you add a new
+            repository.
+          {% endif %}
+          Remember you can add as many repositories as you want.
+          <br /><br />
+        </p>
+        {{ go_to_button('Add new repository', app_link, 'primary-button') }}
+        {% endif %}
+        <p>
+          <br />
+          We look forward to having you!
+        </p>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

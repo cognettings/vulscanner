@@ -1,0 +1,91 @@
+closure:
+  certifi: 2023.5.7
+  charset-normalizer: 3.1.0
+  idna: "3.4"
+  requests: 2.30.0
+  types-requests: 2.30.0.0
+  types-urllib3: 1.26.25.12
+  urllib3: 2.0.2
+links:
+  - name: certifi-2023.5.7-py3-none-any.whl
+    sha256: 05n7h0lz1vh69hqlqi0vkygm74fx539gw5l93z5fysbqbj7ykhn6
+    url: https://files.pythonhosted.org/packages/9d/19/59961b522e6757f0c9097e4493fa906031b95b3ebe9360b2c3083561a6b4/certifi-2023.5.7-py3-none-any.whl
+  - name: certifi-2023.5.7.tar.gz
+    sha256: 1iyx3vwnj09jijnxlqccak3f2la4qdn4sj1npba6zmbabbf5c38g
+    url: https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz
+  - name: charset_normalizer-3.1.0-cp310-cp310-macosx_10_9_universal2.whl
+    sha256: 0arvb5mqnl0xzz4q5i03vwy76y4pxrj2n76s73p3yn99r5cqkb70
+    url: https://files.pythonhosted.org/packages/4f/a2/9031ba4a008e11a21d7b7aa41751290d2f2035a2f14ecb6e589771a17c47/charset_normalizer-3.1.0-cp310-cp310-macosx_10_9_universal2.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-macosx_10_9_x86_64.whl
+    sha256: 0q3bcpx4n6fxqcm5l10hxlrkalrbc6xn8pb2wjmzn66s0753zz6p
+    url: https://files.pythonhosted.org/packages/67/df/660e9665ace7ad711e275194a86cb757fb4d4e513fae5ff3d39573db4984/charset_normalizer-3.1.0-cp310-cp310-macosx_10_9_x86_64.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-macosx_11_0_arm64.whl
+    sha256: 1hdr5hzpni2gi605h0375inpgk9v5wkc4g6wwsmyln2z17pgrvh4
+    url: https://files.pythonhosted.org/packages/c6/ab/43ea052756b2f2dcb6a131897811c0e2704b0288f090336217d3346cd682/charset_normalizer-3.1.0-cp310-cp310-macosx_11_0_arm64.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+    sha256: 1c6kx1qkmm1fxn4r45kiz7d576ql7nr7kryilrrrmkqp0ynlw1i0
+    url: https://files.pythonhosted.org/packages/6d/59/59a3f4d8a59ee270da77f9e954a0e284c9d6884d39ec69d696d9aa5ff2f2/charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl
+    sha256: 0vzz39fxpy2ihiqsss81xnpvg0w68qysz8nfzgzvc74b20aswd8l
+    url: https://files.pythonhosted.org/packages/69/22/66351781e668158feef71c5e3b059a79ecc9efc3ef84a45888b0f3a933d5/charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl
+    sha256: 1h4q8yd45fh3a3gdp1a06jh5z3srpfcja7lxf9bxl3vm9jjk4hf8
+    url: https://files.pythonhosted.org/packages/72/90/667a6bc6abe42fc10adf4cd2c1e1c399d78e653dbac4c8018350843d4ab7/charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+    sha256: 15f7am0b11ndapb7walwrfn88wxclk5li6rkcz2s3pc9865mdwkm
+    url: https://files.pythonhosted.org/packages/cc/f6/21a66e524658bd1dd7b89ac9d1ee8f7823f2d9701a2fbc458ab9ede53c63/charset_normalizer-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl
+    sha256: 0v6vcw8w0zzwxxwvml3ik2n97s0yr3dfwfy2laxv3rrmpsvvrlqi
+    url: https://files.pythonhosted.org/packages/bb/dc/58fdef3ab85e8e7953a8b89ef1d2c06938b8ad88d9617f22967e1a90e6b8/charset_normalizer-3.1.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_aarch64.whl
+    sha256: 00y2f3r295hyaxjh6m8s60g7pnqzcacaam8bf0fcddbnhysgj749
+    url: https://files.pythonhosted.org/packages/c2/35/dfb4032f5712747d3dcfdd19d0768f6d8f60910ae24ed066ecbf442be013/charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_aarch64.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_i686.whl
+    sha256: 1hfx9mc7nzfwvlzb72zl313xk1nj9iq4yykh0h7b4219w0jqa02z
+    url: https://files.pythonhosted.org/packages/f2/d7/6ee92c11eda3f3c9cac1e059901092bfdf07388be7d2e60ac627527eee62/charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_i686.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_ppc64le.whl
+    sha256: 0drik3dgb28h39369gjq6g4viyczzs2mfz43p0pqs5a5y0xhsvxh
+    url: https://files.pythonhosted.org/packages/23/13/cf5d7bb5bc95f120df64d6c470581189df51d7f011560b2a06a395b7a120/charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_ppc64le.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_s390x.whl
+    sha256: 1kl5wzvj2ryfnfjkyxvy69i6ls7fi19p631j3yb9xr5m0229z4a9
+    url: https://files.pythonhosted.org/packages/74/f1/d0b8385b574f7e086fb6709e104b696707bd3742d54a6caf0cebbb7e975b/charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_s390x.whl
+  - name: charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_x86_64.whl
+    sha256: 0sp8srb4i3s17lh5ch86l8kbbipn6rsncy7rw4w0gmc0lf8qi412
+    url: https://files.pythonhosted.org/packages/f4/0a/8c03913ed1eca9d831db0c28759edb6ce87af22bb55dbc005a52525a75b6/charset_normalizer-3.1.0-cp310-cp310-musllinux_1_1_x86_64.whl
+  - name: charset_normalizer-3.1.0-py3-none-any.whl
+    sha256: 0g8s26igidnisw7vn0iijpc32jhbyigy7qcq1h48b377g6s9i41x
+    url: https://files.pythonhosted.org/packages/ef/81/14b3b8f01ddaddad6cdec97f2f599aa2fa466bd5ee9af99b08b7713ccd29/charset_normalizer-3.1.0-py3-none-any.whl
+  - name: charset-normalizer-3.1.0.tar.gz
+    sha256: 1d89yl32j0c6i25zip73h5nq55jyxf2vyqxfg9crbsvhqgws5q1l
+    url: https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz
+  - name: idna-3.4-py3-none-any.whl
+    sha256: 1hn54ps4kgv2fmyvfaks38sgrvjc1cn4834sh7gadsx3x9wpxdwh
+    url: https://files.pythonhosted.org/packages/fc/34/3030de6f1370931b9dbb4dad48f6ab1015ab1d32447850b9fc94e60097be/idna-3.4-py3-none-any.whl
+  - name: idna-3.4.tar.gz
+    sha256: 1d1cs1in0lmm61sjmlach9qvyq3xm3xcb49vhclx7mzain754kw1
+    url: https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz
+  - name: requests-2.30.0-py3-none-any.whl
+    sha256: 1572yzr54n425g3xnxykki01qbzzxbd8qdcxabdfc7hjyg24rs8h
+    url: https://files.pythonhosted.org/packages/96/80/034ffeca15c0f4e01b7b9c6ad0fb704b44e190cde4e757edbd60be404c41/requests-2.30.0-py3-none-any.whl
+  - name: requests-2.30.0.tar.gz
+    sha256: 1x52b5jql4pwbfhh6vfkm165y8s2fpc9ilndjak2ijxgb127v793
+    url: https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz
+  - name: types_requests-2.30.0.0-py3-none-any.whl
+    sha256: 0r4qpahqvkjvd6bnpny1phia5yy3agww6cjfzb20v7ya43hhiky6
+    url: https://files.pythonhosted.org/packages/fa/c7/024171d587afe75934a6f779922d24fcc6dd468e947c74598eb17840e229/types_requests-2.30.0.0-py3-none-any.whl
+  - name: types-requests-2.30.0.0.tar.gz
+    sha256: 0cas3cjkhrvsz2rmqnhqiihy9j79wxi9xbih8jk0p9r48c2q3iyy
+    url: https://files.pythonhosted.org/packages/3b/a7/7d6dab83a48eff91ff75e21b2aaefd7419a29d5b1b1b8025d4a78ade0017/types-requests-2.30.0.0.tar.gz
+  - name: types_urllib3-1.26.25.12-py3-none-any.whl
+    sha256: 1pzicas2ljh44a20yivsnj22a2zili6mkl3b5i8xbq26xsld78rv
+    url: https://files.pythonhosted.org/packages/18/1a/a69209af0bbc268613e103597fd6559d1d1804f1a8a4d97004434c0608f4/types_urllib3-1.26.25.12-py3-none-any.whl
+  - name: types-urllib3-1.26.25.12.tar.gz
+    sha256: 0zcipjdnbnc8ymk8mh9n5mypa0qr03rqj98lbmahldcdrrap6md1
+    url: https://files.pythonhosted.org/packages/54/4d/3a522d870d2e41067bea9faedb338b028eb7a1f3e1f894e6b6c35e350dbd/types-urllib3-1.26.25.12.tar.gz
+  - name: urllib3-2.0.2-py3-none-any.whl
+    sha256: 17j6c9y83kgvbk90wd02vsxzvdk0ffmqxp3giy03ricdsgww4mfh
+    url: https://files.pythonhosted.org/packages/4b/1d/f8383ef593114755429c307449e7717b87044b3bcd5f7860b89b1f759e34/urllib3-2.0.2-py3-none-any.whl
+  - name: urllib3-2.0.2.tar.gz
+    sha256: 1k6kd3531xizs3v6cr1f3s58ajijyjr7pb1pnz6mbqfpjl87lwb1
+    url: https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz
+python: "3.10"

@@ -1,0 +1,58 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+.c3 svg {
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  color: #8f8fa3;
+}
+
+.c3-legend-item text {
+  font-size: 14px;
+  fill: #8f8fa3;
+}
+
+.exposed-over-time-cvssf-area {
+  opacity: 1 !important;
+  fill: #fda6ab !important;
+}
+
+.exposed-over-time-cvssf-line {
+  stroke-width: 3px !important;
+}
+
+.c3-axis-y-label,
+.c3-axis-x-label,
+.tick text {
+  fill: #8f8fa3;
+}
+.c3 line,
+.c3 path {
+  stroke: #8f8fa3;
+}
+
+.c3-text {
+  transform: translate(0, 15px);
+  fill: white !important;
+}
+
+.exposureTrendsByCategories {
+  fill: #8f8fa3 !important;
+}
+
+.exposedOverTime {
+  fill: #2e2e38 !important;
+}
+
+.c3-axis-y-label,
+.c3-axis-x-label,
+.tick a {
+  text-decoration: underline;
+}

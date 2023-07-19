@@ -1,0 +1,21 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Root Moved') }}
+      <div class="main-content">
+        <h2>Good news!</h2>
+        <p>
+          You recently successfully moved the root <strong>{{ nickname }}</strong>
+          from the group <strong>{{ group }}</strong>
+          to the group <strong>{{ target }}</strong>.
+          The vulnerabilities previously reported to this root were also moved
+          successfully.
+        </p>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

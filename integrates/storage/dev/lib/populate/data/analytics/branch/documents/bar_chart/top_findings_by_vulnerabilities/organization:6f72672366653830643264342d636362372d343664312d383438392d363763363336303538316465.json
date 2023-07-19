@@ -1,0 +1,46 @@
+{
+  "data": {
+    "columns": [
+      [
+        "# Open Vulnerabilities",
+        3
+      ]
+    ],
+    "colors": {
+      "# Open Vulnerabilities": "#cc6699"
+    },
+    "labels": null,
+    "type": "bar"
+  },
+  "legend": {
+    "show": false
+  },
+  "padding": {
+    "bottom": 0
+  },
+  "exposureTrendsByCategories": true,
+  "keepToltipColor": true,
+  "axis": {
+    "rotated": true,
+    "x": {
+      "categories": [
+        "001. SQL injection - C Sharp SQL API"
+      ],
+      "type": "category",
+      "tick": {
+        "multiline": false,
+        "outer": false,
+        "rotate": 0
+      }
+    },
+    "y": {
+      "min": 0,
+      "padding": {
+        "bottom": 0
+      }
+    }
+  },
+  "barChartYTickFormat": true,
+  "maxValue": 3.0,
+  "originalIds": null
+}

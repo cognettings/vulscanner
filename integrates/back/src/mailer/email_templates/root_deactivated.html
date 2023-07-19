@@ -1,0 +1,44 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Root Deactivated') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          The root with the nickname <strong>{{ root_nickname }}</strong>
+          from the group <strong>{{ group }}</strong> has been deactivated by
+          <strong><a
+            href="mailto:{{ responsible }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ responsible -}}
+          </a></strong>:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Reason:</strong><br/>{{ reason }}<br/><br/>
+            <strong>Age:</strong><br/>{{ root_age }} days<br/><br/>
+            <strong>Last activation by:</strong><br/>
+            <a
+              href="mailto:{{ activated_by }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ activated_by }}
+            </a><br/><br/>
+            <strong>Last status:</strong><br/>{{ last_root_state }}<br/><br/>
+            <strong>Last cloning date:</strong><br/>{{ last_clone_date }}<br/><br/>
+            <strong>{{ sast_vulns }}</strong> SAST and
+            <strong>{{ dast_vulns }}</strong>
+            DAST vulnerabilities have been closed as a result.
+          </p>
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

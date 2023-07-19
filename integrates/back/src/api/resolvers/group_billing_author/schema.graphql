@@ -1,0 +1,13 @@
+"GroupAuthor type definition"
+type GroupBillingAuthor {
+  "Author who has contributed"
+  actor: String
+  "Example contribution commit"
+  commit: String
+  "Groups the author has contributed to"
+  groups: [String!]!
+  "Organization the author has contributed to"
+  organization: String
+  "Root repository of the contributions"
+  repository: String
+}

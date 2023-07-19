@@ -1,0 +1,19 @@
+{
+  "data": {
+    "group": {
+      "businessId": "1867",
+      "businessName": "Testing Company",
+      "description": "this is group1",
+      "hasSquad": true,
+      "hasMachine": true,
+      "language": "EN",
+      "managed": "MANAGED",
+      "name": "group1",
+      "service": "WHITE",
+      "sprintDuration": 3,
+      "sprintStartDate": "2022-06-06T00:00:00+00:00",
+      "subscription": "continuous",
+      "__typename": "Group"
+    }
+  }
+}

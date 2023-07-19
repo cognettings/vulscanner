@@ -1,0 +1,50 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('File Update') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          A file
+          {% if state == 'added' %}
+          has been {{ state }} by
+          <strong><a
+            href="mailto:{{ responsible }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ responsible -}}
+          </a></strong>
+          to the group <strong>{{ group_name }}</strong>:
+          {% else %}
+          in the group <strong>{{ group_name }}</strong> has been {{ state }} by
+          <strong>
+            <a
+              href="mailto:{{ responsible }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ responsible -}}
+            </a></strong>:
+          {% endif %}
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Date:</strong><br/>{{ report_date }}<br/><br/>
+            <strong>File:</strong><br/>{{ file_name }}<br/><br/>
+            <strong>Description:</strong><br/>{{ file_description }}
+            {% if uploaded_date %}
+            <br/><br/>
+            <strong>Upload date:</strong><br/>{{ uploaded_date }}
+            ({{ uploaded_days_to_date }} days)
+            {% endif %}
+          </p>
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Events Report') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>Below is a brief report of the events in your
+          subscribed groups on {{ date }}:
+        </p>
+        <div class="data-container">
+        {% for group_name, group_data in groups_data.items() %}
+          <h4>
+            <strong>
+              <a
+                href="https://app.fluidattacks.com/orgs/{{- group_data['org_name'].lower() -}}/groups/{{- group_name.lower() -}}/events"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              {{ group_name.upper() }}
+              </a>
+            </strong>
+          </h4>
+          {%- if group_data["events"].keys() %}
+            {% for event_id, event_data in group_data["events"].items() %}
+              {%- if event_data["comments"] or event_data["states"] %}
+          <ul>
+            <li>
+              <strong>
+                <a
+                  href="https://app.fluidattacks.com/orgs/{{- group_data['org_name'].lower() -}}/groups/{{- group_name.lower() -}}/events/{{- event_id -}}"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                Event#{{ event_id -}}
+                </a>
+              </strong>
+              <ul class="big-list-icon">
+                <li>
+                  <strong>Status:</strong> {{ event_data["status"] }}
+                </li>
+                <li>
+                  <strong>Description:</strong> {{ event_data["description"] }}
+                </li>
+                <li>
+                  <strong>Age:</strong> {{ event_data["age"] }} days
+                </li>
+                {%- if event_data["comments"] %}
+                <li>
+                  <strong>Last comments:</strong><br />
+                  {% for date, comment in event_data["comments"].items() %}
+                <u>{{ date }} {{ comment["name"]}}:</u> <em>{{ comment["content"]}}</em><br />
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </li>
+          </ul>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

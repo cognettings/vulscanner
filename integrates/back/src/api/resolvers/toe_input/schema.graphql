@@ -1,0 +1,28 @@
+"ToeInput type definition"
+type ToeInput {
+  "Attack moment in iso format"
+  attackedAt: DateTime
+  "Hacker email"
+  attackedBy: String!
+  "If the input is present in the root"
+  bePresent: Boolean!
+  "Date until inputs was present in ToE"
+  bePresentUntil: DateTime
+  "Application/infrastructure input URL"
+  component: String!
+  "Entry point of the test"
+  entryPoint: String!
+  "First attack moment in iso format"
+  firstAttackAt: DateTime
+  """
+  True if the associated `component` has OPEN vulnerabilities.
+  This field is eventually consistent.
+  """
+  hasVulnerabilities: Boolean
+  "Toe input Root"
+  root: Root
+  "First time the input was seen"
+  seenAt: DateTime
+  "Hacker who found the application input"
+  seenFirstTimeBy: String!
+}

@@ -1,0 +1,9 @@
+ports:
+  - host: 192.168.1.45
+    port: "4848"
+    repo_nickname: universe95
+    state: closed
+    source: analyst
+    tool:
+      name: tool-1
+      impact: direct

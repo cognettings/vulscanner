@@ -1,0 +1,10 @@
+{
+    "integrates_vms": {
+        "chunks": 1000,
+        "parts": 10
+    },
+    "integrates_vms____findings_executed": {
+        "chunks": 1000,
+        "parts": 10
+    }
+}

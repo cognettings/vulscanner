@@ -1,0 +1,30 @@
+{% extends "layouts/common.html" %} {% from 'layouts/components/forms.html'
+import banner_share %} {% block layout %}
+<div class="container">
+  {% include 'layouts/components/dark_logo_header.html' %} {{
+  banner_share('Credit Card Added') }}
+  <div class="main-content">
+    <h2>Hello Finance,</h2>
+    <p>
+      A new credit card has been added by
+      <strong
+        ><a
+          href="mailto:{{ responsible }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ responsible -}}
+        </a></strong
+      >
+      to the organization <strong>{{ organization }}</strong>:
+    </p>
+    <div class="data-container">
+      <p>
+        <strong>Last four digits:</strong><br />{{ last_digits }}<br /><br />
+        <strong>Date:</strong><br />{{ date }}<br /><br />
+      </p>
+    </div>
+  </div>
+  {% include 'layouts/components/footer.html' %}
+</div>
+{% endblock %}

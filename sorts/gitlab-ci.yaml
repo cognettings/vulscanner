@@ -1,0 +1,239 @@
+/deployTerraform/sorts:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  resource_group: $CI_JOB_NAME
+  rules:
+    - if: $CI_COMMIT_BRANCH != "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /deployTerraform/sorts
+  stage: deploy-infra
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/dirOfModules/sorts:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /lintPython/dirOfModules/sorts
+  stage: lint-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+    MAKES_NON_ROOT: 1
+/lintPython/imports/sorts:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /lintPython/imports/sorts
+  stage: lint-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/lintPython/module/sortsTests:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /lintPython/module/sortsTests
+  stage: lint-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+    MAKES_NON_ROOT: 1
+/lintPython/module/sortsTraining:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /lintPython/module/sortsTraining
+  stage: lint-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+    MAKES_NON_ROOT: 1
+/lintTerraform/sorts:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /lintTerraform/sorts
+  stage: lint-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/sorts/association-rules/check/types:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /sorts/association-rules/check/types
+  stage: lint-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/sorts/extract-features:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: false
+  needs: []
+  parallel: 20
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+      when: never
+    - if: $sorts_extract_features == null
+      when: never
+    - when: always
+  script:
+    - m . /sorts/extract-features
+  stage: pre-build
+  tags:
+    - sorts-large
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/sorts/merge-features:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: false
+  needs:
+    - /sorts/extract-features
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+      when: never
+    - if: $sorts_extract_features == null
+      when: never
+    - when: always
+  script:
+    - m . /sorts/merge-features
+  stage: build
+  tags:
+    - sorts-large
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+/testPython/sorts:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /testPython/sorts
+  stage: test-code
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1
+    MAKES_NON_ROOT: 1
+/testTerraform/sorts:
+  image: ghcr.io/fluidattacks/makes/arm64:latest
+  interruptible: true
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "trunk"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - if: $CI_COMMIT_TITLE =~ /^(all|sorts)/
+  script:
+    - m . /testTerraform/sorts
+  stage: test-infra
+  tags:
+    - sorts-small
+  variables:
+    GIT_DEPTH: 1
+    MAKES_GIT_DEPTH: 1

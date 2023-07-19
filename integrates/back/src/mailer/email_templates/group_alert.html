@@ -1,0 +1,55 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Group Alert') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          {% if attempt %}
+          The process to delete the <strong>{{ group }}</strong> group
+          from <strong>{{ organization }}</strong> has been started
+          {% elif attempt is none %}
+          The process to delete the <strong>{{ group }}</strong> group
+          from <strong>{{ organization }}</strong> has <strong>falied</strong>.
+          Group deletion started
+          {% else %}
+          The group <strong>{{ group }}</strong> has been {{ state }}
+          from <strong>{{ organization }}</strong>
+          {% endif %}
+          by
+          <strong><a
+            href="mailto:{{ responsible }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ responsible -}}
+          </a></strong> on {{ date }}:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Creation date:</strong><br/>{{ created_date }}<br/><br/>
+            <strong>Created by:</strong><br/><a
+            href="mailto:{{ created_by }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ created_by -}}
+          </a><br/><br/>
+            {% if attempt is not false %}
+            <strong>Type of service:</strong><br/>{{ subscription }}<br/><br/>
+            {% endif %}
+            <strong>Reason:</strong><br/>{{ reason }}
+            {%- if comments -%}
+            <br/><br/>
+            <strong>Comment:</strong><br/>{{ comments }}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

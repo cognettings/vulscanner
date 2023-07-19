@@ -1,0 +1,9 @@
+"UnfulfilledStandard type definition"
+type UnfulfilledStandard {
+  "Id of the standard"
+  standardId: String!
+  "Title of the standard"
+  title: String
+  "Unfulfilled requirements of the standard"
+  unfulfilledRequirements: [Requirement]!
+}

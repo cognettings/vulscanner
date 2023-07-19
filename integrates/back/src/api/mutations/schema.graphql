@@ -1,0 +1,1691 @@
+"Main mutation object"
+type Mutation {
+  "Whether to keep showing the legal notice modal or not"
+  acceptLegal(
+    "If set to true, ARM will stop showing the legal notice upon a new login"
+    remember: Boolean
+  ): SimplePayload!
+
+  "Acknowledges termination of concurrent session"
+  acknowledgeConcurrentSession: SimplePayload!
+
+  "Activate a root and make its content available for security analyses"
+  activateRoot(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the root"
+    id: ID!
+  ): SimplePayload!
+
+  "Add API token"
+  addAccessToken(
+    "An unix timestamp within the near future (< 6 months from now)"
+    expirationTime: Int!
+    "Name of the token"
+    name: String!
+  ): UpdateAccessTokenPayload!
+
+  "Add a new credentials to the organization"
+  addCredentials(
+    "Id of the organization"
+    organizationId: ID!
+    "New credentials information"
+    credentials: CredentialsInput!
+  ): SimplePayload!
+
+  "Add credit card payment method to an organization"
+  addCreditCardPaymentMethod(
+    "Organization id"
+    organizationId: String!
+    "Make payment method the default one for the customer"
+    makeDefault: Boolean!
+    "Id payment method"
+    paymentMethodId: String!
+  ): SimplePayload!
+
+  """
+  Add information about a user's auto-enrollment to the ARM,
+  allowing to know the status of the free trial,
+  if they are using it,
+  how many days he has been using it,
+  or if has completed it
+  """
+  addEnrollment: SimplePayload!
+
+  "Reports an unexpected Event when dealing with the ToE"
+  addEvent(
+    "Comment laying out or explaining the event"
+    detail: String!
+    "DateTime of the event in the format `yyyy-MM-ddThh:mm:ssZ`"
+    eventDate: DateTime!
+    "The kind of event that happened"
+    eventType: EventType!
+    "Name of the group linked to the event"
+    groupName: String!
+    "Id of the root the event is associated with"
+    rootId: ID
+  ): AddEventPayload!
+
+  "Adds a consult/comment to an Event"
+  addEventConsult(
+    "Content of the comment itself"
+    content: String!
+    "Identifier of the Event to comment about"
+    eventId: String!
+    "Name of the group linked to the event"
+    groupName: String!
+    "Identifier of the comment it is replying to. 0 otherwise"
+    parentComment: GenericScalar!
+  ): AddConsultPayload!
+
+  "Adds files to a Group's scope view"
+  addFilesToDb(
+    "A JSON with description and fileName keys"
+    filesData: JSONString
+      @deprecated(
+        reason: """
+        This field is deprecated and will be removed after 2023/10/20.
+        Use the filesDataInput field instead.
+        """
+      )
+    "A files data input with description fileName and uploadDate keys"
+    filesDataInput: [FilesDataInput!]
+    "Name of the Group to add the File to"
+    groupName: String!
+  ): SimplePayload!
+
+  "Adds a new Finding to the specified Group"
+  addFinding(
+    """
+    Measure of the effort and resources needed for an attacker to put
+    in to successfully breach the system
+    """
+    attackComplexity: Float!
+    "Level of access needed for an attack to succeed"
+    attackVector: Float!
+    "Malicious actions that can be performed by exploiting the vulnerability"
+    attackVectorDescription: String!
+    """
+    Hypothetical impact on resource (webpages, content etc...) availability
+    and possibility of service denial
+    """
+    availabilityImpact: Float!
+    """
+    Modifies the environmental score by measuring the modified availability
+    impact against the other modified impacts
+    """
+    availabilityRequirement: Float!
+    """
+    Measure of the sensible/restricted information (e.g. password,
+    encryption keys) the attacker could gather from the breached component
+    """
+    confidentialityImpact: Float!
+    """
+    Modifies the environmental score by measuring the modified
+    confidentiality impact metric against the other modified impacts
+    """
+    confidentialityRequirement: Float!
+    "CVSS v3 vector string"
+    cvssVector: String
+    "Brief explanation of the vulnerability and how it works"
+    description: String!
+    """
+    Measure of the availability of resources and details, both theoretical
+    and practical, available for a malicious actor to build and/or automate an
+    attack
+    """
+    exploitability: Float!
+    "Name of the Group where the new draft will be in"
+    groupName: String!
+    """
+    How vulnerable for malicious modification are the files in the impacted
+    components
+    """
+    integrityImpact: Float!
+    """
+    Modifies the environmental score by measuring the modified
+    integrity impact metric against the other modified impacts.
+    """
+    integrityRequirement: Float!
+    """
+    Minimum time in minutes to remediate a typical vulnerability in this
+    Finding
+    """
+    minTimeToRemediate: Int
+    """
+    Describes the conditions beyond the attacker’s control that must exist
+    in order to exploit the vulnerability in this Finding
+    """
+    modifiedAttackComplexity: Float!
+    """
+    Reflects the context by which vulnerability exploitation is possible in
+    this Finding
+    """
+    modifiedAttackVector: Float!
+    """
+    Measures the impact to the availability of the impacted component resulting
+    from the successfully exploited vulnerability
+    """
+    modifiedAvailabilityImpact: Float!
+    """
+    Measures the impact to the confidentiality of the information resources
+    managed by a software component due to the successfully exploited
+    vulnerability
+    """
+    modifiedConfidentialityImpact: Float!
+    """
+    Measures the impact to integrity of a successfully exploited vulnerability
+    """
+    modifiedIntegrityImpact: Float!
+    """
+    Describes the level of privileges an attacker must possess before
+    successfully exploiting the vulnerability
+    """
+    modifiedPrivilegesRequired: Float!
+    """
+    If the attack impacts a component different than the vulnerable component
+    """
+    modifiedSeverityScope: Float!
+    """
+    Captures the requirement for a user, other than the attacker, to
+    participate in the successful compromise the vulnerable component
+    """
+    modifiedUserInteraction: Float!
+    "Privileges required by the attacker to exploit the vulnerabilities"
+    privilegesRequired: Float!
+    "Recommended course of action to close the vulnerabilities"
+    recommendation: String!
+    "Availability of a fix"
+    remediationLevel: Float!
+    """
+    This metric measures the degree of confidence in the existence
+    of the vulnerability and the credibility of the known technical
+    details
+    """
+    reportConfidence: Float!
+    "Security scope of the affected resources by the exploited vulnerabilities"
+    severityScope: Float!
+    "Actor and scenery where the vulnerability can be exploited"
+    threat: String!
+    "Finding number and name"
+    title: String!
+    "Rules that are broken and lead to the existence of the vulnerability"
+    unfulfilledRequirements: [String!]!
+    "User involvement needed for a successful attack"
+    userInteraction: Float!
+  ): SimplePayload!
+
+  "Adds a consult/comment in a Finding"
+  addFindingConsult(
+    "Content of the comment/consult"
+    content: String!
+    "Identifier of the Finding to be commented"
+    findingId: String!
+    "Identifier of the comment it is replying to. 0 otherwise"
+    parentComment: GenericScalar!
+    "Type of the comment to be added"
+    type: FindingConsultType!
+  ): AddConsultPayload!
+
+  "Adds a new Forces execution results and log to a Group"
+  addForcesExecution(
+    "Identifier of the Forces execution"
+    executionId: String
+    """
+    DateTime the execution was done with the
+    format yyy-MM-ddThh:mm:ssZ
+    """
+    date: DateTime!
+    "Execution code the Agent returns"
+    exitCode: String!
+    "Tested repo branch"
+    gitBranch: String
+    "Full SHA-1 hash of the tested commit"
+    gitCommit: String
+    "URL of the repository the Agent was running on"
+    gitOrigin: String
+    "Nickname of the repository the Agent was running on"
+    gitRepo: String
+    "Grace period in days for new vulnerabilities at the time of execution"
+    gracePeriod: Int
+    "Name of the Group where the Forces log will be in"
+    groupName: String!
+    "Applied kind of application security testing technique"
+    kind: String
+    """
+    Logging of the Forces execution will show the history of what was
+    found in the aggregated performance
+    """
+    log: Upload
+    """
+    Minimum CVSS score of an `open` vulnerability for DevSecOps to break the
+    build in strict mode
+    """
+    severityThreshold: Float
+    "Mode of execution of the Agent, can be lax or strict"
+    strictness: String!
+    "Object containing arrays of accepted, open and closed vulnerabilities"
+    vulnerabilities: ExecutionVulnerabilitiesInput!
+  ): SimplePayload!
+
+  "Add a secret in a git environment"
+  addGitEnvironmentSecret(
+    """
+    Description of the purpose of the utility of this secret
+    in the environment which is added
+    """
+    description: String
+    "Name of the group where the secret was added"
+    groupName: String!
+    "Name of the secret you want to add to the environment"
+    key: String!
+    "ID of the URL to which the secret is added"
+    urlId: String!
+    "Password of the secret you want to add"
+    value: String!
+  ): SimplePayload!
+
+  "Adding an environment URL to a Git Root"
+  addGitEnvironmentUrl(
+    "Name of the URL to be added"
+    cloudName: String
+    "Name of the group you want to add the environment URL"
+    groupName: String!
+    "Id of the root where to add the environment URL"
+    rootId: ID!
+    "The address of the URL to be added"
+    url: String!
+    "The type of URL to add which can be CLOUD, URL or APK"
+    urlType: GitEnvironmentCloud!
+  ): AddEnvironmentUrlPayload!
+
+  """
+  Adds a new root to be analyzed and tested
+  """
+  addGitRoot(
+    "Repository branch to be tested"
+    branch: String!
+    "Credentials used to clone the repository"
+    credentials: RootCredentialsInput
+    "Kind of environment to test. E.g. production, QA, etc."
+    environment: String!
+    "Repository paths to be ignored"
+    gitignore: [String!]!
+    "Name of the group the root is associated with"
+    groupName: String!
+    "Analyze already existing code"
+    includesHealthCheck: Boolean!
+    "Nickname of the repository"
+    nickname: String
+    "Repository URL"
+    url: String!
+    "repository requires vpn to clone"
+    useVpn: Boolean
+  ): AddRootPayload!
+
+  "Adds a new group to the specified organization"
+  addGroup(
+    "Brief description to identify the group"
+    description: String!
+    "Name of the new group"
+    groupName: String!
+    "Enables the Machine plan within the new group"
+    hasMachine: Boolean!
+    "Enables the Squad plan within the new group"
+    hasSquad: Boolean!
+    "Language in which findings should be reported"
+    language: Language
+    "Organization to which the group will belong"
+    organizationName: String
+    "Enables either Black or White box type of hacking service"
+    service: ServiceType
+    "Enables either continuous or one-shot hacking within the group"
+    subscription: SubscriptionType
+  ): SimplePayload!
+
+  "Adds a consult/comment to the Consulting tab of the group"
+  addGroupConsult(
+    "The content of the comment"
+    content: String!
+    "Name of the group where the comment will be made"
+    groupName: String!
+    "Identifier of the parent comment it is replying to"
+    parentComment: GenericScalar!
+  ): AddConsultPayload!
+
+  "Adds the specified tags to the group"
+  addGroupTags(
+    "Name of the group where the tags will be added"
+    groupName: String!
+    "Tags to add in list format with the tags enclosed in quotes"
+    tags: JSONString
+      @deprecated(
+        reason: """
+        This field is deprecated and will be removed after 2023/10/20.
+        Use the tagsData field instead.
+        """
+      )
+    "List of tags to add with the tags enclosed in quotes"
+    tagsData: [String!]
+  ): SimpleGroupPayload!
+
+  "Adds an IP to the Group roots"
+  addIpRoot(
+    "IP address of the environment to test"
+    address: String!
+    "Name of the group the root is associated with"
+    groupName: String!
+    "Nickname of the root"
+    nickname: String!
+  ): AddRootPayload!
+
+  "Adds a machine execution to git root"
+  addMachineExecution(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "Nickname of the root"
+    rootNickname: String!
+    "Id of the job in aws batch"
+    jobId: ID!
+    "Date when the job was started"
+    startedAt: DateTime!
+    "Findings executed in the job"
+    findingsExecuted: [MachineFindingResultInput]
+    "Full SHA-1 hash of the tested commit"
+    gitCommit: String
+  ): SimplePayload!
+
+  "Adds a new Organization"
+  addOrganization(
+    "Country of the new Organization"
+    country: String!
+    "Name of the new Organization"
+    name: String!
+  ): AddOrganizationPayload!
+
+  """
+  Adds a Finding policy to the Organization. Approval is still needed for
+  enactment
+  """
+  addOrganizationFindingPolicy(
+    "Name of the Finding to be associated with the policy"
+    findingName: String!
+    "Name of the Organization relevant to the finding policy"
+    organizationName: String!
+    "Tags that will be related to this finding policy"
+    tags: [String]
+  ): SimplePayload!
+
+  "Add other payment method to an organization"
+  addOtherPaymentMethod(
+    "Organization id"
+    organizationId: String!
+    "Business name of payment method"
+    businessName: String!
+    "e-factura email"
+    email: String!
+    "Country of payment method business"
+    country: String!
+    "State of payment method business"
+    state: String!
+    "City of payment method business"
+    city: String!
+    "Rut document file in gif, jpg, pdf or zip"
+    rut: Upload
+    "TaxId document file in gif, jpg, pdf or zip"
+    taxId: Upload
+  ): SimplePayload!
+
+  "Adds a machine execution to git root"
+  addSecret(
+    "Description of secret"
+    description: String
+    "Name of the group the root is associated with"
+    groupName: String!
+    "Secret key"
+    key: String!
+    "Id of the root to put secret"
+    rootId: ID!
+    "Secret value"
+    value: String!
+  ): SimplePayload!
+
+  "Adds a new Stakeholder to the default ARM organization"
+  addStakeholder(
+    "Email address of the new stakeholder"
+    email: String!
+    "Role of the stakeholder"
+    role: StakeholderRole!
+  ): AddStakeholderPayload!
+
+  "Adds a new Toe input to the ARM group"
+  addToeInput(
+    "Input URL or PATH"
+    component: String!
+    "Entry point of the test"
+    entryPoint: String!
+    "Name of the group the input is associated with"
+    groupName: String!
+    "Id of the root the input is associated with"
+    rootId: String!
+  ): SimplePayload!
+
+  "Adds a new Toe lines to the ARM group"
+  addToeLines(
+    "Name of the group"
+    groupName: String!
+    "Id of the git root"
+    rootId: String!
+    "Filename of the file"
+    filename: String!
+    "Last author of the last commit"
+    lastAuthor: String!
+    "Commit hash of the last commit"
+    lastCommit: String!
+    "Lines of code"
+    loc: Int!
+    "Date of the last commit"
+    modifiedDate: DateTime!
+  ): SimplePayload!
+
+  "Adds a new Toe port to the ARM group"
+  addToePort(
+    "Name of the group the port is associated with"
+    groupName: String!
+    "IP address of the environment"
+    address: String!
+    "Port number"
+    port: Int!
+    "Id of the root the port is associated with"
+    rootId: String!
+  ): SimplePayload!
+
+  "Adds the URL of the environment to be tested"
+  addUrlRoot(
+    "URL of the environment to test"
+    url: String!
+    "Name of the group the root is associated with"
+    groupName: String!
+    "Nickname of the root"
+    nickname: String!
+  ): AddRootPayload!
+
+  "Approves an evidence draft"
+  approveEvidence(
+    "Identifier of the Evidence to be approved"
+    evidenceId: EvidenceDescriptionType!
+    "Identifier of the Finding associated with the Evidence"
+    findingId: String!
+  ): SimplePayload!
+
+  "Close the provided vulnerabilities"
+  closeVulnerabilities(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "List of vulnerable Locations"
+    vulnerabilities: [String!]!
+  ): SimplePayload!
+
+  "Confirms the provided vulnerabilities"
+  confirmVulnerabilities(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "List of open Vulnerabilities"
+    vulnerabilities: [String!]!
+  ): SimplePayload!
+
+  "Confirms the provided vulnerabilities as zero risk"
+  confirmVulnerabilitiesZeroRisk(
+    "Identifier of the Finding to be commented"
+    findingId: String!
+    "Justification of the confirmed zero risks"
+    justification: String!
+    "Vulnerabilities to confirm"
+    vulnerabilities: [String]!
+  ): SimplePayload!
+
+  "Disables the specified Finding policy"
+  deactivateOrganizationFindingPolicy(
+    "ID of the policy"
+    findingPolicyId: ID!
+    "Name of the organization the finding policy is associated with"
+    organizationName: String!
+  ): SimplePayload!
+
+  "Deactivates a Group root, which stops further testing of it"
+  deactivateRoot(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the root"
+    id: ID!
+    "Custom reason provided"
+    other: String
+    "Reason for this change"
+    reason: RootDeactivationReason!
+  ): SimplePayload!
+
+  "Downloads an evidence file associated with an Event"
+  downloadBillingFile(
+    "Identifier of the Organization"
+    organizationId: String!
+    "Identifier of the Payment Method"
+    paymentMethodId: String!
+    "Filename of the billing document to download"
+    fileName: String!
+  ): DownloadFilePayload!
+
+  "Downloads an evidence file associated with an Event"
+  downloadEventFile(
+    "Identifier of the Event containing the evidence"
+    eventId: String!
+    "Filename of the evidence to download"
+    fileName: String!
+    "Name of the group linked to the event"
+    groupName: String!
+  ): DownloadFilePayload!
+
+  """
+  Download the file that has the group,
+  which was uploaded in the Scope section
+  """
+  downloadFile(
+    "Name of the file to download in String form"
+    filesData: JSONString
+      @deprecated(
+        reason: """
+        This field is deprecated and will be removed after 2023/10/20.
+        Use the filesDataInput field instead.
+        """
+      )
+    "Name of the file to download"
+    filesDataInput: String!
+    "Name of the Group containing the file in its Scope view"
+    groupName: String!
+  ): DownloadFilePayload!
+
+  "Downloads a yaml file with all the vulnerabilities of this finding"
+  downloadVulnerabilityFile(
+    "Identifier of the finding associated with the vulnerabilities"
+    findingId: String!
+  ): DownloadFilePayload!
+
+  "Grants a stakeholder access to a Group"
+  grantStakeholderAccess(
+    "Name of the Group"
+    groupName: String!
+    "Email address of the stakeholder that will be granted access"
+    email: String!
+    "Responsibility of the stakeholder e.g. Product Owner, Group Manager etc.."
+    responsibility: String
+    "Role of the stakeholder"
+    role: StakeholderRole!
+  ): GrantStakeholderAccessPayload!
+
+  "Grants a stakeholder access to an Organization"
+  grantStakeholderOrganizationAccess(
+    "Identifier of the Organization"
+    organizationId: String!
+    "Role of the stakeholder"
+    role: OrganizationRole!
+    "Email address of the stakeholder that will be granted access"
+    userEmail: String!
+  ): GrantStakeholderAccessPayload!
+
+  "Handles submission, acceptance or rejection of a Finding policy"
+  handleOrganizationFindingPolicyAcceptance(
+    "ID of the policy"
+    findingPolicyId: ID!
+    "Name of the organization the finding policy is associated with"
+    organizationName: String!
+    "Whether the finding policy is approved or rejected"
+    status: OrganizationFindingPolicy!
+  ): SimplePayload!
+
+  "Handles acceptance and rejection of Vulnerabilities"
+  handleVulnerabilitiesAcceptance(
+    "List of identifiers of the vulnerabilities to be accepted"
+    acceptedVulnerabilities: [String]!
+    "Identifier of the Finding that contains the vulnerabilities"
+    findingId: String!
+    "Justification of the acceptances and rejections"
+    justification: String!
+    "List of identifiers of the vulnerabilities to be rejected"
+    rejectedVulnerabilities: [String]!
+  ): SimplePayload!
+
+  "Revokes a user API access token"
+  invalidateAccessToken("ID of the access token" id: ID): SimplePayload!
+
+  "Moves a root and its associations to another group"
+  moveRoot(
+    "Name of the source group"
+    groupName: String!
+    "ID of the source root"
+    id: ID!
+    "Name of the target group"
+    targetGroupName: String!
+  ): SimplePayload!
+
+  "Refresh the ToE Lines of a concrete group"
+  refreshToeLines(
+    "Name of the Group containing the ToE lines to be refreshed"
+    groupName: String
+  ): SimplePayload!
+
+  """
+  Reject the event solution
+  """
+  rejectEventSolution(
+    "Comments about the event solution rejection"
+    comments: String!
+    "Identifier of the blocking Event"
+    eventId: String!
+    "Name of the group"
+    groupName: String!
+  ): SimplePayload!
+
+  "Rejects the provided vulnerabilities from being considered as opened"
+  rejectVulnerabilities(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "Rejection reasons"
+    reasons: [VulnerabilityRejectionReason!]!
+    "Other reason for the rejection"
+    otherReason: String
+    "List of rejected Vulnerabilities"
+    vulnerabilities: [String!]!
+  ): SimplePayload!
+
+  "Rejects the provided vulnerabilities from being considered as zero risk"
+  rejectVulnerabilitiesZeroRisk(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "Justification for the rejection"
+    justification: String!
+    "List of rejected Vulnerabilities"
+    vulnerabilities: [String]!
+  ): SimplePayload!
+
+  "Removes credentials from an Organization"
+  removeCredentials(
+    "Id of the credential you want to delete/remove"
+    credentialsId: ID!
+    "Id of the organization you want to remove the credential from"
+    organizationId: ID!
+  ): SimplePayload!
+
+  "Remove root environment url"
+  removeEnvironmentUrl(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "Id of the root"
+    rootId: ID!
+    "Id of the url to remove"
+    urlId: String!
+  ): SimplePayload!
+
+  "Remove a git environment secret"
+  removeEnvironmentUrlSecret(
+    "Group name"
+    groupName: String!
+    "Secret key"
+    key: String!
+    "Id of the url to remove secret"
+    urlId: String!
+  ): SimplePayload!
+
+  "Removes evidence from an Event"
+  removeEventEvidence(
+    "Identifier of the event to which the Evidence belongs"
+    eventId: String!
+    "Type of the Evidence to remove"
+    evidenceType: EventEvidenceType!
+    "Name of the group linked to the event"
+    groupName: String!
+  ): SimplePayload!
+
+  "Removes evidence from a Finding"
+  removeEvidence(
+    "Identifier of the finding to which the Evidence belongs"
+    findingId: String!
+    "Type identifier of the Evidence to remove"
+    evidenceId: EvidenceType!
+  ): SimpleFindingPayload!
+
+  "Removes Files from a Group"
+  removeFiles(
+    "Data of the file to remove in the format {`fileName`:`file.ext`}"
+    filesData: JSONString
+      @deprecated(
+        reason: """
+        This field is deprecated and will be removed after 2023/10/20.
+        Use the filesDataInput field instead.
+        """
+      )
+    "Data of the file to remove"
+    filesDataInput: FilesDataInput!
+    "Name of the group where the File to remove is"
+    groupName: String!
+  ): SimplePayload!
+
+  "Removes/deletes a Finding from a Group"
+  removeFinding(
+    "Identifier of the Finding to remove"
+    findingId: String!
+    "Justification of the removal"
+    justification: RemoveFindingJustification!
+  ): SimplePayload!
+
+  """
+  Removes/deletes a group from ARM. Once successful this action cannot be
+  undone
+  """
+  removeGroup(
+    "Name of the group to be deleted"
+    groupName: String!
+    "Further explanation on why the group is being removed"
+    comments: String
+    "Reason for the removal of the group"
+    reason: RemoveGroupReason!
+  ): SimplePayload!
+
+  "Removes/deletes the specified tag from the group"
+  removeGroupTag(
+    "Name of the group where the tag should be removed from"
+    groupName: String!
+    "Tag to remove"
+    tag: String!
+  ): SimpleGroupPayload!
+
+  "Remove a payment method for an organization"
+  removePaymentMethod(
+    "Organization id"
+    organizationId: String!
+    "Payment Method id"
+    paymentMethodId: String!
+  ): SimplePayload!
+
+  "Delete a group secret"
+  removeSecret(
+    "Name of the group you want to remove the secret"
+    groupName: String!
+    "Name of the secret you want to remove"
+    key: String!
+    "Root Id that has the secret you want to remove"
+    rootId: ID!
+  ): SimplePayload!
+
+  "The user deletes their ARM account"
+  removeStakeholder: SimplePayload!
+
+  "Removes a stakeholder's access from a Group"
+  removeStakeholderAccess(
+    "Name of the group where the stakeholder should be removed from"
+    groupName: String
+    "Email address of the stakeholder to remove"
+    userEmail: String!
+  ): RemoveStakeholderAccessPayload!
+
+  "Removes a stakeholder's access from an Organization"
+  removeStakeholderOrganizationAccess(
+    """
+    Identifier of the organization where the stakeholder should be removed
+    from
+    """
+    organizationId: String!
+    "Email address of the stakeholder to remove"
+    userEmail: String!
+  ): SimplePayload!
+
+  "Removes tags from vulnerabilities"
+  removeTags(
+    "Identifier of the finding containing the vulnerabilities"
+    findingId: String!
+    """
+    List of identifiers of the vulnerabilities where the tag should be
+    removed from
+    """
+    vulnerabilities: [String]!
+    "Tag to remove"
+    tag: String
+  ): SimplePayload!
+
+  "Removes/deletes a vulnerability within a finding"
+  removeVulnerability(
+    "Identifier of the vulnerability to remove"
+    id: String!
+    "Finding where the vulnerability is located"
+    findingId: String!
+    "Justification for the removal"
+    justification: RemoveVulnerabilityJustification!
+  ): SimplePayload!
+
+  """
+  Request the verification of an event when It has been solved
+  """
+  requestEventVerification(
+    "Comments about the event solution"
+    comments: String!
+    "Identifier of the blocking Event"
+    eventId: String!
+    "Name of the group"
+    groupName: String!
+  ): SimplePayload!
+
+  "Request an upgrade of your subscriptions"
+  requestGroupsUpgrade(
+    "Groups intended to upgrade"
+    groupNames: [String!]!
+  ): SimplePayload!
+
+  """
+  Request a hold on ongoing vulnerability reattacks. Usually because of an
+  Event blocking access to them
+  """
+  requestVulnerabilitiesHold(
+    "Identifier of the blocking Event"
+    eventId: String!
+    "Identifier of the affected Finding"
+    findingId: String!
+    "Name of the Group to which the Event belongs"
+    groupName: String!
+    "Identifier of the affected vulnerabilities within the Finding"
+    vulnerabilities: [String!]!
+  ): SimplePayload!
+
+  "Requests a reattack on the provided Vulnerabilities"
+  requestVulnerabilitiesVerification(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "Justification for the request"
+    justification: String!
+    "List of Vulnerabilities to be reattacked"
+    vulnerabilities: [String]!
+  ): SimplePayload!
+
+  "Requests a zero risk on the provided Vulnerabilities"
+  requestVulnerabilitiesZeroRisk(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "Justification for the zero risk request"
+    justification: String!
+    "List of Vulnerabilities to be requested for a zero risk"
+    vulnerabilities: [String]!
+  ): SimplePayload!
+
+  "Resubmit the rejected vulnerabilities"
+  resubmitVulnerabilities(
+    "Identifier of Finding containing the vulnerabilities"
+    findingId: String!
+    "List of rejected Vulnerabilities"
+    vulnerabilities: [String!]!
+  ): SimplePayload!
+
+  "Helper mutation to send a notification to the assigned hacker"
+  sendAssignedNotification(
+    "Identifier of the Finding where the vulnerabilities are"
+    findingId: String!
+    "Identifier of the assigned vulnerabilities"
+    vulnerabilities: [String]!
+  ): SimplePayload!
+
+  "Helper mutation to send a manual vulnerability report notification"
+  sendVulnerabilityNotification(
+    "Identifier of the Finding where the vulnerabilities are"
+    findingId: String!
+  ): SimplePayload!
+
+  "Signs a POST URL to upload files to a Group's resources bucket"
+  signPostUrl(
+    "A JSON with description and fileName keys"
+    filesData: JSONString
+      @deprecated(
+        reason: """
+        This field is deprecated and will be removed after 2023/10/20.
+        Use the filesDataInput field instead.
+        """
+      )
+    "A files data input with description fileName and uploadDate keys"
+    filesDataInput: [FilesDataInput!]
+    "Name of the Group to add the File to"
+    groupName: String!
+  ): SignPostUrlsPayload!
+
+  "Marks an ongoing Event within the group as solved"
+  solveEvent(
+    "Identifier of the Event to solve"
+    eventId: String!
+    "Name of the group linked to the event"
+    groupName: String!
+    "Reason for solve event"
+    reason: SolveEventReason!
+    "Custom reason provided"
+    other: String
+  ): SimplePayload!
+
+  "Queues a Machine execution to check all findings over specified roots"
+  submitGroupMachineExecution(
+    "Name of the group"
+    groupName: String!
+    "Nicknames of the roots to check"
+    rootNicknames: [String!]!
+  ): SimplePayloadMessage!
+
+  "Queues a job to execute Machine (Skims) on the provided root"
+  submitMachineJob(
+    """
+    Identifier of the Finding where the results should be reported. Also
+    sets the Vulnerability type to check for
+    """
+    findingId: String!
+    "Nickname of the roots to run Machine on"
+    rootNicknames: [String!]!
+  ): SimplePayloadMessage!
+
+  """
+  Submits a Finding policy for the Organization, pending approval of a
+  Stakeholder
+  """
+  submitOrganizationFindingPolicy(
+    "ID of the policy"
+    findingPolicyId: ID!
+    "Name of the organization the finding policy will be associated with"
+    organizationName: String!
+  ): SimplePayload!
+
+  "Queues an execution to sync the state of the S3 mirror with the repository"
+  syncGitRoot(
+    "Name of the group"
+    groupName: String!
+    "ID of the Git root to sync"
+    rootId: String!
+  ): SimplePayload!
+
+  "Revoke your access permissions to a group"
+  unsubscribeFromGroup(
+    "Name of the group to be removed from"
+    groupName: String!
+  ): SimplePayload!
+
+  "Update the API token"
+  updateAccessToken(
+    "An unix timestamp within the near future (< 6 months from now)"
+    expirationTime: Int!
+  ): UpdateAccessTokenPayload!
+    @deprecated(
+      reason: """
+      This will be removed after 2023/12/26.
+      Use `addAccessToken` instead.
+      """
+    )
+
+  "Update any credentials at the organization"
+  updateCredentials(
+    "ID of the credential that wants to be updated"
+    credentialsId: ID!
+    "ID of the organization that is part of the credential to be updated"
+    organizationId: ID!
+    "Credential information to be updated"
+    credentials: CredentialsInput!
+  ): SimplePayload!
+
+  "Update credit card payment method from an organization"
+  updateCreditCardPaymentMethod(
+    "Identifier of the Organization"
+    organizationId: String!
+    "Identifier of the Payment Method"
+    paymentMethodId: String!
+    "Card expiration month"
+    cardExpirationMonth: Int!
+    "Card expiration year"
+    cardExpirationYear: Int!
+    "Select card as default"
+    makeDefault: Boolean!
+  ): SimplePayload!
+
+  "Updates a Finding's description"
+  updateDescription(
+    "Malicious actions that can be performed by exploiting the vulnerability"
+    attackVectorDescription: String!
+    "Brief explanation of the vulnerability and how it works"
+    description: String!
+    "Identifier of Finding whose description will be updated"
+    findingId: String!
+    "Recommended course of action to close the vulnerabilities"
+    recommendation: String!
+    """
+    Information that will be compromised or disclosed by exploiting the
+    vulnerability
+    """
+    records: String
+    "Did Sorts guide you to the file where the vulnerability was found?"
+    sorts: Sorts
+    "Actor and scenery where the vulnerability can be exploited"
+    threat: String!
+    "Finding number and name"
+    title: String!
+    "Rules that are broken and lead to the existence of the vulnerability"
+    unfulfilledRequirements: [String!]
+  ): SimpleFindingPayload!
+
+  "Updates an Event's description"
+  updateEvent(
+    "The kind of event that happened"
+    eventType: EventType
+    "Identifier of the Event whose evidence will be modified"
+    eventId: String!
+    "Name of the Group to which the Event belongs"
+    groupName: String!
+    "Description for other solving reason"
+    otherSolvingReason: String
+    "Reason of solving the Event"
+    solvingReason: SolveEventReason
+  ): SimplePayload!
+
+  "Updates an Event's evidence"
+  updateEventEvidence(
+    "Identifier of the Event whose evidence will be modified"
+    eventId: String!
+    "Evidence type to update"
+    evidenceType: EventEvidenceType!
+    "Name of the Group to which the Event belongs"
+    groupName: String!
+    "Evidence file to upload"
+    file: Upload!
+  ): SimplePayload!
+
+  "Updates a Finding's evidence"
+  updateEvidence(
+    "Evidence file to upload"
+    file: Upload!
+    "Identifier of the Finding whose evidence will be modified"
+    findingId: String!
+    "Type identifier of the evidence to replace or upload"
+    evidenceId: EvidenceType!
+  ): SimplePayload!
+
+  "Updates the description of an Evidence in a Finding"
+  updateEvidenceDescription(
+    "New description of the Evidence"
+    description: String!
+    "Identifier of the Evidence to be updated"
+    evidenceId: EvidenceDescriptionType!
+    "Identifier of the Finding associated with the Evidence"
+    findingId: String!
+  ): SimplePayload!
+
+  "Updates the Forces token in use for a Group"
+  updateForcesAccessToken(
+    "Name of the Group whose token is to be updated"
+    groupName: String
+  ): UpdateAccessTokenPayload!
+
+  "Updates a Group's Git environment URLs"
+  updateGitEnvironments(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the root"
+    id: ID!
+    "URLs to access the environment"
+    environmentUrls: [String!]!
+    "Custom reason provided"
+    other: String
+    "Reason for the removal of environment URLs"
+    reason: RootDeactivationReason
+  ): SimplePayload!
+    @deprecated(
+      reason: """
+      This will be removed after 2023/08/14.
+      Use `addGitEnvironmentUrl` or `removeEnvironmentUrl` instead.
+      """
+    )
+
+  "Updates a Group's Git root and its attributes"
+  updateGitRoot(
+    "Repository branch to be tested"
+    branch: String!
+    "Credentials used to clone the repository"
+    credentials: RootCredentialsInput
+    "Kind of environment to test. E.g. Production, QA, Dev, etc..."
+    environment: String!
+    "Repository paths to be ignored"
+    gitignore: [String!]!
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the root"
+    id: ID!
+    "Analyze already existing code"
+    includesHealthCheck: Boolean!
+    "Nickname of the repository"
+    nickname: String
+    "Repository URL"
+    url: String!
+    "Repository requires vpn to clone"
+    useVpn: Boolean
+  ): SimplePayload!
+
+  "Updates a group's services and parameters"
+  updateGroup(
+    "Observations about the group update"
+    comments: String!
+    "Description of the group"
+    description: String
+    "Name of the group to be updated"
+    groupName: String!
+    """
+    Whether to keep using ARM services. Caution: Setting this to False
+    **will** remove the group from it!
+    """
+    hasAsm: Boolean!
+    "Whether to keep the Machine plan enabled within the group"
+    hasMachine: Boolean!
+    "Whether to keep the Squad plan enabled within the group"
+    hasSquad: Boolean!
+    "Language of the group"
+    language: String
+    "Reason for the downgrade in services if applicable"
+    reason: UpdateGroupReason!
+    "Enables either Black or White box type of hacking service"
+    service: ServiceType
+    "Enables either continuous or one-shot hacking within the group"
+    subscription: SubscriptionType!
+    "Enables a non-free tier when a subscription is successful"
+    tier: TierType
+  ): SimplePayload!
+
+  "Update the information on how to access group TOE"
+  updateGroupAccessInfo(
+    "How to access the group ToE"
+    groupContext: String
+    "Name of the group to be updated"
+    groupName: String!
+  ): SimplePayload!
+
+  "Update the necessary clarifications on what should be tested"
+  updateGroupDisambiguation(
+    "Necessary clarifications on what should be tested"
+    disambiguation: String
+    "Name of the group to be updated"
+    groupName: String!
+  ): SimplePayload!
+
+  "Updates a group's general information"
+  updateGroupInfo(
+    "Business registration number to update"
+    businessId: String
+    "Business name to update"
+    businessName: String
+    "Description of the group"
+    description: String!
+    "Name of the group to be updated"
+    groupName: String!
+    "Language of the group"
+    language: Language!
+    "Sprint length of this product in weeks"
+    sprintDuration: Int
+    "Start date of sprint in the format `yyyy-MM-ddThh:mm:ssZ`"
+    sprintStartDate: DateTime
+  ): SimplePayload!
+
+  "Update group information on whether it's managed manually"
+  updateGroupManaged(
+    "Observation about the group update"
+    comments: String!
+    "Whether to keep payment method managed manually within the group"
+    managed: ManagedType!
+    "Name of the group to be updated"
+    groupName: String!
+  ): SimplePayload!
+
+  "Update group payment id information"
+  updateGroupPaymentId(
+    "Observation about the group update"
+    comments: String!
+    "Id of payment method selected for the group"
+    paymentId: String!
+    "Name of the group to be updated"
+    groupName: String!
+  ): SimplePayload!
+
+  "Updates the Group's policies"
+  updateGroupPolicies(
+    "Maximum number of calendar days a finding can be temporarily accepted"
+    maxAcceptanceDays: Int
+    "Maximum CVSS 3.1 score in which a finding can be temporarily accepted"
+    maxAcceptanceSeverity: Float
+    "Maximum number of times a finding can be temporarily accepted"
+    maxNumberAcceptances: Int
+    "Minimum CVSS 3.1 score in which a finding can be temporarily accepted"
+    minAcceptanceSeverity: Float
+    """
+    Minimum CVSS 3.1 score of an open vulnerability for DevSecOps to break
+    the build in strict mode
+    """
+    minBreakingSeverity: Float
+    "Name of the Group whose policies are to be updated"
+    groupName: String!
+    """
+    Grace period in days where newly reported vulnerabilities won't break
+    the build (DevSecOps only)
+    """
+    vulnerabilityGracePeriod: Int
+  ): SimplePayload!
+
+  "Updates/edits an user belonging to a group"
+  updateGroupStakeholder(
+    "Name of the group to which the user to be updated belongs"
+    groupName: String!
+    "Email of the user to update"
+    email: String!
+    "Responsibility of the stakeholder e.g. Product Owner, Group Manager etc.."
+    responsibility: String!
+    "Role of the user within the group"
+    role: StakeholderRole!
+  ): UpdateStakeholderPayload!
+
+  "Updates a Group's IP root and its attributes"
+  updateIpRoot(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the IP root to updated"
+    rootId: ID!
+    "Nickname of the root"
+    nickname: String!
+  ): SimplePayload!
+
+  "Update users notifications preferences"
+  updateNotificationsPreferences(
+    "Email channel to notifications preferences"
+    notificationsPreferences: NotificationPreferences!
+  ): SimplePayload!
+
+  "Updates the Organization's common policies"
+  updateOrganizationPolicies(
+    """
+    Number of days to remove a stakeholder from the organization
+    due to inactivity
+    """
+    inactivityPeriod: Int
+    "Maximum number of calendar days a finding can be temporally accepted"
+    maxAcceptanceDays: Int
+    "Maximum CVSS 3.1 score in which a finding can be temporally accepted"
+    maxAcceptanceSeverity: Float
+    "Maximum number of times a finding can be temporally accepted"
+    maxNumberAcceptances: Int
+    "Minimum CVSS 3.1 score in which a finding can be temporally accepted"
+    minAcceptanceSeverity: Float
+    """
+    Minimum CVSS 3.1 score of an open vulnerability for DevSecOps to break
+    the build in strict mode
+    """
+    minBreakingSeverity: Float
+    "Identifier of the Organization whose policies are to be updated"
+    organizationId: String!
+    "Name of the Organization whose policies are to be updated"
+    organizationName: String!
+    """
+    Grace period in days where newly reported vulnerabilities won't break
+    the build (DevSecOps only)
+    """
+    vulnerabilityGracePeriod: Int
+  ): SimplePayload!
+
+  "Updates an stakeholder's data from an Organization"
+  updateOrganizationStakeholder(
+    "Identifier of the Organization to which the stakeholder belongs"
+    organizationId: String!
+    "Stakeholder role"
+    role: OrganizationRole!
+    "Email address of the stakeholder to be updated"
+    userEmail: String!
+  ): UpdateStakeholderPayload!
+
+  "Update other payment method from an organization"
+  updateOtherPaymentMethod(
+    "Identifier of the Organization"
+    organizationId: String!
+    "Identifier of the Payment Method"
+    paymentMethodId: String!
+    "Business name of payment method"
+    businessName: String!
+    "e-factura email"
+    email: String!
+    "Country of payment method business"
+    country: String!
+    "State of payment method business"
+    state: String!
+    "City of payment method business"
+    city: String!
+    "Rut document file in gif, jpg, pdf or zip"
+    rut: Upload
+    "TaxId document file in gif, jpg, pdf or zip"
+    taxId: Upload
+  ): SimplePayload!
+
+  """
+  Update the git root status,
+  which can be:
+  Cloning,
+  ok,
+  failed,
+  N/A,
+  Unknown,
+  or Queued
+  """
+  updateRootCloningStatus(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the root"
+    id: ID!
+    "Whether the root cloning is queued, running or done"
+    status: CloningStatus!
+    "Message when cloning is finished"
+    message: String!
+    "Full SHA-1 hash of the cloned repo"
+    commit: String
+    "Boolean to check if Machine should be executed depending on the update"
+    queueMachine: Boolean
+  ): SimplePayload!
+
+  "Updates the severity of a Finding"
+  updateSeverity(
+    "Identifier of the finding in which the new severity will be calculated"
+    findingId: String!
+    "CVSS v3 vector string"
+    cvssVector: String
+    """
+    Measure of the effort and resources needed for an attacker to put
+    in to successfully breach the system
+    """
+    attackComplexity: String!
+    "Level of access needed for an attack to succeed"
+    attackVector: String!
+    """
+    Hypothetical impact on resource (webpages, content etc...) availability
+    and possibility of service denial
+    """
+    availabilityImpact: String!
+    "Availability requirement for the impacted systems"
+    availabilityRequirement: String!
+    """
+    Measure of the sensible/restricted information (e.g. password,
+    encryption keys) the attacker could gather from the breached component
+    """
+    confidentialityImpact: String!
+    "Confidentiality requirement for the impacted systems"
+    confidentialityRequirement: String!
+    "Common Vulnerability Scoring System version"
+    cvssVersion: String!
+    """
+    Measure of the availability of resources and details, both theoretical
+    and practical, available for a malicious actor to build and/or automate an
+    attack
+    """
+    exploitability: String!
+    """
+    How vulnerable for malicious modification are the files in the impacted
+    components
+    """
+    integrityImpact: String!
+    "Integrity requirement for the impacted systems"
+    integrityRequirement: String!
+    """
+    This metric describes the conditions beyond the
+    attacker's control to exploit the vulnerability
+    """
+    modifiedAttackComplexity: String!
+    """
+    This metric reflects the context by which
+    vulnerability exploitation is possible
+    """
+    modifiedAttackVector: String!
+    """
+    This metric measures the impact to the availability of the impacted
+    component resulting from a successfully exploited vulnerability
+    """
+    modifiedAvailabilityImpact: String!
+    """
+    This metric measures the impact to the confidentiality of the
+    information resources managed by a software component due a
+    successfully exploited vulnerability
+    """
+    modifiedConfidentialityImpact: String!
+    """
+    This metric measures the impact to integrity of a successfully
+    exploited vulnerability
+    """
+    modifiedIntegrityImpact: String!
+    """
+    This metric describes the level of privileges an attacker must
+    possess before successfully exploiting the vulnerability
+    """
+    modifiedPrivilegesRequired: String!
+    """
+    Does a successful attack impact a component other than the vulnerable
+    component? If so,
+    the Base Score increases and the confidentiality,
+    Integrity adn Authentication metrics should be scored relative
+    to the impacted component
+    """
+    modifiedSeverityScope: String!
+    """
+    This metric capture the requirement for a user,
+    other than the attacker,
+    to participate in the successful compromise the vulnerable component
+    """
+    modifiedUserInteraction: String!
+    "Privileges required by the attacker to exploit the vulnerabilities"
+    privilegesRequired: String!
+    "Availability of a fix"
+    remediationLevel: String!
+    """
+    Measures of degree of confidence in the existence of the vulnerability
+    and the credibility of the known technical details
+    """
+    reportConfidence: String!
+    "CVSS 3.1 score"
+    severity: String
+    "Security scope of the affected resources by the exploited vulnerabilities"
+    severityScope: String!
+    "User involvement needed for a successful attack"
+    userInteraction: String!
+  ): SimpleFindingPayload!
+
+  "Update the stakeholder's mobile"
+  updateStakeholderPhone(
+    "Stakeholder's phone"
+    phone: PhoneInput!
+    "OTP code to verify the stakeholder"
+    verificationCode: String!
+  ): SimplePayload!
+
+  "Update a subscription for a group (Free, Machine or Squad)"
+  updateSubscription(
+    "Group name"
+    groupName: String!
+    "Group subscription (Free, Machine or Squad)"
+    subscription: BillingSubscriptionType!
+  ): SimplePayload!
+
+  """
+  Updates the input of a concrete root
+  """
+  updateToeInput(
+    "If the input has been attacked recently"
+    hasRecentAttack: Boolean
+    "If the input is present in the root"
+    bePresent: Boolean!
+    "Input URL or PATH"
+    component: String!
+    "Entry point of the test"
+    entryPoint: String!
+    "Name of the group the input is associated with"
+    groupName: String!
+    "Id of the root containing the ToE input to be updated"
+    rootId: String!
+  ): UpdateToeInputPayload!
+
+  """
+  Updates the attacked lines for one or more ToE Lines of a concrete root
+  """
+  updateToeLinesAttackedLines(
+    "Where source code has been attacked"
+    filename: String!
+    "Name of the Group containing the ToE lines to be updated"
+    groupName: String!
+    "Id of the root containing the ToE lines to be updated"
+    rootId: String!
+    "Number of lines that have been attacked"
+    attackedLines: Int
+    "Comments related with the attack"
+    comments: String
+  ): UpdateToeLinesPayload!
+
+  """
+  Updates the sorts_risk_level attribute in one or more ToEs of a concrete
+  group
+  """
+  updateToeLinesSorts(
+    "Where source code has been reviewed by Sorts"
+    filename: String
+    "Name of the Group containing the ToE lines to be updated"
+    groupName: String
+    "Nickname of the root to update the ToE lines "
+    rootNickname: String
+    "Risk level of the reviewed lines assigned by Sorts"
+    sortsRiskLevel: Int
+    "The last time that Priority(sortsRiskLevel) was updated"
+    sortsRiskLevelDate: DateTime
+    "List with Sorts suggestions for vulnerabilities in the file"
+    sortsSuggestions: [SortsSuggestionInput!]
+  ): SimplePayload!
+
+  """
+  Updates the port of a concrete root
+  """
+  updateToePort(
+    "If the port has been attacked recently"
+    hasRecentAttack: Boolean
+    "If the port is present in the root"
+    bePresent: Boolean!
+    "IP address of the environment"
+    address: String!
+    "Port number"
+    port: Int!
+    "Name of the group the port is associated with"
+    groupName: String!
+    "Id of the root containing the ToE port to be updated"
+    rootId: String!
+  ): UpdateToePortPayload!
+
+  "Update the new user completed workflow"
+  updateTours(
+    "Values for identify the completed new user workflows"
+    tours: ToursInput!
+  ): SimplePayload!
+
+  "Updates a Group's URL root and its attributes"
+  updateUrlRoot(
+    "Name of the group the root is associated with"
+    groupName: String!
+    "ID of the IP root to updated"
+    rootId: ID!
+    "Nickname of the root"
+    nickname: String!
+  ): SimplePayload!
+
+  "Updates the severity for the given vulnerabilities"
+  updateVulnerabilitiesSeverity(
+    "CVSS v3 vector string"
+    cvssVector: String!
+    "Identifier of the Finding that contains the vulnerabilities"
+    findingId: ID!
+    "List of the vulnerabilities to update"
+    vulnerabilityIds: [ID!]!
+  ): SimpleFindingPayload!
+
+  "Updates the treatment of a single Vulnerability"
+  updateVulnerabilitiesTreatment(
+    "Date that was stipulated in a temporarily accepted treatment cycle"
+    acceptanceDate: String
+    "Email address of the user who is assigned"
+    assigned: String
+    "Identifier of the Finding that contains the Vulnerability to update"
+    findingId: String!
+    "Justification for the updated treatment"
+    justification: String!
+    "New designated treatment for the Vulnerability"
+    treatment: UpdateClientDescriptionTreatment!
+    "Identifier of the Vulnerability to update"
+    vulnerabilityId: ID!
+  ): SimplePayload!
+
+  "Updates Vulnerability description"
+  updateVulnerabilityDescription(
+    "Full SHA-1 hash of the commit where the Vulnerability was found"
+    commit: String
+    "Source of the vulnerability means who reports this"
+    source: VulnerabilitySource
+    "Identifier of the Vulnerability to update"
+    vulnerabilityId: ID!
+  ): SimplePayload!
+
+  "Updates data related to the treatment of a Vulnerability"
+  updateVulnerabilityTreatment(
+    "External Bug Tracking System URL"
+    externalBugTrackingSystem: String
+    "Identifier of the Finding that contains the vulnerability to update"
+    findingId: String!
+    """
+    Custom severity score, not corresponding to a CVSS score.
+    Must be a positive number and can be greater than 10.0
+    """
+    severity: Int
+    "Tags associated with the update, each separated by commas"
+    tag: String
+    "Identifier of the Vulnerability to update"
+    vulnerabilityId: ID!
+  ): SimplePayload!
+
+  "Uploads a file describing a Vulnerability to a Finding"
+  uploadFile(
+    "YAML file describing a Vulnerability"
+    file: Upload!
+    "Identifier of the Finding to be associated with the new Vulnerability"
+    findingId: String!
+  ): SimplePayloadMessage!
+
+  "Validate if Git root is accessible with the credentials provided"
+  validateGitAccess(
+    "Branch of the Git repository"
+    branch: String!
+    "Credentials used to access the repository"
+    credentials: RootCredentialsInput!
+    "Name of the group"
+    groupName: String
+    "Url of the Git repository to check access"
+    url: String!
+  ): SimplePayload!
+
+  "Start a verification process for a stakeholder by using OTP"
+  verifyStakeholder(
+    "Channel to send otp code"
+    channel: VerificationChannel
+    "Stakeholder's new phone that needs to be verified"
+    newPhone: PhoneInput
+    "OTP code to verify the stakeholder when entering a new phone"
+    verificationCode: String
+  ): SimplePayload!
+
+  "To verify if the vulnerabilities still remain open or were closed"
+  verifyVulnerabilitiesRequest(
+    "Identifier of the Finding that contains the vulnerabilities to verify"
+    findingId: String!
+    "Justification for the open and closed vulnerabilities"
+    justification: String!
+    "List of vulnerabilities that still remain open"
+    openVulnerabilities: [String]!
+    "List of vulnerabilities that were confirmed closed"
+    closedVulnerabilities: [String]!
+  ): SimplePayload!
+}

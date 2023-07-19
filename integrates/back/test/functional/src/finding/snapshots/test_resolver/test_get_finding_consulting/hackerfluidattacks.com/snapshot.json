@@ -1,0 +1,141 @@
+{
+  "data": {
+    "finding": {
+      "age": 0,
+      "hacker": "test1@gmail.com",
+      "attackVectorDescription": "This is an updated attack vector",
+      "closedVulnerabilities": 0,
+      "consulting": [
+        {
+          "content": "This is a test comment",
+          "created": "2019/05/28 15:09:37",
+          "email": "admin@fluidattacks.com",
+          "fullName": "test one"
+        }
+      ],
+      "currentState": "SUBMITTED",
+      "cvssVersion": "3.1",
+      "description": "I just have updated the description",
+      "evidence": {
+        "animation": {
+          "date": null,
+          "description": null,
+          "url": null
+        },
+        "evidence1": {
+          "date": null,
+          "description": null,
+          "url": null
+        },
+        "evidence2": {
+          "date": null,
+          "description": null,
+          "url": null
+        },
+        "evidence3": {
+          "date": null,
+          "description": null,
+          "url": null
+        },
+        "evidence4": {
+          "date": null,
+          "description": null,
+          "url": null
+        },
+        "evidence5": {
+          "date": null,
+          "description": null,
+          "url": null
+        },
+        "exploitation": {
+          "date": null,
+          "description": null,
+          "url": null
+        }
+      },
+      "groupName": "group1",
+      "id": "41e50cb7-5343-402d-bb98-55e8bf5e9cc4",
+      "isExploitable": false,
+      "lastStateDate": "2017-04-07 19:45:14",
+      "lastVulnerability": 0,
+      "maxOpenSeverityScore": 0.0,
+      "minTimeToRemediate": 4,
+      "observations": [
+        {
+          "content": "This is a test observations",
+          "email": "admin@fluidattacks.com",
+          "fullName": "test one"
+        }
+      ],
+      "openAge": 400,
+      "openVulnerabilities": 0,
+      "recommendation": "Updated recommendation",
+      "records": "[]",
+      "rejectedVulnerabilities": 0,
+      "releaseDate": null,
+      "remediated": false,
+      "reportDate": "2017-04-07 19:45:11",
+      "requirements": "REQ.0132. Passwords (phrase type) must be at least 3 words long.",
+      "severity": {
+        "attackComplexity": 0.44,
+        "attackVector": 0.2,
+        "availabilityImpact": 0.22,
+        "availabilityRequirement": 1.5,
+        "confidentialityImpact": 0.22,
+        "confidentialityRequirement": 0.5,
+        "exploitability": 0.94,
+        "integrityImpact": 0.22,
+        "integrityRequirement": 1.0,
+        "modifiedAttackComplexity": 0.44,
+        "modifiedAttackVector": 0.85,
+        "modifiedAvailabilityImpact": 0.22,
+        "modifiedConfidentialityImpact": 0.22,
+        "modifiedIntegrityImpact": 0.0,
+        "modifiedPrivilegesRequired": 0.27,
+        "modifiedSeverityScope": 0.0,
+        "modifiedUserInteraction": 0.62,
+        "privilegesRequired": 0.62,
+        "remediationLevel": 0.95,
+        "reportConfidence": 1.0,
+        "severityScope": 1.0,
+        "userInteraction": 0.85
+      },
+      "severityScore": 4.1,
+      "severityVector": "CVSS:3.1/AV:P/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:L/E:P/RL:O/CR:L/AR:H/MAV:N/MAC:H/MPR:H/MUI:R/MS:U/MC:L/MA:L",
+      "status": "VULNERABLE",
+      "submittedVulnerabilities": 0,
+      "threat": "Updated threat",
+      "title": "002. Asymmetric denial of service",
+      "tracking": [],
+      "totalOpenCVSSF": 0.0,
+      "treatmentSummary": {
+        "accepted": 1,
+        "acceptedUndefined": 2,
+        "inProgress": 3,
+        "untreated": 4
+      },
+      "verificationSummary": {
+        "requested": 1,
+        "onHold": 2,
+        "verified": 3
+      },
+      "verified": false,
+      "vulnerabilitiesConnection": {
+        "edges": [],
+        "pageInfo": {
+          "endCursor": "bnVsbA==",
+          "hasNextPage": false
+        }
+      },
+      "vulnerabilitiesToReattackConnection": {
+        "edges": [],
+        "pageInfo": {
+          "endCursor": "bnVsbA==",
+          "hasNextPage": false
+        }
+      },
+      "where": "192.168.1.2",
+      "__typename": "Finding"
+    }
+  }
+}

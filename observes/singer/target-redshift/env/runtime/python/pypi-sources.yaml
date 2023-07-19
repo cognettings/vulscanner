@@ -1,0 +1,114 @@
+closure:
+  attrs: 23.1.0
+  boto3: 1.17.104
+  botocore: 1.20.112
+  click: 7.1.2
+  jmespath: 0.10.0
+  jsonschema: 3.2.0
+  psycopg2: 2.8.4
+  pyrsistent: 0.19.3
+  python-dateutil: 2.8.2
+  returns: 0.16.0
+  s3transfer: 0.4.2
+  setuptools: 67.7.2
+  six: 1.16.0
+  typing-extensions: 3.10.0.2
+  urllib3: 1.26.15
+links:
+  - name: attrs-23.1.0-py3-none-any.whl
+    sha256: 012x6glahfkg28ncs726dcnbm76gib3j1861d8jv8byw5i9b8a0z
+    url: https://files.pythonhosted.org/packages/f0/eb/fcb708c7bf5056045e9e98f62b93bd7467eb718b0202e7698eb11d66416c/attrs-23.1.0-py3-none-any.whl
+  - name: attrs-23.1.0.tar.gz
+    sha256: 05g0a3y9hv74zblgf51zd0ar3g1ksfngjdgj3dps44qmb1nq6yb2
+    url: https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz
+  - name: boto3-1.17.104-py2.py3-none-any.whl
+    sha256: 05c6d6jg22lsj5ah8mm9bi7lq1vz55i84j8sa4qvbj9f6s72g6xw
+    url: https://files.pythonhosted.org/packages/90/8e/7a81544adb80582ab79b3c3572f9d69331fb0fefaccb3c94dc32082e8e3c/boto3-1.17.104-py2.py3-none-any.whl
+  - name: boto3-1.17.104.tar.gz
+    sha256: 0admbzkksrz4h3wlqdpff5qi6bqykwx6l695vjj05wlmgz09spq5
+    url: https://files.pythonhosted.org/packages/31/4c/879d528f74a3288a03cc664c5e1618a0f71e835a731a7c2594165823c4a3/boto3-1.17.104.tar.gz
+  - name: botocore-1.20.112-py2.py3-none-any.whl
+    sha256: 0ayxhfb2k1yh72yhw84jic63qzj2mfsp6g3akvd1kvx3h44xwlbd
+    url: https://files.pythonhosted.org/packages/c7/ea/11c3beca131920f552602b98d7ba9fc5b46bee6a59cbd48a95a85cbb8f41/botocore-1.20.112-py2.py3-none-any.whl
+  - name: botocore-1.20.112.tar.gz
+    sha256: 1ksdjh3mwbzgqgfj58vyrhann23b9gqam8id2svmpdmmdq5vgffh
+    url: https://files.pythonhosted.org/packages/4d/c8/2d47e502c12d4b436e5b865cc78552604888aee59570c12b1863bb09c11b/botocore-1.20.112.tar.gz
+  - name: click-7.1.2-py2.py3-none-any.whl
+    sha256: 1p607168jqq20d8bngrkfqv0vvkfas57r6s8szimvpgs9fgsik6s
+    url: https://files.pythonhosted.org/packages/d2/3d/fa76db83bf75c4f8d338c2fd15c8d33fdd7ad23a9b5e57eb6c5de26b430e/click-7.1.2-py2.py3-none-any.whl
+  - name: click-7.1.2.tar.gz
+    sha256: 06kbzd6sjfkqan3miwj9wqyddfxc2b6hi7p5s4dvqjb3gif2bdfj
+    url: https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz
+  - name: jmespath-0.10.0-py2.py3-none-any.whl
+    sha256: 0bxp1hnjrb4vaksa43s2ghjwr3jb5rpv6q8x2hq7fnfc0icm5xnd
+    url: https://files.pythonhosted.org/packages/07/cb/5f001272b6faeb23c1c9e0acc04d48eaaf5c862c17709d20e3469c6e0139/jmespath-0.10.0-py2.py3-none-any.whl
+  - name: jmespath-0.10.0.tar.gz
+    sha256: 1yflbqggg1z9ndw9ps771hy36d07j9l2wwbj66lljqb6p1khapdq
+    url: https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz
+  - name: jsonschema-3.2.0-py2.py3-none-any.whl
+    sha256: 0qyidiicwn27ya7r4q7cjbra8gna5vkwnfg1kkp7nmvg47w3qnsf
+    url: https://files.pythonhosted.org/packages/c5/8f/51e89ce52a085483359217bc72cdbf6e75ee595d5b1d4b5ade40c7e018b8/jsonschema-3.2.0-py2.py3-none-any.whl
+  - name: jsonschema-3.2.0.tar.gz
+    sha256: 0ykr61yiiizgvm3bzipa3l73rvj49wmrybbfwhvpgk3pscl5pa68
+    url: https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz
+  - name: psycopg2-2.8.4.tar.gz
+    sha256: 1djvh98pi4hjd8rxbq8qzc63bg8v78k33yg6pl99wak61b6fb67q
+    url: https://files.pythonhosted.org/packages/84/d7/6a93c99b5ba4d4d22daa3928b983cec66df4536ca50b22ce5dcac65e4e71/psycopg2-2.8.4.tar.gz
+  - name: pyrsistent-0.19.3-cp38-cp38-macosx_10_9_universal2.whl
+    sha256: 1n47ggwv9mk73xq832lgqgbpvjmpkg8zz1gzn5sij44khqziyix2
+    url: https://files.pythonhosted.org/packages/59/4b/b6ea0f5c564c40f2c9d05ad3dbe3b8db6a6f1e7153e49eee29674c3c3bbe/pyrsistent-0.19.3-cp38-cp38-macosx_10_9_universal2.whl
+  - name: pyrsistent-0.19.3-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+    sha256: 16l1pcyisc3mk9hr4dif6606xbgyz32fi8mxz30n4rvh66gi8pfc
+    url: https://files.pythonhosted.org/packages/07/d2/0e72806d668c001d13885e8d7c78fefa5a649c34ad9d77b90eb472096ae7/pyrsistent-0.19.3-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+  - name: pyrsistent-0.19.3-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl
+    sha256: 1348zk9wzr4lp98d26jn17pf4ccr79zc4j44md9alhd36x1cn49k
+    url: https://files.pythonhosted.org/packages/82/5e/037a808341e4464c702eb45e741c69292516d0ac00e64080269a2e98d12d/pyrsistent-0.19.3-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl
+  - name: pyrsistent-0.19.3-py3-none-any.whl
+    sha256: 0r3bwr3mymr2fjpaxvgjh8cqkhyp9vwgs9hckwbi30cg42yxdw6c
+    url: https://files.pythonhosted.org/packages/64/de/375aa14daaee107f987da76ca32f7a907fea00fa8b8afb67dc09bec0de91/pyrsistent-0.19.3-py3-none-any.whl
+  - name: pyrsistent-0.19.3.tar.gz
+    sha256: 0h346x0710v4v734h45x4d4k260l9z4ppa9ibjcv9fq66xvr8a8s
+    url: https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz
+  - name: python_dateutil-2.8.2-py2.py3-none-any.whl
+    sha256: 1aaxjfp4lrz8c6qls3vdhw554lan3khy9afyvdcvrssk6kf067cn
+    url: https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl
+  - name: python-dateutil-2.8.2.tar.gz
+    sha256: 11iy7m4bp2lgfkcl0r6xzf34bvk7ppjmsyn2ygfikbi72v6cl8q1
+    url: https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz
+  - name: returns-0.16.0-py3-none-any.whl
+    sha256: 0amw125x7wnf6gqlfga4y29wjy48xlscxdk96kdcian5p3vl8x9v
+    url: https://files.pythonhosted.org/packages/ff/e6/c66f2dfd12cd47e0efb54c0aefd35f0bbad0242fbaefe52310ebf71f010b/returns-0.16.0-py3-none-any.whl
+  - name: returns-0.16.0.tar.gz
+    sha256: 1dq0z348xyjkba8whdqgplkgf1mvw1ydaz4wijc8g7783npplwdc
+    url: https://files.pythonhosted.org/packages/52/ad/a312c66697e1be62dc50144ad491ec43ee08c0f4090a635c8a34c88cbd3a/returns-0.16.0.tar.gz
+  - name: s3transfer-0.4.2-py2.py3-none-any.whl
+    sha256: 1g5hbsd87jf1j14gzb5fhd08d8qkdlyjdg18wq66k018ga454dwv
+    url: https://files.pythonhosted.org/packages/63/d0/693477c688348654ddc21dcdce0817653a294aa43f41771084c25e7ff9c7/s3transfer-0.4.2-py2.py3-none-any.whl
+  - name: s3transfer-0.4.2.tar.gz
+    sha256: 1cp169vz9rvng7dwbn33fgdbl3b014zpsdqsnfxxw7jm2r5jy0nb
+    url: https://files.pythonhosted.org/packages/27/90/f467e516a845cf378d85f0a51913c642e31e2570eb64b352c4dc4c6cbfc7/s3transfer-0.4.2.tar.gz
+  - name: setuptools-67.7.2-py3-none-any.whl
+    sha256: 0awmhw9a3z21qqhrd0xgaqjpnlbp5pqh69yk06wcwlnahmmziai3
+    url: https://files.pythonhosted.org/packages/2f/8c/f336a966d4097c7cef6fc699b2ecb83b5fb63fd698198c1b5c7905a74f0f/setuptools-67.7.2-py3-none-any.whl
+  - name: setuptools-67.7.2.tar.gz
+    sha256: 1409v19izpapd417rq8kvrlakj5ncfg6lv7c1zx049iad41zl17i
+    url: https://files.pythonhosted.org/packages/fd/53/e5d7ae40d03e4ed20b7cba317cf9c0c97097c8debb39f9d72d182a6578a2/setuptools-67.7.2.tar.gz
+  - name: six-1.16.0-py2.py3-none-any.whl
+    sha256: 0m02dsi8lvrjf4bi20ab6lm7rr6krz7pg6lzk3xjs2l9hqfjzfwa
+    url: https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl
+  - name: six-1.16.0.tar.gz
+    sha256: 09n9qih9rpj95q3r4a40li7hk6swma11syvgwdc68qm1fxsc6q8y
+    url: https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz
+  - name: typing_extensions-3.10.0.2-py3-none-any.whl
+    sha256: 0d0s8knd86ldzfygnrj7mwbrhh31rjmksqfhxi3b25p5zpd5xlpi
+    url: https://files.pythonhosted.org/packages/74/60/18783336cc7fcdd95dae91d73477830aa53f5d3181ae4fe20491d7fc3199/typing_extensions-3.10.0.2-py3-none-any.whl
+  - name: typing_extensions-3.10.0.2.tar.gz
+    sha256: 0zk7kbcms828by6avmqp09bsag1az37qr60viqjwvw8izwb5vxs9
+    url: https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz
+  - name: urllib3-1.26.15-py2.py3-none-any.whl
+    sha256: 0hpavh04aksflwb5hkwrixwxwglyazdb033swjf4gir3kqb1sxda
+    url: https://files.pythonhosted.org/packages/7b/f5/890a0baca17a61c1f92f72b81d3c31523c99bec609e60c292ea55b387ae8/urllib3-1.26.15-py2.py3-none-any.whl
+  - name: urllib3-1.26.15.tar.gz
+    sha256: 01dkqv0rsjqyw4wrp6yj8h3bcnl7c678qkj845596vs7p4bqff4a
+    url: https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz
+python: "3.8"

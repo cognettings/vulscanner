@@ -1,0 +1,28 @@
+"ToePort type definition"
+type ToePort {
+  "IP address of the environment"
+  address: String!
+  "Attack moment in iso format"
+  attackedAt: DateTime
+  "Hacker email"
+  attackedBy: String
+  "If the port is present in the root"
+  bePresent: Boolean!
+  "Date until ports was present in ToE"
+  bePresentUntil: DateTime
+  "First attack moment in iso format"
+  firstAttackAt: DateTime
+  """
+  True if the associated `address` has OPEN vulnerabilities.
+  This field is eventually consistent.
+  """
+  hasVulnerabilities: Boolean
+  "Port number"
+  port: Int!
+  "Toe port Root"
+  root: IPRoot
+  "First time the port was seen"
+  seenAt: DateTime
+  "Hacker who found the application port"
+  seenFirstTimeBy: String
+}

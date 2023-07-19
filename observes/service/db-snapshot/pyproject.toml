@@ -1,0 +1,25 @@
+[project]
+name = "db_snapshot"
+authors = [
+    {name = "Product Team", email = "development@fluidattacks.com"},
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "boto3 >=1.17.104, <2.0.0",
+    "fa-purity >=1.33.2, <2.0.0",
+    "mypy-boto3-redshift >=1.26.79, <2.0.0",
+    "types-boto3 >=1.0.2, <2.0.0",
+    "utils-logger-2 >=1.0.0, <2.0.0",
+]
+description = "Service for triggering redshift snapshots"
+dynamic = ["version"]
+
+[project.scripts]
+db-snapshot = "db_snapshot.core:main"
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"

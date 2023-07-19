@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es2019"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "paths": {
+      "components/*": [ "components/*" ],
+      "pages/*": [ "pages/*" ],
+      "styles/*": [ "styles/*" ],
+      "templates/*": [ "templates/*" ],
+    },
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2019"
+  }
+}

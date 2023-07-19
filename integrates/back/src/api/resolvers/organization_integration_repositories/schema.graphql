@@ -1,0 +1,13 @@
+"IntegrationRepositories type definition"
+type OrganizationIntegrationRepositories {
+  "List of repository branches"
+  branches: [String]!
+  "Name of the default repository branch"
+  defaultBranch: String!
+  "Date of the last commit"
+  lastCommitDate: String
+  "Name of the repository"
+  name: String!
+  "Repository URL"
+  url: String!
+}

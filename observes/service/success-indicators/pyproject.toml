@@ -1,0 +1,24 @@
+[project]
+name = "success_indicators"
+authors = [
+    {name = "Product Team", email = "development@fluidattacks.com"},
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "click >=8.1.3, <9.0.0",
+    "fa-purity >=1.27.0, <2.0.0",
+    "redshift-client >=1.2.0, <2.0.0",
+    "utils-logger-2 >=1.0.0, <2.0.0",
+]
+description = "job last success reporter"
+dynamic = ["version"]
+
+[project.scripts]
+success-indicators = 'success_indicators.cli:main'
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"

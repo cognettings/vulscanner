@@ -1,0 +1,807 @@
+# pylint: disable=import-error
+from back.test import (
+    db,
+)
+from custom_utils import (
+    datetime as datetime_utils,
+)
+from datetime import (
+    datetime,
+)
+from db_model.enums import (
+    GitCloningStatus,
+    Source,
+)
+from db_model.findings.enums import (
+    FindingStateStatus,
+)
+from db_model.findings.types import (
+    Finding,
+    FindingState,
+)
+from db_model.roots.enums import (
+    RootStatus,
+    RootType,
+)
+from db_model.roots.types import (
+    GitRoot,
+    GitRootCloning,
+    GitRootState,
+    IPRoot,
+    IPRootState,
+    URLRoot,
+    URLRootState,
+)
+from db_model.toe_inputs.types import (
+    ToeInput,
+    ToeInputState,
+)
+from db_model.toe_lines.types import (
+    ToeLines,
+    ToeLinesState,
+)
+from db_model.toe_ports.types import (
+    ToePort,
+    ToePortState,
+)
+from db_model.types import (
+    SeverityScore,
+)
+from db_model.vulnerabilities.enums import (
+    VulnerabilityStateStatus,
+    VulnerabilityTreatmentStatus,
+    VulnerabilityType,
+    VulnerabilityVerificationStatus,
+    VulnerabilityZeroRiskStatus,
+)
+from db_model.vulnerabilities.types import (
+    Vulnerability,
+    VulnerabilityState,
+    VulnerabilityTreatment,
+    VulnerabilityUnreliableIndicators,
+    VulnerabilityVerification,
+    VulnerabilityZeroRisk,
+)
+from decimal import (
+    Decimal,
+)
+import pytest
+import pytest_asyncio
+from typing import (
+    Any,
+)
+
+
+@pytest.mark.resolver_test_group("update_toe_vulnerabilities")
+@pytest_asyncio.fixture(autouse=True, scope="session")
+async def populate(generic_data: dict[str, Any]) -> bool:
+    data: dict[str, Any] = {
+        "findings": [
+            {
+                "finding": Finding(
+                    id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    state=FindingState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2017-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        status=FindingStateStatus.CREATED,
+                    ),
+                    title="001. SQL injection - C Sharp SQL API",
+                    recommendation="Updated recommendation",
+                    description="I just have updated the description",
+                    hacker_email="test1@gmail.com",
+                    min_time_to_remediate=4,
+                    requirements=(
+                        "REQ.0132. Passwords (phrase type) "
+                        "must be at least 3 words long."
+                    ),
+                    severity_score=SeverityScore(),
+                    threat="Updated threat",
+                    attack_vector_description=(
+                        "This is an updated attack vector"
+                    ),
+                ),
+                "historic_state": [
+                    FindingState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2017-04-08T00:45:12+00:00"
+                        ),
+                        source=Source.ASM,
+                        status=FindingStateStatus.SUBMITTED,
+                    ),
+                    FindingState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2017-04-08T00:45:13+00:00"
+                        ),
+                        source=Source.ASM,
+                        status=FindingStateStatus.REJECTED,
+                    ),
+                    FindingState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2017-04-08T00:45:14+00:00"
+                        ),
+                        source=Source.ASM,
+                        status=FindingStateStatus.SUBMITTED,
+                    ),
+                    FindingState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:15+00:00"
+                        ),
+                        source=Source.ASM,
+                        status=FindingStateStatus.APPROVED,
+                    ),
+                ],
+                "historic_verification": [],
+            },
+        ],
+        "roots": [
+            {
+                "root": GitRoot(
+                    cloning=GitRootCloning(
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        reason="root creation",
+                        status=GitCloningStatus("UNKNOWN"),
+                    ),
+                    created_by="admin@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2020-11-19T13:37:10+00:00"
+                    ),
+                    group_name="group1",
+                    id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                    organization_name="orgtest",
+                    state=GitRootState(
+                        branch="master",
+                        environment="production",
+                        gitignore=["bower_components/*", "node_modules/*"],
+                        includes_health_check=True,
+                        modified_by="admin@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        nickname="test_nickname_1",
+                        other=None,
+                        reason=None,
+                        status=RootStatus.INACTIVE,
+                        url="https://gitlab.com/fluidattacks/universe",
+                    ),
+                    type=RootType.GIT,
+                ),
+                "historic_state": [],
+            },
+            {
+                "root": GitRoot(
+                    cloning=GitRootCloning(
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        reason="root creation",
+                        status=GitCloningStatus("UNKNOWN"),
+                    ),
+                    created_by="admin@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2020-11-19T13:37:10+00:00"
+                    ),
+                    group_name="group1",
+                    id="968cc999-3b6e-4f10-a291-81ef8f22dcca",
+                    organization_name="orgtest",
+                    state=GitRootState(
+                        branch="master",
+                        environment="production",
+                        gitignore=["node_modules/*"],
+                        includes_health_check=True,
+                        modified_by="admin@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        nickname="test_nickname_2",
+                        other=None,
+                        reason=None,
+                        status=RootStatus.INACTIVE,
+                        url="https://gitlab.com/fluidattacks/repo_mock2",
+                    ),
+                    type=RootType.GIT,
+                ),
+                "historic_state": [],
+            },
+            {
+                "root": URLRoot(
+                    created_by="admin@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2020-11-19T13:37:10+00:00"
+                    ),
+                    group_name="group1",
+                    id="765b1d0f-b6fb-4485-b4e2-2c2cb1555b1a",
+                    organization_name="orgtest",
+                    state=URLRootState(
+                        host="app.fluidattacks.com",
+                        modified_by="admin@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        nickname="test_nickname_3",
+                        other=None,
+                        path="/",
+                        port="8080",
+                        protocol="HTTPS",
+                        reason=None,
+                        status=RootStatus.INACTIVE,
+                    ),
+                    type=RootType.URL,
+                ),
+                "historic_state": [],
+            },
+            {
+                "root": URLRoot(
+                    created_by="admin@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2020-11-19T13:37:10+00:00"
+                    ),
+                    group_name="group1",
+                    id="be09edb7-cd5c-47ed-bee4-97c645acdce8",
+                    organization_name="orgtest",
+                    state=URLRootState(
+                        host="app.fluidattacks.com",
+                        modified_by="admin@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        nickname="test_nickname_4",
+                        other=None,
+                        path="/",
+                        port="8080",
+                        protocol="HTTPS",
+                        reason=None,
+                        status=RootStatus.ACTIVE,
+                    ),
+                    type=RootType.URL,
+                ),
+                "historic_state": [],
+            },
+            {
+                "root": IPRoot(
+                    created_by="admin@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2020-11-19T13:37:10+00:00"
+                    ),
+                    group_name="group1",
+                    id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                    organization_name="orgtest",
+                    state=IPRootState(
+                        address="192.168.1.1",
+                        modified_by="admin@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        nickname="test_nickname_5",
+                        other=None,
+                        reason=None,
+                        status=RootStatus.ACTIVE,
+                    ),
+                    type=RootType.IP,
+                ),
+                "historic_state": [],
+            },
+            {
+                "root": IPRoot(
+                    created_by="admin@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2020-11-19T13:37:10+00:00"
+                    ),
+                    group_name="group1",
+                    id="2a6aa308-8f83-4b11-a712-b4c981fd04ac",
+                    organization_name="orgtest",
+                    state=IPRootState(
+                        address="192.168.1.1",
+                        modified_by="admin@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-11-19T13:37:10+00:00"
+                        ),
+                        nickname="test_nickname_6",
+                        other=None,
+                        reason=None,
+                        status=RootStatus.ACTIVE,
+                    ),
+                    type=RootType.IP,
+                ),
+                "historic_state": [],
+            },
+        ],
+        "toe_inputs": (
+            ToeInput(
+                component="https://app.fluidattacks.com/",
+                entry_point="button",
+                group_name="group1",
+                state=ToeInputState(
+                    attacked_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    attacked_by="",
+                    be_present=True,
+                    be_present_until=None,
+                    has_vulnerabilities=True,
+                    first_attack_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    modified_by="hacker@fluidattacks.com",
+                    modified_date=datetime_utils.get_utc_now(),
+                    seen_at=datetime.fromisoformat(
+                        "2000-01-01T05:00:00+00:00"
+                    ),
+                    seen_first_time_by="",
+                    unreliable_root_id="",
+                ),
+            ),
+            ToeInput(
+                component="https://app.test.com/",
+                entry_point="button-test",
+                group_name="group1",
+                state=ToeInputState(
+                    attacked_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    attacked_by="",
+                    be_present=True,
+                    be_present_until=None,
+                    has_vulnerabilities=True,
+                    first_attack_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    modified_by="hacker@fluidattacks.com",
+                    modified_date=datetime_utils.get_utc_now(),
+                    seen_at=datetime.fromisoformat(
+                        "2000-01-01T05:00:00+00:00"
+                    ),
+                    seen_first_time_by="",
+                    unreliable_root_id="",
+                ),
+            ),
+        ),
+        "toe_lines": (
+            ToeLines(
+                filename="test1/test.sh",
+                group_name="group1",
+                root_id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                state=ToeLinesState(
+                    attacked_at=datetime.fromisoformat(
+                        "2021-01-20T05:00:00+00:00"
+                    ),
+                    attacked_by="test@test.com",
+                    attacked_lines=23,
+                    be_present=True,
+                    be_present_until=datetime.fromisoformat(
+                        "2021-01-19T15:41:04+00:00"
+                    ),
+                    comments="comment 1",
+                    first_attack_at=datetime.fromisoformat(
+                        "2020-01-19T15:41:04+00:00"
+                    ),
+                    has_vulnerabilities=False,
+                    last_author="customer1@gmail.com",
+                    last_commit="f9e4beba70c4f34d6117c3b0c23ebe6b2bff66c1",
+                    last_commit_date=datetime.fromisoformat(
+                        "2021-11-16T15:41:04+00:00"
+                    ),
+                    loc=4324,
+                    modified_by="test@test.com",
+                    modified_date=datetime.fromisoformat(
+                        "2021-11-16T15:41:04+00:00"
+                    ),
+                    seen_at=datetime.fromisoformat(
+                        "2020-01-01T15:41:04+00:00"
+                    ),
+                    sorts_risk_level=0,
+                ),
+            ),
+        ),
+        "toe_ports": (
+            ToePort(
+                address="192.168.1.1",
+                port="2321",
+                group_name="group1",
+                root_id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                seen_at=datetime.fromisoformat("2000-01-01T05:00:00+00:00"),
+                seen_first_time_by="test1@test.com",
+                state=ToePortState(
+                    attacked_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    attacked_by="admin@gmail.com",
+                    be_present=True,
+                    be_present_until=None,
+                    first_attack_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    has_vulnerabilities=False,
+                    modified_by="admin@gmail.com",
+                    modified_date=datetime.fromisoformat(
+                        "2000-01-01T05:00:00+00:00"
+                    ),
+                ),
+            ),
+            ToePort(
+                address="192.168.1.7",
+                port="77777",
+                group_name="group1",
+                root_id="2a6aa308-8f83-4b11-a712-b4c981fd04ac",
+                seen_at=datetime.fromisoformat("2000-01-01T05:00:00+00:00"),
+                seen_first_time_by="test1@test.com",
+                state=ToePortState(
+                    attacked_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    attacked_by="admin@gmail.com",
+                    be_present=True,
+                    be_present_until=None,
+                    first_attack_at=datetime.fromisoformat(
+                        "2020-01-02T05:00:00+00:00"
+                    ),
+                    has_vulnerabilities=True,
+                    modified_by="admin@gmail.com",
+                    modified_date=datetime.fromisoformat(
+                        "2000-01-01T05:00:00+00:00"
+                    ),
+                ),
+            ),
+        ),
+        "vulnerabilities": [
+            {
+                "vulnerability": Vulnerability(
+                    created_by="test1@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:45:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="test1@gmail.com",
+                    id="3988168e-fc18-41f8-b219-2f33be09cc30",
+                    state=VulnerabilityState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="button",
+                        status=VulnerabilityStateStatus.SAFE,
+                        where="https://app.fluidattacks.com/",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.UNTREATED,
+                    ),
+                    type=VulnerabilityType.INPUTS,
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=0,
+                    ),
+                ),
+            },
+            {
+                "vulnerability": Vulnerability(
+                    created_by="test1@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:45:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="test1@gmail.com",
+                    id="f6731a15-d70d-4f8d-8d5b-819195e0e3f5",
+                    state=VulnerabilityState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="button-test",
+                        status=VulnerabilityStateStatus.VULNERABLE,
+                        where="https://app.test.com/",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.UNTREATED,
+                    ),
+                    type=VulnerabilityType.INPUTS,
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=0,
+                    ),
+                ),
+            },
+            {
+                "vulnerability": Vulnerability(
+                    created_by="test1@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:45:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="test1@gmail.com",
+                    id="1a45b977-3f77-4bbe-8d3d-d43d6afd1383",
+                    root_id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                    state=VulnerabilityState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="2321",
+                        status=VulnerabilityStateStatus.VULNERABLE,
+                        where="192.168.1.1",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-09T00:45:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.ACCEPTED,
+                        accepted_until=datetime.fromisoformat(
+                            "2018-04-09T00:45:11+00:00"
+                        ),
+                        justification="justification",
+                        assigned="anything@gmail.com",
+                        modified_by="anything@gmail.com",
+                    ),
+                    type=VulnerabilityType.PORTS,
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=1,
+                    ),
+                ),
+            },
+            {
+                "vulnerability": Vulnerability(
+                    created_by="test1@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:45:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="test1@gmail.com",
+                    id="d582d9fe-fa5d-4d5a-ab07-9372f51b1d9b",
+                    root_id="2a6aa308-8f83-4b11-a712-b4c981fd04ac",
+                    state=VulnerabilityState(
+                        modified_by="test1@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="77777",
+                        status=VulnerabilityStateStatus.SAFE,
+                        where="192.168.1.7",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-09T00:45:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.ACCEPTED,
+                        accepted_until=datetime.fromisoformat(
+                            "2018-04-09T00:45:11+00:00"
+                        ),
+                        justification="justification",
+                        assigned="anything@gmail.com",
+                        modified_by="anything@gmail.com",
+                    ),
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=1,
+                    ),
+                    type=VulnerabilityType.PORTS,
+                ),
+                "historic_zero_risk": [
+                    VulnerabilityZeroRisk(
+                        comment_id="123456",
+                        modified_by="requested@zr.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-09-28T15:32:58+00:00"
+                        ),
+                        status=VulnerabilityZeroRiskStatus.REQUESTED,
+                    ),
+                    VulnerabilityZeroRisk(
+                        comment_id="123456",
+                        modified_by="confirmed@zr.com",
+                        modified_date=datetime.fromisoformat(
+                            "2020-09-09T21:01:26+00:00"
+                        ),
+                        status=VulnerabilityZeroRiskStatus.REJECTED,
+                    ),
+                ],
+            },
+            {
+                "vulnerability": Vulnerability(
+                    created_by="hacker@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:43:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="hacker@gmail.com",
+                    id="37e6f824-1eae-441b-a12e-984bb4d84f86",
+                    root_id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                    state=VulnerabilityState(
+                        modified_by="hacker@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:43:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="4444",
+                        status=VulnerabilityStateStatus.VULNERABLE,
+                        where="test1/test.sh",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:43:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.UNTREATED,
+                    ),
+                    type=VulnerabilityType.LINES,
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_last_reattack_requester=(
+                            "requester@gmail.com"
+                        ),
+                        unreliable_last_requested_reattack_date=(
+                            datetime.fromisoformat("2018-04-08T01:45:11+00:00")
+                        ),
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=0,
+                    ),
+                    verification=VulnerabilityVerification(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T01:45:11+00:00"
+                        ),
+                        status=VulnerabilityVerificationStatus.REQUESTED,
+                    ),
+                ),
+            },
+            {
+                "vulnerability": Vulnerability(
+                    created_by="hacker@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:44:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="hacker@gmail.com",
+                    id="51cf5f89-85e2-4cf9-a5b6-9cd8069124f7",
+                    root_id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                    state=VulnerabilityState(
+                        modified_by="hacker@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:44:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="4545",
+                        status=VulnerabilityStateStatus.VULNERABLE,
+                        where="test2/test#.config",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:44:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.UNTREATED,
+                    ),
+                    type=VulnerabilityType.LINES,
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_last_reattack_requester=(
+                            "requester@gmail.com"
+                        ),
+                        unreliable_last_requested_reattack_date=(
+                            datetime.fromisoformat("2018-04-08T01:45:11+00:00")
+                        ),
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=0,
+                    ),
+                    verification=VulnerabilityVerification(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T01:45:11+00:00"
+                        ),
+                        status=VulnerabilityVerificationStatus.REQUESTED,
+                    ),
+                )
+            },
+            {
+                "vulnerability": Vulnerability(
+                    created_by="hacker@gmail.com",
+                    created_date=datetime.fromisoformat(
+                        "2018-04-08T00:45:11+00:00"
+                    ),
+                    finding_id="3c475384-834c-47b0-ac71-a41a022e401c",
+                    group_name="group1",
+                    organization_name="orgtest",
+                    hacker_email="hacker@gmail.com",
+                    id="a859d449-0da2-4260-a05f-12089d756ab8",
+                    root_id="63298a73-9dff-46cf-b42d-9b2f01a56690",
+                    state=VulnerabilityState(
+                        modified_by="hacker@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="4646",
+                        status=VulnerabilityStateStatus.SAFE,
+                        where="test3/test.sh",
+                    ),
+                    treatment=VulnerabilityTreatment(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        status=VulnerabilityTreatmentStatus.UNTREATED,
+                    ),
+                    type=VulnerabilityType.LINES,
+                    unreliable_indicators=VulnerabilityUnreliableIndicators(
+                        unreliable_efficacy=Decimal("0"),
+                        unreliable_last_reattack_date=(
+                            datetime.fromisoformat("2018-04-08T01:45:12+00:00")
+                        ),
+                        unreliable_last_reattack_requester=(
+                            "requester@gmail.com"
+                        ),
+                        unreliable_last_requested_reattack_date=(
+                            datetime.fromisoformat("2018-04-08T01:45:11+00:00")
+                        ),
+                        unreliable_source=Source.ASM,
+                        unreliable_treatment_changes=0,
+                    ),
+                    verification=VulnerabilityVerification(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T01:45:12+00:00"
+                        ),
+                        status=VulnerabilityVerificationStatus.VERIFIED,
+                    ),
+                ),
+                "historic_state": [
+                    VulnerabilityState(
+                        modified_by="hacker@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T00:45:11+00:00"
+                        ),
+                        source=Source.ASM,
+                        specific="9999",
+                        status=VulnerabilityStateStatus.VULNERABLE,
+                        where="192.168.1.20",
+                    ),
+                    VulnerabilityState(
+                        modified_by="hacker@gmail.com",
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T01:45:12+00:00"
+                        ),
+                        specific="9999",
+                        source=Source.ASM,
+                        status=VulnerabilityStateStatus.SAFE,
+                        where="192.168.1.20",
+                    ),
+                ],
+                "historic_verification": [
+                    VulnerabilityVerification(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T01:45:11+00:00"
+                        ),
+                        status=VulnerabilityVerificationStatus.REQUESTED,
+                    ),
+                    VulnerabilityVerification(
+                        modified_date=datetime.fromisoformat(
+                            "2018-04-08T01:45:12+00:00"
+                        ),
+                        status=VulnerabilityVerificationStatus.VERIFIED,
+                    ),
+                ],
+            },
+        ],
+    }
+    return await db.populate({**generic_data["db_data"], **data})

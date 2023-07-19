@@ -1,0 +1,10 @@
+"Resource type definition"
+type Resource {
+  """
+  Files that have essential information in
+  the performing penetration test are useful and necessaries
+  """
+  files: [GroupFile!]
+  "Name of the Group containing the files"
+  groupName: String!
+}

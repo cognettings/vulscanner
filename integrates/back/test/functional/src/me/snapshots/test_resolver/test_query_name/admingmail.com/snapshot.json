@@ -1,0 +1,9 @@
+{
+  "data": {
+    "me": {
+      "vulnerabilitiesAssigned": [],
+      "userEmail": "admin@gmail.com",
+      "__typename": "Me"
+    }
+  }
+}

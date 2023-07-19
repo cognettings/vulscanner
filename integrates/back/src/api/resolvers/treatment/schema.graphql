@@ -1,0 +1,29 @@
+"Treatment type definition"
+type Treatment {
+  """
+  Date that was stipulated in a temporarily accepted
+  treatment cycle (if the date arrived and still was vulnerable,
+  treatment changed from ACCEPTED to UNTREATED in a new cycle)
+  """
+  acceptanceDate: String
+  """
+  Status of the request to apply permanently accepted
+  treatment to a vulnerability in all cycles of a vulnerability
+  """
+  acceptanceStatus: String
+  "Email address of the user who is assigned"
+  assigned: String
+  "Treatment cycle date"
+  date: String
+  """
+  The justifications are registered in a treatment cycle
+  """
+  justification: String
+  "Treatments of this vulnerability in a treatment cycle"
+  treatment: String
+  """
+  Email address of the user assigned to this vulnerability
+  in a processing cycle
+  """
+  user: String
+}

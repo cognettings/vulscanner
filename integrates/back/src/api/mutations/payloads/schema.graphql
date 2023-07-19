@@ -1,0 +1,184 @@
+"Generic Payload interface definition"
+interface Payload {
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Simple Payload type definition"
+type SimplePayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+}
+"Simple Payload with message type definition"
+type SimplePayloadMessage implements Payload {
+  "Message result"
+  message: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Add enviroment url Payload type definition"
+type AddEnvironmentUrlPayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+  "Newly added id url"
+  urlId: String
+}
+
+"Simple Payload type definition"
+type AddOrganizationPayload implements Payload {
+  "Newly added Organization"
+  organization: Organization
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Add root Payload type definition"
+type AddRootPayload implements Payload {
+  "Newly added id root"
+  rootId: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Update access token Payload type definition"
+type UpdateAccessTokenPayload implements Payload {
+  "New API access token"
+  sessionJwt: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Download file Payload type definition"
+type DownloadFilePayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+  "URL to the file"
+  url: String
+}
+
+"Grant stakeholder access Payload type definition"
+type GrantStakeholderAccessPayload implements Payload {
+  "New Organization/Group Stakeholder"
+  grantedStakeholder: Stakeholder
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Grant stakeholder access Payload type definition"
+type RemoveStakeholderAccessPayload implements Payload {
+  "Email address of the former Stakeholder"
+  removedEmail: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Update stakeholder Payload type definition"
+type UpdateStakeholderPayload implements Payload {
+  "Modified Organization/Group Stakeholder"
+  modifiedStakeholder: Stakeholder
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Update toe input Payload type definition"
+type UpdateToeInputPayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+  "Modified Toe Input"
+  toeInput: ToeInput!
+}
+
+"Update toe lines Payload type definition"
+type UpdateToeLinesPayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+  "Modified Toe Lines"
+  toeLines: ToeLines!
+}
+
+"Update toe port Payload type definition"
+type UpdateToePortPayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+  "Modified Toe Port"
+  toePort: ToePort!
+}
+
+"Add stakeholder Payload type definition"
+type AddStakeholderPayload implements Payload {
+  "Email address of the potential new Stakeholder"
+  email: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Simple finding Payload type definition"
+type SimpleFindingPayload implements Payload {
+  "Updated Finding"
+  finding: Finding
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Add consult Payload type definition"
+type AddConsultPayload implements Payload {
+  "Identifier of the new comment"
+  commentId: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Add Event Payload type definition"
+type AddEventPayload implements Payload {
+  "Identifier of the new Event"
+  eventId: String
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Approve draft Payload type definition"
+type SimpleGroupPayload implements Payload {
+  "Updated Group"
+  group: Group
+  "Did the query succeed?"
+  success: Boolean!
+}
+
+"Sign post URLs Payload Payload type definition"
+type SignPostUrlsPayload implements Payload {
+  "Did the query succeed?"
+  success: Boolean!
+  "Metadata of the newly uploaded file"
+  url: SignedUrlObject!
+}
+
+"Signed URL object Payload type definition"
+type SignedUrlObject {
+  "Signed URL metadata"
+  fields: SignedFieldsObject!
+  "Signed URL"
+  url: String!
+}
+
+"""
+Signed fields object Payload type definition, for more information about
+this type feel free to check the relevant
+[AWS docs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)
+"""
+type SignedFieldsObject {
+  "Encryption Algorithm"
+  algorithm: String!
+  "Assigned Credential"
+  credential: String!
+  "Signature creation Date"
+  date: String!
+  "Key"
+  key: String!
+  "Access control policy"
+  policy: String!
+  "Signature Security Token"
+  securitytoken: String!
+  "Signature"
+  signature: String!
+}

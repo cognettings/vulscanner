@@ -1,0 +1,12 @@
+{
+  "data": {
+    "finding": {
+      "id": "3c475384-834c-47b0-ac71-a41a022e401c",
+      "remediated": false,
+      "releaseDate": "2018-04-27 19:45:11",
+      "status": "VULNERABLE",
+      "totalOpenCVSSF": 1.149,
+      "verified": false
+    }
+  }
+}

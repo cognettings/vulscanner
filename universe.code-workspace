@@ -1,0 +1,159 @@
+{
+  "extensions": {
+    "recommendations": [
+      "4ops.terraform",
+      "bbenoist.Nix",
+      "bierner.markdown-mermaid",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "eamodio.gitlens",
+      "firsttris.vscode-jest-runner",
+      "FluidAttacks.fluidattacks",
+      "GrapeCity.gc-excelviewer",
+      "GraphQL.vscode-graphql",
+      "hashicorp.terraform",
+      "jkillian.custom-local-formatters",
+      "joaompinto.vscode-graphviz",
+      "kamadorueda.alejandra",
+      "mads-hartmann.bash-ide-vscode",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "njpwerner.autodocstring",
+      "shardulm94.trailing-spaces",
+      "streetsidesoftware.code-spell-checker",
+      "tamasfe.even-better-toml",
+      "usernamehw.errorlens",
+      "yoavbls.pretty-ts-errors",
+      "znck.grammarly"
+    ],
+    "unwantedRecommendations": [
+      "b4dm4n.nixpkgs-fmt",
+      "ms-python.black-formatter"
+    ]
+  },
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[python]": {
+      "editor.defaultFormatter": "jkillian.custom-local-formatters",
+      "editor.rulers": [79],
+      "editor.tabSize": 4
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.rulers": [80]
+    },
+    "[typescriptreact]": {
+      "editor.rulers": [80]
+    },
+    "customLocalFormatters.formatters": [
+      {
+        "command": "universe-fmt css",
+        "languages": [
+          "css"
+        ]
+      },
+      {
+        "command": "universe-fmt html",
+        "languages": [
+          "html"
+        ]
+      },
+      {
+        "command": "universe-fmt json",
+        "languages": [
+          "json",
+          "jsonc"
+        ]
+      },
+      {
+        "command": "universe-fmt markdown",
+        "languages": [
+          "markdown"
+        ]
+      },
+      {
+        "command": "universe-fmt python",
+        "languages": [
+          "python"
+        ]
+      },
+      {
+        "command": "universe-fmt scss",
+        "languages": [
+          "scss"
+        ]
+      },
+      {
+        "command": "universe-fmt shellscript",
+        "languages": [
+          "shellscript"
+        ]
+      },
+      {
+        "command": "universe-fmt terraform",
+        "languages": [
+          "terraform"
+        ]
+      },
+      {
+        "command": "universe-fmt toml",
+        "languages": [
+          "toml"
+        ]
+      },
+      {
+        "command": "universe-fmt xml",
+        "languages": [
+          "xml"
+        ]
+      },
+      {
+        "command": "universe-fmt yaml",
+        "languages": [
+          "yaml"
+        ]
+      }
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "diffEditor.wordWrap": "on",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "jkillian.custom-local-formatters",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.tabSize": 2,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "eslint.workingDirectories": [
+      "airs/front",
+      "integrates/front",
+      "retrieves"
+    ],
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "gitlens.showWelcomeOnInstall": false,
+    "gitlens.showWhatsNewAfterUpgrades": false,
+    "graphviz-interactive-preview.openAutomatically": false,
+    "python.analysis.autoSearchPaths": false,
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "python.defaultInterpreterPath": "python",
+    "python.formatting.provider": "none",
+    "python.languageServer": "Pylance",
+    "workbench.startupEditor": "none"
+  }
+}

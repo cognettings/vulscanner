@@ -1,0 +1,27 @@
+*.pyc
+pelican/
+output/
+pelican-plugins/
+webtest.sh
+.babel.cfg.swp
+messages.mo
+cache/
+venv/*
+*.md5
+.vscode
+TEMP_FD
+.cache
+front/public/
+
+# Bundler
+Gemfile.lock
+
+# npm
+node_modules/
+
+# Webpack
+theme/2020/static/js/tmp/
+
+# Terraform
+.terraform
+deploy/ephemeral/terraform/subfolder-to-index.zip

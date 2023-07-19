@@ -1,0 +1,30 @@
+= {{group_name}}
+:doctype: book
+
+
+
+
+{%if has_unfulfilled_standards %}
+=== Normas sin cumplir
+El grupo no cumple con los siguientes estándares dado que tiene requisitos
+sin cumplir que estan relacionados.
+{% else %}
+=== Felicidades
+Actualmente, el grupo cumple con todos los estándares validados por Fluid
+Attacks en su organización.
+{% endif %}
+
+
+{% for unfulfilled_standard in unfulfilled_standards_to_display %}
+==== {{unfulfilled_standard.title}}
+{{unfulfilled_standard.summary}} +
+[cols="1*<",options=header]
+|===
+|Requisitos sin cumplir
+{% for unfulfilled_requirement in unfulfilled_standard.unfulfilled_requirements %}
+        |https://docs.fluidattacks.com/criteria/requirements/{{unfulfilled_requirement.id}}[{{unfulfilled_requirement.id}}. {{unfulfilled_requirement.title}}] +
+    {%- endfor %}
+|===
+{%- endfor %}
+
+<<< {{fluid_tpl['footer_adoc']}}

@@ -1,0 +1,24 @@
+"OrganizationCompliance type definition"
+type OrganizationCompliance {
+  """
+  This metric shows us an average of how well the
+  organization is complying with the application
+  of standards in general
+  """
+  complianceLevel: Float
+  """
+  It shows the week's trend that the organization
+  had in applying standards,
+  which can go up, down,
+  or neutral
+  """
+  complianceWeeklyTrend: Float
+  """
+  Estimated time it takes (in days)
+  the organization comply with the application
+  the all standards
+  """
+  estimatedDaysToFullCompliance: Float
+  "Compliance information by standard at Organization level"
+  standards: [OrganizationComplianceStandard]!
+}

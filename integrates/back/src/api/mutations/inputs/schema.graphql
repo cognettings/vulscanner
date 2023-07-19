@@ -1,0 +1,144 @@
+"Execution Vulnerabilities input definition"
+input ExecutionVulnerabilitiesInput {
+  "Accepted vulnerabilities detected in the execution of Forces"
+  accepted: [ExploitResultInput!]
+  "Closed vulnerabilities detected in the execution of Forces"
+  closed: [ExploitResultInput!]
+  "Open vulnerabilities detected in the execution of Forces"
+  open: [ExploitResultInput!]
+}
+
+"Exploit Result input definition"
+input ExploitResultInput {
+  """
+  The CVSS score of the vulnerability returned by the
+  execution of Forces
+  """
+  exploitability: Float
+  "Vulnerability kind which can be either DAST or SAST"
+  kind: String
+  """
+  Vulnerability status from the execution can be OPEN,
+  CLOSED,
+  and ACCEPTED
+  """
+  state: VulnerabilityExploitState
+  "The path where the vulnerability was found"
+  where: String
+  "Execution specific"
+  who: String
+}
+
+"Files data input definition"
+input FilesDataInput {
+  "Description of the file content"
+  description: String
+  "File name"
+  fileName: String!
+  "Date the file was uploaded"
+  uploadDate: String
+}
+
+"Machine finding result definition"
+input MachineFindingResultInput {
+  "Finding code of the execution"
+  finding: String!
+  "Existing vulnerabilities that were modified"
+  modified: Int!
+  "Vulnerabilities found for finding"
+  open: Int!
+}
+
+"Notifications parameters input definition"
+input NotificationParameters {
+  "Minimum severity to send the vulnerability alert notification"
+  minSeverity: Float!
+}
+
+"Notifications preferences input definition"
+input NotificationPreferences {
+  "Email channel to notifications preferences"
+  email: [NotificationsName!]!
+  "Configuration parameters for sending notifications"
+  parameters: NotificationParameters
+  "Sms channel to notifications preferences"
+  sms: [NotificationsName]
+}
+
+"Credentials definition"
+input CredentialsInput {
+  "Name of the (azure) organization to which a PAT associates the credential"
+  azureOrganization: String
+  "Whether credential is pat (Personal Access Token) integration"
+  isPat: Boolean
+  "Returns the key of the credential type SSH protocol"
+  key: String
+  "Name of the credential"
+  name: String
+  "Returns the key of the password of the credential type HTTPS protocol"
+  password: String
+  """
+  Https token,
+  which allows identification and login confirmation
+  """
+  token: String
+  """
+  Type of authentication,
+  which can be HTTPS,
+  SSH,
+  or OAuth
+  """
+  type: CredentialType
+  "User id"
+  user: String
+}
+
+"Phone definition"
+input PhoneInput {
+  "International dialing prefix"
+  callingCountryCode: String!
+  "Phone number without the calling country code"
+  nationalNumber: String!
+}
+
+"Root credentials definition"
+input RootCredentialsInput {
+  "Name of the (azure) organization to which a PAT associates the credential"
+  azureOrganization: String
+  "ID of an existing credential"
+  id: String
+  "Whether credential is PAT (Personal Access Token) integration"
+  isPat: Boolean
+  "Returns the key of the credential type SSH protocol"
+  key: String
+  "Name of the credential"
+  name: String
+  "Returns the key of the password of the credential type HTTPS protocol"
+  password: String
+  "HTTPS token, which allows identification and login confirmation"
+  token: String
+  "Type of authentication"
+  type: CredentialType
+  "User ID"
+  user: String
+}
+
+"Sorts vulnerability suggestion"
+input SortsSuggestionInput {
+  "Finding title"
+  findingTitle: String!
+  "Probability as a percentage"
+  probability: Int!
+}
+
+"Tours input definition"
+input ToursInput {
+  "Add group new user workflow"
+  newGroup: Boolean!
+  "New risk exposure metric"
+  newRiskExposure: Boolean!
+  "Add git roots new user workflow"
+  newRoot: Boolean!
+  "Manage welcome tour"
+  welcome: Boolean!
+}

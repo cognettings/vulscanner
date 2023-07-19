@@ -1,0 +1,42 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_magnifying, go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_magnifying('Treatment Updated') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          A vulnerability treatment in the group <strong>{{ group }}</strong>
+          has been updated to <strong>{{ treatment }}</strong> by
+          <strong><a
+            href="mailto:{{ responsible }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ responsible -}}
+          </a></strong>:
+          </p>
+        <div class="data-container">
+          <p>
+            <strong>Type of vulnerability:</strong><br/>
+            {{ finding }}<br/><br/>
+            <strong>Assigned:</strong><br/>
+            {{ assigned }}<br/><br/>
+            <strong>Vulnerabilities:</strong>
+            <ul class="big-list-icon">
+              {% for line in vulnerabilities %}
+              <li>
+                {{ line }}
+              </li>
+              {% endfor %}
+            </ul>
+          </p>
+        </div>
+        {{ go_to_button('Go to type of vulnerability', finding_link, 'primary-button') }}
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

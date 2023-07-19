@@ -1,0 +1,60 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_share %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_share('Reviewer Progress Report') }}
+      <div class="main-content">
+        <h2>Hi {{ responsible }},</h2>
+        <p>Below is a short report of your progress over the previous day:</p>
+        <div class="data-container">
+          <p>
+            <strong>Review details:</strong>
+            <ul class="big-list-icon">
+              <li>
+                <strong>Approved:</strong> {{ stakeholder_info["vulnerable_count"] }}
+              </li>
+              <li>
+                <strong>Rejected:</strong> {{ stakeholder_info["rejected_count"] }}
+              </li>
+              <li>
+                <strong>Reviewed:</strong> {{ stakeholder_info["rejected_count"] + stakeholder_info["vulnerable_count"] }}
+              </li>
+              <li>
+                <strong>Acceptation:</strong> {{ "%.0f"|format((stakeholder_info["vulnerable_count"] / (stakeholder_info["rejected_count"] + stakeholder_info["vulnerable_count"]))*100) }} %
+              </li>
+            </ul>
+          </p>
+          <p>
+            <strong>Final state:</strong>
+            <ul class="big-list-icon">
+              <li>
+                <strong>Pending:</strong> {{ global_info["submitted_count"] }}
+              </li>
+              <li>
+                <strong>Rejected:</strong> {{ global_info["rejected_count"] }}
+              </li>
+              {% if global_info["oldest_rejected"] %}
+              <li>
+                <strong>Oldest rejected report in a group with no events:</strong>
+                <div>
+                  <a
+                    href="https://app.fluidattacks.com/orgs/{{- global_info['oldest_rejected']['org_name'] -}}/groups/{{- global_info['oldest_rejected']['group_name'] -}}/vulns/{{- global_info['oldest_rejected']['finding_id'] -}}"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    >
+                    {{ global_info['oldest_rejected']['finding_title'] }}
+                  </a>
+                </div>
+                {{ global_info['oldest_rejected']['where'] }}: {{  global_info['oldest_rejected']['specific'] }}
+              </li>
+              {% endif %}
+            </ul>
+          </p>
+        </div>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

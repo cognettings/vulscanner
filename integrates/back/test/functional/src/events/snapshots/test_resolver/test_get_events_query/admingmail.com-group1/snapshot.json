@@ -1,0 +1,15 @@
+{
+  "data": {
+    "group": {
+      "events": [
+        {
+          "eventStatus": "CREATED"
+        },
+        {
+          "eventStatus": "CREATED"
+        }
+      ],
+      "name": "group1"
+    }
+  }
+}

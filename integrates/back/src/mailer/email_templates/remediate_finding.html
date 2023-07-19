@@ -1,0 +1,28 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_magnifying, go_to_button %}
+  {% block layout %}
+    <div class="container">
+    {% include 'layouts/components/dark_logo_header.html' %}
+
+    {{ banner_magnifying('Vulnerability Remediated') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          A vulnerability in the group <strong>{{ group }}</strong>
+          has been remediated:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Type of vulnerability:</strong><br/>{{ finding_name }}<br/><br/>
+            <strong>Solution applied:</strong><br/>
+            {% for line in solution_description %}
+            {{ line }}<br/>
+            {% endfor %}
+          </p>
+        </div>
+        {{ go_to_button('Go to type of vulnerability', finding_url, 'primary-button') }}
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

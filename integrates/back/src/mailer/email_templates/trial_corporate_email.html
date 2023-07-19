@@ -1,0 +1,41 @@
+{% extends "layouts/common.html" %} {% from 'layouts/components/forms.html'
+import go_to_button %} {% block layout %}
+<div class="container">
+  {% include 'layouts/components/dark_logo_header.html' %}
+
+  <div class="main-content">
+    <h2>Hi {{ name }},</h2>
+    <p>
+      You’re a few steps away from discovering vulnerabilities fast through our
+      scanning tool.
+    </p>
+    <p>
+      During the 21-day free trial, you’ll enjoy:
+    <div class="data-container">
+      <p>
+        <ul class="big-list-icon">
+          <li>
+            Multiple techniques (SAST, DAST, SCA and CSPM) in one single
+            solution
+          </li>
+          <li>
+            Continuous vulnerability scanning and reporting
+          </li>
+          <li>
+            Vulnerability management through our Attack Resistance Management
+            platform.
+          </li>
+        </ul>
+      </p>
+    </div>
+    </p>
+    <p>
+      You need only <strong>your corporate email account</strong>.
+      <br><br>
+    </p>
+    <p>We look forward to having you!</p>
+    <br>
+  </div>
+  {% include 'layouts/components/footer.html' %}
+</div>
+{% endblock %}

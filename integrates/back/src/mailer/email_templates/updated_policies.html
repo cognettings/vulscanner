@@ -1,0 +1,41 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_magnifying, go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_magnifying('Policies Updated') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          The policies for the {{ entity_type|default("group", true) }}
+          <strong>{{ entity_name }}</strong> have been updated by
+          <strong><a
+            href="mailto:{{ responsible }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ responsible -}}
+          </a></strong>:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Date:</strong><br/>{{ date }}<br/><br/>
+            <strong>Policies:</strong>
+            <ul class="big-list-icon">
+              {% for key, val in policies_content.items() %}
+              <li>
+                {{ key }}:
+                <em>from</em> {{ val["from"] }}
+                <em>to</em> {{ val["to"] }}
+              </li>
+              {% endfor %}
+            </ul>
+          </p>
+        </div>
+        {{- go_to_button('Go to policies', policies_link, 'primary-button') }}
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

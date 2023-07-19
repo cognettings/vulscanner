@@ -1,0 +1,108 @@
+closure:
+  attrs: 22.2.0
+  colorama: 0.4.6
+  coverage: 7.2.1
+  execnet: 1.9.0
+  iniconfig: 2.0.0
+  packaging: "23.0"
+  pluggy: 1.0.0
+  pytest: 7.2.2
+  pytest-cov: 4.0.0
+  pytest-random-order: 1.1.0
+  pytest-rerunfailures: 11.1.2
+  pytest-xdist: 3.2.1
+links:
+  - name: attrs-22.2.0-py3-none-any.whl
+    sha256: 0dh84hdmdqvlyjqw0dqfbvfg6y4gh7w9h3qp96yqv1kqcxzmrs99
+    url: https://files.pythonhosted.org/packages/fb/6e/6f83bf616d2becdf333a1640f1d463fef3150e2e926b7010cb0f81c95e88/attrs-22.2.0-py3-none-any.whl
+  - name: attrs-22.2.0.tar.gz
+    sha256: 16az31ccld8s3xj7q1iw6a402sf92lfpvcwdyq1kr6815zy7n8n9
+    url: https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz
+  - name: colorama-0.4.6-py2.py3-none-any.whl
+    sha256: 1ijz53xpmxds2qf02l9yf0rnp7bznwh3ci4xkw8wmh5cyn8rj7ag
+    url: https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl
+  - name: colorama-0.4.6.tar.gz
+    sha256: 0i3fpq0w5mbfdpy3z9p5raw4fg17jxr6jwh5l8qhavpdnxf5ys88
+    url: https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz
+  - name: coverage-7.2.1-cp311-cp311-macosx_10_9_x86_64.whl
+    sha256: 19pgfmfi7fvg2gdj3kdx326iwq71ihalrc54j7sm1cwkjji2232p
+    url: https://files.pythonhosted.org/packages/51/61/2bab4add265c0fcf0a4372ab9e647405f157a9c5cdcbab1e0b7b117f92fa/coverage-7.2.1-cp311-cp311-macosx_10_9_x86_64.whl
+  - name: coverage-7.2.1-cp311-cp311-macosx_11_0_arm64.whl
+    sha256: 1yb6ni8piiy3wghh21880f16sbiavh5dqja1hg15l1ij5c42p1wy
+    url: https://files.pythonhosted.org/packages/2d/24/06ad2452717337ed45a928107fc5d91601a4a79692012ee86dc06782ab51/coverage-7.2.1-cp311-cp311-macosx_11_0_arm64.whl
+  - name: coverage-7.2.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+    sha256: 16yg8fzzy1x8vydgj6gdrzawrkgk1n0sj141nplpdc83mqxk9ips
+    url: https://files.pythonhosted.org/packages/4e/6b/7d9c6c23aa227b91bc2f85f197406b899a4469c6e0d182d499eb2a515e91/coverage-7.2.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+  - name: coverage-7.2.1-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl
+    sha256: 06f3x4id3pw3mz0ipc1gpbnnzx4yh5zch6w64ki206z772kx1b5b
+    url: https://files.pythonhosted.org/packages/af/ff/bf04eeb95213c25a5ef718e1e70b6e476f4e6f48b00d62860f3a8facd3ef/coverage-7.2.1-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl
+  - name: coverage-7.2.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+    sha256: 021mhxj28aamdg2vw4hwq9i517hgqmwibd914z4zxfy4c166s9fr
+    url: https://files.pythonhosted.org/packages/47/83/d5353ffb69cd7cfb32e146475d10b6ebba930d9eb323e508933df0d02434/coverage-7.2.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  - name: coverage-7.2.1-cp311-cp311-musllinux_1_1_aarch64.whl
+    sha256: 1vfi9pc0bjiyccbz8v5wdjrksfcbajhpfyfv1shkvkhmdjprwmc0
+    url: https://files.pythonhosted.org/packages/24/8d/d9d880cb7319cc06eab02757a0fb3f623c6e7613d16d297cfdf249d4926d/coverage-7.2.1-cp311-cp311-musllinux_1_1_aarch64.whl
+  - name: coverage-7.2.1-cp311-cp311-musllinux_1_1_i686.whl
+    sha256: 0kjc1djhaj5fjafq8kk4xaasxrg4m980xv145mylxv63yqlfdmqb
+    url: https://files.pythonhosted.org/packages/d9/c5/8a6ad089d9d9a15f94f40957d804e7712767f8ac458eca55b02a73d249d6/coverage-7.2.1-cp311-cp311-musllinux_1_1_i686.whl
+  - name: coverage-7.2.1-cp311-cp311-musllinux_1_1_x86_64.whl
+    sha256: 02rn0m7h1iqp0llsnl03izp73l3ryfm40gywg90zfacfvyq3yr09
+    url: https://files.pythonhosted.org/packages/bf/4e/bb6008789e813f6930179757acdd409f0056e48ef687416bed819464a79c/coverage-7.2.1-cp311-cp311-musllinux_1_1_x86_64.whl
+  - name: coverage-7.2.1.tar.gz
+    sha256: 0hi2ffk2q9r0p3rxxdk8v6ix482chly2p6rsabfjkwycjf82lzy7
+    url: https://files.pythonhosted.org/packages/8d/4a/3518606d4b110df4f3e77bd52c241ae8a84c6dc74fac7c2a8e809449e541/coverage-7.2.1.tar.gz
+  - name: execnet-1.9.0-py2.py3-none-any.whl
+    sha256: 0hm1637il333zil593sxvwmc805ayj2xqzyyip2slis9fz6gg5d2
+    url: https://files.pythonhosted.org/packages/81/c0/3072ecc23f4c5e0a1af35e3a222855cfd9c80a1a105ca67be3b6172637dd/execnet-1.9.0-py2.py3-none-any.whl
+  - name: execnet-1.9.0.tar.gz
+    sha256: 1ia7dvrh0gvzzpi758mx55f9flr16bzdqlmi12swm4ncm4xlyscg
+    url: https://files.pythonhosted.org/packages/7a/3c/b5ac9fc61e1e559ced3e40bf5b518a4142536b34eb274aa50dff29cb89f5/execnet-1.9.0.tar.gz
+  - name: iniconfig-2.0.0-py3-none-any.whl
+    sha256: 0x43fyv1hpwpmvvqh73ldcyac9j2hb14mffis8i3nblxlxqmia5n
+    url: https://files.pythonhosted.org/packages/ef/a6/62565a6e1cf69e10f5727360368e451d4b7f58beeac6173dc9db836a5b46/iniconfig-2.0.0-py3-none-any.whl
+  - name: iniconfig-2.0.0.tar.gz
+    sha256: 1cxqanj28jqk0alx2xq4ddgvab5822k6vh8p1d0imlvjpwsy349d
+    url: https://files.pythonhosted.org/packages/d7/4b/cbd8e699e64a6f16ca3a8220661b5f83792b3017d0f79807cb8708d33913/iniconfig-2.0.0.tar.gz
+  - name: packaging-23.0-py3-none-any.whl
+    sha256: 1ch201bz087xfagzsy0hdyxz719bg9gq804vqacqrrn3jr2c2jki
+    url: https://files.pythonhosted.org/packages/ed/35/a31aed2993e398f6b09a790a181a7927eb14610ee8bbf02dc14d31677f1c/packaging-23.0-py3-none-any.whl
+  - name: packaging-23.0.tar.gz
+    sha256: 15yg8sagk2ffikgzwxbjgksgb1zkv9px5jqwzsi0zph7i5zjkbdn
+    url: https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz
+  - name: pluggy-1.0.0-py2.py3-none-any.whl
+    sha256: 1lvvnc39v43v5jawq2wz0765rg9lkx8f25l4sqv1l0vz8nzln4vl
+    url: https://files.pythonhosted.org/packages/9e/01/f38e2ff29715251cf25532b9082a1589ab7e4f571ced434f98d0139336dc/pluggy-1.0.0-py2.py3-none-any.whl
+  - name: pluggy-1.0.0.tar.gz
+    sha256: 0n8iadlas2z1b4h0fc73b043c7iwfvx9rgvqm1azjmffmhxkf922
+    url: https://files.pythonhosted.org/packages/a1/16/db2d7de3474b6e37cbb9c008965ee63835bba517e22cdb8c35b5116b5ce1/pluggy-1.0.0.tar.gz
+  - name: pytest-7.2.2-py3-none-any.whl
+    sha256: 0pi2wq73y9ppixpa1w3lz32rsq85y3ii4p67rsqw1ynwabsjh0qk
+    url: https://files.pythonhosted.org/packages/b2/68/5321b5793bd506961bd40bdbdd0674e7de4fb873ee7cab33dd27283ad513/pytest-7.2.2-py3-none-any.whl
+  - name: pytest-7.2.2.tar.gz
+    sha256: 1m79mp8fkar3axqs1ilihxav0vdb36pr7g19i7v51c6f7b3v16n9
+    url: https://files.pythonhosted.org/packages/b9/29/311895d9cd3f003dd58e8fdea36dd895ba2da5c0c90601836f7de79f76fe/pytest-7.2.2.tar.gz
+  - name: pytest_cov-4.0.0-py3-none-any.whl
+    sha256: 0sqgwbz4an9vwymhwfxp6zf0j4yic7ls5psy9s9vva363msipsrg
+    url: https://files.pythonhosted.org/packages/fe/1f/9ec0ddd33bd2b37d6ec50bb39155bca4fe7085fa78b3b434c05459a860e3/pytest_cov-4.0.0-py3-none-any.whl
+  - name: pytest-cov-4.0.0.tar.gz
+    sha256: 0w04vnw4pw9llsxwss4bazhpzvdkbyy2v1w802ywscv4vvppjswr
+    url: https://files.pythonhosted.org/packages/ea/70/da97fd5f6270c7d2ce07559a19e5bf36a76f0af21500256f005a69d9beba/pytest-cov-4.0.0.tar.gz
+  - name: pytest_random_order-1.1.0-py3-none-any.whl
+    sha256: 0zhbqbw8xkccn8l6sika61036z8dqzh1mhc86h6bp67pn2dfbcbc
+    url: https://files.pythonhosted.org/packages/7e/d0/468a06e0942a6cd628dbfe2e5944fbd21a12cbf452f5faff089da8cd7152/pytest_random_order-1.1.0-py3-none-any.whl
+  - name: pytest-random-order-1.1.0.tar.gz
+    sha256: 01annkcqxxi17ngafa8mrjxlvpbp6pmxpvf99jcaz9skjfxxxrnv
+    url: https://files.pythonhosted.org/packages/3d/ef/93dc9fa0b3b7eb99566813bccaf50216ef1c7d8d07923348fabbd6f7eefc/pytest-random-order-1.1.0.tar.gz
+  - name: pytest_rerunfailures-11.1.2-py3-none-any.whl
+    sha256: 0zibx7xav1d99bwplir3lb1wm5df8japkapijnnzhx4pdpjf47yj
+    url: https://files.pythonhosted.org/packages/c2/4f/bccf2599610a098c579c1856f3f73f8d48c8099a818e49314656e64b5a52/pytest_rerunfailures-11.1.2-py3-none-any.whl
+  - name: pytest-rerunfailures-11.1.2.tar.gz
+    sha256: 1pkk8naw2w5llnwg8db4nzs58fc80y6z10jc73xcmwbkx1hicqam
+    url: https://files.pythonhosted.org/packages/08/31/fb028a35b1d21086a4bea33a3b4b1f90304e5150d33c8d70a42fd10e4aff/pytest-rerunfailures-11.1.2.tar.gz
+  - name: pytest_xdist-3.2.1-py3-none-any.whl
+    sha256: 1ja0xf5mplciy09x4dbyq8512bc1p8ffzph14ikhp8iq2qb0sa9p
+    url: https://files.pythonhosted.org/packages/41/69/319ff6c2bda31b0ab0710d2bb406d53f7d9c13a1c572696479a16322d9dc/pytest_xdist-3.2.1-py3-none-any.whl
+  - name: pytest-xdist-3.2.1.tar.gz
+    sha256: 09s7yn2l1n9fk63yv3raj5hk7gwhw1w79nvjwi4bjhmjv2cbsj8q
+    url: https://files.pythonhosted.org/packages/e3/f8/de2dcd2938c05270c9881cb1463dea388acd0b239ee76809160420157784/pytest-xdist-3.2.1.tar.gz
+python: "3.11"

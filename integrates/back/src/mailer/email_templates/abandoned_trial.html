@@ -1,0 +1,40 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      <div class="main-content">
+        <h2>Hi {{ name }},</h2>
+        <p>
+          You’re 1 step away from <strong>discovering vulnerabilities
+          fast through our scanning tool</strong>.
+          Our vulnerability scanning tool has low false positives
+          rates, which will help you maximize your company's efforts.
+        </p>
+        <div class="data-container">
+          <ul class="big-list-icon">
+            <li>
+              Multiple testing techniques in a single solution
+              (SAST, DAST, SCA, and CSPM).
+            </li>
+            <li>
+              See examples of complaint code in our documentation
+              that will help your developers in the remediation process.
+            </li>
+            <li>
+              Request unlimited re-attacks to verify vulnerability
+              remediation effectiveness.
+            </li>
+          </ul>
+        </div>
+        {{ go_to_button('Sign up', 'https://app.fluidattacks.com/', 'primary-button') }}
+        <p>
+          <br />
+          We look forward to having you!
+        </p>
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

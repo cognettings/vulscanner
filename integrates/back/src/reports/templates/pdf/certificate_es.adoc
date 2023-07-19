@@ -1,0 +1,82 @@
+= Certificate {{business_number}}
+:doctype: book
+
+[%notitle]
+== Certificate
+*{{report_day}} de {{report_month.lower()}} de {{report_year}}*.
+
+
+===== A QUIEN LE PUEDA INTERESAR
+
+La presente certifica que *{{business}}*, (*{{business_number}}*),
+está actualmente haciendo uso de nuestro servicio de Hacking Continuo.
+Específicamente, este cliente está suscrito al plan
+*{% if has_squad %}Squad{% else %}Machine{% endif %}* para su
+software/sistema *{{solution}}* desde *{{start_month.lower()}} {{start_day}}
+de {{start_year}}*.
+{% if has_squad -%}
+En este plan se han realizado exhaustivas pruebas de seguridad (SAST, DAST,
+SCA, CPSM), así como Pentesting Manual (MPT)
+{%- else -%}
+En este plan se han realizado pruebas automáticas de seguridad
+(SAST, DAST, SCA, CSPM). No se realizó Pentesting Manual (MPT)footnote:[Up to
+80% of the risk exposure cannot be found without MPT.]
+{%- endif -%}.
+
+A la fecha, los resultados del servicio son los siguientes:
+
+[cols="5*^", options=header, frame=ends, grid=rows]
+|===
+|{{words['severity_multiline_title']}}
+|{{words['total_vulns_title']}}
+|{{words['closed_vulns_title']}}
+|{{words['accepted_vulns_title']}}
+|{{words['resume_perc_multiline_title']}}
+{% for row in remediation_table %}
+  <.^
+  {%- for col in row -%}
+    {{"| "+col|string}}
+  {%- endfor %}
+{%- endfor %}
+|===
+
+
+Todos nuestros clientes trabajan continuamente para remediar las
+vulnerabilidades reportadas. *Fluid Attacks* verifica dichas soluciones
+para confirmar que su software y sus sistemas ya no tienen esos
+defectos de seguridad.
+
+Durante el periodo de servicio, *Fluid Attacks* ha informado una
+exposición al riesgo total de *{{ total_risk_exposure }}* en este
+software/sistema.
+*{{ business }}* ha remediado *{{ remediation_rate }}* de esa exposición.
+
+{{signature_img}}
+Directora de Servicio +
+Fluid Attacks Inc.
+
+[%notitle]
+== Annexes
+
+*Anexo:* Objetivo de Evaluación del software/sistema *{{solution}}*
+
+[cols="~, 20%", options=header, frame=ends, grid=rows]
+|===
+<.^|{{words['code_repository']}}
+|{{words['date_added']}}
+{% for git_root, date_added in roots.items() %}
+  <.^| {{git_root|string}}
+  {{"| "+date_added|string}}
+{%- endfor %}
+|===
+
+
+[cols="~, 20%", options=header, frame=ends, grid=rows]
+|===
+<.^|{{words['environment']}}
+|{{words['date_added']}}
+{% for environment_url, date_added in environment_urls.items() %}
+  <.^| {{environment_url|string}}
+  {{"| "+date_added|string}}
+{%- endfor %}
+|===

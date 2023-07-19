@@ -1,0 +1,1 @@
+{"accepted": [], "closed": [{"where": "https://example.com", "state": "CLOSED", "exploitability": 0.91, "kind": "DAST", "who": "phone"}, {"where": "path/to/file3.ext", "state": "CLOSED", "exploitability": 0.91, "kind": "SAST", "who": "345"}, {"where": "path/to/file4.ext", "state": "CLOSED", "exploitability": 0.91, "kind": "SAST", "who": "564"}], "open": []}

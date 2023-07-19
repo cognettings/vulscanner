@@ -1,0 +1,11 @@
+"Access Token type definition"
+type AccessToken {
+  "ID of the access token"
+  id: ID!
+  "Date of creation"
+  issuedAt: Int
+  "Date of last use"
+  lastUse: DateTime
+  "Name of the access token"
+  name: String
+}

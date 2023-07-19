@@ -1,0 +1,5 @@
+"Report type definition"
+type Report {
+  "Indicates that report was requested successfully"
+  success: Boolean!
+}

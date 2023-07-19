@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+  <head>
+    <script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid="9c4480b4-b8ae-44d8-9c6f-6300b86e9094"
+      data-blockingmode="auto"
+      type="text/javascript"
+    ></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="On our Attack Resistance Management platform, you receive vulnerability reports and can efficiently manage those security issues to reduce risk exposure.">
+    <meta name="author" content="">
+    <meta name="google-signin-client_id" content="65328559770-aatq8b00rvk05qn2h523hn328drt9ehc.apps.googleusercontent.com">
+    {% if 'https' in url_for('static', path='/imgs/favicon.ico') %}
+      <link rel="shortcut icon" href="{{ url_for('static', path='/imgs/favicon.ico') }}">
+    {% else %}
+      <link rel="shortcut icon" href="{{ url_for('static', path='/imgs/favicon.ico') | replace('http', 'https') }}">
+    {% endif %}
+    <title>Platform | Fluid Attacks</title>
+    {% if '127.0.0.1' in request.client.host and debug %}
+    {% else %}
+      <link rel="stylesheet" href="{{ css_vendors }}" type="text/css">
+      <link rel="stylesheet" href="{{ css }}" type="text/css">
+    {% endif %}
+  </head>
+  <body id="FluidIntegrates">
+    <div id="root"></div>
+    {% if '127.0.0.1' in request.client.host and debug %}
+      <script type="module">
+        import RefreshRuntime from "https://localhost:3000/@react-refresh"
+        RefreshRuntime.injectIntoGlobalHook(window);
+        window.$RefreshReg$ = () => {};
+        window.$RefreshSig$ = () => (type) => type;
+        window.__vite_plugin_react_preamble_installed__ = true;
+      </script>
+      <script type="module" src="https://localhost:3000/@vite/client"></script>
+      <script type="module" src="https://localhost:3000/src/app.tsx"></script>
+    {% else %}
+    <script data-cookieconsent="ignore" src="{{ js }}" type="module"></script>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,128 @@
+digraph observes {
+  label="Observes Architecture"
+  labelloc="t"
+  compound="true"
+  concentrate="true"
+  rankdir="LR"
+  ranksep="6.0"
+  nodesep="1.0"
+  overlap="scalexy"
+
+  node[style="filled" margin="0.8,0.0"]
+  graph[style="dashed,rounded"]
+
+  subgraph cluster_aws {
+    label="AWS"
+    bgcolor="0.1 0.1 1.0"
+    node[fillcolor="0.1 0.5 1.0"]
+
+    subgraph cluster_aws_redshift {
+      label="Redshift"
+
+      subgraph cluster_aws_redshift_clusters {
+        label="Clusters"
+
+        aws_redshift_clusters_observes[label="observes"]
+      }
+    }
+
+    subgraph cluster_aws_s3 {
+      label="S3"
+
+      cache_bucket[label="cache_bucket"]
+      data_bucket[label="data_bucket"]
+      state_bucket[label="state_bucket"]
+    }
+    subgraph cluster_dynamo {
+      label="DynamoDb"
+
+      integrates_vms[label="integrates_vms"]
+    }
+
+    subgraph cluster_aws_vpc {
+      label="VPC"
+
+      subgraph cluster_aws_vpc_fluid_vpc {
+        label="fluid-vpc (192.168.0.0/16)"
+
+        subgraph cluster_aws_vpc_fluid_vpc_subnets {
+          label="Subnets"
+
+          cluster_aws_vpc_fluid_vpc_subnets_observes[label="observes_* 192.168.4.0/23 us-east-1*" peripheries="2"]
+        }
+      }
+    }
+  }
+
+  subgraph cluster_generic_etl {
+    label="Generic ETL"
+    bgcolor="0.0 0.0 0.95"
+    cluster_generic_etl[label="" style="invis"]
+    cluster_generic_etl_source[label="Data Source"]
+    cluster_generic_etl_schema[label="Schema Determination"]
+    cluster_generic_etl_load[label="Save Data"]
+  }
+  subgraph cluster_common {
+    label="Common"
+    bgcolor="0.0 0.0 0.95"
+    node[fillcolor="0.0 0.0 0.8"]
+
+    subgraph cluster_common_compute {
+      label="Compute"
+
+      cluster_common_compute[label="" style="invis"]
+      cluster_common_compute_schedules[label="Scheduled Jobs"]
+    }
+  }
+
+  subgraph cluster_gitlab {
+    label="GitLab"
+    bgcolor="0.8 0.1 1.0"
+    node[fillcolor="0.8 0.5 1.0"]
+
+    subgraph cluster_gitlab_git {
+      label="Git"
+
+      subgraph cluster_gitlab_observes {
+        label="/observes"
+
+        gitlab_observes[label="Source Code"]
+      }
+    }
+  }
+
+  subgraph cluster_grow {
+    label="Grow (Business Inteligence Software)"
+    bgcolor="0.0 0.0 0.95"
+
+    cluster_grow[label="" style="invis" width="6.0"]
+    grow_dashboards[label="Dashboards"]
+  }
+
+  node[fillcolor="0.0 0.0 0.8"]
+  internet[label="Internet"]
+  end_user[label="End User"]
+  developer[label="Developer"]
+
+  edge[color="0.1 1.0 1.0"]
+  aws_redshift_clusters_observes -> cluster_aws_vpc_fluid_vpc_subnets_observes[]
+
+  edge[color="0.8 1.0 1.0"]
+
+  edge[color="0.0 0.0 0.0"]
+  gitlab_observes -> developer[]
+  end_user -> cluster_grow[lhead="cluster_grow"]
+  cluster_grow -> aws_redshift_clusters_observes[ltail="cluster_grow"]
+  cluster_common_compute -> gitlab_observes[ltail="cluster_common_compute"]
+  cluster_generic_etl -> gitlab_observes[ltail="cluster_generic_etl"]
+  aws_infra -> gitlab_observes[ltail="cluster_aws"]
+  cluster_common_compute_schedules -> cluster_generic_etl[lhead="cluster_generic_etl"]
+  cluster_generic_etl_source -> internet[]
+  cluster_generic_etl_source -> state_bucket[]
+  cluster_generic_etl_source -> integrates_vms
+  cluster_generic_etl_schema -> cluster_generic_etl_source[]
+  cluster_generic_etl_schema -> cache_bucket[]
+  cluster_generic_etl_load -> aws_redshift_clusters_observes[]
+  cluster_generic_etl_load -> data_bucket[]
+  cluster_generic_etl_load -> state_bucket
+}

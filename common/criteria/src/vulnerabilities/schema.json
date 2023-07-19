@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/criteria/vulnerabilities",
+  "title": "Vulnerabilities",
+  "description": "This is a standardization of the set of vulnerabilities that serve as a basis for the security analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "propertyNames": { "pattern": "^[0-9]+$" },
+  "patternProperties": {
+    "^[0-9]+$": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "en", "es", "category", "remediation_time", "score", "requirements", "metadata" ],
+      "properties": {
+        "en": { "$ref": "#/definitions/language" },
+        "es": { "$ref": "#/definitions/language" },
+        "category": {
+          "oneOf": [
+            { "type": "string", "pattern": "^Information Collection$" },
+            { "type": "string", "pattern": "^Unexpected Injection$" },
+            { "type": "string", "pattern": "^Deceptive Interactions$" },
+            { "type": "string", "pattern": "^Functionality Abuse$" },
+            { "type": "string", "pattern": "^Probabilistic Techniques$" },
+            { "type": "string", "pattern": "^Access Subversion$" },
+            { "type": "string", "pattern": "^Data Manipulation$" },
+            { "type": "string", "pattern": "^System Manipulation$" },
+            { "type": "string", "pattern": "^Protocol Manipulation$" }
+          ]
+        },
+        "examples": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "non_compliant", "compliant" ],
+          "properties": {
+            "non_compliant": { "type": "string" },
+            "compliant": { "type": "string" }
+          }
+        },
+        "remediation_time": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[0-9]+$" },
+            { "type": "string", "pattern": "^__empty__$" }
+          ]
+        },
+        "score": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "base", "temporal" ],
+          "properties": {
+            "base": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "attack_vector",
+                "attack_complexity",
+                "privileges_required",
+                "user_interaction",
+                "scope",
+                "confidentiality",
+                "integrity",
+                "availability"
+              ],
+              "properties": {
+                "attack_vector": { "type": "string", "pattern": "^[NALP]$" },
+                "attack_complexity": { "type": "string", "pattern": "^[LH]$" },
+                "privileges_required": { "type": "string", "pattern": "^[NLH]$" },
+                "user_interaction": { "type": "string", "pattern": "^[NR]$" },
+                "scope": { "type": "string", "pattern": "^[UC]$" },
+                "confidentiality": { "type": "string", "pattern": "^[NLH]$" },
+                "integrity": { "type": "string", "pattern": "^[NLH]$" },
+                "availability": { "type": "string", "pattern": "^[NLH]$" }
+              }
+            },
+            "temporal": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "exploit_code_maturity",
+                "remediation_level",
+                "report_confidence"
+              ],
+              "properties": {
+                "exploit_code_maturity": { "type": "string", "pattern": "^[XUPFH]$" },
+                "remediation_level": { "type": "string", "pattern": "^[XOTWU]$" },
+                "report_confidence": { "type": "string", "pattern": "^[XURC]$" }
+              }
+            }
+          }
+        },
+        "requirements": {
+          "uniqueItems": true,
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[0-9]+$" }
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "en"
+          ],
+          "properties": {
+            "en": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "details"
+              ],
+              "properties": {
+                "details": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "title", "description", "impact", "recommendation", "threat" ],
+      "properties": {
+        "title": { "type": "string" },
+        "description": {
+          "type": "string",
+          "pattern": "(?=^.{1,500})^[a-zA-Z0-9ñáéíóúäëïöüÑÁÉÍÓÚÄËÏÖÜ \t\n\r\\x0b\\x0c(),./:;%@'’~_$#*=\\?-]*$"
+        },
+        "impact": {
+          "type": "string",
+          "pattern": "(?=^.{1,300})^[a-zA-Z0-9ñáéíóúäëïöüÑÁÉÍÓÚÄËÏÖÜ \t\n\r\\x0b\\x0c(),./:;%@'’~_$#*=\\?-]*$"
+        },
+        "recommendation": {
+          "type": "string",
+          "pattern": "(?=^.{1,300})^[a-zA-Z0-9ñáéíóúäëïöüÑÁÉÍÓÚÄËÏÖÜ \t\n\r\\x0b\\x0c(),./:;%@'’~_$#*=\\?-]*$"
+        },
+        "threat": {
+          "type": "string",
+          "pattern": "(?=^.{1,300})^[a-zA-Z0-9ñáéíóúäëïöüÑÁÉÍÓÚÄËÏÖÜ \t\n\r\\x0b\\x0c(),./:;%@'’~_$#*=\\?-]*$"
+        }
+      }
+    }
+  }
+}

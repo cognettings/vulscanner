@@ -1,0 +1,19 @@
+"Finding Tracking type definition"
+type Tracking {
+  "Number of temporarily accepted vulnerabilities in this cycle"
+  accepted: Int
+  "Number of permanently accepted vulnerabilities in this cycle"
+  acceptedUndefined: Int
+  "Email address of the user who is assigned"
+  assigned: String
+  "Total of how many reattacks have been requested"
+  cycle: Int
+  "The specific date of a cycle that forms part of the tracking"
+  date: String
+  "The specific justification of a cycle that forms part of the tracking"
+  justification: String
+  "Number of safe locations in this cycle"
+  safe: Int
+  "Number of vulnerable locations in this cycle"
+  vulnerable: Int
+}

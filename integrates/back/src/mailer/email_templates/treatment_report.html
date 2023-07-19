@@ -1,0 +1,65 @@
+{% extends "layouts/common.html" %}
+  {% from 'layouts/components/forms.html' import banner_magnifying, go_to_button %}
+  {% block layout %}
+    <div class="container">
+      {% include 'layouts/components/dark_logo_header.html' %}
+
+      {{ banner_magnifying('Treatment Alert') }}
+      <div class="main-content">
+        <h2>Hello {{ name }},</h2>
+        <p>
+          A permanent treatment for a vulnerability in the group
+          <strong>
+            {{ group }}
+          </strong>
+          {{ approve_state }}
+          {% if responsible %} by
+          <strong><a
+            href="mailto:{{ responsible }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ responsible -}}
+          </a></strong>{% endif %}:
+        </p>
+        <div class="data-container">
+          <p>
+            <strong>Date:</strong><br/>{{ date }}<br/><br/>
+            <strong>Type:</strong><br/>{{ finding }}<br/><br/>
+            <strong>Vulnerabilities:</strong>
+          </p>
+          <ul class="big-list-icon">
+            {% for line in vulnerabilities %}
+            <li>
+              {{ line }}
+            </li>
+            {% endfor %}
+          </ul><br/>
+          <p>
+            <strong>Justification:</strong><br/>{{ justification }}
+          </p>
+        {% if not is_approved %}
+          <p>
+            <br/>
+            <strong>Waiting for approval from:</strong>
+          </p>
+            <ul class="big-list-icon">
+            {% for manager in managers_email %}
+                <li>
+                  <a
+                    href="mailto:{{ manager }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ manager }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+        {{ go_to_button('Go to type of vulnerability', finding_link, 'primary-button') }}
+      </div>
+      {% include 'layouts/components/footer.html' %}
+
+    </div>
+  {% endblock %}

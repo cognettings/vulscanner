@@ -1,0 +1,12 @@
+# Sort order is:
+#  *
+#  .
+#  [a-zA-Z] (caseless)
+
+/**/*.egg-info
+/**/.venv
+/.coverage*
+/coverage/*
+/coverage.xml
+/dist/*
+/poetry.lock

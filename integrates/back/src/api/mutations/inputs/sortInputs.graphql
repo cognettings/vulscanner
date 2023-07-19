@@ -1,0 +1,7 @@
+"Lines Sort input definition"
+input LinesSortInput {
+  "Field to sort by"
+  field: LinesSort!
+  "Sorting order"
+  order: OrderSort!
+}
