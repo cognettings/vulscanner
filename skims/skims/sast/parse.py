@@ -344,8 +344,10 @@ def parse_one(
         TypeError,
         ValueError,
         ParsingError,
-    ):
+    ) as err:
         log_blocking("warning", "Error while parsing: %s, ignoring", path)
+        log_blocking("warning", type(err))
+        log_blocking("warning", err)
         return None
 
     if not graph:
