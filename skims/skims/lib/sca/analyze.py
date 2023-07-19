@@ -76,7 +76,7 @@ def analyze_one_path(  # noqa: MC0001
     """
     log_blocking(
         "info",
-        "analyzing path %s of %s: %s",
+        "(sca) analyzing path %s of %s: %s",
         index + 1,
         unique_paths_count,
         path,
