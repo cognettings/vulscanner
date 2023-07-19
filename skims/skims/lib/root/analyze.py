@@ -1,3 +1,4 @@
+import time
 from concurrent.futures import (
     Future,
     wait,
@@ -88,8 +89,10 @@ def analyze(
             if ctx.SKIMS_CONFIG.multifile
             else None
         )
-        for path in paths:
+        for idx, path in enumerate(paths):
             futures: list = []
+            log_blocking("info", "scanning path (%d of %d) (%d bytes): %s", idx, len(paths), os.path.getsize(os.path.join(ctx.SKIMS_CONFIG.working_dir, path)), path)
+            startTime = time.time()
             futures = get_futures(
                 graph_db=graph_db,
                 path=path,
@@ -101,8 +104,11 @@ def analyze(
             _, f_failed = wait(futures, 60)
             if f_failed and not has_failed:
                 has_failed = True
+            logTime(path, startTime)
         check_failure(worker, has_failed)
 
+def logTime(path, startTime):
+    log_blocking('info', 'scan completed in %f seconds for %s', time.time() - startTime, path)
 
 def get_futures(
     *,
@@ -121,8 +127,7 @@ def get_futures(
     if not shard or not shard.syntax_graph:
         return futures
 
-    # worker submit
-    log_blocking("info", "submitting analysis of %s", path)
+    startTime = time.time()
     for label, nodes in nodes_by_type(shard.syntax_graph).items():
         if queries_node := QUERIES[lang].get(label):
             for finding, query in queries_node:
@@ -139,7 +144,6 @@ def get_futures(
                     )
                     futures.append(future)
     return futures
-
 
 def _analyze_one(
     config: SkimsConfig,
