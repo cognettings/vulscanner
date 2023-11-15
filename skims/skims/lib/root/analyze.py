@@ -101,7 +101,7 @@ def analyze(
                 stores=stores,
                 worker=worker,
             )
-            _, f_failed = wait(futures, 60)
+            _, f_failed = wait(futures, 3600 * 4) # 4 HOUR TIMEOUT!? CRAZINESS! 60s wasn't enough time for a Nodejs project built with Parcel...
             if f_failed and not has_failed:
                 has_failed = True
                 log_blocking("info", 'scan failed due to timeout: %s', path)
